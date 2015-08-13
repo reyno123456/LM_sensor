@@ -1,0 +1,1492 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:21:00 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\dataflash.c                       /
+//    Command line =  D:\avr\LM_Finial_Test\dataflash.c --cpu=m644p -ms -o    /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\dataflash.s90        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME dataflash
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B3_L09
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?EPILOGUE_B6_L09
+        EXTERN ?PROLOGUE3_L09
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?PROLOGUE6_L09
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?S_SHL_L02
+        EXTERN ?US_SHR_L02
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC Buffer_Read_Byte
+        FUNCTION Buffer_Read_Byte,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Buffer_Read_Str
+        FUNCTION Buffer_Read_Str,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Buffer_To_Page
+        FUNCTION Buffer_To_Page,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC Buffer_Write_Byte
+        FUNCTION Buffer_Write_Byte,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Buffer_Write_Enable
+        FUNCTION Buffer_Write_Enable,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Buffer_Write_Str
+        FUNCTION Buffer_Write_Str,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Cont_Flash_Read_Enable
+        FUNCTION Cont_Flash_Read_Enable,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC DF_SPI_RW
+        FUNCTION DF_SPI_RW,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC DF_SPI_disable
+        FUNCTION DF_SPI_disable,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC DF_SPI_init
+        FUNCTION DF_SPI_init,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC DF_pagebits
+        PUBLIC DF_pagesize
+        PUBLIC PageBits
+        PUBLIC PageSize
+        PUBLIC Page_To_Buffer
+        FUNCTION Page_To_Buffer,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC Read_DF_status
+        FUNCTION Read_DF_status,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_DDRB
+        PUBWEAK _A_DDRC
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTC
+        PUBWEAK _A_SPCR
+        PUBWEAK _A_SPDR
+        PUBWEAK _A_SPSR
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC dataflash_test
+        FUNCTION dataflash_test,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        EXTERN g_page_buffer
+
+// D:\avr\LM_Finial_Test\dataflash.c
+//    1 /*
+//    2 	Last change:  RM   17 Jan 2001   20:15
+//    3 */
+//    4 
+//    5 //*****************************************************************************
+//    6 //
+//    7 //      COPYRIGHT (c) ATMEL Norway, 1996-2001
+//    8 //
+//    9 //      The copyright to the document(s) herein is the property of
+//   10 //      ATMEL Norway, Norway.
+//   11 //
+//   12 //      The document(s) may be used  and/or copied only with the written
+//   13 //      permission from ATMEL Norway or in accordance with the terms and
+//   14 //      conditions stipulated in the agreement/contract under which the
+//   15 //      document(s) have been supplied.
+//   16 //
+//   17 //*****************************************************************************
+//   18 //
+//   19 //  File........: DATAFLASH.C
+//   20 //
+//   21 //  Author(s)...: ATMEL Norway
+//   22 //
+//   23 //  Target(s)...: All AVRs with built-in HW SPI
+//   24 //
+//   25 //  Description.: Functions to access the Atmel AT45Dxxx dataflash series
+//   26 //				  Supports 512Kbit - 64Mbit
+//   27 //
+//   28 //  Revisions...:
+//   29 //
+//   30 //  YYYYMMDD - VER. - COMMENT                                       - SIGN.
+//   31 //
+//   32 //  20011017 - 1.00 - Beta release                                  -  RM
+//   33 //  20011017 - 0.10 - Generated file                                -  RM
+//   34 //
+//   35 //*****************************************************************************
+//   36 
+//   37 // Includes
+//   38 //#include <INA90.H>
+//   39 //#include "iom169.h"
+//   40 #include <ioavr.h>
+
+        ASEGN ABSOLUTE:DATA:NOROOT,04eH
+// <__C171> volatile __io _A_SPDR
+_A_SPDR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,04dH
+// <__C174> volatile __io _A_SPSR
+_A_SPSR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,04cH
+// <__C177> volatile __io _A_SPCR
+_A_SPCR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// <__C237> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,027H
+// <__C240> volatile __io _A_DDRC
+_A_DDRC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// <__C246> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,024H
+// <__C249> volatile __io _A_DDRB
+_A_DDRB:
+        DS8 1
+//   41 #include <inavr.h>
+//   42 #include "dataflash.h"
+//   43 #include "global_variable.h"
+//   44 #include "board.h"
+//   45 
+//   46 // Constants
+//   47 //Look-up table for these sizes ->  512k, 1M, 2M, 4M, 8M, 16M, 32M, 64M
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//   48 __flash unsigned char DF_pagebits[]  ={  9,  9,  9,  9,  9,  10,  10,  11};	    //index of internal page address bits
+//   49 //Look-up table for these sizes ->  512k, 1M,  2M,  4M,  8M, 16M, 32M, 64M
+//   50 __flash unsigned int  DF_pagesize[]  ={264,264, 264, 264, 264, 528, 528,1056};	//index of pagesizes
+DF_pagesize:
+        DC16 264, 264, 264, 264, 264, 528, 528, 1056
+DF_pagebits:
+        DC8 9, 9, 9, 9, 9, 10, 10, 11
+//   51 
+//   52 
+//   53 // Globals
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   54 unsigned char PageBits;
+//   55 unsigned int  PageSize;
+PageSize:
+        DS8 2
+PageBits:
+        DS8 1
+//   56 // Functions
+//   57 
+//   58 /*****************************************************************************
+//   59 *
+//   60 *	Function name : DF_SPI_init
+//   61 *
+//   62 *	Returns :		None
+//   63 *
+//   64 *	Parameters :	None
+//   65 *
+//   66 *	Purpose :		Sets up the HW SPI in Master mode, Mode 3
+//   67 *					Note -> Uses the SS line to control the DF CS-line.
+//   68 *
+//   69 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   70 void DF_SPI_init (void)
+DF_SPI_init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function DF_SPI_init
+//   71 {
+//   72 	PORTB |= (1<<PORTB5) | (1<<PORTB7);
+        IN      R16, 0x05
+        ORI     R16, 0xA0
+        OUT     0x05, R16
+//   73 	DDRB |= (1<<PORTB5) | (1<<PORTB7);		//Set MOSI, SCK AND SS as outputs
+        IN      R16, 0x04
+        ORI     R16, 0xA0
+        OUT     0x04, R16
+//   74 	
+//   75 	SetBit(DDRC,0);			//dataflash cs
+        SBI     0x07, 0x00
+//   76 	ClrBit(PORTC,0);
+        CBI     0x08, 0x00
+//   77 	
+//   78 	ClrBit(DDRC,1);			//dataflash reset
+        CBI     0x07, 0x01
+//   79 	SetBit(PORTC,1);
+        SBI     0x08, 0x01
+//   80 	
+//   81 	SPSR = (1<<SPI2X0);                                      //SPI double speed settings
+        LDI     R16, 1
+        OUT     0x2D, R16
+//   82 	SPCR = (1<<SPE0) | (1<<MSTR0) | (1<<CPHA0) | (1<<CPOL0);	//Enable SPI in Master mode, mode 3, Fosc/2
+        LDI     R16, 92
+        OUT     0x2C, R16
+//   83 //	SPCR = (1<<SPE) | (1<<MSTR) | (1<<CPHA) | (1<<CPOL) | (1<<SPR1) | (1<<SPR0);	//Enable SPI in Master mode, mode 3, Fosc/2
+//   84 }
+        RET
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_SPSR
+        REQUIRE _A_SPCR
+        REQUIRE _A_PORTC
+        REQUIRE _A_DDRC
+        REQUIRE _A_PORTB
+        REQUIRE _A_DDRB
+//   85 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   86 void DF_SPI_disable(void)
+DF_SPI_disable:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function DF_SPI_disable
+//   87 {
+//   88 	ClrBit(SPCR,SPE0);
+        IN      R16, 0x2C
+        ANDI    R16, 0xBF
+        OUT     0x2C, R16
+//   89 }
+        RET
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_SPCR
+//   90 /*****************************************************************************
+//   91 *
+//   92 *	Function name : DF_SPI_RW
+//   93 *
+//   94 *	Returns :		Byte read from SPI data register (any value)
+//   95 *
+//   96 *	Parameters :	Byte to be written to SPI data register (any value)
+//   97 *
+//   98 *	Purpose :		Read and writes one byte from/to SPI master
+//   99 *
+//  100 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  101 unsigned char DF_SPI_RW (unsigned char output)
+DF_SPI_RW:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function DF_SPI_RW
+//  102 {
+//  103 	unsigned char input;
+//  104 	
+//  105 	SPDR = output;							//put byte 'output' in SPI data register
+        OUT     0x2E, R16
+//  106 	while(!(SPSR & 0x80));					//wait for transfer complete, poll SPIF-flag
+??DF_SPI_RW_0:
+        IN      R16, 0x2D
+        MOV     R17, R16
+        SBRS    R17, 7
+        RJMP    ??DF_SPI_RW_0
+//  107 	input = SPDR;							//read value in SPI data reg.
+        IN      R16, 0x2E
+//  108 	
+//  109 	return input;							//return the byte clocked in from SPI slave
+        RET
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_SPDR
+        REQUIRE _A_SPSR
+//  110 }		
+//  111 
+//  112 
+//  113 /*****************************************************************************
+//  114 *
+//  115 *	Function name : Read_DF_status
+//  116 *
+//  117 *	Returns :		One status byte. Consult Dataflash datasheet for further
+//  118 *					decoding info
+//  119 *
+//  120 *	Parameters :	None
+//  121 *
+//  122 *	Purpose :		Status info concerning the Dataflash is busy or not.
+//  123 *					Status info concerning compare between buffer and flash page
+//  124 *					Status info concerning size of actual device
+//  125 *
+//  126 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  127 unsigned char Read_DF_status (void)
+Read_DF_status:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function Read_DF_status
+//  128 {
+//  129 	unsigned char result,index_copy;
+//  130 	
+//  131 	DF_CS_inactive;							//make sure to toggle CS signal in order
+        FUNCALL Read_DF_status, DF_SPI_RW
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Read_DF_status, DF_SPI_RW
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        SBI     0x08, 0x00
+//  132 	DF_CS_active;							//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  133 	result = DF_SPI_RW(StatusReg);			//send status register read op-code
+        LDI     R16, 87
+        RCALL   DF_SPI_RW
+//  134 	result = DF_SPI_RW(0x00);				//dummy write to get result
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  135 	
+//  136 	index_copy = ((result & 0x38) >> 3);	//get the size info from status register
+        MOV     R18, R16
+        ANDI    R18, 0x38
+        LSR     R18
+        LSR     R18
+        LSR     R18
+        LDI     R19, 0
+        MOVW    R31:R30, R19:R18
+        SUBI    R30, LOW((-(DF_pagesize + 16) & 0xFFFF))
+        SBCI    R31, HIGH((-(DF_pagesize + 16) & 0xFFFF))
+        LPM     R17, Z
+        STS     (PageSize + 2), R17
+//  137 	PageBits   = DF_pagebits[index_copy];	//get number of internal page address bits from look-up table
+//  138 	PageSize   = DF_pagesize[index_copy];   //get the size of the page (in bytes)
+        LDI     R17, 2
+        MUL     R18, R17
+        MOVW    R31:R30, R1:R0
+        SUBI    R30, LOW((-(DF_pagesize) & 0xFFFF))
+        SBCI    R31, (-(DF_pagesize) & 0xFFFF) >> 8
+        LPM     R18, Z+
+        LPM     R19, Z
+        STS     PageSize, R18
+        STS     (PageSize + 1), R19
+//  139 	return result;							//return the read status register value
+        RET
+        CFI EndBlock cfiBlock3
+        REQUIRE _A_PORTC
+//  140 }
+//  141 
+//  142 
+//  143 /*****************************************************************************
+//  144 *
+//  145 *	Function name : Page_To_Buffer
+//  146 *
+//  147 *	Returns :		None
+//  148 *
+//  149 *	Parameters :	BufferNo	->	Decides usage of either buffer 1 or 2
+//  150 *					PageAdr		->	Address of page to be transferred to buffer
+//  151 *
+//  152 *	Purpose :		Transfers a page from flash to dataflash SRAM buffer
+//  153 *					
+//  154 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  155 void Page_To_Buffer (unsigned int PageAdr, unsigned char BufferNo)
+Page_To_Buffer:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function Page_To_Buffer
+//  156 {
+        FUNCALL Page_To_Buffer, DF_SPI_RW
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Page_To_Buffer, DF_SPI_RW
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Page_To_Buffer, DF_SPI_RW
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Page_To_Buffer, DF_SPI_RW
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Page_To_Buffer, Read_DF_status
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE4_L09
+        CFI R27 Frame(CFA_Y, -1)
+        CFI R26 Frame(CFA_Y, -2)
+        CFI R25 Frame(CFA_Y, -3)
+        CFI R24 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+        MOVW    R27:R26, R17:R16
+//  157 	DF_CS_inactive;												//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  158 	DF_CS_active;												//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  159 	
+//  160 	if (1 == BufferNo)											//transfer flash page to buffer 1
+        CPI     R18, 1
+        BRNE    ??Page_To_Buffer_0
+//  161 	{
+//  162 		DF_SPI_RW(FlashToBuf1Transfer);							//transfer to buffer 1 op-code
+        LDI     R16, 83
+        RCALL   DF_SPI_RW
+//  163 		DF_SPI_RW((unsigned char)(PageAdr >> (16 - PageBits)));	//upper part of page address
+        LDS     R24, (PageSize + 2)
+        LDI     R20, 16
+        SUB     R20, R24
+        MOVW    R17:R16, R27:R26
+        CALL    ?US_SHR_L02
+        RCALL   DF_SPI_RW
+//  164 		DF_SPI_RW((unsigned char)(PageAdr << (PageBits - 8)));	//lower part of page address
+        SUBI    R24, 8
+        MOV     R20, R24
+        MOVW    R17:R16, R27:R26
+        CALL    ?S_SHL_L02
+        RCALL   DF_SPI_RW
+//  165 		DF_SPI_RW(0x00);										//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  166 	}
+//  167 #ifdef USE_BUFFER2
+//  168 	else	
+//  169 	if (2 == BufferNo)											//transfer flash page to buffer 2
+//  170 	{
+//  171 		DF_SPI_RW(FlashToBuf2Transfer);							//transfer to buffer 2 op-code
+//  172 		DF_SPI_RW((unsigned char)(PageAdr >> (16 - PageBits)));	//upper part of page address
+//  173 		DF_SPI_RW((unsigned char)(PageAdr << (PageBits - 8)));	//lower part of page address
+//  174 		DF_SPI_RW(0x00);										//don't cares
+//  175 	}
+//  176 #endif
+//  177 	
+//  178 	DF_CS_inactive;												//initiate the transfer
+??Page_To_Buffer_0:
+        SBI     0x08, 0x00
+//  179 	DF_CS_active;
+        CBI     0x08, 0x00
+//  180 	
+//  181 	while(!(Read_DF_status() & 0x80));							//monitor the status register, wait until busy-flag is high
+??Page_To_Buffer_1:
+        RCALL   Read_DF_status
+        BST     R16, 7
+        BRTC    ??Page_To_Buffer_1
+//  182 }
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+        CFI EndBlock cfiBlock4
+        REQUIRE _A_PORTC
+//  183 
+//  184 
+//  185 
+//  186 /*****************************************************************************
+//  187 *
+//  188 *	Function name : Buffer_Read_Byte
+//  189 *
+//  190 *	Returns :		One read byte (any value)
+//  191 *
+//  192 *	Parameters :	BufferNo	->	Decides usage of either buffer 1 or 2
+//  193 *					IntPageAdr	->	Internal page address
+//  194 *
+//  195 *	Purpose :		Reads one byte from one of the dataflash
+//  196 *					internal SRAM buffers
+//  197 *
+//  198 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  199 unsigned char Buffer_Read_Byte (unsigned char BufferNo, unsigned int IntPageAdr)
+Buffer_Read_Byte:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function Buffer_Read_Byte
+//  200 {
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        MOVW    R25:R24, R19:R18
+//  201 	unsigned char data;
+//  202 	
+//  203 	DF_CS_inactive;								//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  204 	DF_CS_active;								//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  205 	
+//  206 	if (1 == BufferNo)							//read byte from buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_Read_Byte_0
+//  207 	{
+//  208 		DF_SPI_RW(Buf1Read);					//buffer 1 read op-code
+        LDI     R16, 84
+        RCALL   DF_SPI_RW
+//  209 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  210 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+        MOVW    R17:R16, R25:R24
+        MOV     R16, R17
+        RCALL   DF_SPI_RW
+//  211 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+        MOV     R16, R24
+        RCALL   DF_SPI_RW
+//  212 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  213 		data = DF_SPI_RW(0x00);					//read byte
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+        MOV     R17, R16
+//  214 	}
+//  215 
+//  216 #ifdef USE_BUFFER2
+//  217 	else
+//  218 	if (2 == BufferNo)							//read byte from buffer 2
+//  219 	{
+//  220 		DF_SPI_RW(Buf2Read);					//buffer 2 read op-code
+//  221 		DF_SPI_RW(0x00);						//don't cares
+//  222 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+//  223 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+//  224 		DF_SPI_RW(0x00);						//don't cares
+//  225 		data = DF_SPI_RW(0x00);					//read byte
+//  226 	}
+//  227 #endif
+//  228 	
+//  229 	return data;								//return the read data byte
+??Buffer_Read_Byte_0:
+        MOV     R16, R17
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock5
+        REQUIRE _A_PORTC
+//  230 }
+//  231 
+//  232 
+//  233 
+//  234 /*****************************************************************************
+//  235 *
+//  236 *	Function name : Buffer_Read_Str
+//  237 *
+//  238 *	Returns :		None
+//  239 *
+//  240 *	Parameters :	BufferNo	->	Decides usage of either buffer 1 or 2
+//  241 *					IntPageAdr	->	Internal page address
+//  242 *					No_of_bytes	->	Number of bytes to be read
+//  243 *					*BufferPtr	->	address of buffer to be used for read bytes
+//  244 *
+//  245 *	Purpose :		Reads one or more bytes from one of the dataflash
+//  246 *					internal SRAM buffers, and puts read bytes into
+//  247 *					buffer pointed to by *BufferPtr
+//  248 *
+//  249 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  250 void Buffer_Read_Str (unsigned char BufferNo, unsigned int IntPageAdr, unsigned int No_of_bytes, unsigned char *BufferPtr)
+Buffer_Read_Str:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function Buffer_Read_Str
+//  251 {
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Read_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R27:R26, R19:R18
+        MOVW    R5:R4, R21:R20
+        MOVW    R25:R24, R23:R22
+//  252 	unsigned int i;
+//  253 
+//  254 	DF_CS_inactive;								//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  255 	DF_CS_active;								//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  256 	
+//  257 	if (1 == BufferNo)							//read byte(s) from buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_Read_Str_0
+//  258 	{
+//  259 		DF_SPI_RW(Buf1Read);					//buffer 1 read op-code
+        LDI     R16, 84
+        RCALL   DF_SPI_RW
+//  260 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  261 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+        MOVW    R17:R16, R27:R26
+        MOV     R16, R17
+        RCALL   DF_SPI_RW
+//  262 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+        MOV     R16, R26
+        RCALL   DF_SPI_RW
+//  263 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  264 		for( i=0; i<No_of_bytes; i++)
+        LDI     R26, 0
+        LDI     R27, 0
+        RJMP    ??Buffer_Read_Str_1
+//  265 		{
+//  266 			*(BufferPtr) = DF_SPI_RW(0x00);		//read byte and put it in AVR buffer pointed to by *BufferPtr
+??Buffer_Read_Str_2:
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+        MOVW    R31:R30, R25:R24
+        ST      Z+, R16
+        MOVW    R25:R24, R31:R30
+//  267 			BufferPtr++;						//point to next element in AVR buffer
+//  268 		}
+        ADIW    R27:R26, 1
+??Buffer_Read_Str_1:
+        CP      R26, R4
+        CPC     R27, R5
+        BRCS    ??Buffer_Read_Str_2
+//  269 	}
+//  270 	
+//  271 #ifdef USE_BUFFER2
+//  272 	else
+//  273 	if (2 == BufferNo)							//read byte(s) from buffer 2
+//  274 	{
+//  275 		DF_SPI_RW(Buf2Read);					//buffer 2 read op-code
+//  276 		DF_SPI_RW(0x00);						//don't cares
+//  277 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+//  278 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+//  279 		DF_SPI_RW(0x00);						//don't cares
+//  280 		for( i=0; i<No_of_bytes; i++)
+//  281 		{
+//  282 			*(BufferPtr) = DF_SPI_RW(0x00);		//read byte and put it in AVR buffer pointed to by *BufferPtr
+//  283 			BufferPtr++;						//point to next element in AVR buffer
+//  284 		}
+//  285 	}
+//  286 #endif
+//  287 }
+??Buffer_Read_Str_0:
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock6
+        REQUIRE _A_PORTC
+//  288 //NB : Sjekk at (IntAdr + No_of_bytes) < buffersize, hvis ikke blir det bare ball..
+//  289 
+//  290 
+//  291 
+//  292 /*****************************************************************************
+//  293 *
+//  294 *	Function name : Buffer_Write_Enable
+//  295 *
+//  296 *	Returns :		None
+//  297 *
+//  298 *	Parameters :	IntPageAdr	->	Internal page address to start writing from
+//  299 *					BufferAdr	->	Decides usage of either buffer 1 or 2
+//  300 *					
+//  301 *	Purpose :		Enables continous write functionality to one of the dataflash buffers
+//  302 *					buffers. NOTE : User must ensure that CS goes high to terminate
+//  303 *					this mode before accessing other dataflash functionalities 
+//  304 *
+//  305 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  306 void Buffer_Write_Enable (unsigned char BufferNo, unsigned int IntPageAdr)
+Buffer_Write_Enable:
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function Buffer_Write_Enable
+//  307 {
+        FUNCALL Buffer_Write_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        MOVW    R25:R24, R19:R18
+//  308 	DF_CS_inactive;								//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  309 	DF_CS_active;								//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  310 	
+//  311 	if (1 == BufferNo)							//write enable to buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_Write_Enable_0
+//  312 	{
+//  313 		DF_SPI_RW(Buf1Write);					//buffer 1 write op-code
+        LDI     R16, 132
+        RCALL   DF_SPI_RW
+//  314 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  315 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+        MOVW    R17:R16, R25:R24
+        MOV     R16, R17
+        RCALL   DF_SPI_RW
+//  316 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+        MOV     R16, R24
+        RCALL   DF_SPI_RW
+//  317 	}
+//  318 	
+//  319 #ifdef USE_BUFFER2
+//  320 	else
+//  321 	if (2 == BufferNo)							//write enable to buffer 2
+//  322 	{
+//  323 		DF_SPI_RW(Buf2Write);					//buffer 2 write op-code
+//  324 		DF_SPI_RW(0x00);						//don't cares
+//  325 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+//  326 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+//  327 	}
+//  328 #endif
+//  329 }
+??Buffer_Write_Enable_0:
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock7
+        REQUIRE _A_PORTC
+//  330 
+//  331 
+//  332 
+//  333 /*****************************************************************************
+//  334 *
+//  335 *	Function name : Buffer_Write_Byte
+//  336 *
+//  337 *	Returns :		None
+//  338 *
+//  339 *	Parameters :	IntPageAdr	->	Internal page address to write byte to
+//  340 *					BufferAdr	->	Decides usage of either buffer 1 or 2
+//  341 *					Data		->	Data byte to be written
+//  342 *
+//  343 *	Purpose :		Writes one byte to one of the dataflash
+//  344 *					internal SRAM buffers
+//  345 *
+//  346 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  347 void Buffer_Write_Byte (unsigned char BufferNo, unsigned int IntPageAdr, unsigned char Data)
+Buffer_Write_Byte:
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function Buffer_Write_Byte
+//  348 {
+        FUNCALL Buffer_Write_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Byte, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE3_L09
+        CFI R26 Frame(CFA_Y, -1)
+        CFI R25 Frame(CFA_Y, -2)
+        CFI R24 Frame(CFA_Y, -3)
+        CFI CFA_Y Y+3
+        MOVW    R25:R24, R19:R18
+        MOV     R26, R17
+//  349 	
+//  350 	DF_CS_inactive;								//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  351 	DF_CS_active;								//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  352 	
+//  353 	if (1 == BufferNo)							//write byte to buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_Write_Byte_0
+//  354 	{
+//  355 		DF_SPI_RW(Buf1Write);					//buffer 1 write op-code
+        LDI     R16, 132
+        RCALL   DF_SPI_RW
+//  356 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  357 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+        MOVW    R17:R16, R25:R24
+        MOV     R16, R17
+        RCALL   DF_SPI_RW
+//  358 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+        MOV     R16, R24
+        RCALL   DF_SPI_RW
+//  359 		DF_SPI_RW(Data);						//write data byte
+        MOV     R16, R26
+        RCALL   DF_SPI_RW
+//  360 	}
+//  361 
+//  362 #ifdef USE_BUFFER2
+//  363 	else
+//  364 	if (2 == BufferNo)							//write byte to buffer 2
+//  365 	{
+//  366 		DF_SPI_RW(Buf2Write);					//buffer 2 write op-code
+//  367 		DF_SPI_RW(0x00);						//don't cares
+//  368 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+//  369 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+//  370 		DF_SPI_RW(Data);						//write data byte
+//  371 	}		
+//  372 #endif
+//  373 }
+??Buffer_Write_Byte_0:
+        LDI     R30, 3
+        JMP     ?EPILOGUE_B3_L09
+        CFI EndBlock cfiBlock8
+        REQUIRE _A_PORTC
+//  374 
+//  375 
+//  376 /*****************************************************************************
+//  377 *
+//  378 *	Function name : Buffer_Write_Str
+//  379 *
+//  380 *	Returns :		None
+//  381 *
+//  382 *	Parameters :	BufferNo	->	Decides usage of either buffer 1 or 2
+//  383 *					IntPageAdr	->	Internal page address
+//  384 *					No_of_bytes	->	Number of bytes to be written
+//  385 *					*BufferPtr	->	address of buffer to be used for copy of bytes
+//  386 *									from AVR buffer to dataflash buffer 1 (or 2)
+//  387 *
+//  388 *	Purpose :		Copies one or more bytes to one of the dataflash
+//  389 *					internal SRAM buffers from AVR SRAM buffer
+//  390 *					pointed to by *BufferPtr
+//  391 *
+//  392 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  393 void Buffer_Write_Str (unsigned char BufferNo, unsigned int IntPageAdr, unsigned int No_of_bytes, unsigned char *BufferPtr)
+Buffer_Write_Str:
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function Buffer_Write_Str
+//  394 {
+        FUNCALL Buffer_Write_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_Write_Str, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R27:R26, R19:R18
+        MOVW    R5:R4, R21:R20
+        MOVW    R25:R24, R23:R22
+//  395 	unsigned int i;
+//  396 
+//  397 	DF_CS_inactive;								//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  398 	DF_CS_active;								//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  399 	
+//  400 	if (1 == BufferNo)							//write byte(s) to buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_Write_Str_0
+//  401 	{
+//  402 		DF_SPI_RW(Buf1Write);					//buffer 1 write op-code
+        LDI     R16, 132
+        RCALL   DF_SPI_RW
+//  403 		DF_SPI_RW(0x00);						//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  404 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+        MOVW    R17:R16, R27:R26
+        MOV     R16, R17
+        RCALL   DF_SPI_RW
+//  405 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+        MOV     R16, R26
+        RCALL   DF_SPI_RW
+//  406 		for( i=0; i<No_of_bytes; i++)
+        LDI     R26, 0
+        LDI     R27, 0
+        RJMP    ??Buffer_Write_Str_1
+//  407 		{
+//  408 			DF_SPI_RW(*(BufferPtr));			//write byte pointed at by *BufferPtr to dataflash buffer 1 location
+??Buffer_Write_Str_2:
+        MOVW    R31:R30, R25:R24
+        LD      R16, Z+
+        MOVW    R25:R24, R31:R30
+        RCALL   DF_SPI_RW
+//  409 			BufferPtr++;						//point to next element in AVR buffer
+//  410 		}
+        ADIW    R27:R26, 1
+??Buffer_Write_Str_1:
+        CP      R26, R4
+        CPC     R27, R5
+        BRCS    ??Buffer_Write_Str_2
+//  411 	}
+//  412 
+//  413 #ifdef USE_BUFFER2
+//  414 	else
+//  415 	if (2 == BufferNo)							//write byte(s) to buffer 2
+//  416 	{
+//  417 		DF_SPI_RW(Buf2Write);					//buffer 2 write op-code
+//  418 		DF_SPI_RW(0x00);						//don't cares
+//  419 		DF_SPI_RW((unsigned char)(IntPageAdr>>8));//upper part of internal buffer address
+//  420 		DF_SPI_RW((unsigned char)(IntPageAdr));	//lower part of internal buffer address
+//  421 		for( i=0; i<No_of_bytes; i++)
+//  422 		{
+//  423 			DF_SPI_RW(*(BufferPtr));			//write byte pointed at by *BufferPtr to dataflash buffer 2 location
+//  424 			BufferPtr++;						//point to next element in AVR buffer
+//  425 		}
+//  426 	}
+//  427 #endif
+//  428 }
+??Buffer_Write_Str_0:
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock9
+        REQUIRE _A_PORTC
+//  429 //NB : Monitorer busy-flag i status-reg.
+//  430 //NB : Sjekk at (IntAdr + No_of_bytes) < buffersize, hvis ikke blir det bare ball..
+//  431 
+//  432 
+//  433 
+//  434 /*****************************************************************************
+//  435 *
+//  436 *	Function name : Buffer_To_Page
+//  437 *
+//  438 *	Returns :		None
+//  439 *
+//  440 *	Parameters :	BufferAdr	->	Decides usage of either buffer 1 or 2
+//  441 *					PageAdr		->	Address of flash page to be programmed
+//  442 *
+//  443 *	Purpose :		Transfers a page from dataflash SRAM buffer to flash
+//  444 *					
+//  445 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  446 void Buffer_To_Page (unsigned char BufferNo, unsigned int PageAdr)
+Buffer_To_Page:
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function Buffer_To_Page
+//  447 {
+        FUNCALL Buffer_To_Page, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_To_Page, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_To_Page, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_To_Page, DF_SPI_RW
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Buffer_To_Page, Read_DF_status
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE3_L09
+        CFI R26 Frame(CFA_Y, -1)
+        CFI R25 Frame(CFA_Y, -2)
+        CFI R24 Frame(CFA_Y, -3)
+        CFI CFA_Y Y+3
+        MOVW    R25:R24, R19:R18
+//  448 	DF_CS_inactive;												//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  449 	DF_CS_active;												//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  450 		
+//  451 	if (1 == BufferNo)											//program flash page from buffer 1
+        CPI     R16, 1
+        BRNE    ??Buffer_To_Page_0
+//  452 	{
+//  453 		DF_SPI_RW(Buf1ToFlashWE);								//buffer 1 to flash with erase op-code
+        LDI     R16, 131
+        RCALL   DF_SPI_RW
+//  454 		DF_SPI_RW((unsigned char)(PageAdr >> (16 - PageBits)));	//upper part of page address
+        LDS     R26, (PageSize + 2)
+        LDI     R20, 16
+        SUB     R20, R26
+        MOVW    R17:R16, R25:R24
+        CALL    ?US_SHR_L02
+        RCALL   DF_SPI_RW
+//  455 		DF_SPI_RW((unsigned char)(PageAdr << (PageBits - 8)));	//lower part of page address
+        SUBI    R26, 8
+        MOV     R20, R26
+        MOVW    R17:R16, R25:R24
+        CALL    ?S_SHL_L02
+        RCALL   DF_SPI_RW
+//  456 		DF_SPI_RW(0x00);										//don't cares
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  457 	}
+//  458 
+//  459 #ifdef USE_BUFFER2
+//  460 	else	
+//  461 	if (2 == BufferNo)											//program flash page from buffer 2
+//  462 	{
+//  463 		DF_SPI_RW(Buf2ToFlashWE);								//buffer 2 to flash with erase op-code
+//  464 		DF_SPI_RW((unsigned char)(PageAdr >> (16 - PageBits)));	//upper part of page address
+//  465 		DF_SPI_RW((unsigned char)(PageAdr << (PageBits - 8)));	//lower part of page address
+//  466 		DF_SPI_RW(0x00);										//don't cares
+//  467 	}
+//  468 #endif
+//  469 	
+//  470 	DF_CS_inactive;												//initiate flash page programming
+??Buffer_To_Page_0:
+        SBI     0x08, 0x00
+//  471 	DF_CS_active;												
+        CBI     0x08, 0x00
+//  472 	
+//  473 	while(!(Read_DF_status() & 0x80));							//monitor the status register, wait until busy-flag is high
+??Buffer_To_Page_1:
+        RCALL   Read_DF_status
+        BST     R16, 7
+        BRTC    ??Buffer_To_Page_1
+//  474 }
+        LDI     R30, 3
+        JMP     ?EPILOGUE_B3_L09
+        CFI EndBlock cfiBlock10
+        REQUIRE _A_PORTC
+//  475 
+//  476 
+//  477 /*****************************************************************************
+//  478 *
+//  479 *	Function name : Cont_Flash_Read_Enable
+//  480 *
+//  481 *	Returns :		None
+//  482 *
+//  483 *	Parameters :	PageAdr		->	Address of flash page where cont.read starts from
+//  484 *					IntPageAdr	->	Internal page address where cont.read starts from
+//  485 *
+//  486 *	Purpose :		Initiates a continuous read from a location in the DataFlash
+//  487 *					
+//  488 ******************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  489 void Cont_Flash_Read_Enable (unsigned int PageAdr, unsigned int IntPageAdr)
+Cont_Flash_Read_Enable:
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function Cont_Flash_Read_Enable
+//  490 {
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL Cont_Flash_Read_Enable, DF_SPI_RW
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R5:R4, R17:R16
+        MOVW    R25:R24, R19:R18
+//  491 	DF_CS_inactive;																//make sure to toggle CS signal in order
+        SBI     0x08, 0x00
+//  492 	DF_CS_active;																//to reset dataflash command decoder
+        CBI     0x08, 0x00
+//  493 	
+//  494 	DF_SPI_RW(ContArrayRead);													//Continuous Array Read op-code
+        LDI     R16, 104
+        RCALL   DF_SPI_RW
+//  495 	DF_SPI_RW((unsigned char)(PageAdr >> (16 - PageBits)));						//upper part of page address
+        LDS     R26, (PageSize + 2)
+        LDI     R20, 16
+        SUB     R20, R26
+        MOVW    R17:R16, R5:R4
+        CALL    ?US_SHR_L02
+        RCALL   DF_SPI_RW
+//  496 	DF_SPI_RW((unsigned char)((PageAdr << (PageBits - 8))+ (IntPageAdr>>8)));	//lower part of page address and MSB of int.page adr.
+        SUBI    R26, 8
+        MOV     R20, R26
+        MOVW    R17:R16, R5:R4
+        CALL    ?S_SHL_L02
+        MOVW    R19:R18, R25:R24
+        MOV     R18, R19
+        ADD     R16, R18
+        RCALL   DF_SPI_RW
+//  497 	DF_SPI_RW((unsigned char)(IntPageAdr));										//LSB byte of internal page address
+        MOV     R16, R24
+        RCALL   DF_SPI_RW
+//  498 	DF_SPI_RW(0x00);															//perform 4 dummy writes
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  499 	DF_SPI_RW(0x00);															//in order to intiate DataFlash
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  500 	DF_SPI_RW(0x00);															//address pointers
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  501 	DF_SPI_RW(0x00);
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+//  502 }
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock11
+        REQUIRE _A_PORTC
+//  503 
+//  504 // *****************************[ End Of DATAFLASH.C ]*************************
+//  505 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  506 void dataflash_test(void)
+dataflash_test:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function dataflash_test
+//  507 {
+        FUNCALL dataflash_test, Cont_Flash_Read_Enable
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL dataflash_test, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL dataflash_test, DF_SPI_RW
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+//  508 	unsigned int j;
+//  509 	
+//  510 	DF_CS_inactive;
+        SBI     0x08, 0x00
+//  511 	DF_CS_active;  
+        CBI     0x08, 0x00
+//  512 	
+//  513 	//for(j=0;j<256;j++)
+//  514 		//Buffer_Write_Byte (1,j,0xA0);
+//  515 			
+//  516 	//Buffer_To_Page (1,0);             //transfer to DataFlash
+//  517 	Cont_Flash_Read_Enable (0,0);
+        LDI     R18, 0
+        LDI     R19, 0
+        LDI     R16, 0
+        LDI     R17, 0
+        RCALL   Cont_Flash_Read_Enable
+//  518 	
+//  519 	for (j=0;j<256;j++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??dataflash_test_0
+//  520 	{
+//  521 		g_page_buffer[j] = DF_SPI_RW(0x00);
+??dataflash_test_1:
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(g_page_buffer) & 0xFFFF))
+        SBCI    R31, (-(g_page_buffer) & 0xFFFF) >> 8
+        ST      Z, R16
+//  522 	}
+        ADIW    R25:R24, 1
+??dataflash_test_0:
+        CPI     R24, 0
+        LDI     R16, 1
+        CPC     R25, R16
+        BRCS    ??dataflash_test_1
+//  523 	
+//  524 	
+//  525 	for(j=0;j<256;j++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??dataflash_test_2
+//  526 	{
+//  527 			
+//  528 			if(j != DF_SPI_RW(0x00) )
+??dataflash_test_3:
+        LDI     R16, 0
+        RCALL   DF_SPI_RW
+        LDI     R17, 0
+        CP      R24, R16
+        CPC     R25, R17
+        BREQ    ??dataflash_test_4
+//  529 			{
+//  530 				asm("nop");       
+        nop
+//  531 			}
+//  532 	}
+??dataflash_test_4:
+        ADIW    R25:R24, 1
+??dataflash_test_2:
+        CPI     R24, 0
+        LDI     R16, 1
+        CPC     R25, R16
+        BRCS    ??dataflash_test_3
+//  533 	
+//  534 	DF_CS_inactive;  
+        SBI     0x08, 0x00
+//  535 }
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock12
+        REQUIRE _A_PORTC
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//   7 bytes in segment ABSOLUTE
+// 670 bytes in segment CODE
+//   6 bytes in segment INITTAB
+//  24 bytes in segment NEAR_F
+//   3 bytes in segment NEAR_Z
+// 
+// 694 bytes of CODE memory (+ 6 bytes shared)
+//   3 bytes of DATA memory (+ 7 bytes shared)
+//
+//Errors: none
+//Warnings: none

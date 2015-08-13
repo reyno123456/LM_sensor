@@ -1,0 +1,681 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR    11/Dec/2009  23:21:18 #
+# Copyright 1996-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  D:\avr\LM_Finial_Test\DRI_TOUCH.C                        #
+#    Command line =  D:\avr\LM_Finial_Test\DRI_TOUCH.C --cpu=m644p -ms -o     #
+#                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018    #
+#                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Lis #
+#                    t\ -lA D:\avr\LM_Finial_Test\Release\List\               #
+#                    --diag_suppress Pa082,Pe167,Pe186                        #
+#                    --initializers_in_flash -z6 --no_inline --no_cross_call  #
+#                    --no_tbaa -DENABLE_BIT_DEFINITIONS -e -I "C:\Program     #
+#                    Files\IAR Systems\Embedded Workbench 5.3\avr\INC\" -I    #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.3\avr\INC\CLIB\" --eeprom_size 2048                    #
+#    List file    =  D:\avr\LM_Finial_Test\Release\List\DRI_TOUCH.lst         #
+#    Object file  =  D:\avr\LM_Finial_Test\Release\Obj\DRI_TOUCH.r90          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\avr\LM_Finial_Test\DRI_TOUCH.C
+      1          /*****************************
+      2             TEST TO 1N4249-TP
+      3             CONTROLLER:  UC1698
+      4             INTERFACE: 8bit/B\W FSTN
+      5             SIZE: 160*160  DOTS
+      6             PROGRAMMED: ANDY_Q
+      7             DATE: 
+      8           更改扫描方向
+      9          *****************************/
+     10          #ifndef ENABLE_BIT_DEFINITIONS
+     11          #define ENABLE_BIT_DEFINITIONS
+     12          #endif
+     13          
+     14          #include <ioavr.h>
+
+   \                                 In  segment ABSOLUTE, at 0x29
+   \   <__C234> volatile __io _A_PIND
+   \                     _A_PIND:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x28
+   \   <__C237> volatile __io _A_PORTC
+   \                     _A_PORTC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   <__C246> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x23
+   \   <__C252> volatile __io _A_PINB
+   \                     _A_PINB:
+   \   00000000                      DS8 1
+     15          #include <inavr.h>
+     16          #include "DRI_LCD.H"
+     17          #include "DRI_TOUCH.H"
+     18          #include "global_variable.h"
+     19          #include "application.h"
+     20          
+     21          //***********************************FUNCTION***************************************************
+     22          //#define uchar unsigned char
+     23          /*
+     24          #pragma vector = INT4_vect
+     25          __interrupt void TOUCH_INT(void)
+     26          {
+     27          CLI();
+     28          if((eventflag2_g&0xe0)==0)
+     29          	{
+     30          	BIT_SET(eventflag2_g,7);
+     31          	}
+     32          
+     33          SEI();
+     34          }
+     35          */
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     36          unsigned char  error;
+   \                     error:
+   \   00000000                      DS8 1
+     37          /*********MAIN**********/
+     38          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     39          void delay(unsigned int t)
+   \                     delay:
+   \                     ??delay_0:
+     40          {
+     41          unsigned char i;
+     42            while(--t)
+   \   00000000   5001               SUBI    R16, 1
+   \   00000002   4010               SBCI    R17, 0
+   \   00000004   2F20               MOV     R18, R16
+   \   00000006   2B21               OR      R18, R17
+   \   00000008   F029               BREQ    ??delay_1
+     43            for(i=0;i<100;i++);
+   \   0000000A   E020               LDI     R18, 0
+   \                     ??delay_2:
+   \   0000000C   3624               CPI     R18, 100
+   \   0000000E   F7C0               BRCC    ??delay_0
+   \   00000010   9523               INC     R18
+   \   00000012   CFFC               RJMP    ??delay_2
+     44          } 
+   \                     ??delay_1:
+   \   00000014   9508               RET
+     45          
+     46          
+     47          //获取当前触摸屏按键的坐标(0,0)~(160,160)
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     48          void TOUCH_getdata()
+   \                     TOUCH_getdata:
+     49          {
+     50          	average1();
+   \   00000000   ....               RCALL   average1
+     51          	/*
+     52          	if ((avg_x<xmin)||(avg_x>xmax)||(avg_y<ymin)||(avg_y>ymax))
+     53          	{
+     54          		avg_x=255;
+     55          		avg_y=255;
+     56          	}
+     57          	else
+     58          	{
+     59          		avg_x=160-(unsigned int)((avg_x-xmin)/x_para);
+     60          		avg_y=160-(unsigned int)((avg_y-ymin)/y_para);	
+     61          	}
+     62          	*/
+     63          }
+   \   00000002   9508               RET
+     64          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     65          void average1()
+   \                     average1:
+     66          {
+   \   00000000   ........           CALL    ?PROLOGUE6_L09
+   \   00000004                      REQUIRE ?Register_R4_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R5_is_cg_reg
+   \   00000004   97A8               SBIW    R29:R28, 40
+     67          	unsigned int sum_x=0,sum_y=0;
+   \   00000006   2444               CLR     R4
+   \   00000008   2455               CLR     R5
+   \   0000000A   E0A0               LDI     R26, 0
+   \   0000000C   E0B0               LDI     R27, 0
+     68          	unsigned int position[SAMPLE_NUM][2];
+     69          	unsigned int temp;
+     70          	
+     71          	unsigned char i = 0;
+   \   0000000E   E080               LDI     R24, 0
+     72          	
+     73          	vx=vy=0;error=0;
+   \   00000010   9240....           STS     vy, R4
+   \   00000014   9240....           STS     (vy + 1), R4
+   \   00000018   9240....           STS     vx, R4
+   \   0000001C   9240....           STS     (vx + 1), R4
+   \   00000020   9240....           STS     error, R4
+     74          	timer_flex_initial(500);
+   \   00000024   EF04               LDI     R16, 244
+   \   00000026   E011               LDI     R17, 1
+   \   00000028   E020               LDI     R18, 0
+   \   0000002A   E030               LDI     R19, 0
+   \   0000002C   ........           CALL    timer_flex_initial
+     75          	
+     76          	while(Time_delay.timer_flex.time_out == 0)
+   \                     ??average1_0:
+   \   00000030   9100....           LDS     R16, (Time_delay + 157)
+   \   00000034   2300               TST     R16
+   \   00000036   F4F1               BRNE    ??average1_1
+     77          	{
+     78          		if(IS_PEN == 0)
+   \   00000038   994D               SBIC    0x09, 0x05
+   \   0000003A   C005               RJMP    ??average1_2
+     79          		{
+     80          			TOUCH_CAIJI1();
+   \   0000003C   ....               RCALL   TOUCH_CAIJI1
+     81          			delay_us(20);
+   \   0000003E   E104               LDI     R16, 20
+   \   00000040   E010               LDI     R17, 0
+   \   00000042   ........           CALL    delay_us
+     82          		}
+     83          		
+     84          		position[i][0] = vx;
+   \                     ??average1_2:
+   \   00000046   E004               LDI     R16, 4
+   \   00000048   9F80               MUL     R24, R16
+   \   0000004A   9100....           LDS     R16, vx
+   \   0000004E   9110....           LDS     R17, (vx + 1)
+   \   00000052   01FE               MOVW    R31:R30, R29:R28
+   \   00000054   0DE0               ADD     R30, R0
+   \   00000056   1DF1               ADC     R31, R1
+   \   00000058   8300               ST      Z, R16
+   \   0000005A   8311               STD     Z+1, R17
+     85          		position[i][1] = vy;
+   \   0000005C   9100....           LDS     R16, vy
+   \   00000060   9110....           LDS     R17, (vy + 1)
+   \   00000064   01FE               MOVW    R31:R30, R29:R28
+   \   00000066   0DE0               ADD     R30, R0
+   \   00000068   1DF1               ADC     R31, R1
+   \   0000006A   8302               STD     Z+2, R16
+   \   0000006C   8313               STD     Z+3, R17
+     86          		
+     87          		if(++i >= SAMPLE_NUM) break;
+   \   0000006E   9583               INC     R24
+   \   00000070   308A               CPI     R24, 10
+   \   00000072   F2F0               BRCS    ??average1_0
+     88          	}
+     89          	 
+     90          	asm("nop");
+   \                     ??average1_1:
+   \   00000074   0000               nop
+     91          	
+     92          	if( i == SAMPLE_NUM )
+   \   00000076   308A               CPI     R24, 10
+   \   00000078   F009               BREQ    $+2+2
+   \   0000007A   C071               RJMP    ??average1_3
+     93          	{
+     94          		for(i=0;i<SAMPLE_NUM - 1;i++)
+   \   0000007C   E080               LDI     R24, 0
+   \   0000007E   C01D               RJMP    ??average1_4
+     95          		{
+     96          			if(position[i][0] < position[i+1][0])
+   \                     ??average1_5:
+   \   00000080   01FE               MOVW    R31:R30, R29:R28
+   \   00000082   E004               LDI     R16, 4
+   \   00000084   9F80               MUL     R24, R16
+   \   00000086   0DE0               ADD     R30, R0
+   \   00000088   1DF1               ADC     R31, R1
+   \   0000008A   8100               LD      R16, Z
+   \   0000008C   8111               LDD     R17, Z+1
+   \   0000008E   8124               LDD     R18, Z+4
+   \   00000090   8135               LDD     R19, Z+5
+   \   00000092   1702               CP      R16, R18
+   \   00000094   0713               CPC     R17, R19
+   \   00000096   F480               BRCC    ??average1_6
+     97          			{
+     98          				temp = position[i][0];
+   \   00000098   8140               LD      R20, Z
+   \   0000009A   8151               LDD     R21, Z+1
+     99          				position[i][0] = position[i+1][0];
+   \   0000009C   8104               LDD     R16, Z+4
+   \   0000009E   8115               LDD     R17, Z+5
+   \   000000A0   8300               ST      Z, R16
+   \   000000A2   8311               STD     Z+1, R17
+    100          				position[i+1][0] = temp;
+   \   000000A4   8344               STD     Z+4, R20
+   \   000000A6   8355               STD     Z+5, R21
+    101          				
+    102          				temp = position[i][1];
+   \   000000A8   8142               LDD     R20, Z+2
+   \   000000AA   8153               LDD     R21, Z+3
+    103          				position[i][1] = position[i+1][1];
+   \   000000AC   8106               LDD     R16, Z+6
+   \   000000AE   8117               LDD     R17, Z+7
+   \   000000B0   8302               STD     Z+2, R16
+   \   000000B2   8313               STD     Z+3, R17
+    104          				position[i+1][1] = temp;
+   \   000000B4   8346               STD     Z+6, R20
+   \   000000B6   8357               STD     Z+7, R21
+    105          			}
+    106          		}
+   \                     ??average1_6:
+   \   000000B8   9583               INC     R24
+   \                     ??average1_4:
+   \   000000BA   3089               CPI     R24, 9
+   \   000000BC   F308               BRCS    ??average1_5
+    107          		
+    108          		asm("nop");
+   \   000000BE   0000               nop
+    109          		
+    110          		for(i=SAMPLE_NUM - 1;i > 0;i--)
+   \   000000C0   E089               LDI     R24, 9
+   \   000000C2   C027               RJMP    ??average1_7
+    111          		{
+    112          			if(position[i][0] > position[i-1][0])
+   \                     ??average1_8:
+   \   000000C4   019E               MOVW    R19:R18, R29:R28
+   \   000000C6   E004               LDI     R16, 4
+   \   000000C8   9F80               MUL     R24, R16
+   \   000000CA   0D20               ADD     R18, R0
+   \   000000CC   1D31               ADC     R19, R1
+   \   000000CE   01F9               MOVW    R31:R30, R19:R18
+   \   000000D0   8160               LD      R22, Z
+   \   000000D2   8171               LDD     R23, Z+1
+   \   000000D4   0189               MOVW    R17:R16, R19:R18
+   \   000000D6   5004               SUBI    R16, 4
+   \   000000D8   4010               SBCI    R17, 0
+   \   000000DA   01F8               MOVW    R31:R30, R17:R16
+   \   000000DC   8140               LD      R20, Z
+   \   000000DE   8151               LDD     R21, Z+1
+   \   000000E0   1746               CP      R20, R22
+   \   000000E2   0757               CPC     R21, R23
+   \   000000E4   F4A8               BRCC    ??average1_9
+    113          			{
+    114          				temp = position[i][0];
+   \   000000E6   01AB               MOVW    R21:R20, R23:R22
+    115          				position[i][0] = position[i-1][0];
+   \   000000E8   8160               LD      R22, Z
+   \   000000EA   8171               LDD     R23, Z+1
+   \   000000EC   01F9               MOVW    R31:R30, R19:R18
+   \   000000EE   8360               ST      Z, R22
+   \   000000F0   8371               STD     Z+1, R23
+    116          				position[i-1][0] = temp;
+   \   000000F2   01F8               MOVW    R31:R30, R17:R16
+   \   000000F4   8340               ST      Z, R20
+   \   000000F6   8351               STD     Z+1, R21
+    117          				
+    118          				temp = position[i][1];
+   \   000000F8   01F9               MOVW    R31:R30, R19:R18
+   \   000000FA   8142               LDD     R20, Z+2
+   \   000000FC   8153               LDD     R21, Z+3
+    119          				position[i][1] = position[i-1][1];
+   \   000000FE   01F8               MOVW    R31:R30, R17:R16
+   \   00000100   8162               LDD     R22, Z+2
+   \   00000102   8173               LDD     R23, Z+3
+   \   00000104   01F9               MOVW    R31:R30, R19:R18
+   \   00000106   8362               STD     Z+2, R22
+   \   00000108   8373               STD     Z+3, R23
+    120          				position[i-1][1] = temp;
+   \   0000010A   01F8               MOVW    R31:R30, R17:R16
+   \   0000010C   8342               STD     Z+2, R20
+   \   0000010E   8353               STD     Z+3, R21
+    121          			}
+    122          		}
+   \                     ??average1_9:
+   \   00000110   958A               DEC     R24
+   \                     ??average1_7:
+   \   00000112   2388               TST     R24
+   \   00000114   F6B9               BRNE    ??average1_8
+    123          		
+    124          		asm("nop");
+   \   00000116   0000               nop
+    125          		
+    126          		for(i=1;i < SAMPLE_NUM - 1;i++)
+   \   00000118   E081               LDI     R24, 1
+   \   0000011A   C00E               RJMP    ??average1_10
+    127          		{
+    128          			sum_x += position[i][0];
+   \                     ??average1_11:
+   \   0000011C   01FE               MOVW    R31:R30, R29:R28
+   \   0000011E   E004               LDI     R16, 4
+   \   00000120   9F80               MUL     R24, R16
+   \   00000122   0DE0               ADD     R30, R0
+   \   00000124   1DF1               ADC     R31, R1
+   \   00000126   8100               LD      R16, Z
+   \   00000128   8111               LDD     R17, Z+1
+   \   0000012A   0E40               ADD     R4, R16
+   \   0000012C   1E51               ADC     R5, R17
+    129          			sum_y += position[i][1];
+   \   0000012E   8102               LDD     R16, Z+2
+   \   00000130   8113               LDD     R17, Z+3
+   \   00000132   0FA0               ADD     R26, R16
+   \   00000134   1FB1               ADC     R27, R17
+    130          		}
+   \   00000136   9583               INC     R24
+   \                     ??average1_10:
+   \   00000138   3089               CPI     R24, 9
+   \   0000013A   F380               BRCS    ??average1_11
+    131          		
+    132          		avg_x = sum_x/(SAMPLE_NUM - 2);
+   \   0000013C   E043               LDI     R20, 3
+   \   0000013E   0182               MOVW    R17:R16, R5:R4
+   \   00000140   ........           CALL    ?US_SHR_L02
+   \   00000144   9300....           STS     avg_x, R16
+   \   00000148   9310....           STS     (avg_x + 1), R17
+    133          		avg_y = sum_y/(SAMPLE_NUM - 2);
+   \   0000014C   E043               LDI     R20, 3
+   \   0000014E   018D               MOVW    R17:R16, R27:R26
+   \   00000150   ........           CALL    ?US_SHR_L02
+   \   00000154   9300....           STS     avg_y, R16
+   \   00000158   9310....           STS     (avg_y + 1), R17
+   \   0000015C   C008               RJMP    ??average1_12
+    134          	}
+    135          	else
+    136          	{
+    137          		avg_x = 0;
+   \                     ??average1_3:
+   \   0000015E   9240....           STS     avg_x, R4
+   \   00000162   9240....           STS     (avg_x + 1), R4
+    138          		avg_y = 0;
+   \   00000166   9240....           STS     avg_y, R4
+   \   0000016A   9240....           STS     (avg_y + 1), R4
+    139          	}
+    140          }
+   \                     ??average1_12:
+   \   0000016E   96A8               ADIW    R29:R28, 40
+   \   00000170   E0E6               LDI     R30, 6
+   \   00000172   ........           JMP     ?EPILOGUE_B6_L09
+   \   00000176                      REQUIRE _A_PIND
+    141          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    142          void caijicomp()
+   \                     caijicomp:
+    143          {
+    144          	
+    145          	vx=vy=0;error=0;
+   \   00000000   E010               LDI     R17, 0
+   \   00000002   9310....           STS     vy, R17
+   \   00000006   9310....           STS     (vy + 1), R17
+   \   0000000A   9310....           STS     vx, R17
+   \   0000000E   9310....           STS     (vx + 1), R17
+   \   00000012   9310....           STS     error, R17
+    146          	if(IS_PEN == 0)
+   \   00000016   994D               SBIC    0x09, 0x05
+   \   00000018   C004               RJMP    ??caijicomp_0
+    147          	{
+    148          		delay_us(20);
+   \   0000001A   E104               LDI     R16, 20
+   \   0000001C   ........           CALL    delay_us
+    149          		TOUCH_CAIJI1();  
+   \   00000020   ....               RCALL   TOUCH_CAIJI1
+    150          	}
+    151          }
+   \                     ??caijicomp_0:
+   \   00000022   9508               RET
+   \   00000024                      REQUIRE _A_PIND
+    152          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    153          void TOUCH_CAIJI1(void)    
+   \                     TOUCH_CAIJI1:
+    154          {
+    155          	LCD_DCLK_0;   
+   \   00000000   982F               CBI     0x05, 0x07
+    156          	LCD_DCST_0; 
+   \   00000002   9846               CBI     0x08, 0x06
+    157          	TOUCH_WRITE1(0Xd0);         
+   \   00000004   ED00               LDI     R16, 208
+   \   00000006   ....               RCALL   TOUCH_WRITE1
+    158          	vx = ((TOUCH_READ1()) & 0x0fff);    
+   \   00000008   ....               RCALL   TOUCH_READ1
+   \   0000000A   701F               ANDI    R17, 0x0F
+   \   0000000C   9300....           STS     vx, R16
+   \   00000010   9310....           STS     (vx + 1), R17
+    159          	LCD_DCST_1;
+   \   00000014   9A46               SBI     0x08, 0x06
+    160          	LCD_DCST_0;
+   \   00000016   9846               CBI     0x08, 0x06
+    161          	TOUCH_WRITE1(0X90);         
+   \   00000018   E900               LDI     R16, 144
+   \   0000001A   ....               RCALL   TOUCH_WRITE1
+    162          	vy = ((TOUCH_READ1()) & 0x0fff);  
+   \   0000001C   ....               RCALL   TOUCH_READ1
+   \   0000001E   701F               ANDI    R17, 0x0F
+   \   00000020   9300....           STS     vy, R16
+   \   00000024   9310....           STS     (vy + 1), R17
+    163          	LCD_DCST_1;
+   \   00000028   9A46               SBI     0x08, 0x06
+    164          }
+   \   0000002A   9508               RET
+   \   0000002C                      REQUIRE _A_PORTC
+   \   0000002C                      REQUIRE _A_PORTB
+    165          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    166          void TOUCH_WRITE1(unsigned char command)
+   \                     TOUCH_WRITE1:
+    167           { 
+   \   00000000   939A               ST      -Y, R25
+   \   00000002   938A               ST      -Y, R24
+   \   00000004   2F90               MOV     R25, R16
+    168             unsigned char count;
+    169             LCD_DCLK_0;
+   \   00000006   982F               CBI     0x05, 0x07
+    170             for (count=0;count<8;count++)
+   \   00000008   E080               LDI     R24, 0
+   \   0000000A   C009               RJMP    ??TOUCH_WRITE1_0
+    171                { 
+    172                  if (command&0x80)
+    173          		{LCD_DIN_1;}
+    174          	else
+    175          		{LCD_DIN_0;}
+   \                     ??TOUCH_WRITE1_1:
+   \   0000000C   982D               CBI     0x05, 0x05
+    176                  command<<=1;   
+   \                     ??TOUCH_WRITE1_2:
+   \   0000000E   0F99               LSL     R25
+    177                  LCD_DCLK_1;// _nop_();
+   \   00000010   9A2F               SBI     0x05, 0x07
+    178                  delay_us(10);
+   \   00000012   E00A               LDI     R16, 10
+   \   00000014   E010               LDI     R17, 0
+   \   00000016   ........           CALL    delay_us
+    179                  LCD_DCLK_0;// _nop_();
+   \   0000001A   982F               CBI     0x05, 0x07
+   \   0000001C   9583               INC     R24
+   \                     ??TOUCH_WRITE1_0:
+   \   0000001E   3088               CPI     R24, 8
+   \   00000020   F420               BRCC    ??TOUCH_WRITE1_3
+   \   00000022   FB97               BST     R25, 7
+   \   00000024   F79E               BRTC    ??TOUCH_WRITE1_1
+   \   00000026   9A2D               SBI     0x05, 0x05
+   \   00000028   CFF2               RJMP    ??TOUCH_WRITE1_2
+    180                }
+    181           }
+   \                     ??TOUCH_WRITE1_3:
+   \   0000002A   9189               LD      R24, Y+
+   \   0000002C   9199               LD      R25, Y+
+   \   0000002E   9508               RET
+   \   00000030                      REQUIRE _A_PORTB
+    182          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    183          unsigned int TOUCH_READ1(void)
+   \                     TOUCH_READ1:
+    184           {
+   \   00000000   ........           CALL    ?PROLOGUE4_L09
+    185            unsigned int  xy=0x0000;
+   \   00000004   E0A0               LDI     R26, 0
+   \   00000006   E0B0               LDI     R27, 0
+    186            unsigned char i;            
+    187          	LCD_DCLK_0;
+   \   00000008   982F               CBI     0x05, 0x07
+    188          	for (i=0;i<12;i++)
+   \   0000000A   E080               LDI     R24, 0
+   \   0000000C   C00B               RJMP    ??TOUCH_READ1_0
+    189          	{    
+    190           		xy<<=1;
+   \                     ??TOUCH_READ1_1:
+   \   0000000E   0FAA               LSL     R26
+   \   00000010   1FBB               ROL     R27
+    191          		
+    192          		if (IS_DOUT) xy++;
+   \   00000012   991E               SBIC    0x03, 0x06
+   \   00000014   9611               ADIW    R27:R26, 1
+    193          			LCD_DCLK_1; 
+   \                     ??TOUCH_READ1_2:
+   \   00000016   9A2F               SBI     0x05, 0x07
+    194          			
+    195          		delay_us(1);
+   \   00000018   E001               LDI     R16, 1
+   \   0000001A   E010               LDI     R17, 0
+   \   0000001C   ........           CALL    delay_us
+    196          		LCD_DCLK_0;               
+   \   00000020   982F               CBI     0x05, 0x07
+    197          	}
+   \   00000022   9583               INC     R24
+   \                     ??TOUCH_READ1_0:
+   \   00000024   308C               CPI     R24, 12
+   \   00000026   F398               BRCS    ??TOUCH_READ1_1
+    198          	return  xy;    
+   \   00000028   018D               MOVW    R17:R16, R27:R26
+   \   0000002A   E0E4               LDI     R30, 4
+   \   0000002C   ........           JMP     ?EPILOGUE_B4_L09
+   \   00000030                      REQUIRE _A_PORTB
+   \   00000030                      REQUIRE _A_PINB
+    199           }
+    200          //校准触摸屏，并将校准值存入EEPROM
+    201          /*
+    202          unsigned char TOUCH_adj()
+    203          {
+    204          	float tempx, tempy;
+    205          	LCD_touchadj1();
+    206          	LCD_dischar1616(ICON1616[11], 48, 144);
+    207          	while(BIT_NCHK(eventflag2_g,5)) //flag in interrupt
+    208          		{NOP();}
+    209          	BIT_CLR(eventflag2_g,5);
+    210          	BIT_CLR(EIMSK, INT4);
+    211          	average1();
+    212          	delay_us(10);
+    213          	BIT_SET(EIFR,4);
+    214          	BIT_SET(EIMSK, INT4);
+    215          	BEEPON;
+    216          	xmin=avg_x;
+    217          	ymin=avg_y;
+    218          	LCD_touchadj2();
+    219          	LCD_dischar1616(ICON1616[9], 0, 0);
+    220          	
+    221          	while(BIT_NCHK(eventflag2_g,5))
+    222          		{NOP();}
+    223          	BIT_CLR(eventflag2_g,5);
+    224          	BIT_CLR(EIMSK, INT4);
+    225          	average1();
+    226          	delay_us(10);
+    227          	BIT_SET(EIFR,4);
+    228          	BIT_SET(EIMSK, INT4);
+    229          	BEEPON;
+    230          	xmax=avg_x;
+    231          	ymax=avg_y;
+    232          	cell_W=xmax-xmin;
+    233          	cell_H=ymax-ymin;
+    234          	LCD_Clr();
+    235          	if ((cell_W<1600)||(cell_W>1800)||(cell_H<1600)||(cell_H>1800))
+    236          		return 1;
+    237          	x_para = (float) (xmax-xmin);
+    238          	y_para = (float) (ymax-ymin);
+    239          	x_para = x_para/160.0;
+    240          	y_para = y_para/160.0;
+    241          	tempx=x_para*1000.0;
+    242          	tempy=y_para*1000.0;
+    243          	
+    244          	cell_W=(unsigned int)tempx;   //X坐标
+    245          	cell_H=(unsigned int)tempy;   //Y坐标
+    246          	
+    247          	LCD_Clr();
+    248          
+    249          	__EEPUT(EEPROM_TOUCHADR,xmin/256);
+    250          	__EEPUT(EEPROM_TOUCHADR+1,xmin%256);
+    251          	__EEPUT(EEPROM_TOUCHADR+2,xmax/256);
+    252          	__EEPUT(EEPROM_TOUCHADR+3,xmax%256);
+    253          	__EEPUT(EEPROM_TOUCHADR+4,ymin/256);
+    254          	__EEPUT(EEPROM_TOUCHADR+5,ymin%256);
+    255          	__EEPUT(EEPROM_TOUCHADR+6,ymax/256);
+    256          	__EEPUT(EEPROM_TOUCHADR+7,ymax%256);
+    257          
+    258          return 0;
+    259          }
+    260          */
+    261          //获取触摸屏的按键值
+    262          /*
+    263          unsigned char TOUCH_getkeynumber()
+    264          {
+    265          unsigned int i;
+    266          TOUCH_getdata();
+    267          	for(i=PageList[screen_number_g].startkey;i<=PageList[screen_number_g].endkey;i++)
+    268          	{
+    269          	if ((avg_x>=KeyList[i].start_x)&&(avg_x<=KeyList[i].end_x)&&(avg_y>=KeyList[i].start_y)&&(avg_y<=KeyList[i].end_y))
+    270          		return KeyList[i].key_number;
+    271          	}
+    272          return 255;
+    273          }
+    274          */
+
+   Maximum stack usage in bytes:
+
+     Function                CSTACK RSTACK
+     --------                ------ ------
+     TOUCH_CAIJI1                0      2
+       -> TOUCH_WRITE1           0      2
+       -> TOUCH_READ1            0      2
+       -> TOUCH_WRITE1           0      2
+       -> TOUCH_READ1            0      2
+     TOUCH_READ1                 4      2
+       -> delay_us               4      2
+     TOUCH_WRITE1                2      2
+       -> delay_us               2      2
+     TOUCH_getdata               0      2
+       -> average1               0      2
+     average1                   46      4
+       -> timer_flex_initial    46      2
+       -> TOUCH_CAIJI1          46      2
+       -> delay_us              46      2
+     caijicomp                   0      2
+       -> delay_us               0      2
+       -> TOUCH_CAIJI1           0      2
+     delay                       0      2
+
+
+   Segment part sizes:
+
+     Function/Label Bytes
+     -------------- -----
+     _A_PIND           1
+     _A_PORTC          1
+     _A_PORTB          1
+     _A_PINB           1
+     error             1
+     delay            22
+     TOUCH_getdata     4
+     average1        374
+     caijicomp        36
+     TOUCH_CAIJI1     44
+     TOUCH_WRITE1     48
+     TOUCH_READ1      48
+      Others           6
+
+ 
+   4 bytes in segment ABSOLUTE
+ 576 bytes in segment CODE
+   6 bytes in segment INITTAB
+   1 byte  in segment NEAR_Z
+ 
+ 576 bytes of CODE memory (+ 6 bytes shared)
+   1 byte  of DATA memory (+ 4 bytes shared)
+
+Errors: none
+Warnings: none

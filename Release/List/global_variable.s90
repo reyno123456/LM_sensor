@@ -1,0 +1,1569 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:20:50 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\global_variable.c                 /
+//    Command line =  D:\avr\LM_Finial_Test\global_variable.c --cpu=m644p     /
+//                    -ms -o D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D  /
+//                    LM018 -D FINAL_VERSION2 -lCN                            /
+//                    D:\avr\LM_Finial_Test\Release\List\ -lA                 /
+//                    D:\avr\LM_Finial_Test\Release\List\ --diag_suppress     /
+//                    Pa082,Pe167,Pe186 --initializers_in_flash -z6           /
+//                    --no_inline --no_cross_call --no_tbaa                   /
+//                    -DENABLE_BIT_DEFINITIONS -e -I "C:\Program Files\IAR    /
+//                    Systems\Embedded Workbench 5.3\avr\INC\" -I             /
+//                    "C:\Program Files\IAR Systems\Embedded Workbench        /
+//                    5.3\avr\INC\CLIB\" --eeprom_size 2048                   /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\global_variable.s90  /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME global_variable
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?S_EC_MUL_L02
+        EXTERN ?need_segment_init
+        EXTERN __eeget16_16
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC Configurators
+        PUBLIC DLL
+        PUBLIC Delay_Time_set
+        PUBLIC First_detection_enable
+        PUBLIC IR_reception
+        PUBLIC KO
+        PUBLIC KO_conf
+        PUBLIC M2_timer
+        PUBLIC M2_timer_count
+        PUBLIC M2_type
+        PUBLIC Menu_status
+        PUBLIC PIR_detection_en
+        PUBLIC SCS_received
+        PUBLIC Sensor_mode
+        PUBLIC Time_delay
+        PUBLIC US_detection_en
+        PUBLIC Walk_Through_flag
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC avg_x
+        PUBLIC avg_y
+        PUBLIC cell_H
+        PUBLIC cell_W
+        PUBLIC daylight
+        PUBLIC daylight_motion
+        PUBLIC during_off_cnt
+        PUBLIC during_on_cnt
+        PUBLIC ee_ID
+        PUBLIC ee_KO
+        PUBLIC ee_KO_conf
+        PUBLIC ee_KO_last
+        PUBLIC ee_configurators
+        PUBLIC ee_factory_variable
+        PUBLIC ee_flags
+        PUBLIC ee_hard
+        PUBLIC ee_main_state
+        PUBLIC ee_model
+        PUBLIC ee_page
+        PUBLIC ee_page_address
+        PUBLIC ee_parameter
+        PUBLIC ee_printed_id
+        PUBLIC ee_product_information
+        PUBLIC ee_scenario
+        PUBLIC ee_scenario_index
+        PUBLIC ee_slope
+        PUBLIC ee_soft
+        PUBLIC ee_variable
+        PUBLIC ee_week
+        PUBLIC ee_year
+        PUBLIC eep_M2_hour
+        PUBLIC eep_M2_min
+        PUBLIC eep_M2_sec
+        PUBLIC eep_M2_sens
+        PUBLIC eep_factor
+        PUBLIC eep_setpoint
+        PUBLIC error_109
+        PUBLIC eventflag2_g
+        PUBLIC flag_timer
+        PUBLIC flags
+        PUBLIC flags_muti_step
+        PUBLIC flash_KO
+        PUBLIC flash_KO_119
+        PUBLIC flash_KO_128
+        PUBLIC flash_KO_165
+        PUBLIC flash_KO_166
+        PUBLIC flash_KO_168
+        PUBLIC flash_KO_515
+        PUBLIC g_asc_reception_buffer
+        PUBLIC g_asc_short_buffer
+        PUBLIC g_configurator
+        PUBLIC g_dataflash_page_address
+        PUBLIC g_hard
+        PUBLIC g_ir_reception
+        PUBLIC g_key_value
+        PUBLIC g_lux
+        PUBLIC g_model
+        PUBLIC g_ns_index
+        PUBLIC g_page_buffer
+        PUBLIC g_reception_buffer
+        PUBLIC g_short_buffer
+        PUBLIC g_slope
+        PUBLIC g_soft
+        PUBLIC g_temp
+        PUBLIC g_timer2_flag
+        PUBLIC g_virtual_basci_configuration_flag
+        PUBLIC g_week
+        PUBLIC g_year
+        PUBLIC global_variable_initial
+        FUNCTION global_variable_initial,0201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC key_result
+        PUBLIC modality0_delay_ms
+        PUBLIC motion
+        PUBLIC motion_resutl
+        PUBLIC motion_total
+        PUBLIC parameters
+        PUBLIC pir
+        PUBLIC pir_total
+        PUBLIC product_info
+        PUBLIC product_information
+        PUBLIC scs_frame
+        PUBLIC set_point
+        PUBLIC state
+        PUBLIC stru_sensor
+        PUBLIC temp_product_information
+        PUBLIC temp_variable
+        PUBLIC tx1_buffer
+        PUBLIC tx1_counter
+        PUBLIC tx1_rd_index
+        PUBLIC tx1_wr_index
+        PUBLIC us_result
+        PUBLIC us_total
+        PUBLIC vx
+        PUBLIC vy
+        PUBLIC x_para
+        PUBLIC xmax
+        PUBLIC xmin
+        PUBLIC y_para
+        PUBLIC ymax
+        PUBLIC ymin
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+// D:\avr\LM_Finial_Test\global_variable.c
+//    1 #include "moudle_SCS.h"
+//    2 #include "IR.h"
+//    3 #include "application.h"
+//    4 #include "PIR.h"
+//    5 #include "board.h"
+//    6 
+//    7 //unsigned char scs_frame[5][20];
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//    8 unsigned char g_soft[] = "000000";
+g_soft:
+        DS8 7
+        REQUIRE `?<Initializer for g_soft>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//    9 unsigned char g_hard[] = "00";
+g_hard:
+        DS8 3
+        REQUIRE `?<Initializer for g_hard>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   10 unsigned char g_year[] = "00";
+g_year:
+        DS8 3
+        REQUIRE `?<Initializer for g_year>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   11 unsigned char g_week[] = "00";
+g_week:
+        DS8 3
+        REQUIRE `?<Initializer for g_week>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   12 unsigned char g_model[] = "000000";
+g_model:
+        DS8 7
+        REQUIRE `?<Initializer for g_model>`
+//   13 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   14 __eeprom unsigned char ee_soft[] = "010600";
+ee_soft:
+        DC8 "010600"
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   15 __eeprom unsigned char ee_hard[] = "01";
+ee_hard:
+        DC8 "01"
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   16 __eeprom unsigned char ee_year[] = "09";
+ee_year:
+        DC8 "09"
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   17 __eeprom unsigned char ee_week[] = "50";
+ee_week:
+        DC8 "50"
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   18 __eeprom unsigned char ee_model[] = "062020";
+ee_model:
+        DC8 "062020"
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   19 __eeprom unsigned char ee_printed_id[] = "00050000";
+ee_printed_id:
+        DC8 "00050000"
+//   20 
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//   21 __flash const unsigned char error_109[] = "  Error: 109 ";
+error_109:
+        DC8 "  Error: 109 "
+//   22 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   23 unsigned char g_page_buffer[256];
+g_page_buffer:
+        DS8 256
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   24 struct S_sensor_info stru_sensor = {
+stru_sensor:
+        DS8 38
+        REQUIRE `?<Initializer for stru_sensor>`
+//   25 "0950",
+//   26 "00050000",
+//   27 "020",
+//   28 "02",
+//   29 "01",
+//   30 "010600",
+//   31 "040523",
+//   32 };
+//   33 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   34 __eeprom unsigned int ee_page = 0;
+ee_page:
+        DC16 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   35 __eeprom unsigned int ee_page_address = 0;
+ee_page_address:
+        DC16 0
+//   36 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   37 volatile unsigned int g_dataflash_page_address = 0;
+g_dataflash_page_address:
+        DS8 2
+//   38 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   39 unsigned char g_lux[5];
+g_lux:
+        DS8 5
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   40 unsigned char g_timer2_flag = 0;
+g_timer2_flag:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   41 unsigned char g_temp;
+g_temp:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   42 volatile struct struct_scs_frame scs_frame[DEEP];
+scs_frame:
+        DS8 840
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   43 volatile unsigned char g_configurator[5];
+g_configurator:
+        DS8 5
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   44 volatile struct SConfigurators Configurators;
+Configurators:
+        DS8 6
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   45 volatile struct SKO_Configuration KO_conf;
+KO_conf:
+        DS8 50
+//   46 //__eeprom struct SKO_Configuration ee_PnG_KO_conf;
+//   47 //struct SKO_Configuration temp_KO_conf;
+//   48 volatile struct SState state;
+//   49 //volatile struct Sframe_extended_type frame_extended_type;
+//   50 volatile unsigned char g_reception_buffer[17];
+//   51 volatile unsigned char g_asc_reception_buffer[8];
+//   52 volatile unsigned char g_short_buffer[8];
+//   53 volatile unsigned char g_asc_short_buffer[4];
+//   54 volatile unsigned char g_ir_reception[14];
+//   55 volatile struct Sproduct_info product_info;
+//   56 volatile struct SIR_reception IR_reception;
+//   57 volatile struct Sflag_timer flag_timer;
+//   58 volatile struct SDll DLL;
+//   59 volatile struct STimeDelay Time_delay;
+//   60 volatile struct PIR pir;
+//   61 volatile unsigned int pir_total = 0;
+//   62 volatile unsigned char us_result = 0;
+//   63 volatile unsigned int us_total = 0;
+//   64 volatile unsigned int motion_total = 0;
+//   65 volatile unsigned char US_detection_en;
+//   66 volatile unsigned long int modality0_delay_ms;
+//   67 volatile unsigned char g_key_value = 0;
+//   68 volatile unsigned char g_virtual_basci_configuration_flag = 0;
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   69 const int daylight_motion[] = {515,168,166,119,128,164,165};
+daylight_motion:
+        DS8 14
+        REQUIRE `?<Initializer for daylight_motion>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   70 const int daylight[] = {516,166,164};
+daylight:
+        DS8 6
+        REQUIRE `?<Initializer for daylight>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   71 const int motion[] = {511,119,165,122};
+motion:
+        DS8 8
+        REQUIRE `?<Initializer for motion>`
+//   72 volatile struct Ukey_result key_result;
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   73 __eeprom unsigned char g_ns_index;
+g_ns_index:
+        DC8 0
+//   74 volatile struct s_flags flags;
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   75 __eeprom struct s_ee_flags ee_flags;
+ee_flags:
+        DC8 0, 0
+//   76 volatile unsigned char PIR_detection_en;   // add by alan 20090409
+//   77 
+//   78 volatile char tx1_buffer[TX1_BUFFER_SIZE];
+//   79 volatile unsigned char tx1_wr_index,tx1_rd_index,tx1_counter;
+//   80 
+//   81 volatile unsigned char eventflag2_g=0;
+//   82 unsigned int  cell_W,cell_H, vx,vy,avg_x,avg_y,xmin,ymin,xmax,ymax;
+//   83 float	  x_para,y_para;
+//   84 char	  Menu_status;	//alan
+//   85 struct S_product_information product_information;
+//   86 struct S_product_information temp_product_information;
+//   87 volatile unsigned char KO[4];
+//   88 struct s_parameters parameters;
+//   89 struct s_temp_variable temp_variable;
+//   90 struct s_flags_muti_step flags_muti_step;
+//   91 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   92 __eeprom struct s_ee_variable ee_variable;
+ee_variable:
+        DC8 0, 0
+//   93 
+//   94 #ifdef NONE_CONFED_203
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   95   __eeprom unsigned char ee_KO_last[4] = {'0','2','0','3'};
+ee_KO_last:
+        DC8 48, 50, 48, 51
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   96   const unsigned char flash_KO[4] = {'0','2','0','3'};
+flash_KO:
+        DS8 4
+        REQUIRE `?<Initializer for flash_KO>`
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   97   __eeprom unsigned char ee_KO[4] = {'0','2','0','3'};
+ee_KO:
+        DC8 48, 50, 48, 51
+//   98 
+//   99 #ifdef LM018
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  100 	__eeprom struct s_parameter ee_parameter={'0','F','2','0','2','0',
+ee_parameter:
+        DC8 48, 70, 50, 48, 50, 48, 48, 49, 48, 48, 48, 48, 48, 49, 48, 57, 50
+        DC8 56
+//  101 																						'0','1','0','0','0','0',		//software version
+//  102 																						'0','1','0','9','2','8'};		//hardware version
+//  103 #endif
+//  104 	
+//  105 #ifdef LM056
+//  106 	__eeprom struct s_parameter ee_parameter={'0','F','2','0','2','1',
+//  107 																						'0','1','0','0','0','0',
+//  108 																						'0','1','0','9','2','8'};
+//  109 #endif
+//  110 	
+//  111 #ifdef LM057
+//  112 	__eeprom struct s_parameter ee_parameter={'0','F','2','2','2','2',
+//  113 																						'0','1','0','0','0','0',
+//  114 																						'0','1','0','9','2','8'};
+//  115 #endif
+//  116 	
+//  117 #ifdef LM076
+//  118 	__eeprom struct s_parameter ee_parameter={'0','F','2','0','2','4',
+//  119 																						'0','1','0','0','0','0',
+//  120 																						'0','1','0','9','2','8'};
+//  121 #endif
+//  122 	
+//  123 #ifdef LM077
+//  124 	__eeprom struct s_parameter ee_parameter={'0','F','2','0','2','3',
+//  125 																						'0','1','0','0','0','0',
+//  126 																						'0','1','0','9','2','8'};
+//  127 #endif
+//  128 	
+//  129 #ifdef LM020
+//  130 	__eeprom struct s_parameter ee_parameter={'0','F','2','0','2','9',
+//  131 																						'0','1','0','0','0','0',
+//  132 																						'0','1','0','9','2','8'};
+//  133 #endif
+//  134 /*	
+//  135 #ifdef HARDWARE_PIR
+//  136 	__eeprom struct s_parameter ee_parameter={'0','5','2','0','2','0',
+//  137 																						'0','1','0','1','0','1',
+//  138 																						'0','1','0','1','0','1'};
+//  139 #endif
+//  140 	
+//  141 #ifdef HARDWARE_US
+//  142 	__eeprom struct s_parameter ee_parameter={'0','5','2','0','2','1',
+//  143 																						'0','1','0','1','0','1',
+//  144 																						'0','1','0','1','0','1'};
+//  145 #endif
+//  146 	
+//  147 #ifdef HARDWARE_PIR_US
+//  148   __eeprom struct s_parameter ee_parameter={'0','5','2','2','2','2',
+//  149 																						'0','1','0','1','0','1',
+//  150 																						'0','1','0','1','0','1'};
+//  151 #endif
+//  152 	
+//  153 #ifdef DAYLIGHT_ONLY
+//  154 	__eeprom struct s_parameter ee_parameter={'0','5','2','2','2','8',
+//  155 																						'0','1','0','1','0','1',
+//  156 																						'0','1','0','1','0','1'};
+//  157 #endif
+//  158 */
+//  159 #ifdef WALLCORNER
+//  160   __flash struct SKO_Configuration flash_KO_168=
+//  161   {
+//  162 	  0,	0,	1,	0,	0,	//4
+//  163 		0,	0,	0,	0,	0,	//9
+//  164 		0,	15,	0,	1,	0,	//14
+//  165 		0,	0,	0,	0,	0,	//19
+//  166 		3,	2,	10,	0,	10,	//24
+//  167 		60,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  168 		3,	4,	4,	0, 0				//34
+//  169 	};
+//  170 #else
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  171 	__flash struct SKO_Configuration flash_KO_168=
+flash_KO_168:
+        DC8 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 0, 0, 0, 0, 0, 0, 3, 2
+        DC8 50, 0, 10, 100, 255, 0, 0, 2, 3, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  172   {
+//  173 	  0,	0,	1,	0,	0,	//4
+//  174 		0,	0,	0,	0,	0,	//9
+//  175 		0,	15,	0,	1,	0,	//14
+//  176 		0,	0,	0,	0,	0,	//19
+//  177 		3,	2,	50,	0,	10,	//24
+//  178 		100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  179 		3,	4,	4,	0, 0				//34
+//  180 	};
+//  181 #endif
+//  182 
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  183   __flash struct SKO_Configuration flash_KO_166=
+flash_KO_166:
+        DC8 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  184   {
+//  185 	  0,	0,	1,	0,	0,	//4
+//  186 		0,	0,	0,	0,	0,	//9
+//  187 		0,	0,	0,	0,	0,	//14
+//  188 		0,	0,	0,	0,	0,	//19
+//  189 		0,	0,	0,	0,	0,	//24
+//  190 		0,	0,	0,	0,	1,	//29	default daylight 88 * 10 = 880(ADC value)
+//  191 		0,	0,	0,	0, 0				//34
+//  192 	};
+//  193 
+//  194 #ifdef WALLCORNER
+//  195   __flash struct SKO_Configuration flash_KO_119=
+//  196   {
+//  197 	  0,	0,	1,	0,	0,	//4
+//  198 		0,	0,	0,	0,	0,	//9
+//  199 		0,	15,	0,	1,	0,	//14
+//  200 		0,	0,	0,	0,	0,	//19
+//  201 		3,	2,	1,	0,	10,	//24
+//  202 		60,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  203 		3,	4,	4,	0,  0				//34
+//  204 	};
+//  205 #else
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  206 	__flash struct SKO_Configuration flash_KO_119=
+flash_KO_119:
+        DC8 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 0, 0, 0, 0, 0, 0, 3, 2
+        DC8 5, 0, 10, 100, 255, 0, 0, 2, 3, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  207   {
+//  208 	  0,	0,	1,	0,	0,	//4
+//  209 		0,	0,	0,	0,	0,	//9
+//  210 		0,	15,	0,	1,	0,	//14
+//  211 		0,	0,	0,	0,	0,	//19
+//  212 		3,	2,	5,	0,	10,	//24
+//  213 		100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  214 		3,	4,	4,	0,  0				//34
+//  215 	};
+//  216 #endif
+//  217 
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  218   __flash struct SKO_Configuration flash_KO_128=
+flash_KO_128:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 1
+        DC8 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  219   {
+//  220 	  0,	0,	0,	0,	0,	//4
+//  221 		0,	0,	0,	0,	0,	//9
+//  222 		0,	0,	30,	0,	0,	//14
+//  223 		0,	0,	0,	0,	0,	//19
+//  224 		1,	1,	4,	0,	0,	//24
+//  225 		0,	0,	0,	0,	0,	//29	default daylight 88 * 10 = 880(ADC value)
+//  226 		0,	0,	0,	0, 0				//34
+//  227 	};
+//  228 
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  229   __flash struct SKO_Configuration flash_KO_165=
+flash_KO_165:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 1
+        DC8 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  230   {
+//  231 	  0,	0,	0,	0,	0,	//4
+//  232 		0,	0,	0,	0,	0,	//9
+//  233 		0,	0,	30,	0,	0,	//14
+//  234 		0,	0,	0,	0,	0,	//19
+//  235 		1,	1,	4,	0,	0,	//24
+//  236 		0,	0,	0,	0,	0,	//29	default daylight 88 * 10 = 880(ADC value)
+//  237 		0,	0,	0,	0, 0				//34
+//  238 	};
+//  239 	
+
+        RSEG NEAR_F:CODE:NOROOT(0)
+//  240 	__flash struct SKO_Configuration flash_KO_515=
+flash_KO_515:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  241   {
+//  242 	  0,	0,	0,	0,	0,	//4
+//  243 		0,	0,	0,	0,	0,	//9
+//  244 		0,	0,	0,	0,	0,	//14
+//  245 		0,	0,	0,	0,	0,	//19
+//  246 		0,	0,	0,	0,	0,	//24
+//  247 		0,	0,	0,	0,	0,	//29	default daylight 88 * 10 = 880(ADC value)
+//  248 		0,	0,	0,	0, 0				//34
+//  249 	};
+//  250 #endif
+//  251 
+//  252  #ifdef NONE_CONFED_204
+//  253   const unsigned char flash_KO[4] = {'0','2','0','4'};
+//  254    __eeprom unsigned char ee_KO[4] = {'0','2','0','4'};
+//  255    __eeprom struct s_parameter ee_parameter={'0','5','2','0','2','0',
+//  256 																							'0','1','0','1','0','1',
+//  257 																							'0','1','0','1','0','1'};
+//  258  #endif
+//  259 
+//  260 #ifdef NONE_CONFED_1FF
+//  261    const unsigned char flash_KO[4] = {'0','1','F','F'};
+//  262    __eeprom unsigned char ee_KO[4] = {'0','1','F','F'};
+//  263    __eeprom struct s_parameter ee_parameter={'0','5','2','0','2','1',
+//  264 																							'0','1','0','1','0','1',
+//  265 																							'0','1','0','1','0','1'};
+//  266 #endif
+//  267 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  268 __eeprom struct SConfigurators ee_configurators=
+ee_configurators:
+        DC8 48, 48, 48, 48, 48, 48
+//  269 {
+//  270   '0','0','0','0','0','0'
+//  271 };
+//  272 
+//  273 #ifdef LM018
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  274 __eeprom struct SKO_Configuration ee_KO_conf=
+ee_KO_conf:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0
+        DC8 5, 0, 10, 100, 255, 0, 0, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0
+//  275 {
+//  276   0,	0,	0,	0,	0,	//4
+//  277 	0,	0,	0,	0,	0,	//9
+//  278 	0,	15,	0,	0,	0,	//14
+//  279 	0,	0,	0,	0,	0,	//19
+//  280 	3,	0,	5,	0,	10,	//24
+//  281 	100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  282 	1,	1,	1,	0, 0		//34
+//  283 };
+//  284 #endif
+//  285 
+//  286 #ifdef LM057
+//  287 __eeprom struct SKO_Configuration ee_KO_conf=
+//  288 {
+//  289   0,	0,	0,	0,	0,	//4
+//  290 	0,	0,	0,	0,	0,	//9
+//  291 	0,	15,	0,	0,	0,	//14
+//  292 	0,	0,	0,	0,	0,	//19
+//  293 	3,	2,	5,	0,	10,	//24
+//  294 	100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  295 	3,	4,	4,	0, 0		//34
+//  296 };
+//  297 #endif
+//  298 
+//  299 #ifdef LM056
+//  300 __eeprom struct SKO_Configuration ee_KO_conf=
+//  301 {
+//  302   0,	0,	0,	0,	0,	//4
+//  303 	0,	0,	0,	0,	0,	//9
+//  304 	0,	15,	0,	0,	0,	//14
+//  305 	0,	0,	0,	0,	0,	//19
+//  306 	3,	2,	5,	0,	10,	//24
+//  307 	100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  308 	2,	2,	2,	0, 0		//34
+//  309 };
+//  310 #endif
+//  311 
+//  312 #ifdef LM077
+//  313 __eeprom struct SKO_Configuration ee_KO_conf=
+//  314 {
+//  315   0,	0,	0,	0,	0,	//4
+//  316 	0,	0,	0,	0,	0,	//9
+//  317 	0,	15,	0,	0,	0,	//14
+//  318 	0,	0,	0,	0,	0,	//19
+//  319 	3,	2,	1,	0,	10,	//24
+//  320 	60,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  321 	3,	4,	4,	0, 0		//34
+//  322 };
+//  323 #endif
+//  324 
+//  325 #ifdef LM076
+//  326 __eeprom struct SKO_Configuration ee_KO_conf=
+//  327 {
+//  328   0,	0,	0,	0,	0,	//4
+//  329 	0,	0,	0,	0,	0,	//9
+//  330 	0,	15,	0,	0,	0,	//14
+//  331 	0,	0,	0,	0,	0,	//19
+//  332 	3,	2,	1,	0,	10,	//24
+//  333 	60,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  334 	1,	1,	1,	0, 0		//34
+//  335 };
+//  336 #endif
+//  337 
+//  338 #ifdef LM020
+//  339 __eeprom struct SKO_Configuration ee_KO_conf=
+//  340 {
+//  341   0,	0,	0,	0,	0,	//4
+//  342 	0,	0,	0,	0,	0,	//9
+//  343 	0,	15,	0,	0,	0,	//14
+//  344 	0,	0,	0,	0,	0,	//19
+//  345 	3,	0,	5,	0,	10,	//24
+//  346 	100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  347 	1,	1,	1,	0, 0		//34
+//  348 };
+//  349 #endif
+//  350 
+//  351 #ifdef LM028
+//  352 __eeprom struct SKO_Configuration ee_KO_conf=
+//  353 {
+//  354   0,	0,	0,	0,	0,	//4
+//  355 	0,	0,	0,	0,	0,	//9
+//  356 	0,	15,	0,	0,	0,	//14
+//  357 	0,	0,	0,	0,	0,	//19
+//  358 	3,	0,	5,	0,	10,	//24
+//  359 	100,	255,	0,	0,	2,	//29	default daylight 88 * 10 = 880(ADC value)
+//  360 	1,	1,	1,	0, 0		//34
+//  361 };
+//  362 #endif
+//  363 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  364 __eeprom volatile unsigned char ee_ID[9] = {'0','0','0','5','5','4','F','E','0'};
+ee_ID:
+        DC8 48, 48, 48, 53, 53, 52, 70, 69, 48
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  365 __eeprom struct S_product_information ee_product_information =
+ee_product_information:
+        DC8 2, 0, 48, 48, 0, 0, 0
+//  366 {
+//  367   2,0,'0','0',0,0
+//  368 };
+//  369 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  370 __eeprom unsigned char ee_scenario_index = 0;
+ee_scenario_index:
+        DC8 0
+//  371 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  372 __eeprom struct s_scenario  ee_scenario[SCENARIO_NUMBER] =
+ee_scenario:
+        DC8 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1
+        DC8 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0
+        DC8 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0
+        DC8 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1
+        DC8 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
+//  373 {
+//  374   1,1,0,0,0,0,0,
+//  375 	1,1,0,0,0,0,0,
+//  376 	1,1,0,0,0,0,0,
+//  377 	1,1,0,0,0,0,0,
+//  378 	1,1,0,0,0,0,0,
+//  379 	1,1,0,0,0,0,0,
+//  380 	1,1,0,0,0,0,0,
+//  381 	1,1,0,0,0,0,0,
+//  382 	1,1,0,0,0,0,0,
+//  383 	1,1,0,0,0,0,0,
+//  384 	1,1,0,0,0,0,0,
+//  385 	1,1,0,0,0,0,0,
+//  386 	1,1,0,0,0,0,0,
+//  387 	1,1,0,0,0,0,0,
+//  388 	1,1,0,0,0,0,0,
+//  389 	1,1,0,0,0,0,0
+//  390 };
+//  391 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  392 __eeprom struct s_factory_variable ee_factory_variable = {0,0,0,0};
+ee_factory_variable:
+        DC16 0, 0, 0, 0
+//  393 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  394 __eeprom unsigned int ee_main_state = 0;
+ee_main_state:
+        DC16 0
+//  395 double g_slope;
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  396 __eeprom double ee_slope = 1;
+ee_slope:
+        DD 3F800000H
+//  397 
+//  398 //************************** add by alan begin 	*****************************//
+//  399 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  400  	__eeprom unsigned int  eep_setpoint[4];
+eep_setpoint:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  401  	__eeprom unsigned int  eep_factor;	
+eep_factor:
+        DC8 0, 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  402 	__eeprom unsigned char eep_M2_hour;	
+eep_M2_hour:
+        DC8 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  403  	__eeprom unsigned char eep_M2_min;	
+eep_M2_min:
+        DC8 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  404  	__eeprom unsigned char eep_M2_sec;
+eep_M2_sec:
+        DC8 0
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//  405  	__eeprom unsigned char eep_M2_sens;
+eep_M2_sens:
+        DC8 0
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+IR_reception:
+        DS8 18
+//  406  	unsigned long int   M2_timer;
+//  407 	unsigned long int   M2_timer_count;
+//  408 	unsigned char 	  	M2_type;
+//  409 	unsigned char       motion_resutl;
+//  410 	unsigned int        set_point;
+//  411 	volatile unsigned long int Delay_Time_set;
+//  412 	unsigned char 	during_on_cnt;
+//  413  	unsigned char 	during_off_cnt;
+//  414 	unsigned char 	Walk_Through_flag;
+//  415  	unsigned char 	First_detection_enable;
+//  416 
+//  417 	struct SSensor_mode Sensor_mode;
+Sensor_mode:
+        DS8 10
+state:
+        DS8 7
+flags:
+        DS8 14
+key_result:
+        DS8 2
+us_result:
+        DS8 1
+flags_muti_step:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_reception_buffer:
+        DS8 17
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_asc_reception_buffer:
+        DS8 8
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_short_buffer:
+        DS8 8
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_asc_short_buffer:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_ir_reception:
+        DS8 14
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+product_info:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+flag_timer:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+DLL:
+        DS8 215
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Time_delay:
+        DS8 314
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+pir:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+pir_total:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+us_total:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+motion_total:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+US_detection_en:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+modality0_delay_ms:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_key_value:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_virtual_basci_configuration_flag:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+PIR_detection_en:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+tx1_buffer:
+        DS8 14
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+tx1_wr_index:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+tx1_rd_index:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+tx1_counter:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+eventflag2_g:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+cell_W:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+cell_H:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+vx:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+vy:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+avg_x:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+avg_y:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+xmin:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+ymin:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+xmax:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+ymax:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+x_para:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+y_para:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Menu_status:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+product_information:
+        DS8 7
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+temp_product_information:
+        DS8 7
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+KO:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+parameters:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+temp_variable:
+        DS8 20
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+g_slope:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+M2_timer:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+M2_timer_count:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+M2_type:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+motion_resutl:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+set_point:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Delay_Time_set:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+during_on_cnt:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+during_off_cnt:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Walk_Through_flag:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+First_detection_enable:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  418 	struct SSCS_received SCS_received;
+SCS_received:
+        DS8 5
+//  419 
+//  420 
+//  421 //************************** add by alan end	***************************//
+//  422 	
+
+        RSEG CODE:CODE:NOROOT(1)
+//  423 void global_variable_initial()
+global_variable_initial:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function global_variable_initial
+//  424 {
+        MOV     R19, R27
+        MOV     R22, R26
+//  425 	unsigned char i;
+//  426 	unsigned char j;
+//  427 
+//  428 	for(i=0;i<DEEP;i++)
+        LDI     R20, 0
+        RJMP    ??global_variable_initial_0
+//  429 	{
+//  430 		scs_frame[i].next = 0;
+//  431 		scs_frame[i].finished = 0;
+//  432 		scs_frame[i].decoded = 0;
+//  433 		for(j = 0;j< NUMBER_BYTE_SCS;j++)
+//  434 		{
+//  435 			scs_frame[i].byte[j] = 0;
+??global_variable_initial_1:
+        MOVW    R27:R26, R31:R30
+        ADD     R26, R16
+        ADC     R27, R21
+        ST      X, R21
+//  436 		}
+        INC     R16
+??global_variable_initial_2:
+        CPI     R16, 20
+        BRCS    ??global_variable_initial_1
+        INC     R20
+??global_variable_initial_0:
+        CPI     R20, 35
+        BRCC    ??global_variable_initial_3
+        LDI     R21, 0
+        LDI     R16, 24
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R30, LOW(scs_frame)
+        LDI     R31, (scs_frame) >> 8
+        ADD     R30, R16
+        ADC     R31, R17
+        LDI     R16, 0
+        STD     Z+21, R21
+        STD     Z+22, R21
+        STD     Z+23, R21
+        RJMP    ??global_variable_initial_2
+//  437 	}
+//  438 
+//  439 	state.programming = 0;
+??global_variable_initial_3:
+        LDI     R30, LOW(IR_reception)
+        LDI     R31, (IR_reception) >> 8
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFE
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  440 	state.test = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFD
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  441 	state.normal = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFB
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  442 
+//  443 	//frame_extended_type.D0 = 0;
+//  444 	//frame_extended_type.D1 = 0;
+//  445 	//frame_extended_type.D2 = 0;
+//  446 	//frame_extended_type.D5 = 0;
+//  447 
+//  448 	IR_reception.CRC_OK = 0;
+        LDI     R16, 0
+        STD     Z+17, R16
+//  449 
+//  450 	Time_delay.timer_20s.count = 0;
+        LDI     R18, 0
+        LDI     R26, LOW((Time_delay + 83))
+        LDI     R27, HIGH((Time_delay + 83))
+        ST      X+, R16
+        ST      X+, R16
+        ST      X+, R16
+        ST      X, R16
+//  451 	Time_delay.timer_20s.time_out = 0;
+        STS     (Time_delay + 91), R16
+//  452 	Time_delay.timer_20s.enabled = 0;
+        STS     (Time_delay + 92), R16
+//  453 	Time_delay.timer_20s.started = 0;
+        STS     (Time_delay + 93), R16
+//  454 
+//  455 	Time_delay.timer_5m.count = 0;
+        LDI     R26, LOW((Time_delay + 72))
+        LDI     R27, HIGH((Time_delay + 72))
+        ST      X+, R16
+        ST      X+, R16
+        ST      X+, R16
+        ST      X, R16
+//  456 	Time_delay.timer_5m.time_out = 0;
+        STS     (Time_delay + 80), R16
+//  457 	Time_delay.timer_5m.enabled = 0;
+        STS     (Time_delay + 81), R16
+//  458 	Time_delay.timer_5m.started = 0;
+        STS     (Time_delay + 82), R16
+//  459 
+//  460 	DLL.first_detect = 0;
+        STS     (DLL + 22), R16
+//  461 	us_result = 0;
+        STD     Z+51, R16
+//  462 
+//  463 	Time_delay.LPB.count = 0;
+        LDI     R26, LOW((Time_delay + 116))
+        LDI     R27, HIGH((Time_delay + 116))
+        ST      X+, R16
+        ST      X+, R16
+        ST      X+, R16
+        ST      X, R16
+//  464 	Time_delay.LPB.time_out = 0;
+        STS     (Time_delay + 124), R16
+//  465 	Time_delay.LPB.enabled = 0;
+        STS     (Time_delay + 125), R16
+//  466 	Time_delay.LPB.started = 0;
+        STS     (Time_delay + 126), R16
+//  467 
+//  468 	key_result.short_pressed = 0;
+        STD     Z+49, R16
+//  469 	key_result.long_pressed = 0;
+        STD     Z+50, R16
+//  470 
+//  471 	state.programming = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFE
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  472 	state.test = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFD
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  473 	state.normal = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xFB
+        STD     Z+29, R17
+        STD     Z+28, R16
+//  474 	state.configuration_method = 0;
+        LDD     R16, Z+28
+        LDD     R17, Z+29
+        ANDI    R16, 0xE7
+        STD     Z+28, R16
+        STD     Z+29, R17
+//  475 	state.main_state = NORMAL;
+        STD     Z+30, R18
+        STD     Z+31, R18
+//  476 	state.pnl_slave = 0;
+        STD     Z+32, R18
+//  477 
+//  478 	//g_ns_index = 0;
+//  479 
+//  480 	flags.id_confed = 0;
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        ANDI    R16, 0xFE
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  481 	flags.id_ack = 0;
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        ANDI    R16, 0xFD
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  482 	flags.id_request_enabled = 1;
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        ORI     R16, 0x04
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  483 	flags.request_83 = 0;
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        ANDI    R16, 0xF7
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  484 	flags.virtul_configuration_right = 0;
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        ANDI    R16, 0xBF
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  485   flags.KO_conf_right = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0xFD
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  486 
+//  487   flags_muti_step.cen_system_step = 0;
+        STD     Z+52, R18
+//  488 	
+//  489 	flags.parameter_write_right = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0x7F
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  490 	flags.KO_erase_all = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0xFB
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  491 	flags.KO_erase_main = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0xF7
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  492 	flags.KO_erase_scenario = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0xEF
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  493 	
+//  494 	Time_delay.pir_wait_40s = 0;
+        STS     (Time_delay + 8), R18
+        STS     (Time_delay + 9), R18
+//  495 	Time_delay.pir_warmup_ok = 0;
+        LDI     R26, LOW((Time_delay + 7))
+        LDI     R27, HIGH((Time_delay + 7))
+        LD      R16, X
+        ANDI    R16, 0xFE
+        ST      X, R16
+//  496 	
+//  497 	DLL.calc_OK_flag = 0; //reyno 0610
+        STS     (DLL + 23), R18
+//  498 	Time_delay.IR.time_out = 1;//reyno 0616
+        LDI     R16, 1
+        STS     (Time_delay + 234), R16
+//  499 	Sensor_mode.flag_leader_group = 0;
+        LDD     R16, Z+23
+        ANDI    R16, 0xFD
+        STD     Z+23, R16
+//  500 	Sensor_mode.init_OK = 0;
+        LDD     R16, Z+25
+        ANDI    R16, 0x7F
+        STD     Z+25, R16
+//  501 	flags.scenario_scs_confed = 0;
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        ANDI    R16, 0xBF
+        STD     Z+38, R17
+        STD     Z+37, R16
+//  502 	Time_delay.relay.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 300), R16
+//  503 	
+//  504 	flags.id_confed = ee_product_information.ID_factory_assigned;
+        LDI     R20, LOW((ee_product_information + 5))
+        LDI     R21, HIGH((ee_product_information + 5))
+        CALL    __eeget16_16
+        BST     R16, 0
+        LDD     R16, Z+35
+        LDD     R17, Z+36
+        BLD     R16, 0
+        STD     Z+36, R17
+        STD     Z+35, R16
+//  505 }
+        MOV     R26, R22
+        MOV     R27, R19
+        RET
+        CFI EndBlock cfiBlock0
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for g_soft>`:
+        DC8 "000000"
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for g_hard>`:
+        DC8 "00"
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for g_year>`:
+        DC8 "00"
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for g_week>`:
+        DC8 "00"
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for g_model>`:
+        DC8 "000000"
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for stru_sensor>`:
+        DC8 "0950"
+        DC8 "00050000"
+        DC8 "020"
+        DC8 "02"
+        DC8 "01"
+        DC8 "010600"
+        DC8 "040523"
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for daylight_motion>`:
+        DC16 515, 168, 166, 119, 128, 164, 165
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for daylight>`:
+        DC16 516, 166, 164
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for motion>`:
+        DC16 511, 119, 165, 122
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for flash_KO>`:
+        DC8 48, 50, 48, 51
+
+        END
+//  506                                       		
+// 
+//   408 bytes in segment CODE
+//   280 bytes in segment EEPROM_I
+//    12 bytes in segment INITTAB
+//   314 bytes in segment NEAR_F
+//    93 bytes in segment NEAR_I
+//    93 bytes in segment NEAR_ID
+// 1 938 bytes in segment NEAR_Z
+// 
+//   815 bytes of CODE  memory (+ 12 bytes shared)
+// 2 031 bytes of DATA  memory
+//   280 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

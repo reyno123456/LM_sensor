@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log><ColumnWidth0>22</ColumnWidth0><ColumnWidth1>1305</ColumnWidth1></Debug-Log>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1215</ColumnWidth1><ColumnWidth2>324</ColumnWidth2><ColumnWidth3>81</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>326</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+      <PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow></Disassembly>
+      <Find-in-Files>
+        
+        
+        
+      <ColumnWidth0>580</ColumnWidth0><ColumnWidth1>82</ColumnWidth1><ColumnWidth2>994</ColumnWidth2></Find-in-Files>
+    <Watch><Format><struct_types><Fmt><Key>struct SState-main_state</Key><Value>4</Value></Fmt></struct_types><watch_formats><Fmt><Key>{W}Watch-0:col</Key><Value>3</Value></Fmt><Fmt><Key>{W}Watch-0:g_id</Key><Value>4</Value><ShowAs>2</ShowAs></Fmt><Fmt><Key>{W}Watch-0:id_long</Key><Value>4</Value></Fmt></watch_formats></Format><Column0>158</Column0><Column1>386</Column1><Column2>100</Column2><Column3>100</Column3></Watch></Static>
+    <Windows>
+      
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-28556-25693</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-28034-25703</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+          
+          <Tab>
+            <Identity>TabID-26926-30431</Identity>
+            <TabName>Find in Files</TabName>
+            <Factory>Find-in-Files</Factory>
+            <Session/>
+          </Tab>
+        <Tab>
+            <Identity>TabID-20506-27891</Identity>
+            <TabName>Breakpoints</TabName>
+            <Factory>Breakpoints</Factory>
+          </Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-6537-25696</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>Final_Test</ExpandedNode><ExpandedNode>Final_Test/Output</ExpandedNode><ExpandedNode>Final_Test/main.c</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd2><Tabs><Tab><Identity>TabID-31554-14788</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>state</Expression></Expression><Expression><Expression>model_number</Expression></Expression><Expression><Expression>g_model</Expression></Expression><Expression><Expression>g_id</Expression></Expression><Expression><Expression>g_model</Expression></Expression><Expression><Expression>year_week</Expression></Expression><Expression><Expression>g_soft</Expression></Expression><Expression><Expression>g_hard</Expression></Expression><Expression><Expression>g_reception_buffer</Expression></Expression><Expression><Expression>g_asc_reception_buffer</Expression></Expression><Expression><Expression>col</Expression></Expression><Expression><Expression>len</Expression></Expression><Expression><Expression>id_long</Expression></Expression><Expression><Expression>g_id</Expression></Expression><Expression><Expression>e_state</Expression></Expression><Expression><Expression>state2</Expression></Expression><Expression><Expression>g_asc_reception_buffer</Expression></Expression><Expression><Expression>timer_flex</Expression></Expression><Expression><Expression>Time_delay</Expression></Expression><Expression><Expression>g_page_buffer</Expression></Expression></Expressions><TabId>0</TabId><Column0>158</Column0><Column1>386</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd2></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\function_service.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\DRI_TOUCH.H</Filename><XPos>0</XPos><YPos>20</YPos><SelStart>713</SelStart><SelEnd>713</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\font.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\function_modality.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\function_modality.c</Filename><XPos>0</XPos><YPos>21</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\function_service.c</Filename><XPos>0</XPos><YPos>244</YPos><SelStart>8618</SelStart><SelEnd>8618</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\configuration.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>141</SelStart><SelEnd>141</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\DRI_LCD.H</Filename><XPos>4</XPos><YPos>18</YPos><SelStart>1356</SelStart><SelEnd>1356</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\decode_scs_next.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1181</SelStart><SelEnd>1181</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.3\avr\inc\inavr.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.3\avr\inc\iom644p.h</Filename><XPos>0</XPos><YPos>746</YPos><SelStart>19163</SelStart><SelEnd>19163</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.3\avr\src\lib\dlib\main.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\printer.h</Filename><XPos>0</XPos><YPos>21</YPos><SelStart>1421</SelStart><SelEnd>1421</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\IR.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>95</SelStart><SelEnd>449</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\global_variable.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>54</SelStart><SelEnd>76</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\usart.c</Filename><XPos>0</XPos><YPos>49</YPos><SelStart>1042</SelStart><SelEnd>1042</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\decode_scs.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\decode_scs.c</Filename><XPos>0</XPos><YPos>111</YPos><SelStart>2237</SelStart><SelEnd>2237</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\configuration.c</Filename><XPos>0</XPos><YPos>214</YPos><SelStart>5887</SelStart><SelEnd>5887</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\usb_command.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>132</SelStart><SelEnd>132</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\IR.c</Filename><XPos>0</XPos><YPos>871</YPos><SelStart>24714</SelStart><SelEnd>24714</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\dataflash.h</Filename><XPos>0</XPos><YPos>14</YPos><SelStart>1223</SelStart><SelEnd>1232</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\application.h</Filename><XPos>0</XPos><YPos>203</YPos><SelStart>4691</SelStart><SelEnd>4691</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\US.c</Filename><XPos>0</XPos><YPos>366</YPos><SelStart>5296</SelStart><SelEnd>5296</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\global_variable.c</Filename><XPos>0</XPos><YPos>7</YPos><SelStart>715</SelStart><SelEnd>724</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\usb_command.c</Filename><XPos>0</XPos><YPos>3</YPos><SelStart>564</SelStart><SelEnd>587</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\dataflash.c</Filename><XPos>0</XPos><YPos>526</YPos><SelStart>18260</SelStart><SelEnd>18260</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\Debug\List\LM_IAR_5.0.map</Filename><XPos>0</XPos><YPos>3162</YPos><SelStart>167445</SelStart><SelEnd>167445</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\board.h</Filename><XPos>0</XPos><YPos>51</YPos><SelStart>1058</SelStart><SelEnd>1058</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\PIR.c</Filename><XPos>0</XPos><YPos>15</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\DRI_TOUCH.C</Filename><XPos>0</XPos><YPos>26</YPos><SelStart>845</SelStart><SelEnd>845</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\moudle_SCS.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>450</SelStart><SelEnd>450</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\decode_scs_next.c</Filename><XPos>0</XPos><YPos>451</YPos><SelStart>1160</SelStart><SelEnd>1160</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\DRI_LCD.c</Filename><XPos>0</XPos><YPos>554</YPos><SelStart>14057</SelStart><SelEnd>14057</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\DRI_LCDCHARACTERS.C</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>899</SelStart><SelEnd>899</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\font.c</Filename><XPos>0</XPos><YPos>945</YPos><SelStart>18033</SelStart><SelEnd>18033</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\main.c</Filename><XPos>0</XPos><YPos>244</YPos><SelStart>9899</SelStart><SelEnd>9899</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\printer.c</Filename><XPos>0</XPos><YPos>1502</YPos><SelStart>33123</SelStart><SelEnd>33123</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\application.c</Filename><XPos>0</XPos><YPos>1180</YPos><SelStart>36184</SelStart><SelEnd>36184</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\LM_Finial_Test\board.c</Filename><XPos>0</XPos><YPos>548</YPos><SelStart>12143</SelStart><SelEnd>12143</SelEnd></Tab><ActiveTab>39</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00b08dd0><key>iaridepm.enu1</key></Toolbar-00b08dd0><Toolbar-0492dd98><key>debuggergui.enu1</key></Toolbar-0492dd98></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>954</Bottom><Right>400</Right><x>-2</x><y>-2</y><xscreen>152</xscreen><yscreen>159</yscreen><sizeHorzCX>89097</sizeHorzCX><sizeHorzCY>137782</sizeHorzCY><sizeVertCX>235639</sizeVertCX><sizeVertCY>828423</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>954</Bottom><Right>338</Right><x>-2</x><y>-2</y><xscreen>152</xscreen><yscreen>159</yscreen><sizeHorzCX>89097</sizeHorzCX><sizeHorzCY>137782</sizeHorzCY><sizeVertCX>199297</sizeVertCX><sizeVertCY>828423</sizeVertCY></Rect></Wnd2></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>155</Bottom><Right>1708</Right><x>-2</x><y>-2</y><xscreen>1710</xscreen><yscreen>157</yscreen><sizeHorzCX>1002345</sizeHorzCX><sizeHorzCY>136049</sizeHorzCY><sizeVertCX>89097</sizeVertCX><sizeVertCY>137782</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

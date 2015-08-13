@@ -1,0 +1,644 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:20:59 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\PIR.c                             /
+//    Command line =  D:\avr\LM_Finial_Test\PIR.c --cpu=m644p -ms -o          /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\PIR.s90              /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME PIR
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC PIR_SENSE_SET
+        FUNCTION PIR_SENSE_SET,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC PIR_detect
+        FUNCTION PIR_detect,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        EXTERN read_adc8bit
+        FUNCTION read_adc8bit,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN KO_conf
+        EXTERN PIR_detection_en
+        EXTERN pir
+
+// D:\avr\LM_Finial_Test\PIR.c
+//    1 #include <ioavr.h>
+//    2 #include <inavr.h>
+//    3 #include "PIR.h"
+//    4 #include "board.h"
+//    5 #include "moudle_SCS.h"
+//    6 #include "global_variable.h"
+//    7 #include "application.h"
+//    8 
+//    9 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   10 void PIR_SENSE_SET(void)
+PIR_SENSE_SET:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function PIR_SENSE_SET
+//   11 {
+//   12 		
+//   13 		switch(KO_conf.PirSens)	// the value of global variable "INDEX_PIR_SENSITIVITY" is decided by the user via SCS. 
+        LDS     R16, (KO_conf + 20)
+        SUBI    R16, 0
+        BREQ    ??PIR_SENSE_SET_0
+        SUBI    R16, 2
+        BREQ    ??PIR_SENSE_SET_1
+        DEC     R16
+        BREQ    ??PIR_SENSE_SET_2
+        RJMP    ??PIR_SENSE_SET_3
+//   14 		{
+//   15 			case 0:
+//   16 				pir.window = LOW_PIRSENSITIVITY;
+??PIR_SENSE_SET_0:
+        LDI     R16, 50
+        RJMP    ??PIR_SENSE_SET_4
+//   17 				break;
+//   18 			case 1:
+//   19 				pir.window = Medium_PIRSENSITIVITY;
+??PIR_SENSE_SET_3:
+        LDI     R16, 40
+??PIR_SENSE_SET_4:
+        STS     (pir + 1), R16
+        RET
+//   20 				break;
+//   21 			case 2:
+//   22 				pir.window = HIGH_PIRSENSITIVITY;
+??PIR_SENSE_SET_1:
+        LDI     R16, 26
+        RJMP    ??PIR_SENSE_SET_4
+//   23 				break;
+//   24 			case 3:
+//   25 				pir.window = MAX_PIRSENSITIVITY;
+??PIR_SENSE_SET_2:
+        LDI     R16, 18
+        RJMP    ??PIR_SENSE_SET_4
+        CFI EndBlock cfiBlock0
+//   26 				break;
+//   27 			default: 
+//   28 				pir.window = Medium_PIRSENSITIVITY;
+//   29 				break;
+//   30 		}
+//   31 }		 
+//   32 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   33 unsigned char PIR_detect(void)
+PIR_detect:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function PIR_detect
+//   34 	{
+        FUNCALL PIR_detect, PIR_SENSE_SET
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL PIR_detect, read_adc8bit
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL PIR_detect, read_adc8bit
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE4_L09
+        CFI R27 Frame(CFA_Y, -1)
+        CFI R26 Frame(CFA_Y, -2)
+        CFI R25 Frame(CFA_Y, -3)
+        CFI R24 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+//   35 		static unsigned int ucLastPIRSample = 0;
+//   36 		static unsigned int ucCurrentPIRSample = 0;
+//   37 		static unsigned int ucThreshHold=0;
+//   38 		static unsigned int ucLastLastHighLength = 0;
+//   39 		static unsigned int ucLastHighLength = 0;
+//   40 		static unsigned int ucCurHighLength = 0;
+//   41 		static unsigned int ucLastLowLength = 0;
+//   42 		static unsigned int ucCurLowLength = 0;
+//   43 
+//   44 		PIR_SENSE_SET();
+        RCALL   PIR_SENSE_SET
+//   45 /***************************************************
+//   46 **		for sensor without LM020
+//   47 **    add on 0525
+//   48 ***************************************************/	
+//   49 		if(1)//(pir.fPIRdetectionEnable == 1)    //the signal of Warm up
+//   50 		{
+//   51 		  pir.fPIROCCDetected = 0;
+        LDI     R30, LOW(pir)
+        LDI     R31, (pir) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ANDI    R16, 0xFE
+        STD     Z+3, R17
+        STD     Z+2, R16
+//   52 		  ucThreshHold=pir.window;
+        LDI     R26, LOW(??ucLastPIRSample)
+        LDI     R27, (??ucLastPIRSample) >> 8
+        LDS     R16, (pir + 1)
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        STD     Z+4, R16
+        STD     Z+5, R17
+//   53 		  ucLastPIRSample = ucCurrentPIRSample;
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ST      X+, R16
+        ST      X, R17
+        SBIW    R27:R26, 1
+//   54 		  ucCurrentPIRSample = read_adc8bit(PIR_SENSE);
+        LDI     R16, 0
+        CALL    read_adc8bit
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        STD     Z+2, R16
+        STD     Z+3, R17
+//   55 			asm("nop");
+        nop
+//   56 			ucCurrentPIRSample = read_adc8bit(PIR_SENSE);		// add 0603
+        LDI     R16, 0
+        CALL    read_adc8bit
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        STD     Z+2, R16
+        STD     Z+3, R17
+//   57 			
+//   58 		  if (ucCurrentPIRSample >= PIR_CENTER)
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        CPI     R18, 105
+        CPC     R19, R17
+        BRCS    ??PIR_detect_0
+//   59 				ucCurrentPIRSample -= PIR_CENTER;
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        SUBI    R16, 105
+        SBCI    R17, 0
+        RJMP    ??PIR_detect_1
+//   60 		  else      
+//   61 				ucCurrentPIRSample = PIR_CENTER - ucCurrentPIRSample;
+??PIR_detect_0:
+        LDI     R16, 105
+        SUB     R16, R18
+        SBC     R17, R19
+??PIR_detect_1:
+        STD     Z+2, R16
+        STD     Z+3, R17
+//   62 				
+//   63 			if (ucCurrentPIRSample >= ucThreshHold)    			//当前PIR信号大于设定值
+        LDD     R18, Z+4
+        LDD     R19, Z+5
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        CP      R16, R18
+        CPC     R17, R19
+        BRCS    ??PIR_detect_2
+//   64 			{
+//   65 				if (ucLastPIRSample < ucThreshHold)  			//但前次信号小于设定值时，令当前信号高部分重新变为一
+        LDD     R16, Z+10
+        LDD     R17, Z+11
+        LD      R20, X+
+        LD      R21, X
+        SBIW    R27:R26, 1
+        CP      R20, R18
+        CPC     R21, R19
+        BRCC    ??PIR_detect_3
+//   66 				{
+//   67 					ucLastLastHighLength = ucLastHighLength;
+        LDD     R18, Z+8
+        LDD     R19, Z+9
+        STD     Z+6, R18
+        STD     Z+7, R19
+//   68 					ucLastHighLength = ucCurHighLength;
+        STD     Z+8, R16
+        STD     Z+9, R17
+//   69 					ucCurHighLength = 1;
+        LDI     R16, 1
+        LDI     R17, 0
+        STD     Z+10, R16
+        STD     Z+11, R17
+        RJMP    ??PIR_detect_4
+//   70 				}
+//   71 				else if (ucCurHighLength > 0)        		 	//当前PIR信号大于设定值，且前次信号也大于设定值，
+??PIR_detect_3:
+        OR      R16, R17
+        BRNE    $+2+2
+        RJMP    ??PIR_detect_4
+//   72 				{                                    			//且信号高部分大于零  
+//   73 					ucCurHighLength++;               		 		//自加35次，MID_WIDTH的值为35
+        LDD     R16, Z+10
+        LDD     R17, Z+11
+        SUBI    R16, 255
+        SBCI    R17, 255
+        STD     Z+10, R16
+        STD     Z+11, R17
+//   74 					if (ucCurHighLength >= MID_WIDTH)  			//且信号高部分持续时间大于设定的时间宽度时，PIR触发
+        LDD     R24, Z+10
+        LDD     R25, Z+11
+        CPI     R24, 35
+        SBCI    R25, 0
+        BRCC    $+2+2
+        RJMP    ??PIR_detect_4
+//   75 					{
+//   76 					  pir.fPIROCCDetected= 1;               	// alan debug  1;  
+        LDI     R30, LOW(pir)
+        LDI     R31, (pir) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ORI     R16, 0x01
+        STD     Z+3, R17
+        STD     Z+2, R16
+//   77 					  ucCurHighLength = 0;
+        LDI     R16, 0
+        MOVW    R31:R30, R27:R26
+??PIR_detect_5:
+        STD     Z+10, R16
+        STD     Z+11, R16
+        RJMP    ??PIR_detect_4
+//   78 						//DLED_ON;
+//   79 						//delay_ms(200);
+//   80 						//DLED_OFF;
+//   81 					}
+//   82 				}
+//   83 			}
+//   84 			else                                      			//当前PIR信号小于设定值
+//   85 			{	
+//   86 				if (ucLastPIRSample >= ucThreshHold)   			//当前PIR信号小于设定值，但前次信号大于设定值时
+??PIR_detect_2:
+        LD      R16, X+
+        LD      R17, X
+        SBIW    R27:R26, 1
+        CP      R16, R18
+        CPC     R17, R19
+        BRCC    $+2+2
+        RJMP    ??PIR_detect_6
+//   87 				{
+//   88 					if (((ucLastHighLength >= MIN_WIDTH) && (ucCurHighLength >= MIN_WIDTH) && ((ucLastHighLength >= MIN_SPACE) || (ucCurHighLength >= MIN_SPACE)) && (ucLastHighLength + ucCurLowLength + ucCurHighLength <= MAX_WIDTH)) 
+//   89 								|| ((ucLastLastHighLength >= MIN_WIDTH) && (ucLastHighLength >= MIN_WIDTH) && (ucCurHighLength >= MIN_WIDTH) && (ucLastLastHighLength + ucLastLowLength + ucLastHighLength + ucCurLowLength + ucCurHighLength <= MAX_WIDTH)))
+        LDD     R18, Z+8
+        LDD     R19, Z+9
+        CPI     R18, 2
+        LDI     R16, 0
+        CPC     R19, R16
+        BRCS    ??PIR_detect_7
+        LDD     R16, Z+10
+        LDD     R17, Z+11
+        CPI     R16, 2
+        LDI     R20, 0
+        CPC     R17, R20
+        BRCS    ??PIR_detect_7
+        CPI     R18, 5
+        CPC     R19, R20
+        BRCC    ??PIR_detect_8
+        CPI     R16, 5
+        CPC     R17, R20
+        BRCS    ??PIR_detect_7
+??PIR_detect_8:
+        LDD     R20, Z+14
+        LDD     R21, Z+15
+        MOVW    R23:R22, R19:R18
+        ADD     R22, R20
+        ADC     R23, R21
+        ADD     R22, R16
+        ADC     R23, R17
+        CPI     R22, 141
+        LDI     R16, 0
+        CPC     R23, R16
+        BRCS    ??PIR_detect_9
+??PIR_detect_7:
+        LDD     R20, Z+6
+        LDD     R21, Z+7
+        CPI     R20, 2
+        LDI     R16, 0
+        CPC     R21, R16
+        BRCS    ??PIR_detect_10
+        CPI     R18, 2
+        CPC     R19, R16
+        BRCS    ??PIR_detect_10
+        LDD     R16, Z+10
+        LDD     R17, Z+11
+        CPI     R16, 2
+        LDI     R22, 0
+        CPC     R17, R22
+        BRCS    ??PIR_detect_10
+        LDD     R22, Z+12
+        LDD     R23, Z+13
+        ADD     R20, R22
+        ADC     R21, R23
+        ADD     R20, R18
+        ADC     R21, R19
+        LDD     R18, Z+14
+        LDD     R19, Z+15
+        ADD     R20, R18
+        ADC     R21, R19
+        ADD     R20, R16
+        ADC     R21, R17
+        CPI     R20, 141
+        LDI     R16, 0
+        CPC     R21, R16
+        BRCC    ??PIR_detect_10
+//   90 					{
+//   91 					      pir.fPIROCCDetected= 1;		// alan debug  1;  1;  
+??PIR_detect_9:
+        LDI     R30, LOW(pir)
+        LDI     R31, (pir) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ORI     R16, 0x01
+        STD     Z+3, R17
+        STD     Z+2, R16
+//   92 					      ucCurLowLength = 0;
+        LDI     R16, 0
+        MOVW    R31:R30, R27:R26
+        STD     Z+14, R16
+        STD     Z+15, R16
+//   93 					      ucCurHighLength = 0;
+        RJMP    ??PIR_detect_5
+//   94 								//DLED_ON;
+//   95 								//delay_ms(200);
+//   96 								//DLED_OFF;
+//   97 					}
+//   98 					else
+//   99 					{
+//  100 							ucLastLowLength = ucCurLowLength;
+??PIR_detect_10:
+        LDD     R16, Z+14
+        LDD     R17, Z+15
+        STD     Z+12, R16
+        STD     Z+13, R17
+//  101 							ucCurLowLength = 1;
+        LDI     R16, 1
+        LDI     R17, 0
+        STD     Z+14, R16
+        STD     Z+15, R17
+        RJMP    ??PIR_detect_4
+//  102 					}
+//  103 				}
+//  104 				else if (ucCurLowLength > 0)      				//当前PIR信号小于设定值，且前次信号也小于设定值，且信号底部宽度大于零
+??PIR_detect_6:
+        LDD     R16, Z+14
+        LDD     R17, Z+15
+        MOV     R18, R16
+        OR      R18, R17
+        BREQ    ??PIR_detect_4
+//  105 					ucCurLowLength += (ucCurLowLength >= MAX_WIDTH) ? 0 : 1;
+        CPI     R16, 140
+        LDI     R18, 0
+        CPC     R17, R18
+        BRCS    ??PIR_detect_11
+        LDI     R16, 0
+        RJMP    ??PIR_detect_12
+??PIR_detect_11:
+        LDI     R16, 1
+??PIR_detect_12:
+        LDI     R17, 0
+        LDD     R18, Z+14
+        LDD     R19, Z+15
+        ADD     R18, R16
+        ADC     R19, R17
+        STD     Z+14, R18
+        STD     Z+15, R19
+//  106 				                                 
+//  107 			}
+//  108 		}
+//  109                 
+//  110     if(pir.fPIROCCDetected == 1)    
+??PIR_detect_4:
+        LDI     R30, LOW(pir)
+        LDI     R31, (pir) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        SBRS    R16, 0
+        RJMP    ??PIR_detect_13
+//  111 		{
+//  112 	  	PIR_detection_en = 1;     		// add by alan 20090409          
+        LDI     R16, 1
+        STS     PIR_detection_en, R16
+//  113 			return pir.fPIROCCDetected; //reyno 20090527
+//  114 		}
+//  115 	
+//  116 	
+//  117 /***************************************************
+//  118 **		for LM020 PIR2			
+//  119 **    add on 0525
+//  120 ***************************************************/	
+//  121 #ifdef LM020					// 0525
+//  122 		
+//  123 		static unsigned int Pir2_ucLastPIRSample = 0;
+//  124 		static unsigned int Pir2_ucCurrentPIRSample = 0;
+//  125 		static unsigned int Pir2_ucThreshHold=0;
+//  126 		static unsigned int Pir2_ucLastLastHighLength = 0;
+//  127 		static unsigned int Pir2_ucLastHighLength = 0;
+//  128 		static unsigned int Pir2_ucCurHighLength = 0;
+//  129 		static unsigned int Pir2_ucLastLowLength = 0;
+//  130 		static unsigned int Pir2_ucCurLowLength = 0;
+//  131 		if(1)//(pir.fPIRdetectionEnable == 1)    //the signal of Warm up
+//  132 		{
+//  133 		  pir.fPIROCCDetected = 0;
+//  134 		  Pir2_ucThreshHold=pir.window;
+//  135 		  Pir2_ucLastPIRSample = Pir2_ucCurrentPIRSample;
+//  136 		  Pir2_ucCurrentPIRSample = read_adc8bit(PIR2_SENSE);
+//  137 
+//  138 		  if (Pir2_ucCurrentPIRSample >= PIR_CENTER)
+//  139 				Pir2_ucCurrentPIRSample -= PIR_CENTER;
+//  140 		  else      
+//  141 				Pir2_ucCurrentPIRSample = PIR_CENTER - Pir2_ucCurrentPIRSample;
+//  142 				
+//  143 			if (Pir2_ucCurrentPIRSample >= Pir2_ucThreshHold)    			
+//  144 			{
+//  145 				if (Pir2_ucLastPIRSample < Pir2_ucThreshHold)  			
+//  146 				{
+//  147 					Pir2_ucLastLastHighLength = Pir2_ucLastHighLength;
+//  148 					Pir2_ucLastHighLength = Pir2_ucCurHighLength;
+//  149 					Pir2_ucCurHighLength = 1;
+//  150 				}
+//  151 				else if (Pir2_ucCurHighLength > 0)        		 
+//  152 				{                                    			
+//  153 					Pir2_ucCurHighLength++;               		 		
+//  154 					if (Pir2_ucCurHighLength >= MID_WIDTH)  			
+//  155 					{
+//  156 					  pir.fPIROCCDetected= 1;               
+//  157 					  Pir2_ucCurHighLength = 0;
+//  158 					}
+//  159 				}
+//  160 			}
+//  161 			else                                      			//当前PIR信号小于设定值
+//  162 			{	
+//  163 				if (Pir2_ucLastPIRSample >= Pir2_ucThreshHold)   			
+//  164 				{
+//  165 					if (((Pir2_ucLastHighLength >= MIN_WIDTH) && (Pir2_ucCurHighLength >= MIN_WIDTH) && ((Pir2_ucLastHighLength >= MIN_SPACE) || (Pir2_ucCurHighLength >= MIN_SPACE)) && (Pir2_ucLastHighLength + Pir2_ucCurLowLength + Pir2_ucCurHighLength <= MAX_WIDTH)) 
+//  166 								|| ((Pir2_ucLastLastHighLength >= MIN_WIDTH) && (Pir2_ucLastHighLength >= MIN_WIDTH) && (Pir2_ucCurHighLength >= MIN_WIDTH) && (Pir2_ucLastLastHighLength + Pir2_ucLastLowLength + Pir2_ucLastHighLength + Pir2_ucCurLowLength + Pir2_ucCurHighLength <= MAX_WIDTH)))
+//  167 					{
+//  168 					      pir.fPIROCCDetected= 1;		
+//  169 					      Pir2_ucCurLowLength = 0;
+//  170 					      Pir2_ucCurHighLength = 0;
+//  171 					}
+//  172 					else
+//  173 					{
+//  174 							Pir2_ucLastLowLength = Pir2_ucCurLowLength;
+//  175 							Pir2_ucCurLowLength = 1;
+//  176 					}
+//  177 				}
+//  178 				else if (Pir2_ucCurLowLength > 0)      				
+//  179 					Pir2_ucCurLowLength += (Pir2_ucCurLowLength >= MAX_WIDTH) ? 0 : 1;                            
+//  180 			}
+//  181 		}
+//  182                 
+//  183      if(pir.fPIROCCDetected == 1)    
+//  184 		{
+//  185 	  	PIR_detection_en = 1;     		// add on 0525       
+//  186 		}
+//  187 		
+//  188 		
+//  189 #endif
+//  190 		return pir.fPIROCCDetected;
+??PIR_detect_13:
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ANDI    R16, 0x01
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+        CFI EndBlock cfiBlock1
+//  191 }
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+??ucLastPIRSample:
+        DS8 2
+        DS8 2
+        DS8 2
+        DS8 2
+        DS8 2
+        DS8 2
+        DS8 2
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+// 
+// 494 bytes in segment CODE
+//   6 bytes in segment INITTAB
+//  16 bytes in segment NEAR_Z
+// 
+// 494 bytes of CODE memory (+ 6 bytes shared)
+//  16 bytes of DATA memory
+//
+//Errors: none
+//Warnings: none

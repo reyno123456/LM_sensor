@@ -1,0 +1,5894 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:21:14 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\configuration.c                   /
+//    Command line =  D:\avr\LM_Finial_Test\configuration.c --cpu=m644p -ms   /
+//                    -o D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D      /
+//                    LM018 -D FINAL_VERSION2 -lCN                            /
+//                    D:\avr\LM_Finial_Test\Release\List\ -lA                 /
+//                    D:\avr\LM_Finial_Test\Release\List\ --diag_suppress     /
+//                    Pa082,Pe167,Pe186 --initializers_in_flash -z6           /
+//                    --no_inline --no_cross_call --no_tbaa                   /
+//                    -DENABLE_BIT_DEFINITIONS -e -I "C:\Program Files\IAR    /
+//                    Systems\Embedded Workbench 5.3\avr\INC\" -I             /
+//                    "C:\Program Files\IAR Systems\Embedded Workbench        /
+//                    5.3\avr\INC\CLIB\" --eeprom_size 2048                   /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\configuration.s90    /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME configuration
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?CV_SWITCH_L06
+        EXTERN ?EPILOGUE_B6_L09
+        EXTERN ?ML_EEPROM_SRAM_16_16_L07
+        EXTERN ?ML_FLASH_EEPROM_16EC_16_L07
+        EXTERN ?ML_FLASH_SRAM_16EC_16_L07
+        EXTERN ?ML_SRAM_EEPROM_16_16_L07
+        EXTERN ?ML_SRAM_SRAM_16_L07
+        EXTERN ?PROLOGUE6_L09
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?S_EC_MUL_L02
+        EXTERN ?need_segment_init
+        EXTERN __eeget16_16
+        EXTERN __eeget32_16
+        EXTERN __eeget8_16
+        EXTERN __eeput8_16
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBLIC ID_setting
+        FUNCTION ID_setting,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC KO_parameter_initial
+        FUNCTION KO_parameter_initial,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC KO_parameter_initial_temp
+        FUNCTION KO_parameter_initial_temp,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC configuration_checking
+        FUNCTION configuration_checking,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 9, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC configuration_read
+        FUNCTION configuration_read,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC load_parameter
+        FUNCTION load_parameter,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC power_up_configuration
+        FUNCTION power_up_configuration,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC read_KO
+        FUNCTION read_KO,080203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC read_KO_none_confed
+        FUNCTION read_KO_none_confed,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC remember_parameter
+        FUNCTION remember_parameter,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 52, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC write_KO
+        FUNCTION write_KO,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC write_ee_KO
+        FUNCTION write_ee_KO,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC write_moudle_parameter
+        FUNCTION write_moudle_parameter,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC write_moudle_parameter_temp
+        FUNCTION write_moudle_parameter_temp,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        EXTERN manual_reception_buffer_clear
+        FUNCTION manual_reception_buffer_clear,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN put_s
+        FUNCTION put_s,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN delay_ms
+        FUNCTION delay_ms,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN is_gateway_busy
+        FUNCTION is_gateway_busy,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN StrToChar
+        FUNCTION StrToChar,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN configurator_to_KO
+        FUNCTION configurator_to_KO,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN buzzer_ms
+        FUNCTION buzzer_ms,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN Configurators
+        EXTERN DLL
+        EXTERN KO
+        EXTERN KO_conf
+        EXTERN ee_ID
+        EXTERN ee_KO
+        EXTERN ee_KO_conf
+        EXTERN ee_KO_last
+        EXTERN ee_configurators
+        EXTERN ee_main_state
+        EXTERN ee_product_information
+        EXTERN ee_slope
+        EXTERN flags
+        EXTERN flash_KO_119
+        EXTERN flash_KO_128
+        EXTERN flash_KO_165
+        EXTERN flash_KO_166
+        EXTERN flash_KO_168
+        EXTERN flash_KO_515
+        EXTERN g_configurator
+        EXTERN g_dataflash_page_address
+        EXTERN g_slope
+        EXTERN product_information
+        EXTERN state
+        EXTERN temp_product_information
+
+// D:\avr\LM_Finial_Test\configuration.c
+//    1 /////////////////////////////////////////////////////////////////////////////////////////////////
+//    2 /////////////////////////////////////////////////////////////////////////////////////////////////
+//    3 // Configurators C1|C2 C3|C4 C5|C6
+//    4 //							 0 |A  PL|M  S | T
+//    5 /////////////////////////////////////////////////////////////////////////////////////////////////
+//    6 /////////////////////////////////////////////////////////////////////////////////////////////////
+//    7 
+//    8 
+//    9 #include <ioavr.h>
+//   10 #include <inavr.h>
+//   11 #include "moudle_SCS.h"
+//   12 #include "global_variable.h"
+//   13 #include "board.h"
+//   14 #include "configuration.h"
+//   15 #include "decode_scs_next.h"
+//   16 #include "application.h"
+//   17 #include "IR.h"
+//   18 #include "usart.h"
+//   19 #include "decode_SCS.h"
+//   20 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   21 unsigned char configuration_read(void)
+configuration_read:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function configuration_read
+//   22 {
+        FUNCALL configuration_read, manual_reception_buffer_clear
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL configuration_read, put_s
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL configuration_read, delay_ms
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL configuration_read, is_gateway_busy
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL configuration_read, put_s
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL configuration_read, delay_ms
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+//   23 	unsigned char i;
+//   24 #ifndef NO_CONFIGURATOR_HOUSING
+//   25 		unsigned char current;
+//   26 #endif
+//   27 	manual_reception_buffer_clear();
+        CALL    manual_reception_buffer_clear
+//   28 	for(i=0;i<5;i++)
+        LDI     R24, 0
+        RJMP    ??configuration_read_0
+//   29 		g_configurator[i] = 0;		
+??configuration_read_1:
+        LDI     R16, 0
+        LDI     R25, 0
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(g_configurator) & 0xFFFF))
+        SBCI    R31, (-(g_configurator) & 0xFFFF) >> 8
+        ST      Z, R16
+        INC     R24
+??configuration_read_0:
+        CPI     R24, 5
+        BRCS    ??configuration_read_1
+//   30 
+//   31 	put_s("$09\r");
+        LDI     R16, LOW(`?<Constant "$09\\r">`)
+        LDI     R17, (`?<Constant "$09\\r">`) >> 8
+        CALL    put_s
+//   32 	for(i=0;i<200;i++)
+        LDI     R24, 0
+        RJMP    ??configuration_read_2
+//   33   {
+//   34     if(is_gateway_busy() == 0x13)
+//   35     {
+//   36 			break;
+//   37 		}
+//   38 		else
+//   39 		{
+//   40       delay_ms(10);
+??configuration_read_3:
+        LDI     R16, 10
+        LDI     R17, 0
+        CALL    delay_ms
+//   41 		}
+        INC     R24
+??configuration_read_2:
+        CPI     R24, 200
+        BRCC    ??configuration_read_4
+        CALL    is_gateway_busy
+        CPI     R16, 19
+        BRNE    ??configuration_read_3
+//   42   }
+//   43 
+//   44 	put_s("$2603\r");				//require configurators setting
+??configuration_read_4:
+        LDI     R16, LOW((`?<Constant "$09\\r">` + 5))
+        LDI     R17, HIGH((`?<Constant "$09\\r">` + 5))
+        CALL    put_s
+//   45 	delay_ms(200);
+        LDI     R16, 200
+        LDI     R17, 0
+        CALL    delay_ms
+//   46 
+//   47 	#ifdef NO_CONFIGURATOR_HOUSING											//have house
+//   48 		for(i=0;i<5;i++)
+        LDI     R24, 0
+        RJMP    ??configuration_read_5
+//   49 		{
+//   50 			g_configurator[i] = '0';
+??configuration_read_6:
+        LDI     R16, 48
+        LDI     R25, 0
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(g_configurator) & 0xFFFF))
+        SBCI    R31, (-(g_configurator) & 0xFFFF) >> 8
+        ST      Z, R16
+//   51 		}
+        INC     R24
+??configuration_read_5:
+        CPI     R24, 5
+        BRCS    ??configuration_read_6
+//   52 		state.configuration_method = 1;
+        LDS     R16, state
+        LDS     R17, (state + 1)
+        ANDI    R16, 0xE7
+        ORI     R16, 0x08
+        STS     state, R16
+        STS     (state + 1), R17
+//   53 		ee_product_information.conf_type = 1;		//virtual configuration
+        LDI     R16, 1
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeput8_16
+//   54 		return 0;
+        LDI     R16, 0
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock0
+//   55 	#else																								//no house
+//   56 		for(i=0;i<DEEP;i++)
+//   57 		{
+//   58 			if((scs_frame[i].byte[1] == '2') && (scs_frame[i].byte[2] == '6'))
+//   59 			{
+//   60 				current = i;
+//   61 				break;
+//   62 			}
+//   63 		}
+//   64 
+//   65 		if(scs_frame[current].finished == 1)
+//   66 		{
+//   67 			if(scs_frame[current].byte[1] == '2' && scs_frame[current].byte[2] == '6')
+//   68 			{
+//   69 				for(i=0;i<5;i++)
+//   70 				{
+//   71 					g_configurator[i] = scs_frame[current].byte[i+4];
+//   72 				}
+//   73 
+//   74 				if(g_configurator[0] == g_configurator[1] == g_configurator[2] == g_configurator[3] == g_configurator[4] == '0')
+//   75         {
+//   76           ee_product_information.conf_type = 1;
+//   77         }
+//   78 					//eeprom_write_byte_me (&ee_product_information.conf_type,1);		//virtual configuration
+//   79 
+//   80 				state.configuration_method = 0;
+//   81 				return 0;
+//   82 			}
+//   83 			state.configuration_method = 0;
+//   84 			return 1;
+//   85 		}
+//   86     return 1;
+//   87 	#endif
+//   88 }
+//   89 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   90 unsigned char power_up_configuration(void)
+power_up_configuration:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function power_up_configuration
+//   91 {
+        FUNCALL power_up_configuration, configuration_read
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL power_up_configuration, StrToChar
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        SBIW    R29:R28, 3
+        CFI CFA_Y Y+3
+//   92 	unsigned char buffer[3];
+//   93 	unsigned char des_add;
+//   94 	if( configuration_read() == 0 )
+        RCALL   configuration_read
+        TST     R16
+        BREQ    $+2+2
+        RJMP    ??power_up_configuration_0
+        LDS     R16, g_configurator
+        STS     (Configurators + 1), R16
+//   95 	{
+//   96 		Configurators.A = g_configurator[0];
+//   97 		Configurators.PL = g_configurator[1];
+        LDS     R16, (g_configurator + 1)
+        STS     (Configurators + 2), R16
+//   98 		Configurators.M = g_configurator[2];
+        LDS     R16, (g_configurator + 2)
+        STS     (Configurators + 3), R16
+//   99 		Configurators.S = g_configurator[3];
+        LDS     R16, (g_configurator + 3)
+        STS     (Configurators + 4), R16
+//  100 		Configurators.T = g_configurator[4];
+        LDS     R16, (g_configurator + 4)
+        STS     (Configurators + 5), R16
+//  101 		//load_default_parameter(&KO_conf);
+//  102 		//load_parameter();
+//  103     buffer[0] = Configurators.A;
+        LDS     R16, (Configurators + 1)
+        ST      Y, R16
+//  104 		buffer[1] = Configurators.PL;
+        LDS     R16, (Configurators + 2)
+        STD     Y+1, R16
+//  105 		buffer[2] = 0;
+        LDI     R16, 0
+        STD     Y+2, R16
+//  106 		des_add = StrToChar(buffer);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+//  107 		
+//  108 		if((Configurators.A == '0') && (Configurators.PL == '0') && (Configurators.M == '0') && (Configurators.S == '0') && (Configurators.T == '0'))
+        LDS     R17, (Configurators + 1)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_1
+        LDS     R17, (Configurators + 2)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_1
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_1
+        LDS     R17, (Configurators + 4)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_1
+        LDS     R17, (Configurators + 5)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_1
+//  109 		{
+//  110 			if(ee_product_information.conf_type == 0)
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??power_up_configuration_2
+//  111 			{
+//  112 				ee_product_information.conf_type = 3;
+        LDI     R16, 3
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeput8_16
+//  113 			}
+//  114 			return 0;
+??power_up_configuration_2:
+        LDI     R16, 0
+??power_up_configuration_3:
+        ADIW    R29:R28, 3
+        CFI CFA_Y Y+0
+        RET
+        CFI CFA_Y Y+3
+//  115 		}	
+//  116 		else if( (Configurators.M >= '0') && (Configurators.M <= '4') )
+??power_up_configuration_1:
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 48
+        BRCS    ??power_up_configuration_0
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 53
+        BRCC    ??power_up_configuration_0
+//  117 		{
+//  118 			if(Configurators.M == '0')
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 48
+        BRNE    ??power_up_configuration_4
+//  119 			{
+//  120 				if((des_add >= 1 && des_add <= 0xAF) && (Configurators.S >= '0') && (Configurators.S <= '3') && (Configurators.T >= '0') && (Configurators.T <= '9'))
+        TST     R16
+        BREQ    ??power_up_configuration_0
+        CPI     R16, 176
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 48
+        BRCS    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 52
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 48
+        BRCS    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 58
+        BRCC    ??power_up_configuration_0
+//  121 				{
+//  122 					ee_product_information.conf_type = 0;		//basic PHY configuration
+??power_up_configuration_5:
+        LDI     R16, 0
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeput8_16
+//  123 					ee_KO_conf.AddressType = 0;
+        LDI     R20, LOW((ee_KO_conf + 1))
+        LDI     R21, HIGH((ee_KO_conf + 1))
+        CALL    __eeput8_16
+//  124 					KO_conf.AddressType = 0;
+        STS     (KO_conf + 1), R16
+//  125 					//load_default_parameter(&KO_conf);
+//  126 					return 0;
+        RJMP    ??power_up_configuration_3
+//  127 				}
+//  128 				else
+//  129 					return 1;
+//  130 			}
+//  131 			else if(Configurators.M == '1')
+??power_up_configuration_4:
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 49
+        BRNE    ??power_up_configuration_6
+//  132 			{
+//  133 				if((des_add >= 1 && des_add <= 0xAF) && (Configurators.S == '0') && (Configurators.T == '0'))
+        TST     R16
+        BREQ    ??power_up_configuration_0
+        CPI     R16, 176
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 48
+        BRNE    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 48
+        BREQ    ??power_up_configuration_5
+//  134 				{
+//  135 					ee_product_information.conf_type = 0;		//basic PHY configuration
+//  136 					ee_KO_conf.AddressType = 0;
+//  137 					KO_conf.AddressType = 0;
+//  138 					return 0;
+//  139 				}
+//  140 				else
+//  141 					return 1;
+//  142 			}
+??power_up_configuration_0:
+        LDI     R16, 1
+        RJMP    ??power_up_configuration_3
+//  143 			else if(Configurators.M == '2')
+??power_up_configuration_6:
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 50
+        BRNE    ??power_up_configuration_7
+//  144 			{
+//  145 				if((des_add >= 1 && des_add <= 0xAF) && ((Configurators.S >= '0') && (Configurators.S <= '3')) && ((Configurators.T >= '0') && (Configurators.T <= '9')))
+??power_up_configuration_8:
+        TST     R16
+        BREQ    ??power_up_configuration_0
+        CPI     R16, 176
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 48
+        BRCS    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 52
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 48
+        BRCS    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 58
+        BRCC    ??power_up_configuration_0
+        RJMP    ??power_up_configuration_5
+//  146 				{
+//  147 					ee_product_information.conf_type = 0;		//basic PHY configuration
+//  148 					ee_KO_conf.AddressType = 0;
+//  149 					KO_conf.AddressType = 0;
+//  150 					return 0;
+//  151 				}
+//  152 				else
+//  153 					return 1;
+//  154 			}
+//  155 			else if(Configurators.M == '3')
+??power_up_configuration_7:
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 51
+        BREQ    ??power_up_configuration_8
+//  156 			{
+//  157 				if((des_add >= 1 && des_add <= 0xAF) && (Configurators.S >= '0') && (Configurators.S <= '3') && (Configurators.T >= '0') && (Configurators.T <= '9'))
+//  158 				{
+//  159 					ee_product_information.conf_type = 0;		//basic PHY configuration
+//  160 					ee_KO_conf.AddressType = 0;
+//  161 					KO_conf.AddressType = 0;
+//  162 					return 0;
+//  163 				}
+//  164 				else
+//  165 					return 1;
+//  166 			}
+//  167 			else if(Configurators.M == '4')
+        LDS     R17, (Configurators + 3)
+        CPI     R17, 52
+        BREQ    $+2+2
+        RJMP    ??power_up_configuration_2
+//  168 			{
+//  169 				if((des_add >= 1 && des_add <= 0xAF) && (Configurators.S == '0') && (Configurators.T  == '0'))
+        TST     R16
+        BREQ    ??power_up_configuration_0
+        CPI     R16, 176
+        BRCC    ??power_up_configuration_0
+        LDS     R16, (Configurators + 4)
+        CPI     R16, 48
+        BRNE    ??power_up_configuration_0
+        LDS     R16, (Configurators + 5)
+        CPI     R16, 48
+        BRNE    ??power_up_configuration_0
+        RJMP    ??power_up_configuration_5
+        CFI EndBlock cfiBlock1
+//  170 				{
+//  171 					ee_product_information.conf_type = 0;		//basic PHY configuration
+//  172 					ee_KO_conf.AddressType = 0;
+//  173 					KO_conf.AddressType = 0;
+//  174 					return 0;
+//  175 				}
+//  176 				else
+//  177 					return 1;
+//  178 			}
+//  179 		}
+//  180 		else
+//  181 			return 1;
+//  182 	}
+//  183 	else
+//  184 		return 1;
+//  185 
+//  186   return 0;
+//  187 }
+//  188 
+//  189 
+//  190 //extern struct SKO_Configuration ee_KO_conf __attribute__((section(".eeprom")));
+
+        RSEG CODE:CODE:NOROOT(1)
+//  191 void remember_parameter()
+remember_parameter:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function remember_parameter
+//  192 {
+        FUNCALL remember_parameter, read_KO
+        LOCFRAME CSTACK, 52, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL remember_parameter, write_KO
+        LOCFRAME CSTACK, 52, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        SBIW    R29:R28, 50
+        CFI CFA_Y Y+51
+//  193 	unsigned char i;
+//  194 	for(i=0;i<35;i++)
+        LDI     R24, 0
+        RJMP    ??remember_parameter_0
+//  195 	{
+//  196 		write_KO(i,read_KO(i));
+??remember_parameter_1:
+        MOV     R16, R24
+        RCALL   read_KO
+        MOV     R17, R16
+        MOV     R16, R24
+        RCALL   write_KO
+//  197 	}
+        INC     R24
+??remember_parameter_0:
+        CPI     R24, 35
+        BRCS    ??remember_parameter_1
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R16, Z
+        LDI     R20, LOW(ee_KO)
+        LDI     R21, (ee_KO) >> 8
+        CALL    __eeput8_16
+//  198   ee_KO[0] = KO[0];
+//  199   ee_KO[1] = KO[1];
+        LDD     R16, Z+1
+        LDI     R20, LOW((ee_KO + 1))
+        LDI     R21, HIGH((ee_KO + 1))
+        CALL    __eeput8_16
+//  200   ee_KO[2] = KO[2];
+        LDD     R16, Z+2
+        LDI     R20, LOW((ee_KO + 2))
+        LDI     R21, HIGH((ee_KO + 2))
+        CALL    __eeput8_16
+//  201   ee_KO[3] = KO[3];
+        LDD     R16, Z+3
+        LDI     R20, LOW((ee_KO + 3))
+        LDI     R21, HIGH((ee_KO + 3))
+        CALL    __eeput8_16
+//  202   ee_KO_conf = KO_conf;
+        MOVW    R19:R18, R29:R28
+        MOVW    R17:R16, R19:R18
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDI     R20, 50
+        LDI     R21, 0
+        CALL    ?ML_SRAM_SRAM_16_L07
+        MOVW    R23:R22, R29:R28
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        MOVW    R31:R30, R23:R22
+        LDI     R17, 50
+        LDI     R18, 0
+        CALL    ?ML_SRAM_EEPROM_16_16_L07
+//  203   ee_configurators = Configurators;
+        MOVW    R19:R18, R29:R28
+        MOVW    R17:R16, R19:R18
+        LDI     R30, LOW(Configurators)
+        LDI     R31, (Configurators) >> 8
+        LDI     R20, 6
+        LDI     R21, 0
+        CALL    ?ML_SRAM_SRAM_16_L07
+        LDI     R20, LOW(ee_configurators)
+        LDI     R21, (ee_configurators) >> 8
+        MOVW    R31:R30, R23:R22
+        LDI     R17, 6
+        LDI     R18, 0
+        CALL    ?ML_SRAM_EEPROM_16_16_L07
+//  204   ee_product_information = product_information;
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        LDI     R30, LOW(product_information)
+        LDI     R31, (product_information) >> 8
+        LDI     R17, 7
+        CALL    ?ML_SRAM_EEPROM_16_16_L07
+//  205 }
+        ADIW    R29:R28, 50
+        CFI CFA_Y Y+1
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock2
+//  206 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  207 void load_parameter()
+load_parameter:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function load_parameter
+//  208 {
+        FUNCALL load_parameter, KO_parameter_initial
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL load_parameter, StrToChar
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL load_parameter, configurator_to_KO
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL load_parameter, StrToChar
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL load_parameter, configurator_to_KO
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL load_parameter, buzzer_ms
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        SBIW    R29:R28, 3
+        CFI CFA_Y Y+3
+        LDI     R20, LOW(ee_KO)
+        LDI     R21, (ee_KO) >> 8
+        CALL    __eeget8_16
+        STS     KO, R16
+//  209   unsigned char buffer[3];
+//  210   KO[0] = ee_KO[0];
+//  211   KO[1] = ee_KO[1];
+        LDI     R20, LOW((ee_KO + 1))
+        LDI     R21, HIGH((ee_KO + 1))
+        CALL    __eeget8_16
+        MOV     R17, R16
+        STS     (KO + 1), R16
+//  212   KO[2] = ee_KO[2];
+        LDI     R20, LOW((ee_KO + 2))
+        LDI     R21, HIGH((ee_KO + 2))
+        CALL    __eeget8_16
+        MOV     R18, R16
+        STS     (KO + 2), R16
+//  213   KO[3] = ee_KO[3];
+        LDI     R20, LOW((ee_KO + 3))
+        LDI     R21, HIGH((ee_KO + 3))
+        CALL    __eeget8_16
+        MOV     R19, R16
+        STS     (KO + 3), R16
+        LDI     R20, LOW(ee_KO)
+        LDI     R21, (ee_KO) >> 8
+        CALL    __eeget8_16
+        MOV     R22, R16
+        LDI     R20, LOW(ee_KO_last)
+        LDI     R21, (ee_KO_last) >> 8
+        CALL    __eeget8_16
+        CP      R22, R16
+        BRNE    ??load_parameter_0
+        LDI     R20, LOW((ee_KO_last + 1))
+        LDI     R21, HIGH((ee_KO_last + 1))
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??load_parameter_0
+        LDI     R20, LOW((ee_KO_last + 2))
+        LDI     R21, HIGH((ee_KO_last + 2))
+        CALL    __eeget8_16
+        CP      R18, R16
+        BRNE    ??load_parameter_0
+        LDI     R20, LOW((ee_KO_last + 3))
+        LDI     R21, HIGH((ee_KO_last + 3))
+        CALL    __eeget8_16
+        CP      R19, R16
+        BRNE    $+2+2
+        RJMP    ??load_parameter_1
+//  214 
+//  215   if(ee_KO[0] != ee_KO_last[0] || ee_KO[1] != ee_KO_last[1] || ee_KO[2] != ee_KO_last[2] || ee_KO[3] != ee_KO_last[3])
+//  216   {
+//  217     KO_parameter_initial();
+??load_parameter_0:
+        RCALL   KO_parameter_initial
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeget8_16
+        TST     R16
+        BREQ    ??load_parameter_2
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeget8_16
+        CPI     R16, 1
+        BRNE    ??load_parameter_3
+??load_parameter_2:
+        LDI     R20, LOW((ee_configurators + 1))
+        LDI     R21, HIGH((ee_configurators + 1))
+        CALL    __eeget8_16
+        ST      Y, R16
+//  218     if(ee_product_information.conf_type == BASIC_PHYSICAL || ee_product_information.conf_type == BASIC_VIRTUAL)
+//  219     {
+//  220       	buffer[0] = ee_configurators.A;
+//  221       	buffer[1] = ee_configurators.PL;
+        LDI     R20, LOW((ee_configurators + 2))
+        LDI     R21, HIGH((ee_configurators + 2))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  222       	buffer[2] = 0;
+        LDI     R16, 0
+        STD     Y+2, R16
+        MOVW    R17:R16, R29:R28
+//  223       	ee_KO_conf.DesAdd = StrToChar(&buffer);
+        CALL    StrToChar
+        LDI     R20, LOW((ee_KO_conf + 2))
+        LDI     R21, HIGH((ee_KO_conf + 2))
+        CALL    __eeput8_16
+//  224       	ee_KO_conf.Reference = ee_KO_conf.DesAdd;
+        LDI     R20, LOW((ee_KO_conf + 2))
+        LDI     R21, HIGH((ee_KO_conf + 2))
+        CALL    __eeget8_16
+        LDI     R20, LOW((ee_KO_conf + 5))
+        LDI     R21, HIGH((ee_KO_conf + 5))
+        CALL    __eeput8_16
+//  225 				configurator_to_KO();
+        CALL    configurator_to_KO
+//  226     }
+//  227 		
+//  228 		ee_KO_last[0] = KO[0];
+??load_parameter_3:
+        LDS     R16, KO
+        LDI     R20, LOW(ee_KO_last)
+        LDI     R21, (ee_KO_last) >> 8
+        CALL    __eeput8_16
+//  229   	ee_KO_last[1] = KO[1];
+        LDS     R16, (KO + 1)
+        LDI     R20, LOW((ee_KO_last + 1))
+        LDI     R21, HIGH((ee_KO_last + 1))
+        CALL    __eeput8_16
+//  230   	ee_KO_last[2] = KO[2];
+        LDS     R16, (KO + 2)
+        LDI     R20, LOW((ee_KO_last + 2))
+        LDI     R21, HIGH((ee_KO_last + 2))
+        CALL    __eeput8_16
+//  231   	ee_KO_last[3] = KO[3];
+        LDS     R16, (KO + 3)
+        LDI     R20, LOW((ee_KO_last + 3))
+        LDI     R21, HIGH((ee_KO_last + 3))
+        CALL    __eeput8_16
+        RJMP    ??load_parameter_4
+//  232   }
+??load_parameter_1:
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeget8_16
+        TST     R16
+        BREQ    ??load_parameter_5
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        CALL    __eeget8_16
+        CPI     R16, 1
+        BRNE    ??load_parameter_4
+??load_parameter_5:
+        LDI     R20, LOW((ee_configurators + 1))
+        LDI     R21, HIGH((ee_configurators + 1))
+        CALL    __eeget8_16
+        ST      Y, R16
+//  233 	else if(ee_product_information.conf_type == BASIC_PHYSICAL || ee_product_information.conf_type == BASIC_VIRTUAL)
+//  234 	{
+//  235 		buffer[0] = ee_configurators.A;
+//  236     buffer[1] = ee_configurators.PL;
+        LDI     R20, LOW((ee_configurators + 2))
+        LDI     R21, HIGH((ee_configurators + 2))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  237     buffer[2] = 0;
+        LDI     R16, 0
+        STD     Y+2, R16
+//  238     ee_KO_conf.DesAdd = StrToChar(&buffer);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+        LDI     R20, LOW((ee_KO_conf + 2))
+        LDI     R21, HIGH((ee_KO_conf + 2))
+        CALL    __eeput8_16
+//  239 		configurator_to_KO();
+        CALL    configurator_to_KO
+//  240 	}
+//  241 
+//  242   KO_conf = ee_KO_conf;
+??load_parameter_4:
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R17, 50
+        LDI     R18, 0
+        CALL    ?ML_EEPROM_SRAM_16_16_L07
+        LDI     R30, LOW(product_information)
+        LDI     R31, (product_information) >> 8
+        LDI     R20, LOW(ee_product_information)
+        LDI     R21, (ee_product_information) >> 8
+        LDI     R17, 7
+        CALL    ?ML_EEPROM_SRAM_16_16_L07
+//  243   product_information = ee_product_information;
+//  244 	/*
+//  245 	if(product_information.cen_system)
+//  246 	{
+//  247 		KO_conf.DF = 4;
+//  248 		ee_KO_conf.DF = 4;
+//  249 	}
+//  250 	*/
+//  251   flags.id_confed = ee_product_information.ID_confed;
+        LDI     R20, LOW((ee_product_information + 1))
+        LDI     R21, HIGH((ee_product_information + 1))
+        CALL    __eeget8_16
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        BST     R16, 0
+        LD      R16, Z
+        LDD     R17, Z+1
+        BLD     R16, 0
+        STD     Z+1, R17
+        ST      Z, R16
+//  252 #ifdef CELIING
+//  253 		DLL.setpoint_M = 20;
+        LDI     R16, 20
+        STS     (DLL + 28), R16
+        STS     (DLL + 29), R18
+//  254 #else
+//  255 		DLL.setpoint_M = 40; //Reyno 0604
+//  256 #endif
+//  257 		
+//  258 	state.main_state = ee_main_state;
+        LDI     R20, LOW(ee_main_state)
+        LDI     R21, (ee_main_state) >> 8
+        CALL    __eeget16_16
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+//  259 	g_slope = ee_slope;
+        LDI     R20, LOW(ee_slope)
+        LDI     R21, (ee_slope) >> 8
+        CALL    __eeget32_16
+        LDI     R30, LOW(g_slope)
+        LDI     R31, (g_slope) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  260 	if(state.main_state == FACTORY_CALIBRATION_STEP1)
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 69
+        LDI     R18, 144
+        CPC     R17, R18
+        BRNE    ??load_parameter_6
+//  261 	{
+//  262 		//led_blinking(60,60);
+//  263 		buzzer_ms(500);
+        LDI     R16, 244
+        LDI     R17, 1
+        CALL    buzzer_ms
+//  264 	}
+//  265 	
+//  266 	g_dataflash_page_address == ee_page_address;
+??load_parameter_6:
+        LDS     R16, g_dataflash_page_address
+        LDS     R17, (g_dataflash_page_address + 1)
+//  267 }
+        ADIW    R29:R28, 3
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock3
+//  268 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  269 void ID_setting(unsigned char *data)
+ID_setting:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function ID_setting
+//  270 {
+        MOVW    R19:R18, R17:R16
+//  271   unsigned char i;
+//  272   for(i=0;i<8;i++)
+        LDI     R22, 0
+        RJMP    ??ID_setting_0
+//  273   {
+//  274 		ee_ID[i] = *(data+i);
+??ID_setting_1:
+        LDI     R23, 0
+        MOVW    R31:R30, R19:R18
+        ADD     R30, R22
+        ADC     R31, R23
+        LD      R16, Z
+        LDI     R20, LOW(ee_ID)
+        LDI     R21, (ee_ID) >> 8
+        ADD     R20, R22
+        ADC     R21, R23
+        CALL    __eeput8_16
+//  275   }
+        INC     R22
+??ID_setting_0:
+        CPI     R22, 8
+        BRCS    ??ID_setting_1
+//  276 }
+        RET
+        CFI EndBlock cfiBlock4
+//  277 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  278 unsigned char configuration_checking(unsigned char *data)
+configuration_checking:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function configuration_checking
+//  279 {
+        FUNCALL configuration_checking, StrToChar
+        LOCFRAME CSTACK, 9, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        SBIW    R29:R28, 3
+        CFI CFA_Y Y+9
+        MOVW    R5:R4, R17:R16
+//  280   volatile struct SConfigurators confi;
+//  281 	unsigned char result = 0;
+        LDI     R27, 0
+//  282 	unsigned char buffer[3];
+//  283 	unsigned char des_add;
+//  284 	
+//  285 	confi.A = *(data++);
+        MOVW    R31:R30, R5:R4
+        LD      R17, Z
+//  286 	confi.PL = *(data++);
+        LDI     R16, 1
+        ADD     R4, R16
+        ADC     R5, R27
+        MOVW    R31:R30, R5:R4
+        LD      R18, Z
+//  287 	confi.M = *(data++);
+        ADD     R4, R16
+        ADC     R5, R27
+        MOVW    R31:R30, R5:R4
+        LD      R26, Z
+//  288 	confi.S = *(data++);
+        ADD     R4, R16
+        ADC     R5, R27
+        MOVW    R31:R30, R5:R4
+        LD      R24, Z
+//  289 	confi.T = *(data++);
+        ADD     R4, R16
+        ADC     R5, R27
+        MOVW    R31:R30, R5:R4
+        LD      R25, Z
+//  290 	
+//  291 	buffer[0] = confi.A;
+        ST      Y, R17
+//  292 	buffer[1] = confi.PL;
+        STD     Y+1, R18
+//  293 	
+//  294 	des_add = StrToChar(buffer);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+//  295 	
+//  296 	if( (confi.M >= '0') && (confi.M <= '4') )
+        CPI     R26, 48
+        BRCC    $+2+2
+        RJMP    ??configuration_checking_0
+        CPI     R26, 53
+        BRCS    $+2+2
+        RJMP    ??configuration_checking_0
+//  297 	{
+//  298 		if(confi.M == '0')
+        CPI     R26, 48
+        BRNE    ??configuration_checking_1
+//  299 		{
+//  300 			if((des_add >= 1 && des_add <= 0xAF) && (confi.S >= '0') && (confi.S <= '3') && (confi.T >= '0') && (confi.T <= '9'))
+        TST     R16
+        BRNE    $+2+2
+        RJMP    ??configuration_checking_0
+        CPI     R16, 176
+        BRCC    ??configuration_checking_0
+        CPI     R24, 48
+        BRCS    ??configuration_checking_0
+        CPI     R24, 52
+        BRCC    ??configuration_checking_0
+        CPI     R25, 48
+        BRCS    ??configuration_checking_0
+        CPI     R25, 58
+        BRCC    ??configuration_checking_0
+//  301 			{
+//  302 				result = '0';
+        LDI     R27, 48
+        RJMP    ??configuration_checking_0
+//  303 			}
+//  304 		}
+//  305 		else if(confi.M == '1')
+??configuration_checking_1:
+        CPI     R26, 49
+        BRNE    ??configuration_checking_2
+//  306 		{
+//  307 			if((des_add >= 1 && des_add <= 0xAF) && (confi.S == '0') && (confi.T == '0'))
+        TST     R16
+        BREQ    ??configuration_checking_0
+        CPI     R16, 176
+        BRCC    ??configuration_checking_0
+        CPI     R24, 48
+        BRNE    ??configuration_checking_0
+        CPI     R25, 48
+        BRNE    ??configuration_checking_0
+//  308 			{
+//  309 				result = '1';
+        LDI     R27, 49
+        RJMP    ??configuration_checking_0
+//  310 			}
+//  311 		}
+//  312 		else if(confi.M == '2')
+??configuration_checking_2:
+        CPI     R26, 50
+        BRNE    ??configuration_checking_3
+//  313 		{
+//  314 			if((des_add <= 0xAF) && ((confi.S >= '0') && (confi.S <= '3')) && ((confi.T >= '0') && (confi.T <= '9')))
+        CPI     R16, 176
+        BRCC    ??configuration_checking_0
+        CPI     R24, 48
+        BRCS    ??configuration_checking_0
+        CPI     R24, 52
+        BRCC    ??configuration_checking_0
+        CPI     R25, 48
+        BRCS    ??configuration_checking_0
+        CPI     R25, 58
+        BRCC    ??configuration_checking_0
+//  315 			{
+//  316 				result = '2';
+        LDI     R27, 50
+        RJMP    ??configuration_checking_0
+//  317 			}
+//  318 		}
+//  319 		else if(confi.M == '3')
+??configuration_checking_3:
+        CPI     R26, 51
+        BRNE    ??configuration_checking_4
+//  320 		{
+//  321 			if((des_add >= 1 && des_add <= 0xAF) && (confi.S >= '0') && (confi.S <= '3') && (confi.T >= '0') && (confi.T <= '9'))
+        TST     R16
+        BREQ    ??configuration_checking_0
+        CPI     R16, 176
+        BRCC    ??configuration_checking_0
+        CPI     R24, 48
+        BRCS    ??configuration_checking_0
+        CPI     R24, 52
+        BRCC    ??configuration_checking_0
+        CPI     R25, 48
+        BRCS    ??configuration_checking_0
+        CPI     R25, 58
+        BRCC    ??configuration_checking_0
+//  322 			{
+//  323 				result = '3';
+        LDI     R27, 51
+        RJMP    ??configuration_checking_0
+//  324 			}
+//  325 		}
+//  326 		else if(confi.M == '4')
+??configuration_checking_4:
+        CPI     R26, 52
+        BRNE    ??configuration_checking_0
+//  327 		{
+//  328 			if((des_add >= 1 && des_add <= 0xAF) && (confi.S == '0') && (confi.T == '0'))
+        TST     R16
+        BREQ    ??configuration_checking_0
+        CPI     R16, 176
+        BRCC    ??configuration_checking_0
+        CPI     R24, 48
+        BRNE    ??configuration_checking_0
+        CPI     R25, 48
+        BRNE    ??configuration_checking_0
+//  329 			{
+//  330 				result = '4';
+        LDI     R27, 52
+//  331 			}
+//  332 		}
+//  333 	}
+//  334 
+//  335 	return result;
+??configuration_checking_0:
+        MOV     R16, R27
+        ADIW    R29:R28, 3
+        CFI CFA_Y Y+6
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock5
+//  336 }
+//  337 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  338 unsigned int write_KO(unsigned char index,unsigned char data)
+write_KO:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function write_KO
+//  339 {
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        MOV     R24, R17
+//  340 #ifdef NONE_CONFED_203
+//  341 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '8')
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R17, Z
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_KO_0
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_KO_0
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BREQ    $+2+2
+        RJMP    ??write_KO_0
+        LDD     R17, Z+3
+        CPI     R17, 56
+        BREQ    $+2+2
+        RJMP    ??write_KO_0
+//  342 	{
+//  343   	switch(index)
+        LDI     R30, LOW(`?<Jumptable for write_KO>_0`)
+        LDI     R31, (`?<Jumptable for write_KO>_0`) >> 8
+        JMP     ?CV_SWITCH_L06
+//  344   	{
+//  345   	  case 1:
+//  346 				if(data == 0 || data == 2)
+??write_KO_1:
+        TST     R24
+        BREQ    ??write_KO_2
+        CPI     R24, 2
+        BRNE    ??write_KO_3
+//  347 					KO_conf.AddressType = data;
+??write_KO_2:
+        STS     (KO_conf + 1), R24
+//  348 				else
+//  349 					return PAR_OUT_OF_RANGE;
+//  350 			break;
+//  351   	
+//  352   	  case 2:
+//  353 				if(KO_conf.AddressType == 0)
+//  354 				{
+//  355 					if(data >= 0x01 && data <= 0xAF)
+//  356 						KO_conf.DesAdd = data;
+//  357 					else
+//  358 						return PAR_OUT_OF_RANGE;
+//  359 				}
+//  360 				else if(KO_conf.AddressType == 2)
+//  361 				{
+//  362 					if(data >= 0x00 && data <= 0x0A)
+//  363 						KO_conf.DesAdd = data;
+//  364 					else
+//  365 						return PAR_OUT_OF_RANGE;
+//  366 				}
+//  367   	  break;
+//  368   	
+//  369   	  case 5:
+//  370 				if(data <= 0xAF)
+//  371 					KO_conf.Reference = data;
+//  372 				else
+//  373 					return PAR_OUT_OF_RANGE;
+//  374   	  break;
+//  375   	
+//  376   	  case 6:
+//  377 				KO_conf.GR = data;
+//  378   	  break;
+//  379   	
+//  380   	  case 7:
+//  381 				KO_conf.GS1 = data;
+//  382   	  break;
+//  383   	
+//  384   	  case 8:
+//  385 				KO_conf.GS2 = data;
+//  386   	  break;
+//  387   	
+//  388   	  case 10:
+//  389 				KO_conf.Hours = data;
+//  390   	  break;
+//  391   	
+//  392   	  case 11:
+//  393 				if(data <= 59)
+//  394 					KO_conf.Minutes = data;
+//  395 				else
+//  396 					return PAR_OUT_OF_RANGE;
+//  397   	  break;
+//  398   	
+//  399   	  case 12:
+//  400 				if(data <= 59)
+//  401 					KO_conf.Seconds = data;
+//  402 				else
+//  403 					return PAR_OUT_OF_RANGE;
+//  404   	  break;
+//  405   	
+//  406   	  case 13:
+//  407 				if(data == 0 || data == 1)
+//  408 					KO_conf.en_load = data;
+//  409 				else
+//  410 					return PAR_OUT_OF_RANGE;
+//  411   	  break;
+//  412   	
+//  413   	  case 14:
+//  414 				if(data == 0 || data == 1)
+//  415 					KO_conf.en_GS_main_group = data;
+//  416 				else
+//  417 					return PAR_OUT_OF_RANGE;
+//  418   	  break;
+//  419 			
+//  420 #ifdef HARDWARE_PIR_US  	
+//  421   	  case 20:
+//  422 				if(data <= 3)
+//  423 					KO_conf.PirSens = data;
+//  424 				else
+//  425 					return PAR_OUT_OF_RANGE;
+//  426   	  break;
+//  427   	
+//  428   	  case 21:
+//  429 				if(data <= 3)
+//  430 					KO_conf.USSens = data;
+//  431 				else
+//  432 					return PAR_OUT_OF_RANGE;
+//  433   	  break;
+//  434 #endif
+//  435 			
+//  436 #ifdef HARDWARE_PIR
+//  437 			case 20:
+//  438 				if(data <= 3)
+//  439 					KO_conf.PirSens = data;
+//  440 				else
+//  441 					return PAR_OUT_OF_RANGE;
+//  442   	  break;
+//  443 #endif
+//  444   	
+//  445 #ifdef HARDWARE_US
+//  446 			case 21:
+//  447 				if(data <= 3)
+//  448 					KO_conf.USSens = data;
+//  449 				else
+//  450 					return PAR_OUT_OF_RANGE;
+//  451   	  break;
+//  452 #endif
+//  453   	
+//  454   	  case 22:
+//  455 				KO_conf.DF = data;
+//  456   	  break;
+//  457   	
+//  458   	  case 23:
+//  459 				if(data == 0 || data == 1)
+//  460 					KO_conf.TypeLoop = data;
+//  461 				else
+//  462 					return PAR_OUT_OF_RANGE;
+//  463   	  break;
+//  464 	  case 24:
+//  465 				KO_conf.NF = data;
+//  466   	  break;
+//  467   	
+//  468   	  case 25:
+//  469 				KO_conf.DaylightSetp = data;
+//  470   	  break;
+//  471   	
+//  472   	  case 26:
+//  473 				KO_conf.PofL = data;
+//  474 				if(data == 0)
+//  475 				{
+//  476 					KO_conf.PofL = 0xFF;
+//  477 					KO_conf.flag_PofL_Forced = 0;
+//  478 				}
+//  479 				else
+//  480 				{
+//  481 					KO_conf.flag_PofL_Forced = 1;
+//  482 					DLL.load_provision = data * 5;
+//  483 				}
+//  484   	  break;
+//  485   	
+//  486   	  case 27:
+//  487 				KO_conf.DaylightLev = data;
+//  488   	  break;
+//  489   	
+//  490   	  case 28:
+//  491 				if(data == 0 || data == 1)
+//  492 					KO_conf.LightReg = data;
+//  493 				else
+//  494 					return PAR_OUT_OF_RANGE;
+//  495   	  break;
+//  496   	
+//  497   	  case 29:
+//  498 				if(data == 1 || data == 2 || data == 3 || data == 5)
+//  499 					KO_conf.FuncMod = data;
+//  500 				else
+//  501 					return PAR_OUT_OF_RANGE;
+//  502   	  break;
+//  503   	
+//  504   	  case 30:
+//  505 #ifdef HARDWARE_PIR
+//  506 				if(data == 1)
+//  507 					KO_conf.InitOccu = data;
+//  508 				else
+//  509 					return PAR_OUT_OF_RANGE;
+//  510 #endif
+//  511 				
+//  512 #ifdef HARDWARE_US
+//  513 				if(data == 2)
+//  514 					KO_conf.InitOccu = data;
+//  515 				else
+//  516 					return PAR_OUT_OF_RANGE;
+//  517 #endif
+//  518 				
+//  519 #ifdef HARDWARE_PIR_US
+//  520 				if(data >= 1 && data <= 4)
+//  521 					KO_conf.InitOccu = data;
+//  522 				else
+//  523 					return PAR_OUT_OF_RANGE;
+//  524 #endif
+//  525   	  break;
+//  526   	
+//  527   	  case 31:
+//  528 #ifdef HARDWARE_PIR
+//  529 				if(data == 1)
+//  530 					KO_conf.MaintainOccu = data;
+//  531 				else
+//  532 					return PAR_OUT_OF_RANGE;
+//  533 #endif
+//  534 				
+//  535 #ifdef  HARDWARE_US
+//  536 				if(data == 2)
+//  537 					KO_conf.MaintainOccu = data;
+//  538 				else
+//  539 					return PAR_OUT_OF_RANGE;
+//  540 #endif
+//  541 				
+//  542 #ifdef HARDWARE_PIR_US
+//  543 				if(data >= 1 && data <= 4)
+//  544 					KO_conf.MaintainOccu = data;
+//  545 				else
+//  546 					return PAR_OUT_OF_RANGE;
+//  547 #endif
+//  548   	  break;
+//  549   	
+//  550   	  case 32:
+//  551 #ifdef HARDWARE_PIR
+//  552 				if(data == 0 || data == 1)
+//  553 					KO_conf.Retrigger = data;
+//  554 				else
+//  555 					return PAR_OUT_OF_RANGE;
+//  556 #endif
+//  557 				
+//  558 #ifdef HARDWARE_US
+//  559 				if(data == 0 || data == 2)
+//  560 					KO_conf.Retrigger = data;
+//  561 				else
+//  562 					return PAR_OUT_OF_RANGE;
+//  563 #endif
+//  564 				
+//  565 #ifdef HARDWARE_PIR_US
+//  566 				if(data <= 4)
+//  567 					KO_conf.Retrigger = data;
+//  568 				else
+//  569 					return PAR_OUT_OF_RANGE;
+//  570 #endif
+//  571   	  break;
+//  572   	
+//  573   	  case 34:
+//  574 				if(data <= 3)
+//  575 					KO_conf.Alert = data;
+//  576 				else
+//  577 					return PAR_OUT_OF_RANGE;
+//  578   	  break;
+//  579   	
+//  580   	  default:
+//  581 				return PAR_NOT_IMPLEMENTED;
+//  582   	}
+//  583 	}
+//  584 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+//  585 	{
+//  586   	switch(index)
+//  587   	{
+//  588   	  case 1:
+//  589 				if(data == 0 || data == 2)
+//  590 					KO_conf.AddressType = data;
+//  591 				else
+//  592 					return PAR_OUT_OF_RANGE;
+//  593 			break;
+//  594   	
+//  595   	  case 2:
+//  596 				if(KO_conf.AddressType == 0)
+//  597 				{
+//  598 					if(data >= 0x01 && data <= 0xAF)
+//  599 						KO_conf.DesAdd = data;
+//  600 					else
+//  601 						return PAR_OUT_OF_RANGE;
+//  602 				}
+//  603 				else if(KO_conf.AddressType == 2)
+//  604 				{
+//  605 					if(data >= 0x00 && data <= 0x0A)
+//  606 						KO_conf.DesAdd = data;
+//  607 					else
+//  608 						return PAR_OUT_OF_RANGE;
+//  609 				}
+//  610   	  break;
+//  611   	
+//  612   	  case 5:
+//  613 				if(data <= 0xAF)
+//  614 					KO_conf.Reference = data;
+//  615 				else
+//  616 					return PAR_OUT_OF_RANGE;
+//  617   	  break;
+//  618   	
+//  619   	  case 6:
+//  620 				KO_conf.GR = data;
+//  621   	  break;
+//  622   	
+//  623 		case 22:
+//  624 				KO_conf.DF = data;
+//  625   	  break;
+//  626 			
+//  627 			case 24:
+//  628 				KO_conf.NF = data;
+//  629   	  break;
+//  630   	  case 25:
+//  631 				KO_conf.DaylightSetp = data;
+//  632   	  break;
+//  633   	
+//  634   	  case 26:
+//  635 				KO_conf.PofL = data;
+//  636 				if(data == 0)
+//  637 				{
+//  638 					KO_conf.PofL = 0xFF;
+//  639 					KO_conf.flag_PofL_Forced = 0;
+//  640 				}
+//  641 				else
+//  642 				{
+//  643 					KO_conf.flag_PofL_Forced = 1;
+//  644 					DLL.load_provision = data * 5;
+//  645 				}
+//  646   	  break;
+//  647   	
+//  648   	  case 27:
+//  649 				KO_conf.DaylightLev = data;
+//  650   	  break;
+//  651   	
+//  652   	  case 28:
+//  653 				if(data == 0 || data == 1)
+//  654 					KO_conf.LightReg = data;
+//  655 				else
+//  656 					return PAR_OUT_OF_RANGE;
+//  657   	  break;
+//  658   	
+//  659   	  case 29:
+//  660 				if(data >= 1 && data <= 4)
+//  661 					KO_conf.FuncMod = data;
+//  662 				else
+//  663 					return PAR_OUT_OF_RANGE;
+//  664   	  break;
+//  665   	
+//  666   	  default:
+//  667 				return PAR_NOT_IMPLEMENTED;
+//  668   	}
+//  669 	}
+//  670 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+//  671 	{
+//  672   	switch(index)
+//  673   	{
+//  674   	  case 1:
+//  675 				if(data == 0 || data == 2)
+//  676 					KO_conf.AddressType = data;
+//  677 				else
+//  678 					return PAR_OUT_OF_RANGE;
+//  679 			break;
+//  680   	
+//  681   	  case 2:
+//  682 				if(KO_conf.AddressType == 0)
+//  683 				{
+//  684 					if(data >= 0x01 && data <= 0xAF)
+//  685 						KO_conf.DesAdd = data;
+//  686 					else
+//  687 						return PAR_OUT_OF_RANGE;
+//  688 				}
+//  689 				else if(KO_conf.AddressType == 2)
+//  690 				{
+//  691 					if(data >= 0x00 && data <= 0x0A)
+//  692 						KO_conf.DesAdd = data;
+//  693 					else
+//  694 						return PAR_OUT_OF_RANGE;
+//  695 				}
+//  696   	  break;
+//  697   	
+//  698   	  case 5:
+//  699 				if(data <= 0xAF)
+//  700 					KO_conf.Reference = data;
+//  701 				else
+//  702 					return PAR_OUT_OF_RANGE;
+//  703   	  break;
+//  704   	
+//  705   	  case 6:
+//  706 				KO_conf.GR = data;
+//  707   	  break;
+//  708   	
+//  709   	  case 7:
+//  710 				KO_conf.GS1 = data;
+//  711   	  break;
+//  712   	
+//  713   	  case 8:
+//  714 				KO_conf.GS2 = data;
+//  715   	  break;
+//  716   	
+//  717   	  case 10:
+//  718 				KO_conf.Hours = data;
+//  719   	  break;
+//  720   	
+//  721   	  case 11:
+//  722 				if(data <= 59)
+//  723 					KO_conf.Minutes = data;
+//  724 				else
+//  725 					return PAR_OUT_OF_RANGE;
+//  726   	  break;
+//  727   	
+//  728   	  case 12:
+//  729 				if(data <= 59)
+//  730 					KO_conf.Seconds = data;
+//  731 				else
+//  732 					return PAR_OUT_OF_RANGE;
+//  733   	  break;
+//  734   	
+//  735   	  case 13:
+//  736 				if(data == 0 || data == 1)
+//  737 					KO_conf.en_load = data;
+//  738 				else
+//  739 					return PAR_OUT_OF_RANGE;
+//  740   	  break;
+//  741   	
+//  742   	  case 14:
+//  743 				if(data == 0 || data == 1)
+//  744 					KO_conf.en_GS_main_group = data;
+//  745 				else
+//  746 					return PAR_OUT_OF_RANGE;
+//  747   	  break;
+//  748   	
+//  749 #ifdef HARDWARE_PIR_US  	
+//  750   	  case 20:
+//  751 				if(data <= 3)
+//  752 					KO_conf.PirSens = data;
+//  753 				else
+//  754 					return PAR_OUT_OF_RANGE;
+//  755   	  break;
+//  756   	
+//  757   	  case 21:
+//  758 				if(data <= 3)
+//  759 					KO_conf.USSens = data;
+//  760 				else
+//  761 					return PAR_OUT_OF_RANGE;
+//  762   	  break;
+//  763 #endif
+//  764 			
+//  765 #ifdef HARDWARE_PIR
+//  766 			case 20:
+//  767 				if(data <= 3)
+//  768 					KO_conf.PirSens = data;
+//  769 				else
+//  770 					return PAR_OUT_OF_RANGE;
+//  771   	  break;
+//  772 #endif
+//  773   	
+//  774 #ifdef HARDWARE_US
+//  775 			case 21:
+//  776 				if(data <= 3)
+//  777 					KO_conf.USSens = data;
+//  778 				else
+//  779 					return PAR_OUT_OF_RANGE;
+//  780   	  break;
+//  781 #endif
+//  782   	
+//  783   	  case 29:
+//  784 				if(data >= 1 && data <= 4)
+//  785 					KO_conf.FuncMod = data;
+//  786 				else
+//  787 					return PAR_OUT_OF_RANGE;
+//  788   	  break;
+//  789   	
+//  790   	  case 30:
+//  791 #ifdef HARDWARE_PIR
+//  792 				if(data == 1)
+//  793 					KO_conf.InitOccu = data;
+//  794 				else
+//  795 					return PAR_OUT_OF_RANGE;
+//  796 #endif
+//  797 				
+//  798 #ifdef HARDWARE_US
+//  799 				if(data == 2)
+//  800 					KO_conf.InitOccu = data;
+//  801 				else
+//  802 					return PAR_OUT_OF_RANGE;
+//  803 #endif
+//  804 				
+//  805 #ifdef HARDWARE_PIR_US
+//  806 				if(data >= 1 && data <= 4)
+//  807 					KO_conf.InitOccu = data;
+//  808 				else
+//  809 					return PAR_OUT_OF_RANGE;
+//  810 #endif
+//  811   	  break;
+//  812   	
+//  813   	  case 31:
+//  814 #ifdef HARDWARE_PIR
+//  815 				if(data == 1)
+//  816 					KO_conf.MaintainOccu = data;
+//  817 				else
+//  818 					return PAR_OUT_OF_RANGE;
+//  819 #endif
+//  820 				
+//  821 #ifdef HARDWARE_US
+//  822 				if(data == 2)
+//  823 					KO_conf.MaintainOccu = data;
+//  824 				else
+//  825 					return PAR_OUT_OF_RANGE;
+//  826 #endif
+//  827 				
+//  828 #ifdef HARDWARE_PIR_US
+//  829 				if(data >= 1 && data <= 4)
+//  830 					KO_conf.MaintainOccu = data;
+//  831 				else
+//  832 					return PAR_OUT_OF_RANGE;
+//  833 #endif
+//  834   	  break;
+//  835   	
+//  836   	  case 32:
+//  837 #ifdef HARDWARE_PIR
+//  838 				if(data == 0 || data == 1)
+//  839 					KO_conf.Retrigger = data;
+//  840 				else
+//  841 					return PAR_OUT_OF_RANGE;
+//  842 #endif
+//  843 				
+//  844 #ifdef HARDWARE_US
+//  845 				if(data == 0 || data == 2)
+//  846 					KO_conf.Retrigger = data;
+//  847 				else
+//  848 					return PAR_OUT_OF_RANGE;
+//  849 #endif
+//  850 				
+//  851 #ifdef HARDWARE_PIR_US
+//  852 				if(data <= 4)
+//  853 					KO_conf.Retrigger = data;
+//  854 				else
+//  855 					return PAR_OUT_OF_RANGE;
+//  856 #endif
+//  857   	  break;
+//  858   	
+//  859   	  case 34:
+//  860 				if(data <= 3)
+//  861 					KO_conf.Alert = data;
+//  862 				else
+//  863 					return PAR_OUT_OF_RANGE;
+//  864   	  break;
+//  865   	
+//  866   	  default:
+//  867 				return PAR_NOT_IMPLEMENTED;
+//  868   	}
+//  869 	}
+//  870 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '8' && KO[3] == '0')
+//  871 	{
+//  872   	switch(index)
+//  873   	{
+//  874   	  case 10:
+//  875 				KO_conf.Hours = data;
+//  876   	  break;
+//  877   	
+//  878   	  case 11:
+//  879 				if(data <= 59)
+//  880 					KO_conf.Minutes = data;
+//  881 				else
+//  882 					return PAR_OUT_OF_RANGE;
+//  883   	  break;
+//  884   	
+//  885   	  case 12:
+//  886 				if(data <= 59)
+//  887 					KO_conf.Seconds = data;
+//  888 				else
+//  889 					return PAR_OUT_OF_RANGE;
+//  890   	  break;
+//  891   	
+//  892 #ifdef HARDWARE_PIR_US  	
+//  893   	  case 20:
+//  894 				if(data <= 3)
+//  895 					KO_conf.PirSens = data;
+//  896 				else
+//  897 					return PAR_OUT_OF_RANGE;
+//  898   	  break;
+//  899   	
+//  900   	  case 21:
+//  901 				if(data <= 3)
+//  902 					KO_conf.USSens = data;
+//  903 				else
+//  904 					return PAR_OUT_OF_RANGE;
+//  905   	  break;
+//  906 #endif
+//  907 			
+//  908 #ifdef HARDWARE_PIR
+//  909 			case 20:
+//  910 				if(data <= 3)
+//  911 					KO_conf.PirSens = data;
+//  912 				else
+//  913 					return PAR_OUT_OF_RANGE;
+//  914   	  break;
+//  915 #endif
+//  916   	
+//  917 #ifdef HARDWARE_US
+//  918 			case 21:
+//  919 				if(data <= 3)
+//  920 					KO_conf.USSens = data;
+//  921 				else
+//  922 					return PAR_OUT_OF_RANGE;
+//  923   	  break;
+//  924 #endif
+//  925   	
+//  926   	  case 22:
+//  927 				if(data >= 1 && data <= 4)
+//  928 					KO_conf.DF = data;
+//  929 				else
+//  930 					return PAR_OUT_OF_RANGE;
+//  931   	  break;
+//  932   	
+//  933   	  default:
+//  934 				return PAR_NOT_IMPLEMENTED;
+//  935   	}
+//  936 	}
+//  937 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+//  938 	{
+//  939   	switch(index)
+//  940   	{
+//  941   	  default:
+//  942 				return PAR_NOT_IMPLEMENTED;
+//  943   	}
+//  944 	}
+//  945 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+//  946 	{
+//  947   	switch(index)
+//  948   	{
+//  949   	  case 10:
+//  950 				KO_conf.Hours = data;
+//  951   	  break;
+//  952   	
+//  953   	  case 11:
+//  954 				if(data <= 59)
+//  955 					KO_conf.Minutes = data;
+//  956 				else
+//  957 					return PAR_OUT_OF_RANGE;
+//  958   	  break;
+//  959   	
+//  960   	  case 12:
+//  961 				if(data <= 59)
+//  962 					KO_conf.Seconds = data;
+//  963 				else
+//  964 					return PAR_OUT_OF_RANGE;
+//  965   	  break;
+//  966 
+//  967   	  #ifdef HARDWARE_PIR_US  	
+//  968   	  case 20:
+//  969 				if(data <= 3)
+//  970 					KO_conf.PirSens = data;
+//  971 				else
+//  972 					return PAR_OUT_OF_RANGE;
+//  973   	  break;
+//  974   	
+//  975   	  case 21:
+//  976 				if(data <= 3)
+//  977 					KO_conf.USSens = data;
+//  978 				else
+//  979 					return PAR_OUT_OF_RANGE;
+//  980   	  break;
+//  981 #endif
+//  982 
+//  983 #ifdef HARDWARE_PIR
+//  984 			case 20:
+//  985 				if(data <= 3)
+//  986 					KO_conf.PirSens = data;
+//  987 				else
+//  988 					return PAR_OUT_OF_RANGE;
+//  989   	  break;
+//  990 #endif			
+//  991 
+//  992 #ifdef HARDWARE_US
+//  993 			case 21:
+//  994 				if(data <= 3)
+//  995 					KO_conf.USSens = data;
+//  996 				else
+//  997 					return PAR_OUT_OF_RANGE;
+//  998   	  break;
+//  999 #endif
+// 1000 				case 22:
+// 1001 				if(data >= 1 && data <= 4)
+// 1002 					KO_conf.DF = data;
+// 1003 				else
+// 1004 					return PAR_OUT_OF_RANGE;
+// 1005   	  break;
+// 1006   	
+// 1007 
+// 1008   	
+// 1009   	  default:
+// 1010 				return PAR_NOT_IMPLEMENTED;
+// 1011   	}
+// 1012 	}
+// 1013 #endif
+// 1014 
+// 1015   return 0;
+??write_KO_4:
+        LDI     R16, 0
+        LDI     R17, 0
+??write_KO_5:
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+??write_KO_6:
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDD     R16, Z+1
+        TST     R16
+        BRNE    ??write_KO_7
+??write_KO_8:
+        TST     R24
+        BREQ    ??write_KO_3
+        CPI     R24, 176
+        BRCC    ??write_KO_3
+??write_KO_9:
+        STS     (KO_conf + 2), R24
+        RJMP    ??write_KO_4
+??write_KO_7:
+        LDD     R16, Z+1
+        CPI     R16, 2
+        BRNE    ??write_KO_4
+??write_KO_10:
+        CPI     R24, 11
+        BRCS    ??write_KO_9
+??write_KO_3:
+        LDI     R16, 1
+??write_KO_11:
+        LDI     R17, 255
+        RJMP    ??write_KO_5
+??write_KO_12:
+        CPI     R24, 176
+        BRCC    ??write_KO_3
+        STS     (KO_conf + 5), R24
+        RJMP    ??write_KO_4
+??write_KO_13:
+        STS     (KO_conf + 6), R24
+        RJMP    ??write_KO_4
+??write_KO_14:
+        STS     (KO_conf + 7), R24
+        RJMP    ??write_KO_4
+??write_KO_15:
+        STS     (KO_conf + 8), R24
+        RJMP    ??write_KO_4
+??write_KO_16:
+        STS     (KO_conf + 10), R24
+        RJMP    ??write_KO_4
+??write_KO_17:
+        CPI     R24, 60
+        BRCC    ??write_KO_3
+        STS     (KO_conf + 11), R24
+        RJMP    ??write_KO_4
+??write_KO_18:
+        CPI     R24, 60
+        BRCC    ??write_KO_3
+        STS     (KO_conf + 12), R24
+        RJMP    ??write_KO_4
+??write_KO_19:
+        TST     R24
+        BREQ    ??write_KO_20
+        CPI     R24, 1
+        BRNE    ??write_KO_3
+??write_KO_20:
+        STS     (KO_conf + 13), R24
+        RJMP    ??write_KO_4
+??write_KO_21:
+        TST     R24
+        BREQ    ??write_KO_22
+        CPI     R24, 1
+        BRNE    ??write_KO_3
+??write_KO_22:
+        STS     (KO_conf + 14), R24
+        RJMP    ??write_KO_4
+??write_KO_23:
+        CPI     R24, 4
+        BRCC    ??write_KO_3
+        STS     (KO_conf + 20), R24
+        RJMP    ??write_KO_4
+??write_KO_24:
+        TST     R24
+        BREQ    ??write_KO_25
+        CPI     R24, 1
+        BRNE    ??write_KO_3
+??write_KO_25:
+        STS     (KO_conf + 23), R24
+        RJMP    ??write_KO_4
+??write_KO_26:
+        STS     (KO_conf + 24), R24
+        RJMP    ??write_KO_4
+??write_KO_27:
+        STS     (KO_conf + 25), R24
+        RJMP    ??write_KO_4
+??write_KO_28:
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        STD     Z+26, R24
+        TST     R24
+        BRNE    ??write_KO_29
+        LDI     R16, 255
+        STD     Z+26, R16
+        LDD     R16, Z+49
+        ANDI    R16, 0xFE
+        STD     Z+49, R16
+        RJMP    ??write_KO_4
+??write_KO_29:
+        LDD     R16, Z+49
+        ORI     R16, 0x01
+        STD     Z+49, R16
+        MOV     R20, R24
+        LDI     R21, 0
+        LDI     R16, 5
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        STS     (DLL + 14), R16
+        STS     (DLL + 15), R17
+        RJMP    ??write_KO_4
+??write_KO_30:
+        STS     (KO_conf + 27), R24
+        RJMP    ??write_KO_4
+??write_KO_31:
+        TST     R24
+        BREQ    ??write_KO_32
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_KO_3
+??write_KO_32:
+        STS     (KO_conf + 28), R24
+        RJMP    ??write_KO_4
+??write_KO_33:
+        CPI     R24, 1
+        BREQ    ??write_KO_34
+        CPI     R24, 2
+        BREQ    ??write_KO_34
+        CPI     R24, 3
+        BREQ    ??write_KO_34
+        CPI     R24, 5
+        BREQ    $+2+2
+        RJMP    ??write_KO_3
+??write_KO_34:
+        STS     (KO_conf + 29), R24
+        RJMP    ??write_KO_4
+??write_KO_35:
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_KO_3
+        LDI     R16, 1
+        STS     (KO_conf + 30), R16
+        RJMP    ??write_KO_4
+??write_KO_36:
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_KO_3
+        LDI     R16, 1
+        STS     (KO_conf + 31), R16
+        RJMP    ??write_KO_4
+??write_KO_37:
+        TST     R24
+        BREQ    ??write_KO_38
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_KO_3
+??write_KO_38:
+        STS     (KO_conf + 32), R24
+        RJMP    ??write_KO_4
+??write_KO_39:
+        CPI     R24, 4
+        BRCS    $+2+2
+        RJMP    ??write_KO_3
+        STS     (KO_conf + 34), R24
+        RJMP    ??write_KO_4
+??write_KO_0:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_KO_40
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_KO_40
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??write_KO_40
+        LDD     R17, Z+3
+        CPI     R17, 54
+        BRNE    ??write_KO_40
+        SUBI    R16, 1
+        BRNE    $+2+2
+        RJMP    ??write_KO_1
+        DEC     R16
+        BREQ    ??write_KO_41
+        SUBI    R16, 3
+        BRNE    $+2+2
+        RJMP    ??write_KO_12
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_13
+        SUBI    R16, 16
+        BRNE    $+2+2
+        RJMP    ??write_KO_42
+        SUBI    R16, 2
+        BRNE    $+2+2
+        RJMP    ??write_KO_26
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_27
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_28
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_30
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_31
+        DEC     R16
+        BREQ    ??write_KO_43
+        RJMP    ??write_KO_44
+??write_KO_41:
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDD     R16, Z+1
+        TST     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_8
+        LDD     R16, Z+1
+        CPI     R16, 2
+        BREQ    $+2+2
+        RJMP    ??write_KO_4
+        RJMP    ??write_KO_10
+??write_KO_43:
+        TST     R24
+        BRNE    $+2+2
+        RJMP    ??write_KO_3
+        CPI     R24, 5
+        BRCS    $+2+2
+        RJMP    ??write_KO_3
+        RJMP    ??write_KO_34
+??write_KO_40:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_KO_45
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_KO_45
+        LDD     R17, Z+2
+        CPI     R17, 55
+        BRNE    ??write_KO_45
+        LDD     R17, Z+3
+        CPI     R17, 55
+        BRNE    ??write_KO_45
+        LDI     R30, LOW(`?<Jumptable for write_KO>_1`)
+        LDI     R31, (`?<Jumptable for write_KO>_1`) >> 8
+        JMP     ?CV_SWITCH_L06
+??write_KO_45:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_KO_46
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_KO_46
+        LDD     R17, Z+2
+        CPI     R17, 56
+        BRNE    ??write_KO_46
+        LDD     R17, Z+3
+        CPI     R17, 48
+        BRNE    ??write_KO_46
+        SUBI    R16, 10
+        BRNE    $+2+2
+        RJMP    ??write_KO_16
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_17
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_18
+        SUBI    R16, 8
+        BRNE    $+2+2
+        RJMP    ??write_KO_23
+        SUBI    R16, 2
+        BRNE    ??write_KO_44
+??write_KO_47:
+        TST     R24
+        BRNE    $+2+2
+        RJMP    ??write_KO_3
+        CPI     R24, 5
+        BRCS    $+2+2
+        RJMP    ??write_KO_3
+??write_KO_42:
+        STS     (KO_conf + 22), R24
+        RJMP    ??write_KO_4
+??write_KO_46:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_KO_48
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_KO_48
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??write_KO_48
+        LDD     R17, Z+3
+        CPI     R17, 52
+        BREQ    ??write_KO_44
+??write_KO_48:
+        LD      R17, Z
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_KO_4
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_KO_4
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BREQ    $+2+2
+        RJMP    ??write_KO_4
+        LDD     R17, Z+3
+        CPI     R17, 53
+        BREQ    $+2+2
+        RJMP    ??write_KO_4
+        SUBI    R16, 10
+        BRNE    $+2+2
+        RJMP    ??write_KO_16
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_17
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_KO_18
+        SUBI    R16, 8
+        BRNE    $+2+2
+        RJMP    ??write_KO_23
+        SUBI    R16, 2
+        BREQ    ??write_KO_47
+??write_KO_44:
+        LDI     R16, 0
+        RJMP    ??write_KO_11
+        CFI EndBlock cfiBlock6
+// 1016 }
+// 1017 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1018 unsigned int write_ee_KO(unsigned char index,unsigned char data)
+write_ee_KO:
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function write_ee_KO
+// 1019 {
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        MOV     R24, R17
+// 1020 #ifdef NONE_CONFED_203
+// 1021 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '8')
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R17, Z
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_0
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_0
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_0
+        LDD     R17, Z+3
+        CPI     R17, 56
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_0
+// 1022 	{
+// 1023   	switch(index)
+        LDI     R30, LOW(`?<Jumptable for write_ee_KO>_0`)
+        LDI     R31, (`?<Jumptable for write_ee_KO>_0`) >> 8
+        JMP     ?CV_SWITCH_L06
+// 1024   	{
+// 1025   	  case 1:
+// 1026 				if(data == 0 || data == 2)
+??write_ee_KO_1:
+        TST     R24
+        BREQ    ??write_ee_KO_2
+        CPI     R24, 2
+        BRNE    ??write_ee_KO_3
+// 1027 					ee_KO_conf.AddressType = data;
+??write_ee_KO_2:
+        LDI     R20, LOW((ee_KO_conf + 1))
+        LDI     R21, HIGH((ee_KO_conf + 1))
+??write_ee_KO_4:
+        MOV     R16, R24
+??write_ee_KO_5:
+        CALL    __eeput8_16
+// 1028 				else
+// 1029 					return PAR_OUT_OF_RANGE;
+// 1030 			break;
+// 1031   	
+// 1032   	  case 2:
+// 1033 				if(ee_KO_conf.AddressType == 0)
+// 1034 				{
+// 1035 					if(data >= 0x01 && data <= 0xAF)
+// 1036 						ee_KO_conf.DesAdd = data;
+// 1037 					else
+// 1038 						return PAR_OUT_OF_RANGE;
+// 1039 				}
+// 1040 				else if(ee_KO_conf.AddressType == 2)
+// 1041 				{
+// 1042 					if(data >= 0x00 && data <= 0x0A)
+// 1043 						ee_KO_conf.DesAdd = data;
+// 1044 					else
+// 1045 						return PAR_OUT_OF_RANGE;
+// 1046 				}
+// 1047   	  break;
+// 1048   	
+// 1049   	  case 5:
+// 1050 				if(data <= 0xAF)
+// 1051 					ee_KO_conf.Reference = data;
+// 1052 				else
+// 1053 					return PAR_OUT_OF_RANGE;
+// 1054   	  break;
+// 1055   	
+// 1056   	  case 6:
+// 1057 				ee_KO_conf.GR = data;
+// 1058   	  break;
+// 1059   	
+// 1060   	  case 7:
+// 1061 				ee_KO_conf.GS1 = data;
+// 1062   	  break;
+// 1063   	
+// 1064   	  case 8:
+// 1065 				ee_KO_conf.GS2 = data;
+// 1066   	  break;
+// 1067   	
+// 1068   	  case 10:
+// 1069 				ee_KO_conf.Hours = data;
+// 1070   	  break;
+// 1071   	
+// 1072   	  case 11:
+// 1073 				if(data <= 59)
+// 1074 					ee_KO_conf.Minutes = data;
+// 1075 				else
+// 1076 					return PAR_OUT_OF_RANGE;
+// 1077   	  break;
+// 1078   	
+// 1079   	  case 12:
+// 1080 				if(data <= 59)
+// 1081 					ee_KO_conf.Seconds = data;
+// 1082 				else
+// 1083 					return PAR_OUT_OF_RANGE;
+// 1084   	  break;
+// 1085   	
+// 1086   	  case 13:
+// 1087 				if(data == 0 || data == 1)
+// 1088 					ee_KO_conf.en_load = data;
+// 1089 				else
+// 1090 					return PAR_OUT_OF_RANGE;
+// 1091   	  break;
+// 1092   	
+// 1093   	  case 14:
+// 1094 				if(data == 0 || data == 1)
+// 1095 					ee_KO_conf.en_GS_main_group = data;
+// 1096 				else
+// 1097 					return PAR_OUT_OF_RANGE;
+// 1098   	  break;
+// 1099   	
+// 1100 #ifdef HARDWARE_PIR_US
+// 1101   	  case 20:
+// 1102 				if(data <= 3)
+// 1103 					ee_KO_conf.PirSens = data;
+// 1104 				else
+// 1105 					return PAR_OUT_OF_RANGE;
+// 1106   	  break;
+// 1107   	
+// 1108   	  case 21:
+// 1109 				if(data <= 3)
+// 1110 					ee_KO_conf.USSens = data;
+// 1111 				else
+// 1112 					return PAR_OUT_OF_RANGE;
+// 1113   	  break;
+// 1114 #endif
+// 1115 			
+// 1116 #ifdef HARDWARE_PIR
+// 1117   	  case 20:
+// 1118 				if(data <= 3)
+// 1119 					ee_KO_conf.PirSens = data;
+// 1120 				else
+// 1121 					return PAR_OUT_OF_RANGE;
+// 1122   	  break;
+// 1123 #endif
+// 1124 			
+// 1125 #ifdef HARDWARE_US
+// 1126   	  case 21:
+// 1127 				if(data <= 3)
+// 1128 					ee_KO_conf.USSens = data;
+// 1129 				else
+// 1130 					return PAR_OUT_OF_RANGE;
+// 1131   	  break;
+// 1132 #endif
+// 1133 			
+// 1134   	  case 22:
+// 1135 				ee_KO_conf.DF = data;
+// 1136   	  break;
+// 1137   	
+// 1138   	  case 23:
+// 1139 				if(data == 0 || data == 1)
+// 1140 					ee_KO_conf.TypeLoop = data;
+// 1141 				else
+// 1142 					return PAR_OUT_OF_RANGE;
+// 1143   	  break;
+// 1144   	
+// 1145 		case 24:
+// 1146 				ee_KO_conf.NF = data;
+// 1147   	  break;
+// 1148   	  case 25:
+// 1149 				ee_KO_conf.DaylightSetp = data;
+// 1150   	  break;
+// 1151   	
+// 1152   	  case 26:
+// 1153 				ee_KO_conf.PofL = data;
+// 1154 				if(data == 0)
+// 1155 				{
+// 1156 					ee_KO_conf.PofL = 0xFF;
+// 1157 					ee_KO_conf.flag_PofL_Forced = 0;
+// 1158 				}
+// 1159 				else
+// 1160 					ee_KO_conf.flag_PofL_Forced = 1;
+// 1161   	  break;
+// 1162   	
+// 1163   	  case 27:
+// 1164 				ee_KO_conf.DaylightLev = data;
+// 1165   	  break;
+// 1166   	
+// 1167   	  case 28:
+// 1168 				if(data == 0 || data == 1)
+// 1169 					ee_KO_conf.LightReg = data;
+// 1170 				else
+// 1171 					return PAR_OUT_OF_RANGE;
+// 1172   	  break;
+// 1173   	
+// 1174   	  case 29:
+// 1175 				if(data == 1 || data == 2 || data == 3 || data == 5)
+// 1176 					ee_KO_conf.FuncMod = data;
+// 1177 				else
+// 1178 					return PAR_OUT_OF_RANGE;
+// 1179   	  break;
+// 1180   	
+// 1181   	  case 30:
+// 1182 #ifdef HARDWARE_PIR
+// 1183 				if(data == 1)
+// 1184 					ee_KO_conf.InitOccu = data;
+// 1185 				else
+// 1186 					return PAR_OUT_OF_RANGE;
+// 1187 #endif
+// 1188 				
+// 1189 #ifdef HARDWARE_US
+// 1190 				if(data == 2)
+// 1191 					ee_KO_conf.InitOccu = data;
+// 1192 				else
+// 1193 					return PAR_OUT_OF_RANGE;
+// 1194 #endif
+// 1195 				
+// 1196 #ifdef HARDWARE_PIR_US
+// 1197 				if(data >= 1 && data <= 4)
+// 1198 					ee_KO_conf.InitOccu = data;
+// 1199 				else
+// 1200 					return PAR_OUT_OF_RANGE;
+// 1201 #endif
+// 1202   	  break;
+// 1203   	
+// 1204   	  case 31:
+// 1205 #ifdef HARDWARE_PIR
+// 1206 				if(data == 1)
+// 1207 					ee_KO_conf.MaintainOccu = data;
+// 1208 				else
+// 1209 					return PAR_OUT_OF_RANGE;
+// 1210 #endif
+// 1211 				
+// 1212 #ifdef HARDWARE_US
+// 1213 				if(data == 2)
+// 1214 					ee_KO_conf.MaintainOccu = data;
+// 1215 				else
+// 1216 					return PAR_OUT_OF_RANGE;
+// 1217 #endif
+// 1218 				
+// 1219 #ifdef HARDWARE_PIR_US
+// 1220 				if(data >= 1 && data <= 4)
+// 1221 					ee_KO_conf.MaintainOccu = data;
+// 1222 				else
+// 1223 					return PAR_OUT_OF_RANGE;
+// 1224 #endif
+// 1225   	  break;
+// 1226   	
+// 1227   	  case 32:
+// 1228 #ifdef HARDWARE_PIR
+// 1229 				if(data == 0 || data == 1)
+// 1230 					ee_KO_conf.Retrigger = data;
+// 1231 				else
+// 1232 					return PAR_OUT_OF_RANGE;
+// 1233 #endif
+// 1234 				
+// 1235 #ifdef HARDWARE_US
+// 1236 				if(data == 0 || data == 2)
+// 1237 					ee_KO_conf.Retrigger = data;
+// 1238 				else
+// 1239 					return PAR_OUT_OF_RANGE;
+// 1240 #endif
+// 1241 				
+// 1242 #ifdef HARDWARE_PIR_US
+// 1243 				if(data <= 4)
+// 1244 					ee_KO_conf.Retrigger = data;
+// 1245 				else
+// 1246 					return PAR_OUT_OF_RANGE;
+// 1247 #endif
+// 1248   	  break;
+// 1249   	
+// 1250   	  case 34:
+// 1251 				if(data <= 3)
+// 1252 					ee_KO_conf.Alert = data;
+// 1253 				else
+// 1254 					return PAR_OUT_OF_RANGE;
+// 1255   	  break;
+// 1256   	
+// 1257   	  default:
+// 1258 				return PAR_NOT_IMPLEMENTED;
+// 1259   	}
+// 1260 	}
+// 1261 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+// 1262 	{
+// 1263   	switch(index)
+// 1264   	{
+// 1265   	  case 1:
+// 1266 				if(data == 0 || data == 2)
+// 1267 					ee_KO_conf.AddressType = data;
+// 1268 				else
+// 1269 					return PAR_OUT_OF_RANGE;
+// 1270 			break;
+// 1271   	
+// 1272   	  case 2:
+// 1273 				if(ee_KO_conf.AddressType == 0)
+// 1274 				{
+// 1275 					if(data >= 0x01 && data <= 0xAF)
+// 1276 						ee_KO_conf.DesAdd = data;
+// 1277 					else
+// 1278 						return PAR_OUT_OF_RANGE;
+// 1279 				}
+// 1280 				else if(ee_KO_conf.AddressType == 2)
+// 1281 				{
+// 1282 					if(data >= 0x00 && data <= 0x0A)
+// 1283 						ee_KO_conf.DesAdd = data;
+// 1284 					else
+// 1285 						return PAR_OUT_OF_RANGE;
+// 1286 				}
+// 1287   	  break;
+// 1288   	
+// 1289   	  case 5:
+// 1290 				if(data <= 0xAF)
+// 1291 					ee_KO_conf.Reference = data;
+// 1292 				else
+// 1293 					return PAR_OUT_OF_RANGE;
+// 1294   	  break;
+// 1295   	
+// 1296   	  case 6:
+// 1297 				ee_KO_conf.GR = data;
+// 1298   	  break;
+// 1299   	
+// 1300 		case 22:
+// 1301 				ee_KO_conf.DF = data;
+// 1302   	  break;
+// 1303 			
+// 1304 			case 24:
+// 1305 				ee_KO_conf.NF = data;
+// 1306   	  break;
+// 1307   	  case 25:
+// 1308 				ee_KO_conf.DaylightSetp = data;
+// 1309   	  break;
+// 1310   	
+// 1311   	  case 26:
+// 1312 				ee_KO_conf.PofL = data;
+// 1313 				if(data == 0)
+// 1314 				{
+// 1315 					ee_KO_conf.PofL = 0xFF;
+// 1316 					ee_KO_conf.flag_PofL_Forced = 0;
+// 1317 				}
+// 1318 				else
+// 1319 					ee_KO_conf.flag_PofL_Forced = 1;
+// 1320   	  break;
+// 1321   	
+// 1322   	  case 27:
+// 1323 				ee_KO_conf.DaylightLev = data;
+// 1324   	  break;
+// 1325   	
+// 1326   	  case 28:
+// 1327 				if(data == 0 || data == 1)
+// 1328 					ee_KO_conf.LightReg = data;
+// 1329 				else
+// 1330 					return PAR_OUT_OF_RANGE;
+// 1331   	  break;
+// 1332   	
+// 1333   	  case 29:
+// 1334 				if(data >= 1 && data <= 4)
+// 1335 					ee_KO_conf.FuncMod = data;
+// 1336 				else
+// 1337 					return PAR_OUT_OF_RANGE;
+// 1338   	  break;
+// 1339   	
+// 1340   	  default:
+// 1341 				return PAR_NOT_IMPLEMENTED;
+// 1342   	}
+// 1343 	}
+// 1344 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+// 1345 	{
+// 1346   	switch(index)
+// 1347   	{
+// 1348   	  case 1:
+// 1349 				if(data == 0 || data == 2)
+// 1350 					ee_KO_conf.AddressType = data;
+// 1351 				else
+// 1352 					return PAR_OUT_OF_RANGE;
+// 1353 			break;
+// 1354   	
+// 1355   	  case 2:
+// 1356 				if(ee_KO_conf.AddressType == 0)
+// 1357 				{
+// 1358 					if(data >= 0x01 && data <= 0xAF)
+// 1359 						ee_KO_conf.DesAdd = data;
+// 1360 					else
+// 1361 						return PAR_OUT_OF_RANGE;
+// 1362 				}
+// 1363 				else if(ee_KO_conf.AddressType == 2)
+// 1364 				{
+// 1365 					if(data >= 0x00 && data <= 0x0A)
+// 1366 						ee_KO_conf.DesAdd = data;
+// 1367 					else
+// 1368 						return PAR_OUT_OF_RANGE;
+// 1369 				}
+// 1370   	  break;
+// 1371   	
+// 1372   	  case 5:
+// 1373 				if(data <= 0xAF)
+// 1374 					ee_KO_conf.Reference = data;
+// 1375 				else
+// 1376 					return PAR_OUT_OF_RANGE;
+// 1377   	  break;
+// 1378   	
+// 1379   	  case 6:
+// 1380 				ee_KO_conf.GR = data;
+// 1381   	  break;
+// 1382   	
+// 1383   	  case 7:
+// 1384 				ee_KO_conf.GS1 = data;
+// 1385   	  break;
+// 1386   	
+// 1387   	  case 8:
+// 1388 				ee_KO_conf.GS2 = data;
+// 1389   	  break;
+// 1390   	
+// 1391   	  case 10:
+// 1392 				ee_KO_conf.Hours = data;
+// 1393   	  break;
+// 1394   	
+// 1395   	  case 11:
+// 1396 				if(data <= 59)
+// 1397 					ee_KO_conf.Minutes = data;
+// 1398 				else
+// 1399 					return PAR_OUT_OF_RANGE;
+// 1400   	  break;
+// 1401   	
+// 1402   	  case 12:
+// 1403 				if(data <= 59)
+// 1404 					ee_KO_conf.Seconds = data;
+// 1405 				else
+// 1406 					return PAR_OUT_OF_RANGE;
+// 1407   	  break;
+// 1408   	
+// 1409   	  case 13:
+// 1410 				if(data == 0 || data == 1)
+// 1411 					ee_KO_conf.en_load = data;
+// 1412 				else
+// 1413 					return PAR_OUT_OF_RANGE;
+// 1414   	  break;
+// 1415   	
+// 1416   	  case 14:
+// 1417 				if(data == 0 || data == 1)
+// 1418 					ee_KO_conf.en_GS_main_group = data;
+// 1419 				else
+// 1420 					return PAR_OUT_OF_RANGE;
+// 1421   	  break;
+// 1422   	
+// 1423 #ifdef HARDWARE_PIR_US
+// 1424   	  case 20:
+// 1425 				if(data <= 3)
+// 1426 					ee_KO_conf.PirSens = data;
+// 1427 				else
+// 1428 					return PAR_OUT_OF_RANGE;
+// 1429   	  break;
+// 1430   	
+// 1431   	  case 21:
+// 1432 				if(data <= 3)
+// 1433 					ee_KO_conf.USSens = data;
+// 1434 				else
+// 1435 					return PAR_OUT_OF_RANGE;
+// 1436   	  break;
+// 1437 #endif
+// 1438 			
+// 1439 #ifdef HARDWARE_PIR
+// 1440   	  case 20:
+// 1441 				if(data <= 3)
+// 1442 					ee_KO_conf.PirSens = data;
+// 1443 				else
+// 1444 					return PAR_OUT_OF_RANGE;
+// 1445   	  break;
+// 1446 #endif
+// 1447 			
+// 1448 #ifdef HARDWARE_US
+// 1449   	  case 21:
+// 1450 				if(data <= 3)
+// 1451 					ee_KO_conf.USSens = data;
+// 1452 				else
+// 1453 					return PAR_OUT_OF_RANGE;
+// 1454   	  break;
+// 1455 #endif
+// 1456   	
+// 1457   	  case 29:
+// 1458 				if(data >= 1 && data <= 4)
+// 1459 					ee_KO_conf.FuncMod = data;
+// 1460 				else
+// 1461 					return PAR_OUT_OF_RANGE;
+// 1462   	  break;
+// 1463   	
+// 1464   	  case 30:
+// 1465 #ifdef HARDWARE_PIR
+// 1466 				if(data == 1)
+// 1467 					ee_KO_conf.InitOccu = data;
+// 1468 				else
+// 1469 					return PAR_OUT_OF_RANGE;
+// 1470 #endif
+// 1471 #ifdef HARDWARE_US
+// 1472 				if(data == 2)
+// 1473 					ee_KO_conf.InitOccu = data;
+// 1474 				else
+// 1475 					return PAR_OUT_OF_RANGE;
+// 1476 #endif
+// 1477 #ifdef HARDWARE_PIR_US
+// 1478 				if(data >= 1 && data <= 4)
+// 1479 					ee_KO_conf.InitOccu = data;
+// 1480 				else
+// 1481 					return PAR_OUT_OF_RANGE;
+// 1482 #endif
+// 1483   	  break;
+// 1484   	
+// 1485   	  case 31:
+// 1486 #ifdef HARDWARE_PIR
+// 1487 				if(data == 1)
+// 1488 					ee_KO_conf.MaintainOccu = data;
+// 1489 				else
+// 1490 					return PAR_OUT_OF_RANGE;
+// 1491 #endif
+// 1492 #ifdef HARDWARE_US
+// 1493 				if(data == 2)
+// 1494 					ee_KO_conf.MaintainOccu = data;
+// 1495 				else
+// 1496 					return PAR_OUT_OF_RANGE;
+// 1497 #endif
+// 1498 #ifdef HARDWARE_PIR_US
+// 1499 				if(data >= 1 && data <= 4)
+// 1500 					ee_KO_conf.MaintainOccu = data;
+// 1501 				else
+// 1502 					return PAR_OUT_OF_RANGE;
+// 1503 #endif
+// 1504   	  break;
+// 1505   	
+// 1506   	  case 32:
+// 1507 #ifdef HARDWARE_PIR
+// 1508 				if(data == 0 || data == 1)
+// 1509 					ee_KO_conf.Retrigger = data;
+// 1510 				else
+// 1511 					return PAR_OUT_OF_RANGE;
+// 1512 #endif
+// 1513 #ifdef HARDWARE_US
+// 1514 				if(data == 0 || data == 2)
+// 1515 					ee_KO_conf.Retrigger = data;
+// 1516 				else
+// 1517 					return PAR_OUT_OF_RANGE;
+// 1518 #endif
+// 1519 #ifdef HARDWARE_PIR_US
+// 1520 				if(data <= 4)
+// 1521 					ee_KO_conf.Retrigger = data;
+// 1522 				else
+// 1523 					return PAR_OUT_OF_RANGE;
+// 1524 #endif
+// 1525   	  break;
+// 1526   	
+// 1527   	  case 34:
+// 1528 				if(data <= 3)
+// 1529 					ee_KO_conf.Alert = data;
+// 1530 				else
+// 1531 					return PAR_OUT_OF_RANGE;
+// 1532   	  break;
+// 1533   	
+// 1534   	  default:
+// 1535 				return PAR_NOT_IMPLEMENTED;
+// 1536   	}
+// 1537 	}
+// 1538 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '8' && KO[3] == '0')
+// 1539 	{
+// 1540   	switch(index)
+// 1541   	{
+// 1542   	  case 10:
+// 1543 				ee_KO_conf.Hours = data;
+// 1544   	  break;
+// 1545   	
+// 1546   	  case 11:
+// 1547 				if(data <= 59)
+// 1548 					ee_KO_conf.Minutes = data;
+// 1549 				else
+// 1550 					return PAR_OUT_OF_RANGE;
+// 1551   	  break;
+// 1552   	
+// 1553   	  case 12:
+// 1554 				if(data <= 59)
+// 1555 					ee_KO_conf.Seconds = data;
+// 1556 				else
+// 1557 					return PAR_OUT_OF_RANGE;
+// 1558   	  break;
+// 1559   	
+// 1560 #ifdef HARDWARE_PIR_US
+// 1561   	  case 20:
+// 1562 				if(data <= 3)
+// 1563 					ee_KO_conf.PirSens = data;
+// 1564 				else
+// 1565 					return PAR_OUT_OF_RANGE;
+// 1566   	  break;
+// 1567   	
+// 1568   	  case 21:
+// 1569 				if(data <= 3)
+// 1570 					ee_KO_conf.USSens = data;
+// 1571 				else
+// 1572 					return PAR_OUT_OF_RANGE;
+// 1573   	  break;
+// 1574 #endif
+// 1575 			
+// 1576 #ifdef HARDWARE_PIR
+// 1577   	  case 20:
+// 1578 				if(data <= 3)
+// 1579 					ee_KO_conf.PirSens = data;
+// 1580 				else
+// 1581 					return PAR_OUT_OF_RANGE;
+// 1582   	  break;
+// 1583 #endif
+// 1584 			
+// 1585 #ifdef HARDWARE_US
+// 1586   	  case 21:
+// 1587 				if(data <= 3)
+// 1588 					ee_KO_conf.USSens = data;
+// 1589 				else
+// 1590 					return PAR_OUT_OF_RANGE;
+// 1591   	  break;
+// 1592 #endif
+// 1593   	
+// 1594   	  case 22:
+// 1595 				ee_KO_conf.DF = data;
+// 1596   	  break;
+// 1597   	
+// 1598   	  default:
+// 1599 				return PAR_NOT_IMPLEMENTED;
+// 1600   	}
+// 1601 	}
+// 1602 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+// 1603 	{
+// 1604   	switch(index)
+// 1605   	{
+// 1606   	  default:
+// 1607 				return PAR_NOT_IMPLEMENTED;
+// 1608   	}
+// 1609 	}
+// 1610 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+// 1611 	{
+// 1612   	switch(index)
+// 1613   	{
+// 1614   	  case 10:
+// 1615 				ee_KO_conf.Hours = data;
+// 1616   	  break;
+// 1617   	
+// 1618   	  case 11:
+// 1619 				if(data <= 59)
+// 1620 					ee_KO_conf.Minutes = data;
+// 1621 				else
+// 1622 					return PAR_OUT_OF_RANGE;
+// 1623   	  break;
+// 1624   	
+// 1625   	  case 12:
+// 1626 				if(data <= 59)
+// 1627 					ee_KO_conf.Seconds = data;
+// 1628 				else
+// 1629 					return PAR_OUT_OF_RANGE;
+// 1630   	  break;
+// 1631 
+// 1632 #ifdef HARDWARE_PIR_US
+// 1633   	  case 20:
+// 1634 				if(data <= 3)
+// 1635 					ee_KO_conf.PirSens = data;
+// 1636 				else
+// 1637 					return PAR_OUT_OF_RANGE;
+// 1638   	  break;
+// 1639   	
+// 1640   	  case 21:
+// 1641 				if(data <= 3)
+// 1642 					ee_KO_conf.USSens = data;
+// 1643 				else
+// 1644 					return PAR_OUT_OF_RANGE;
+// 1645   	  break;
+// 1646 #endif
+// 1647 			
+// 1648 #ifdef HARDWARE_PIR
+// 1649   	  case 20:
+// 1650 				if(data <= 3)
+// 1651 					ee_KO_conf.PirSens = data;
+// 1652 				else
+// 1653 					return PAR_OUT_OF_RANGE;
+// 1654   	  break;
+// 1655 #endif
+// 1656 			
+// 1657 #ifdef HARDWARE_US
+// 1658   	  case 21:
+// 1659 				if(data <= 3)
+// 1660 					ee_KO_conf.USSens = data;
+// 1661 				else
+// 1662 					return PAR_OUT_OF_RANGE;
+// 1663   	  break;
+// 1664 #endif
+// 1665   	
+// 1666   	  case 22:
+// 1667 				ee_KO_conf.DF = data;
+// 1668   	  break;
+// 1669   	
+// 1670   	  default:
+// 1671 				return PAR_NOT_IMPLEMENTED;
+// 1672   	}
+// 1673 	}
+// 1674 #endif
+// 1675 
+// 1676   return 0;
+??write_ee_KO_6:
+        LDI     R16, 0
+        LDI     R17, 0
+??write_ee_KO_7:
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+??write_ee_KO_8:
+        LDI     R20, LOW((ee_KO_conf + 1))
+        LDI     R21, HIGH((ee_KO_conf + 1))
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??write_ee_KO_9
+        TST     R24
+        BREQ    ??write_ee_KO_3
+        CPI     R24, 176
+        BRCC    ??write_ee_KO_3
+??write_ee_KO_10:
+        LDI     R20, LOW((ee_KO_conf + 2))
+        LDI     R21, HIGH((ee_KO_conf + 2))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_9:
+        CPI     R16, 2
+        BRNE    ??write_ee_KO_6
+        CPI     R24, 11
+        BRCS    ??write_ee_KO_10
+??write_ee_KO_3:
+        LDI     R16, 1
+??write_ee_KO_11:
+        LDI     R17, 255
+        RJMP    ??write_ee_KO_7
+??write_ee_KO_12:
+        CPI     R24, 176
+        BRCC    ??write_ee_KO_3
+        LDI     R20, LOW((ee_KO_conf + 5))
+        LDI     R21, HIGH((ee_KO_conf + 5))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_13:
+        LDI     R20, LOW((ee_KO_conf + 6))
+        LDI     R21, HIGH((ee_KO_conf + 6))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_14:
+        LDI     R20, LOW((ee_KO_conf + 7))
+        LDI     R21, HIGH((ee_KO_conf + 7))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_15:
+        LDI     R20, LOW((ee_KO_conf + 8))
+        LDI     R21, HIGH((ee_KO_conf + 8))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_16:
+        CPI     R24, 60
+        BRCC    ??write_ee_KO_3
+        LDI     R20, LOW((ee_KO_conf + 12))
+        LDI     R21, HIGH((ee_KO_conf + 12))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_17:
+        TST     R24
+        BREQ    ??write_ee_KO_18
+        CPI     R24, 1
+        BRNE    ??write_ee_KO_3
+??write_ee_KO_18:
+        LDI     R20, LOW((ee_KO_conf + 13))
+        LDI     R21, HIGH((ee_KO_conf + 13))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_19:
+        TST     R24
+        BREQ    ??write_ee_KO_20
+        CPI     R24, 1
+        BRNE    ??write_ee_KO_3
+??write_ee_KO_20:
+        LDI     R20, LOW((ee_KO_conf + 14))
+        LDI     R21, HIGH((ee_KO_conf + 14))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_21:
+        CPI     R24, 4
+        BRCC    ??write_ee_KO_3
+        LDI     R20, LOW((ee_KO_conf + 20))
+        LDI     R21, HIGH((ee_KO_conf + 20))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_22:
+        LDI     R20, LOW((ee_KO_conf + 22))
+        LDI     R21, HIGH((ee_KO_conf + 22))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_23:
+        TST     R24
+        BREQ    ??write_ee_KO_24
+        CPI     R24, 1
+        BRNE    ??write_ee_KO_3
+??write_ee_KO_24:
+        LDI     R20, LOW((ee_KO_conf + 23))
+        LDI     R21, HIGH((ee_KO_conf + 23))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_25:
+        LDI     R20, LOW((ee_KO_conf + 24))
+        LDI     R21, HIGH((ee_KO_conf + 24))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_26:
+        LDI     R20, LOW((ee_KO_conf + 25))
+        LDI     R21, HIGH((ee_KO_conf + 25))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_27:
+        LDI     R20, LOW((ee_KO_conf + 26))
+        LDI     R21, HIGH((ee_KO_conf + 26))
+        MOV     R16, R24
+        CALL    __eeput8_16
+        TST     R24
+        BRNE    ??write_ee_KO_28
+        LDI     R16, 255
+        LDI     R20, LOW((ee_KO_conf + 26))
+        LDI     R21, HIGH((ee_KO_conf + 26))
+        CALL    __eeput8_16
+        LDI     R20, LOW((ee_KO_conf + 49))
+        LDI     R21, HIGH((ee_KO_conf + 49))
+        CALL    __eeget8_16
+        ANDI    R16, 0xFE
+??write_ee_KO_29:
+        LDI     R20, LOW((ee_KO_conf + 49))
+        LDI     R21, HIGH((ee_KO_conf + 49))
+        RJMP    ??write_ee_KO_5
+??write_ee_KO_28:
+        LDI     R20, LOW((ee_KO_conf + 49))
+        LDI     R21, HIGH((ee_KO_conf + 49))
+        CALL    __eeget8_16
+        ORI     R16, 0x01
+        RJMP    ??write_ee_KO_29
+??write_ee_KO_30:
+        LDI     R20, LOW((ee_KO_conf + 27))
+        LDI     R21, HIGH((ee_KO_conf + 27))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_31:
+        TST     R24
+        BREQ    ??write_ee_KO_32
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_3
+??write_ee_KO_32:
+        LDI     R20, LOW((ee_KO_conf + 28))
+        LDI     R21, HIGH((ee_KO_conf + 28))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_33:
+        CPI     R24, 1
+        BREQ    ??write_ee_KO_34
+        CPI     R24, 2
+        BREQ    ??write_ee_KO_34
+        CPI     R24, 3
+        BREQ    ??write_ee_KO_34
+        CPI     R24, 5
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_3
+??write_ee_KO_34:
+        LDI     R20, LOW((ee_KO_conf + 29))
+        LDI     R21, HIGH((ee_KO_conf + 29))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_35:
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_3
+        LDI     R16, 1
+        LDI     R20, LOW((ee_KO_conf + 30))
+        LDI     R21, HIGH((ee_KO_conf + 30))
+        RJMP    ??write_ee_KO_5
+??write_ee_KO_36:
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_3
+        LDI     R16, 1
+        LDI     R20, LOW((ee_KO_conf + 31))
+        LDI     R21, HIGH((ee_KO_conf + 31))
+        RJMP    ??write_ee_KO_5
+??write_ee_KO_37:
+        TST     R24
+        BREQ    ??write_ee_KO_38
+        CPI     R24, 1
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_3
+??write_ee_KO_38:
+        LDI     R20, LOW((ee_KO_conf + 32))
+        LDI     R21, HIGH((ee_KO_conf + 32))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_39:
+        CPI     R24, 4
+        BRCS    $+2+2
+        RJMP    ??write_ee_KO_3
+        LDI     R20, LOW((ee_KO_conf + 34))
+        LDI     R21, HIGH((ee_KO_conf + 34))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_0:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_40
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_40
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??write_ee_KO_40
+        LDD     R17, Z+3
+        CPI     R17, 54
+        BRNE    ??write_ee_KO_40
+        SUBI    R16, 1
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_1
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_8
+        SUBI    R16, 3
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_12
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_13
+        SUBI    R16, 16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_22
+        SUBI    R16, 2
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_25
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_26
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_27
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_30
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_31
+        DEC     R16
+        BRNE    ??write_ee_KO_41
+??write_ee_KO_42:
+        TST     R24
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_3
+        CPI     R24, 5
+        BRCS    $+2+2
+        RJMP    ??write_ee_KO_3
+        RJMP    ??write_ee_KO_34
+??write_ee_KO_40:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_43
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_43
+        LDD     R17, Z+2
+        CPI     R17, 55
+        BRNE    ??write_ee_KO_43
+        LDD     R17, Z+3
+        CPI     R17, 55
+        BRNE    ??write_ee_KO_43
+        LDI     R30, LOW(`?<Jumptable for write_ee_KO>_1`)
+        LDI     R31, (`?<Jumptable for write_ee_KO>_1`) >> 8
+        JMP     ?CV_SWITCH_L06
+??write_ee_KO_41:
+        LDI     R16, 0
+        RJMP    ??write_ee_KO_11
+??write_ee_KO_43:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_44
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_44
+        LDD     R17, Z+2
+        CPI     R17, 56
+        BRNE    ??write_ee_KO_44
+        LDD     R17, Z+3
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_44
+??write_ee_KO_45:
+        SUBI    R16, 10
+        BREQ    ??write_ee_KO_46
+        DEC     R16
+        BREQ    ??write_ee_KO_47
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_16
+        SUBI    R16, 8
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_21
+        SUBI    R16, 2
+        BRNE    $+2+2
+        RJMP    ??write_ee_KO_22
+        RJMP    ??write_ee_KO_41
+??write_ee_KO_46:
+        LDI     R20, LOW((ee_KO_conf + 10))
+        LDI     R21, HIGH((ee_KO_conf + 10))
+        RJMP    ??write_ee_KO_4
+??write_ee_KO_44:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_48
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??write_ee_KO_48
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??write_ee_KO_48
+        LDD     R17, Z+3
+        CPI     R17, 52
+        BREQ    ??write_ee_KO_41
+??write_ee_KO_48:
+        LD      R17, Z
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_6
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_6
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_6
+        LDD     R17, Z+3
+        CPI     R17, 53
+        BREQ    $+2+2
+        RJMP    ??write_ee_KO_6
+        RJMP    ??write_ee_KO_45
+??write_ee_KO_47:
+        CPI     R24, 60
+        BRCS    $+2+2
+        RJMP    ??write_ee_KO_3
+        LDI     R20, LOW((ee_KO_conf + 11))
+        LDI     R21, HIGH((ee_KO_conf + 11))
+        RJMP    ??write_ee_KO_4
+        CFI EndBlock cfiBlock7
+// 1677 }
+// 1678 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1679 unsigned char read_KO_none_confed(unsigned char index)
+read_KO_none_confed:
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function read_KO_none_confed
+// 1680 {
+// 1681 		switch(index)
+        LDI     R30, LOW(`?<Jumptable for read_KO_none_confed>_0`)
+        LDI     R31, (`?<Jumptable for read_KO_none_confed>_0`) >> 8
+        JMP     ?CV_SWITCH_L06
+// 1682   	{
+// 1683   	  case 1:
+// 1684   	    return KO_conf.AddressType;
+??read_KO_none_confed_0:
+        LDS     R16, (KO_conf + 1)
+        RET
+// 1685   	
+// 1686   	  case 2:
+// 1687 				return KO_conf.DesAdd;
+??read_KO_none_confed_1:
+        LDS     R16, (KO_conf + 2)
+        RET
+// 1688 				
+// 1689   	  case 5:
+// 1690 				return KO_conf.Reference;
+??read_KO_none_confed_2:
+        LDS     R16, (KO_conf + 5)
+        RET
+// 1691   	
+// 1692   	  case 6:
+// 1693 				return KO_conf.GR;
+??read_KO_none_confed_3:
+        LDS     R16, (KO_conf + 6)
+        RET
+// 1694   	
+// 1695   	  case 7:
+// 1696 				return KO_conf.GS1;
+??read_KO_none_confed_4:
+        LDS     R16, (KO_conf + 7)
+        RET
+// 1697   	
+// 1698   	  case 8:
+// 1699 				return KO_conf.GS2;
+??read_KO_none_confed_5:
+        LDS     R16, (KO_conf + 8)
+        RET
+// 1700   	
+// 1701   	  case 10:
+// 1702 				return KO_conf.Hours;
+??read_KO_none_confed_6:
+        LDS     R16, (KO_conf + 10)
+        RET
+// 1703   	
+// 1704   	  case 11:
+// 1705 				return KO_conf.Minutes;
+??read_KO_none_confed_7:
+        LDS     R16, (KO_conf + 11)
+        RET
+// 1706   	
+// 1707   	  case 12:
+// 1708 				return KO_conf.Seconds;
+??read_KO_none_confed_8:
+        LDS     R16, (KO_conf + 12)
+        RET
+// 1709   	
+// 1710   	  case 13:
+// 1711 				return KO_conf.en_load;
+??read_KO_none_confed_9:
+        LDS     R16, (KO_conf + 13)
+        RET
+// 1712   	
+// 1713   	  case 14:
+// 1714 				return KO_conf.en_GS_main_group;
+??read_KO_none_confed_10:
+        LDS     R16, (KO_conf + 14)
+        RET
+// 1715 
+// 1716 #ifdef HARDWARE_PIR_US
+// 1717   	  case 20:
+// 1718 				return KO_conf.PirSens;
+// 1719   	
+// 1720   	  case 21:
+// 1721 				return KO_conf.USSens;
+// 1722 #endif
+// 1723 				
+// 1724 #ifdef HARDWARE_PIR
+// 1725   	  case 20:
+// 1726 				return KO_conf.PirSens;
+??read_KO_none_confed_11:
+        LDS     R16, (KO_conf + 20)
+        RET
+// 1727 #endif
+// 1728 				
+// 1729 #ifdef HARDWARE_US
+// 1730   	  case 21:
+// 1731 				return KO_conf.USSens;
+// 1732 #endif
+// 1733 				
+// 1734   	  case 22:
+// 1735 				return KO_conf.DF;
+??read_KO_none_confed_12:
+        LDS     R16, (KO_conf + 22)
+        RET
+// 1736   	
+// 1737   	  case 23:
+// 1738 				return KO_conf.TypeLoop;
+??read_KO_none_confed_13:
+        LDS     R16, (KO_conf + 23)
+        RET
+// 1739 		case 24:
+// 1740 				return KO_conf.NF;
+??read_KO_none_confed_14:
+        LDS     R16, (KO_conf + 24)
+        RET
+// 1741   	
+// 1742   	  case 25:
+// 1743 				return KO_conf.DaylightSetp;
+??read_KO_none_confed_15:
+        LDS     R16, (KO_conf + 25)
+        RET
+// 1744   	
+// 1745   	  case 26:
+// 1746 				return KO_conf.PofL;
+??read_KO_none_confed_16:
+        LDS     R16, (KO_conf + 26)
+        RET
+// 1747   	
+// 1748   	  case 27:
+// 1749 				return KO_conf.DaylightLev;
+??read_KO_none_confed_17:
+        LDS     R16, (KO_conf + 27)
+        RET
+// 1750   	
+// 1751   	  case 28:
+// 1752 				return KO_conf.LightReg;
+??read_KO_none_confed_18:
+        LDS     R16, (KO_conf + 28)
+        RET
+// 1753   	
+// 1754   	  case 29:
+// 1755 				return KO_conf.FuncMod;
+??read_KO_none_confed_19:
+        LDS     R16, (KO_conf + 29)
+        RET
+// 1756   	
+// 1757   	  case 30:
+// 1758 				return KO_conf.InitOccu;
+??read_KO_none_confed_20:
+        LDS     R16, (KO_conf + 30)
+        RET
+// 1759   	
+// 1760   	  case 31:
+// 1761 				return KO_conf.MaintainOccu;
+??read_KO_none_confed_21:
+        LDS     R16, (KO_conf + 31)
+        RET
+// 1762   	
+// 1763   	  case 32:
+// 1764 				return KO_conf.Retrigger;
+??read_KO_none_confed_22:
+        LDS     R16, (KO_conf + 32)
+        RET
+// 1765   	
+// 1766   	  case 34:
+// 1767 				return KO_conf.Alert;
+??read_KO_none_confed_23:
+        LDS     R16, (KO_conf + 34)
+        RET
+// 1768   	
+// 1769   	  default:
+// 1770   	    return 0;
+??read_KO_none_confed_24:
+        LDI     R16, 0
+        RET
+        CFI EndBlock cfiBlock8
+// 1771   	}
+// 1772 }
+// 1773 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1774 unsigned int read_KO(unsigned char index)
+read_KO:
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function read_KO
+// 1775 {
+// 1776 #ifdef NONE_CONFED_203
+// 1777 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '8')
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R17, Z
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??read_KO_0
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BREQ    $+2+2
+        RJMP    ??read_KO_0
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BREQ    $+2+2
+        RJMP    ??read_KO_0
+        LDD     R17, Z+3
+        CPI     R17, 56
+        BREQ    $+2+2
+        RJMP    ??read_KO_0
+// 1778 	{
+// 1779   	switch(index)
+        LDI     R30, LOW(`?<Jumptable for read_KO>_0`)
+        LDI     R31, (`?<Jumptable for read_KO>_0`) >> 8
+        JMP     ?CV_SWITCH_L06
+// 1780   	{
+// 1781   	  case 0:
+// 1782   	    return 0xFFFF;
+??read_KO_1:
+        LDI     R16, 255
+        RJMP    ??read_KO_2
+// 1783   	
+// 1784   	  case 1:
+// 1785   	    return KO_conf.AddressType;
+// 1786   	
+// 1787   	  case 2:
+// 1788 				return KO_conf.DesAdd;
+??read_KO_3:
+        LDS     R16, (KO_conf + 2)
+        RJMP    ??read_KO_4
+// 1789   	
+// 1790   	  case 3:
+// 1791 			  return 0xFFFF;
+// 1792   	
+// 1793   	  case 4:
+// 1794   	    return 0xFFFF;
+// 1795   	
+// 1796   	  case 5:
+// 1797 				asm("nop");
+??read_KO_5:
+        nop
+// 1798 				return KO_conf.Reference;
+??read_KO_6:
+        LDS     R16, (KO_conf + 5)
+        RJMP    ??read_KO_4
+// 1799   	
+// 1800   	  case 6:
+// 1801 				return KO_conf.GR;
+??read_KO_7:
+        LDS     R16, (KO_conf + 6)
+        RJMP    ??read_KO_4
+// 1802   	
+// 1803   	  case 7:
+// 1804 				return KO_conf.GS1;
+??read_KO_8:
+        LDS     R16, (KO_conf + 7)
+        RJMP    ??read_KO_4
+// 1805   	
+// 1806   	  case 8:
+// 1807 				return KO_conf.GS2;
+??read_KO_9:
+        LDS     R16, (KO_conf + 8)
+        RJMP    ??read_KO_4
+// 1808   	
+// 1809   	  case 9:
+// 1810   	    return 0xFFFF;
+// 1811   	
+// 1812   	  case 10:
+// 1813 				return KO_conf.Hours;
+??read_KO_10:
+        LDS     R16, (KO_conf + 10)
+        RJMP    ??read_KO_4
+// 1814   	
+// 1815   	  case 11:
+// 1816 				return KO_conf.Minutes;
+??read_KO_11:
+        LDS     R16, (KO_conf + 11)
+        RJMP    ??read_KO_4
+// 1817   	
+// 1818   	  case 12:
+// 1819 				return KO_conf.Seconds;
+??read_KO_12:
+        LDS     R16, (KO_conf + 12)
+        RJMP    ??read_KO_4
+// 1820   	
+// 1821   	  case 13:
+// 1822 				return KO_conf.en_load;
+??read_KO_13:
+        LDS     R16, (KO_conf + 13)
+        RJMP    ??read_KO_4
+// 1823   	
+// 1824   	  case 14:
+// 1825 				return KO_conf.en_GS_main_group;
+??read_KO_14:
+        LDS     R16, (KO_conf + 14)
+        RJMP    ??read_KO_4
+// 1826   	
+// 1827   	  case 15:
+// 1828   	    return 0xFFFF;
+// 1829   	
+// 1830   	  case 16:
+// 1831   	    return 0xFFFF;
+// 1832   	
+// 1833   	  case 17:
+// 1834   	    return 0xFFFF;
+// 1835   	
+// 1836   	  case 18:
+// 1837   	    return 0xFFFF;
+// 1838   	
+// 1839   	  case 19:
+// 1840   	    return 0xFFFF;
+// 1841 
+// 1842 #ifdef HARDWARE_PIR_US
+// 1843   	  case 20:
+// 1844 				return KO_conf.PirSens;
+// 1845   	
+// 1846   	  case 21:
+// 1847 				return KO_conf.USSens;
+// 1848 #endif
+// 1849 				
+// 1850 #ifdef HARDWARE_PIR
+// 1851   	  case 20:
+// 1852 				return KO_conf.PirSens;
+??read_KO_15:
+        LDS     R16, (KO_conf + 20)
+        RJMP    ??read_KO_4
+// 1853 #endif
+// 1854 				
+// 1855 #ifdef HARDWARE_US
+// 1856   	  case 21:
+// 1857 				return KO_conf.USSens;
+// 1858 #endif
+// 1859 				
+// 1860   	  case 22:
+// 1861 				return KO_conf.DF;
+??read_KO_16:
+        LDS     R16, (KO_conf + 22)
+        RJMP    ??read_KO_4
+// 1862   	
+// 1863   	  case 23:
+// 1864 				return KO_conf.TypeLoop;
+??read_KO_17:
+        LDS     R16, (KO_conf + 23)
+        RJMP    ??read_KO_4
+// 1865   	
+// 1866   	  case 24:
+// 1867 				return KO_conf.NF;
+??read_KO_18:
+        LDS     R16, (KO_conf + 24)
+        RJMP    ??read_KO_4
+// 1868   	
+// 1869   	  case 25:
+// 1870 				return KO_conf.DaylightSetp;
+??read_KO_19:
+        LDS     R16, (KO_conf + 25)
+        RJMP    ??read_KO_4
+// 1871   	
+// 1872   	  case 26:
+// 1873 				return KO_conf.PofL;
+??read_KO_20:
+        LDS     R16, (KO_conf + 26)
+        RJMP    ??read_KO_4
+// 1874   	
+// 1875   	  case 27:
+// 1876 				return KO_conf.DaylightLev;
+??read_KO_21:
+        LDS     R16, (KO_conf + 27)
+        RJMP    ??read_KO_4
+// 1877   	
+// 1878   	  case 28:
+// 1879 				return KO_conf.LightReg;
+??read_KO_22:
+        LDS     R16, (KO_conf + 28)
+        RJMP    ??read_KO_4
+// 1880   	
+// 1881   	  case 29:
+// 1882 				return KO_conf.FuncMod;
+??read_KO_23:
+        LDS     R16, (KO_conf + 29)
+        RJMP    ??read_KO_4
+// 1883   	
+// 1884   	  case 30:
+// 1885 				return KO_conf.InitOccu;
+??read_KO_24:
+        LDS     R16, (KO_conf + 30)
+        RJMP    ??read_KO_4
+// 1886   	
+// 1887   	  case 31:
+// 1888 				return KO_conf.MaintainOccu;
+??read_KO_25:
+        LDS     R16, (KO_conf + 31)
+        RJMP    ??read_KO_4
+// 1889   	
+// 1890   	  case 32:
+// 1891 				return KO_conf.Retrigger;
+??read_KO_26:
+        LDS     R16, (KO_conf + 32)
+        RJMP    ??read_KO_4
+// 1892   	
+// 1893   	  case 33:
+// 1894   	    return 0xFFFF;
+// 1895   	
+// 1896   	  case 34:
+// 1897 				return KO_conf.Alert;
+??read_KO_27:
+        LDS     R16, (KO_conf + 34)
+        RJMP    ??read_KO_4
+// 1898   	
+// 1899   	  default:
+// 1900   	    return 0xFFFF;
+// 1901   	}
+// 1902 	}
+// 1903 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+??read_KO_0:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??read_KO_28
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??read_KO_28
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??read_KO_28
+        LDD     R17, Z+3
+        CPI     R17, 54
+        BRNE    ??read_KO_28
+// 1904 	{
+// 1905   	switch(index)
+        SUBI    R16, 1
+        BREQ    ??read_KO_29
+        DEC     R16
+        BREQ    ??read_KO_30
+        SUBI    R16, 3
+        BREQ    ??read_KO_31
+        DEC     R16
+        BREQ    ??read_KO_32
+        SUBI    R16, 16
+        BREQ    ??read_KO_16
+        SUBI    R16, 2
+        BREQ    ??read_KO_18
+        DEC     R16
+        BREQ    ??read_KO_19
+        DEC     R16
+        BREQ    ??read_KO_20
+        DEC     R16
+        BREQ    ??read_KO_21
+        DEC     R16
+        BREQ    ??read_KO_22
+        DEC     R16
+        BREQ    ??read_KO_23
+        RJMP    ??read_KO_1
+// 1906   	{
+// 1907   	  case 0:
+// 1908   	    return 0xFFFF;
+// 1909   	
+// 1910   	  case 1:
+// 1911   	    return KO_conf.AddressType;
+??read_KO_29:
+        LDS     R16, (KO_conf + 1)
+??read_KO_4:
+        LDI     R17, 0
+        RET
+// 1912   	
+// 1913   	  case 2:
+// 1914 				return KO_conf.DesAdd;
+??read_KO_30:
+        RJMP    ??read_KO_3
+// 1915   	
+// 1916   	  case 3:
+// 1917 			  return 0xFFFF;
+// 1918   	
+// 1919   	  case 4:
+// 1920   	    return 0xFFFF;
+// 1921   	
+// 1922   	  case 5:
+// 1923 				return KO_conf.Reference;
+??read_KO_31:
+        RJMP    ??read_KO_6
+// 1924   	
+// 1925   	  case 6:
+// 1926 				return KO_conf.GR;
+??read_KO_32:
+        RJMP    ??read_KO_7
+// 1927   	
+// 1928   	  case 7:
+// 1929 				return 0xFFFF;
+// 1930   	
+// 1931   	  case 8:
+// 1932 				return 0xFFFF;
+// 1933   	
+// 1934   	  case 9:
+// 1935   	    return 0xFFFF;
+// 1936   	
+// 1937   	  case 10:
+// 1938 				return 0xFFFF;
+// 1939   	
+// 1940   	  case 11:
+// 1941 				return 0xFFFF;
+// 1942   	
+// 1943   	  case 12:
+// 1944 				return 0xFFFF;
+// 1945   	
+// 1946   	  case 13:
+// 1947 				return 0xFFFF;
+// 1948   	
+// 1949   	  case 14:
+// 1950 				return 0xFFFF;
+// 1951   	
+// 1952   	  case 15:
+// 1953   	    return 0xFFFF;
+// 1954   	
+// 1955   	  case 16:
+// 1956   	    return 0xFFFF;
+// 1957   	
+// 1958   	  case 17:
+// 1959   	    return 0xFFFF;
+// 1960   	
+// 1961   	  case 18:
+// 1962   	    return 0xFFFF;
+// 1963   	
+// 1964   	  case 19:
+// 1965   	    return 0xFFFF;
+// 1966   	
+// 1967   	  case 20:
+// 1968 				return 0xFFFF;
+// 1969   	
+// 1970   	  case 21:
+// 1971 				return 0xFFFF;
+// 1972   	
+// 1973   	  case 22:
+// 1974 				return KO_conf.DF;
+// 1975   	
+// 1976   	  case 23:
+// 1977 				return 0xFFFF;
+// 1978   	
+// 1979   	  case 24:
+// 1980 				return KO_conf.NF;
+// 1981   	
+// 1982   	  case 25:
+// 1983 				return KO_conf.DaylightSetp;
+// 1984   	
+// 1985   	  case 26:
+// 1986 				return KO_conf.PofL;
+// 1987   	
+// 1988   	  case 27:
+// 1989 				return KO_conf.DaylightLev;
+// 1990   	
+// 1991   	  case 28:
+// 1992 				return KO_conf.LightReg;
+// 1993   	
+// 1994   	  case 29:
+// 1995 				return KO_conf.FuncMod;
+// 1996   	
+// 1997   	  case 30:
+// 1998 				return 0xFFFF;
+// 1999   	
+// 2000   	  case 31:
+// 2001 				return 0xFFFF;
+// 2002   	
+// 2003   	  case 32:
+// 2004 				return 0xFFFF;
+// 2005   	
+// 2006   	  case 33:
+// 2007   	    return 0xFFFF;
+// 2008   	
+// 2009   	  case 34:
+// 2010 				return 0xFFFF;
+// 2011   	
+// 2012   	  default:
+// 2013   	    return 0xFFFF;
+// 2014   	}
+// 2015 	}
+// 2016   else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+??read_KO_28:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??read_KO_33
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??read_KO_33
+        LDD     R17, Z+2
+        CPI     R17, 55
+        BRNE    ??read_KO_33
+        LDD     R17, Z+3
+        CPI     R17, 55
+        BRNE    ??read_KO_33
+// 2017 	{
+// 2018   	switch(index)
+        LDI     R30, LOW(`?<Jumptable for read_KO>_1`)
+        LDI     R31, (`?<Jumptable for read_KO>_1`) >> 8
+        JMP     ?CV_SWITCH_L06
+// 2019   	{
+// 2020   	  case 0:
+// 2021   	    return 0xFFFF;
+// 2022   	
+// 2023   	  case 1:
+// 2024   	    return KO_conf.AddressType;
+// 2025   	
+// 2026   	  case 2:
+// 2027 				return KO_conf.DesAdd;
+// 2028   	
+// 2029   	  case 3:
+// 2030 			  return 0xFFFF;
+// 2031   	
+// 2032   	  case 4:
+// 2033   	    return 0xFFFF;
+// 2034   	
+// 2035   	  case 5:
+// 2036 				return KO_conf.Reference;
+// 2037   	
+// 2038   	  case 6:
+// 2039 				return KO_conf.GR;
+// 2040   	
+// 2041   	  case 7:
+// 2042 				return KO_conf.GS1;
+// 2043   	
+// 2044   	  case 8:
+// 2045 				return KO_conf.GS2;
+// 2046   	
+// 2047   	  case 9:
+// 2048   	    return 0xFFFF;
+// 2049   	
+// 2050   	  case 10:
+// 2051 				return KO_conf.Hours;
+// 2052   	
+// 2053   	  case 11:
+// 2054 				return KO_conf.Minutes;
+// 2055   	
+// 2056   	  case 12:
+// 2057 				return KO_conf.Seconds;
+// 2058   	
+// 2059   	  case 13:
+// 2060 				return KO_conf.en_load;
+// 2061   	
+// 2062   	  case 14:
+// 2063 				return KO_conf.en_GS_main_group;
+// 2064   	
+// 2065   	  case 15:
+// 2066   	    return 0xFFFF;
+// 2067   	
+// 2068   	  case 16:
+// 2069   	    return 0xFFFF;
+// 2070   	
+// 2071   	  case 17:
+// 2072   	    return 0xFFFF;
+// 2073   	
+// 2074   	  case 18:
+// 2075   	    return 0xFFFF;
+// 2076   	
+// 2077   	  case 19:
+// 2078   	    return 0xFFFF;
+// 2079   	
+// 2080 #ifdef HARDWARE_PIR_US
+// 2081   	  case 20:
+// 2082 				return KO_conf.PirSens;
+// 2083   	
+// 2084   	  case 21:
+// 2085 				return KO_conf.USSens;
+// 2086 #endif
+// 2087 				
+// 2088 #ifdef HARDWARE_PIR
+// 2089   	  case 20:
+// 2090 				return KO_conf.PirSens;
+// 2091 #endif
+// 2092 				
+// 2093 #ifdef HARDWARE_US
+// 2094   	  case 21:
+// 2095 				return KO_conf.USSens;
+// 2096 #endif
+// 2097   	
+// 2098   	  case 22:
+// 2099 				return 0xFFFF;
+// 2100   	
+// 2101   	  case 23:
+// 2102 				return 0xFFFF;
+// 2103   	
+// 2104   	  case 24:
+// 2105 				return 0xFFFF;
+// 2106   	
+// 2107   	  case 25:
+// 2108 				return 0xFFFF;
+// 2109   	
+// 2110   	  case 26:
+// 2111 				return 0xFFFF;
+// 2112   	
+// 2113   	  case 27:
+// 2114 				return 0xFFFF;
+// 2115   	
+// 2116   	  case 28:
+// 2117 				return 0xFFFF;
+// 2118   	
+// 2119   	  case 29:
+// 2120 				return KO_conf.FuncMod;
+// 2121   	
+// 2122   	  case 30:
+// 2123 				return KO_conf.InitOccu;
+// 2124   	
+// 2125   	  case 31:
+// 2126 				return KO_conf.MaintainOccu;
+// 2127   	
+// 2128   	  case 32:
+// 2129 				return KO_conf.Retrigger;
+// 2130   	
+// 2131   	  case 33:
+// 2132   	    return 0xFFFF;
+// 2133   	
+// 2134   	  case 34:
+// 2135 				return KO_conf.Alert;
+// 2136   	
+// 2137   	  default:
+// 2138   	    return 0xFFFF;
+// 2139   	}
+// 2140   }
+// 2141   if(KO[0] == '0' && KO[1] == '0' && KO[2] == '8' && KO[3] == '0')
+??read_KO_33:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??read_KO_34
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??read_KO_34
+        LDD     R17, Z+2
+        CPI     R17, 56
+        BRNE    ??read_KO_34
+        LDD     R17, Z+3
+        CPI     R17, 48
+        BRNE    ??read_KO_34
+// 2142 	{
+// 2143   	switch(index)
+??read_KO_35:
+        SUBI    R16, 10
+        BREQ    ??read_KO_36
+        DEC     R16
+        BREQ    ??read_KO_37
+        DEC     R16
+        BREQ    ??read_KO_38
+        SUBI    R16, 8
+        BREQ    ??read_KO_39
+        SUBI    R16, 2
+        BREQ    ??read_KO_40
+        RJMP    ??read_KO_1
+// 2144   	{
+// 2145   	  case 0:
+// 2146   	    return 0xFFFF;
+// 2147   	
+// 2148   	  case 1:
+// 2149   	    return 0xFFFF;
+// 2150   	
+// 2151   	  case 2:
+// 2152 				return 0xFFFF;
+// 2153   	
+// 2154   	  case 3:
+// 2155 			  return 0xFFFF;
+// 2156   	
+// 2157   	  case 4:
+// 2158   	    return 0xFFFF;
+// 2159   	
+// 2160   	  case 5:
+// 2161 				return 0xFFFF;
+// 2162   	
+// 2163   	  case 6:
+// 2164 				return 0xFFFF;
+// 2165   	
+// 2166   	  case 7:
+// 2167 				return 0xFFFF;
+// 2168   	
+// 2169   	  case 8:
+// 2170 				return 0xFFFF;
+// 2171   	
+// 2172   	  case 9:
+// 2173   	    return 0xFFFF;
+// 2174   	
+// 2175   	  case 10:
+// 2176 				return KO_conf.Hours;
+??read_KO_36:
+        RJMP    ??read_KO_10
+// 2177   	
+// 2178   	  case 11:
+// 2179 				return KO_conf.Minutes;
+??read_KO_37:
+        RJMP    ??read_KO_11
+// 2180   	
+// 2181   	  case 12:
+// 2182 				return KO_conf.Seconds;
+??read_KO_38:
+        RJMP    ??read_KO_12
+// 2183   	
+// 2184   	  case 13:
+// 2185 				return 0xFFFF;
+// 2186   	
+// 2187   	  case 14:
+// 2188 				return 0xFFFF;
+// 2189   	
+// 2190   	  case 15:
+// 2191   	    return 0xFFFF;
+// 2192   	
+// 2193   	  case 16:
+// 2194   	    return 0xFFFF;
+// 2195   	
+// 2196   	  case 17:
+// 2197   	    return 0xFFFF;
+// 2198   	
+// 2199   	  case 18:
+// 2200   	    return 0xFFFF;
+// 2201   	
+// 2202   	  case 19:
+// 2203   	    return 0xFFFF;
+// 2204   	
+// 2205 #ifdef HARDWARE_PIR_US
+// 2206   	  case 20:
+// 2207 				return KO_conf.PirSens;
+// 2208   	
+// 2209   	  case 21:
+// 2210 				return KO_conf.USSens;
+// 2211 #endif
+// 2212 				
+// 2213 #ifdef HARDWARE_PIR
+// 2214   	  case 20:
+// 2215 				return KO_conf.PirSens;
+??read_KO_39:
+        RJMP    ??read_KO_15
+// 2216 #endif
+// 2217 				
+// 2218 #ifdef HARDWARE_US
+// 2219   	  case 21:
+// 2220 				return KO_conf.USSens;
+// 2221 #endif
+// 2222   	
+// 2223   	  case 22:
+// 2224 				return KO_conf.DF;
+??read_KO_40:
+        RJMP    ??read_KO_16
+// 2225   	
+// 2226   	  case 23:
+// 2227 				return 0xFFFF;
+// 2228   	
+// 2229   	  case 24:
+// 2230 				return 0xFFFF;
+// 2231   	
+// 2232   	  case 25:
+// 2233 				return 0xFFFF;
+// 2234   	
+// 2235   	  case 26:
+// 2236 				return 0xFFFF;
+// 2237   	
+// 2238   	  case 27:
+// 2239 				return 0xFFFF;
+// 2240   	
+// 2241   	  case 28:
+// 2242 				return 0xFFFF;
+// 2243   	
+// 2244   	  case 29:
+// 2245 				return 0xFFFF;
+// 2246   	
+// 2247   	  case 30:
+// 2248 				return 0xFFFF;
+// 2249   	
+// 2250   	  case 31:
+// 2251 				return 0xFFFF;
+// 2252   	
+// 2253   	  case 32:
+// 2254 				return 0xFFFF;
+// 2255   	
+// 2256   	  case 33:
+// 2257   	    return 0xFFFF;
+// 2258   	
+// 2259   	  case 34:
+// 2260 				return 0xFFFF;
+// 2261   	
+// 2262   	  default:
+// 2263   	    return 0xFFFF;
+// 2264   	}
+// 2265 	}
+// 2266   else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+??read_KO_34:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??read_KO_41
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??read_KO_41
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??read_KO_41
+        LDD     R17, Z+3
+        CPI     R17, 52
+        BRNE    $+2+2
+        RJMP    ??read_KO_1
+// 2267 	{
+// 2268   	switch(index)
+// 2269   	{
+// 2270   	  default:
+// 2271         return 0xFFFF;
+// 2272   	}
+// 2273 	}
+// 2274   else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+??read_KO_41:
+        LD      R17, Z
+        CPI     R17, 48
+        BRNE    ??read_KO_42
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRNE    ??read_KO_42
+        LDD     R17, Z+2
+        CPI     R17, 65
+        BRNE    ??read_KO_42
+        LDD     R17, Z+3
+        CPI     R17, 53
+        BREQ    ??read_KO_35
+// 2275 	{
+// 2276   	switch(index)
+// 2277   	{
+// 2278   	  case 0:
+// 2279   	    return 0xFFFF;
+// 2280   	
+// 2281   	  case 1:
+// 2282   	    return 0xFFFF;
+// 2283   	
+// 2284   	  case 2:
+// 2285 				return 0xFFFF;
+// 2286   	
+// 2287   	  case 3:
+// 2288 			  return 0xFFFF;
+// 2289   	
+// 2290   	  case 4:
+// 2291   	    return 0xFFFF;
+// 2292   	
+// 2293   	  case 5:
+// 2294 				return 0xFFFF;
+// 2295   	
+// 2296   	  case 6:
+// 2297 				return 0xFFFF;
+// 2298   	
+// 2299   	  case 7:
+// 2300 				return 0xFFFF;
+// 2301   	
+// 2302   	  case 8:
+// 2303 				return 0xFFFF;
+// 2304   	
+// 2305   	  case 9:
+// 2306   	    return 0xFFFF;
+// 2307   	
+// 2308   	  case 10:
+// 2309 				return KO_conf.Hours;
+// 2310   	
+// 2311   	  case 11:
+// 2312 				return KO_conf.Minutes;
+// 2313   	
+// 2314   	  case 12:
+// 2315 				return KO_conf.Seconds;
+// 2316   	
+// 2317   	  case 13:
+// 2318 				return 0xFFFF;
+// 2319   	
+// 2320   	  case 14:
+// 2321 				return 0xFFFF;
+// 2322   	
+// 2323   	  case 15:
+// 2324   	    return 0xFFFF;
+// 2325   	
+// 2326   	  case 16:
+// 2327   	    return 0xFFFF;
+// 2328   	
+// 2329   	  case 17:
+// 2330   	    return 0xFFFF;
+// 2331   	
+// 2332   	  case 18:
+// 2333   	    return 0xFFFF;
+// 2334   	
+// 2335   	  case 19:
+// 2336   	    return 0xFFFF;
+// 2337   	
+// 2338 #ifdef HARDWARE_PIR_US
+// 2339   	  case 20:
+// 2340 				return KO_conf.PirSens;
+// 2341   	
+// 2342   	  case 21:
+// 2343 				return KO_conf.USSens;
+// 2344 #endif
+// 2345 				
+// 2346 #ifdef HARDWARE_PIR
+// 2347   	  case 20:
+// 2348 				return KO_conf.PirSens;
+// 2349 #endif
+// 2350 				
+// 2351 #ifdef HARDWARE_US
+// 2352   	  case 21:
+// 2353 				return KO_conf.USSens;
+// 2354 #endif
+// 2355   	
+// 2356   	  case 22:
+// 2357 				return KO_conf.DF;
+// 2358   	
+// 2359   	  case 23:
+// 2360 				return 0xFFFF;
+// 2361   	
+// 2362   	  case 24:
+// 2363 				return 0xFFFF;
+// 2364   	
+// 2365   	  case 25:
+// 2366 				return 0xFFFF;
+// 2367   	
+// 2368   	  case 26:
+// 2369 				return 0xFFFF;
+// 2370   	
+// 2371   	  case 27:
+// 2372 				return 0xFFFF;
+// 2373   	
+// 2374   	  case 28:
+// 2375 				return 0xFFFF;
+// 2376   	
+// 2377   	  case 29:
+// 2378 				return 0xFFFF;
+// 2379   	
+// 2380   	  case 30:
+// 2381 				return 0xFFFF;
+// 2382   	
+// 2383   	  case 31:
+// 2384 				return 0xFFFF;
+// 2385   	
+// 2386   	  case 32:
+// 2387 				return 0xFFFF;
+// 2388   	
+// 2389   	  case 33:
+// 2390   	    return 0xFFFF;
+// 2391   	
+// 2392   	  case 34:
+// 2393 				return 0xFFFF;
+// 2394   	
+// 2395   	  default:
+// 2396   	    return 0xFFFF;
+// 2397   	}
+// 2398 	}
+// 2399 #endif
+// 2400 
+// 2401 #ifdef NONE_CONFED_204
+// 2402 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+// 2403 	{
+// 2404   	switch(index)
+// 2405   	{
+// 2406   	  case 0:
+// 2407   	    return 0xFFFF;
+// 2408   	
+// 2409   	  case 1:
+// 2410   	    return KO_conf.AddressType;
+// 2411   	
+// 2412   	  case 2:
+// 2413 				return KO_conf.DesAdd;
+// 2414   	
+// 2415   	  case 3:
+// 2416 			  return 0xFFFF;
+// 2417   	
+// 2418   	  case 4:
+// 2419   	    return 0xFFFF;
+// 2420   	
+// 2421   	  case 5:
+// 2422 				return KO_conf.Reference;
+// 2423   	
+// 2424   	  case 6:
+// 2425 				return KO_conf.GR;
+// 2426   	
+// 2427   	  case 7:
+// 2428 				return 0xFFFF;
+// 2429   	
+// 2430   	  case 8:
+// 2431 				return 0xFFFF;
+// 2432   	
+// 2433   	  case 9:
+// 2434   	    return 0xFFFF;
+// 2435   	
+// 2436   	  case 10:
+// 2437 				return 0xFFFF;
+// 2438   	
+// 2439   	  case 11:
+// 2440 				return 0xFFFF;
+// 2441   	
+// 2442   	  case 12:
+// 2443 				return 0xFFFF;
+// 2444   	
+// 2445   	  case 13:
+// 2446 				return 0xFFFF;
+// 2447   	
+// 2448   	  case 14:
+// 2449 				return 0xFFFF;
+// 2450   	
+// 2451   	  case 15:
+// 2452   	    return 0xFFFF;
+// 2453   	
+// 2454   	  case 16:
+// 2455   	    return 0xFFFF;
+// 2456   	
+// 2457   	  case 17:
+// 2458   	    return 0xFFFF;
+// 2459   	
+// 2460   	  case 18:
+// 2461   	    return 0xFFFF;
+// 2462   	
+// 2463   	  case 19:
+// 2464   	    return 0xFFFF;
+// 2465   	
+// 2466   	  case 20:
+// 2467 				return 0xFFFF;
+// 2468   	
+// 2469   	  case 21:
+// 2470 				return 0xFFFF;
+// 2471   	
+// 2472   	  case 22:
+// 2473 				return KO_conf.DF;
+// 2474   	
+// 2475   	  case 23:
+// 2476 				return 0xFFFF;
+// 2477   	
+// 2478   	  case 24:
+// 2479 				return KO_conf.NF;
+// 2480   	
+// 2481   	  case 25:
+// 2482 				return KO_conf.DaylightSetp;
+// 2483   	
+// 2484   	  case 26:
+// 2485 				return KO_conf.PofL;
+// 2486   	
+// 2487   	  case 27:
+// 2488 				return KO_conf.DaylightLev;
+// 2489   	
+// 2490   	  case 28:
+// 2491 				return KO_conf.LightReg;
+// 2492   	
+// 2493   	  case 29:
+// 2494 				return KO_conf.FuncMod;
+// 2495   	
+// 2496   	  case 30:
+// 2497 				return 0xFFFF;
+// 2498   	
+// 2499   	  case 31:
+// 2500 				return 0xFFFF;
+// 2501   	
+// 2502   	  case 32:
+// 2503 				return 0xFFFF;
+// 2504   	
+// 2505   	  case 33:
+// 2506   	    return 0xFFFF;
+// 2507   	
+// 2508   	  case 34:
+// 2509 				return 0xFFFF;
+// 2510   	
+// 2511   	  default:
+// 2512   	    return 0xFFFF;
+// 2513   	}
+// 2514   }
+// 2515 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+// 2516 	{
+// 2517   	switch(index)
+// 2518   	{
+// 2519   	  default:
+// 2520         return 0xFFFF;
+// 2521   	}
+// 2522 	}
+// 2523 #endif
+// 2524 
+// 2525 #ifdef NONE_CONFED_1FF
+// 2526 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+// 2527 	{
+// 2528   	switch(index)
+// 2529   	{
+// 2530   	  case 0:
+// 2531   	    return 0xFFFF;
+// 2532   	
+// 2533   	  case 1:
+// 2534   	    return KO_conf.AddressType;
+// 2535   	
+// 2536   	  case 2:
+// 2537 				return KO_conf.DesAdd;
+// 2538   	
+// 2539   	  case 3:
+// 2540 			  return 0xFFFF;
+// 2541   	
+// 2542   	  case 4:
+// 2543   	    return 0xFFFF;
+// 2544   	
+// 2545   	  case 5:
+// 2546 				return KO_conf.Reference;
+// 2547   	
+// 2548   	  case 6:
+// 2549 				return KO_conf.GR;
+// 2550   	
+// 2551   	  case 7:
+// 2552 				return KO_conf.GS1;
+// 2553   	
+// 2554   	  case 8:
+// 2555 				return KO_conf.GS2;
+// 2556   	
+// 2557   	  case 9:
+// 2558   	    return 0xFFFF;
+// 2559   	
+// 2560   	  case 10:
+// 2561 				return KO_conf.Hours;
+// 2562   	
+// 2563   	  case 11:
+// 2564 				return KO_conf.Minutes;
+// 2565   	
+// 2566   	  case 12:
+// 2567 				return KO_conf.Seconds;
+// 2568   	
+// 2569   	  case 13:
+// 2570 				return KO_conf.en_load;
+// 2571   	
+// 2572   	  case 14:
+// 2573 				return KO_conf.en_GS_main_group;
+// 2574   	
+// 2575   	  case 15:
+// 2576   	    return 0xFFFF;
+// 2577   	
+// 2578   	  case 16:
+// 2579   	    return 0xFFFF;
+// 2580   	
+// 2581   	  case 17:
+// 2582   	    return 0xFFFF;
+// 2583   	
+// 2584   	  case 18:
+// 2585   	    return 0xFFFF;
+// 2586   	
+// 2587   	  case 19:
+// 2588   	    return 0xFFFF;
+// 2589   	
+// 2590   	  case 20:
+// 2591 				return KO_conf.PirSens;
+// 2592   	
+// 2593   	  case 21:
+// 2594 				return KO_conf.USSens;
+// 2595   	
+// 2596   	  case 22:
+// 2597 				return 0xFFFF;
+// 2598   	
+// 2599   	  case 23:
+// 2600 				return 0xFFFF;
+// 2601   	
+// 2602   	  case 24:
+// 2603 				return 0xFFFF;
+// 2604   	
+// 2605   	  case 25:
+// 2606 				return 0xFFFF;
+// 2607   	
+// 2608   	  case 26:
+// 2609 				return 0xFFFF;
+// 2610   	
+// 2611   	  case 27:
+// 2612 				return 0xFFFF;
+// 2613   	
+// 2614   	  case 28:
+// 2615 				return 0xFFFF;
+// 2616   	
+// 2617   	  case 29:
+// 2618 				return KO_conf.FuncMod;
+// 2619   	
+// 2620   	  case 30:
+// 2621 				return KO_conf.InitOccu;
+// 2622   	
+// 2623   	  case 31:
+// 2624 				return KO_conf.MaintainOccu;
+// 2625   	
+// 2626   	  case 32:
+// 2627 				return KO_conf.Retrigger;
+// 2628   	
+// 2629   	  case 33:
+// 2630   	    return 0xFFFF;
+// 2631   	
+// 2632   	  case 34:
+// 2633 				return KO_conf.Alert;
+// 2634   	
+// 2635   	  default:
+// 2636   	    return 0xFFFF;
+// 2637   	}
+// 2638   }
+// 2639 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+// 2640 	{
+// 2641   	switch(index)
+// 2642   	{
+// 2643   	  case 0:
+// 2644   	    return 0xFFFF;
+// 2645   	
+// 2646   	  case 1:
+// 2647   	    return 0xFFFF;
+// 2648   	
+// 2649   	  case 2:
+// 2650 				return 0xFFFF;
+// 2651   	
+// 2652   	  case 3:
+// 2653 			  return 0xFFFF;
+// 2654   	
+// 2655   	  case 4:
+// 2656   	    return 0xFFFF;
+// 2657   	
+// 2658   	  case 5:
+// 2659 				return 0xFFFF;
+// 2660   	
+// 2661   	  case 6:
+// 2662 				return 0xFFFF;
+// 2663   	
+// 2664   	  case 7:
+// 2665 				return 0xFFFF;
+// 2666   	
+// 2667   	  case 8:
+// 2668 				return 0xFFFF;
+// 2669   	
+// 2670   	  case 9:
+// 2671   	    return 0xFFFF;
+// 2672   	
+// 2673   	  case 10:
+// 2674 				return KO_conf.Hours;
+// 2675   	
+// 2676   	  case 11:
+// 2677 				return KO_conf.Minutes;
+// 2678   	
+// 2679   	  case 12:
+// 2680 				return KO_conf.Seconds;
+// 2681   	
+// 2682   	  case 13:
+// 2683 				return 0xFFFF;
+// 2684   	
+// 2685   	  case 14:
+// 2686 				return 0xFFFF;
+// 2687   	
+// 2688   	  case 15:
+// 2689   	    return 0xFFFF;
+// 2690   	
+// 2691   	  case 16:
+// 2692   	    return 0xFFFF;
+// 2693   	
+// 2694   	  case 17:
+// 2695   	    return 0xFFFF;
+// 2696   	
+// 2697   	  case 18:
+// 2698   	    return 0xFFFF;
+// 2699   	
+// 2700   	  case 19:
+// 2701   	    return 0xFFFF;
+// 2702   	
+// 2703   	  case 20:
+// 2704 				return KO_conf.PirSens;
+// 2705   	
+// 2706   	  case 21:
+// 2707 				return KO_conf.USSens;
+// 2708   	
+// 2709   	  case 22:
+// 2710 				return KO_conf.DF;
+// 2711   	
+// 2712   	  case 23:
+// 2713 				return 0xFFFF;
+// 2714   	
+// 2715   	  case 24:
+// 2716 				return 0xFFFF;
+// 2717   	
+// 2718   	  case 25:
+// 2719 				return 0xFFFF;
+// 2720   	
+// 2721   	  case 26:
+// 2722 				return 0xFFFF;
+// 2723   	
+// 2724   	  case 27:
+// 2725 				return 0xFFFF;
+// 2726   	
+// 2727   	  case 28:
+// 2728 				return 0xFFFF;
+// 2729   	
+// 2730   	  case 29:
+// 2731 				return 0xFFFF;
+// 2732   	
+// 2733   	  case 30:
+// 2734 				return 0xFFFF;
+// 2735   	
+// 2736   	  case 31:
+// 2737 				return 0xFFFF;
+// 2738   	
+// 2739   	  case 32:
+// 2740 				return 0xFFFF;
+// 2741   	
+// 2742   	  case 33:
+// 2743   	    return 0xFFFF;
+// 2744   	
+// 2745   	  case 34:
+// 2746 				return 0xFFFF;
+// 2747   	
+// 2748   	  default:
+// 2749   	    return 0xFFFF;
+// 2750   	}
+// 2751 	}
+// 2752 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '0')
+// 2753 	{
+// 2754   	switch(index)
+// 2755   	{
+// 2756   	  default:
+// 2757         return 0xFFFF;
+// 2758   	}
+// 2759 	}
+// 2760 #endif
+// 2761   return 0xFFFE;
+??read_KO_42:
+        LDI     R16, 254
+??read_KO_2:
+        LDI     R17, 255
+        RET
+        CFI EndBlock cfiBlock9
+// 2762 }
+// 2763 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 2764 void KO_parameter_initial(void)
+KO_parameter_initial:
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function KO_parameter_initial
+// 2765 {
+// 2766   if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '8')
+        FUNCALL KO_parameter_initial, write_moudle_parameter
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial, write_moudle_parameter
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial, write_moudle_parameter
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial, write_moudle_parameter
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial, write_moudle_parameter
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_0
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_0
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_0
+        LDD     R16, Z+3
+        CPI     R16, 56
+        BRNE    ??KO_parameter_initial_0
+// 2767 	{
+// 2768   	ee_KO_conf = flash_KO_168;
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_168)
+        LDI     R31, (flash_KO_168) >> 8
+        RJMP    ??KO_parameter_initial_1
+// 2769 		write_moudle_parameter();
+// 2770 	}
+// 2771 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+??KO_parameter_initial_0:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_2
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_2
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_2
+        LDD     R16, Z+3
+        CPI     R16, 54
+        BRNE    ??KO_parameter_initial_2
+// 2772 	{
+// 2773   	ee_KO_conf = flash_KO_166;
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_166)
+        LDI     R31, (flash_KO_166) >> 8
+??KO_parameter_initial_1:
+        LDI     R17, 50
+        LDI     R18, 0
+        CALL    ?ML_FLASH_EEPROM_16EC_16_L07
+// 2774 		write_moudle_parameter();
+        RCALL   write_moudle_parameter
+        RET
+// 2775 	}
+// 2776 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+??KO_parameter_initial_2:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_3
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_3
+        LDD     R16, Z+2
+        CPI     R16, 55
+        BRNE    ??KO_parameter_initial_3
+        LDD     R16, Z+3
+        CPI     R16, 55
+        BRNE    ??KO_parameter_initial_3
+// 2777 	{
+// 2778   	ee_KO_conf = flash_KO_119;
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_119)
+        LDI     R31, (flash_KO_119) >> 8
+        RJMP    ??KO_parameter_initial_1
+// 2779 		write_moudle_parameter();
+// 2780 	}
+// 2781 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '8' && KO[3] == '0')
+??KO_parameter_initial_3:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_4
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_4
+        LDD     R16, Z+2
+        CPI     R16, 56
+        BRNE    ??KO_parameter_initial_4
+        LDD     R16, Z+3
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_4
+// 2782 	{
+// 2783   	ee_KO_conf = flash_KO_128;
+??KO_parameter_initial_5:
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_128)
+        LDI     R31, (flash_KO_128) >> 8
+        RJMP    ??KO_parameter_initial_1
+// 2784 		write_moudle_parameter();
+// 2785 	}
+// 2786 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+??KO_parameter_initial_4:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_6
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_6
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_6
+        LDD     R16, Z+3
+        CPI     R16, 52
+        BREQ    ??KO_parameter_initial_5
+// 2787 	{
+// 2788     ee_KO_conf = flash_KO_128;
+// 2789 		write_moudle_parameter();
+// 2790 	}
+// 2791 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+??KO_parameter_initial_6:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_7
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_7
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_7
+        LDD     R16, Z+3
+        CPI     R16, 53
+        BRNE    ??KO_parameter_initial_7
+// 2792 	{
+// 2793   	ee_KO_conf = flash_KO_165;
+        LDI     R20, LOW(ee_KO_conf)
+        LDI     R21, (ee_KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_165)
+        LDI     R31, (flash_KO_165) >> 8
+        LDI     R17, 50
+        LDI     R18, 0
+        CALL    ?ML_FLASH_EEPROM_16EC_16_L07
+// 2794 		write_moudle_parameter();
+        RCALL   write_moudle_parameter
+// 2795 	}
+// 2796 }
+??KO_parameter_initial_7:
+        RET
+        CFI EndBlock cfiBlock10
+// 2797 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 2798 void KO_parameter_initial_temp(void)
+KO_parameter_initial_temp:
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function KO_parameter_initial_temp
+// 2799 {
+// 2800 	if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '8')
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL KO_parameter_initial_temp, write_moudle_parameter_temp
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R30, LOW(KO)
+        LDI     R31, (KO) >> 8
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_0
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_0
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_temp_0
+        LDD     R16, Z+3
+        CPI     R16, 56
+        BRNE    ??KO_parameter_initial_temp_0
+// 2801 	{
+// 2802   	KO_conf = flash_KO_168;
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_168)
+        LDI     R31, (flash_KO_168) >> 8
+        RJMP    ??KO_parameter_initial_temp_1
+// 2803 		write_moudle_parameter_temp();
+// 2804 	}
+// 2805 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '6')
+??KO_parameter_initial_temp_0:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_2
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_2
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_temp_2
+        LDD     R16, Z+3
+        CPI     R16, 54
+        BRNE    ??KO_parameter_initial_temp_2
+// 2806 	{
+// 2807   	KO_conf = flash_KO_166;
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_166)
+        LDI     R31, (flash_KO_166) >> 8
+??KO_parameter_initial_temp_1:
+        LDI     R20, 50
+        LDI     R21, 0
+        CALL    ?ML_FLASH_SRAM_16EC_16_L07
+// 2808 		write_moudle_parameter_temp();
+        RCALL   write_moudle_parameter_temp
+        RET
+// 2809 	}
+// 2810 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '7' && KO[3] == '7')
+??KO_parameter_initial_temp_2:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_3
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_3
+        LDD     R16, Z+2
+        CPI     R16, 55
+        BRNE    ??KO_parameter_initial_temp_3
+        LDD     R16, Z+3
+        CPI     R16, 55
+        BRNE    ??KO_parameter_initial_temp_3
+// 2811 	{
+// 2812   	KO_conf = flash_KO_119;
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_119)
+        LDI     R31, (flash_KO_119) >> 8
+        RJMP    ??KO_parameter_initial_temp_1
+// 2813 		write_moudle_parameter_temp();
+// 2814 	}
+// 2815 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == '8' && KO[3] == '0')
+??KO_parameter_initial_temp_3:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_4
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_4
+        LDD     R16, Z+2
+        CPI     R16, 56
+        BRNE    ??KO_parameter_initial_temp_4
+        LDD     R16, Z+3
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_4
+// 2816 	{
+// 2817   	KO_conf = flash_KO_128;
+??KO_parameter_initial_temp_5:
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_128)
+        LDI     R31, (flash_KO_128) >> 8
+        RJMP    ??KO_parameter_initial_temp_1
+// 2818 		write_moudle_parameter_temp();
+// 2819 	}
+// 2820 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '4')
+??KO_parameter_initial_temp_4:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_6
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_6
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_temp_6
+        LDD     R16, Z+3
+        CPI     R16, 52
+        BREQ    ??KO_parameter_initial_temp_5
+// 2821 	{
+// 2822     KO_conf = flash_KO_128;
+// 2823 		write_moudle_parameter_temp();
+// 2824 	}
+// 2825 	else if(KO[0] == '0' && KO[1] == '0' && KO[2] == 'A' && KO[3] == '5')
+??KO_parameter_initial_temp_6:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_7
+        LDD     R16, Z+1
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_7
+        LDD     R16, Z+2
+        CPI     R16, 65
+        BRNE    ??KO_parameter_initial_temp_7
+        LDD     R16, Z+3
+        CPI     R16, 53
+        BRNE    ??KO_parameter_initial_temp_7
+// 2826 	{
+// 2827   	KO_conf = flash_KO_165;
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_165)
+        LDI     R31, (flash_KO_165) >> 8
+        RJMP    ??KO_parameter_initial_temp_1
+// 2828 		write_moudle_parameter_temp();
+// 2829 	}
+// 2830 	else if(KO[0] == '0' && KO[1] == '2' && KO[2] == '0' && KO[3] == '3')
+??KO_parameter_initial_temp_7:
+        LD      R16, Z
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_8
+        LDD     R16, Z+1
+        CPI     R16, 50
+        BRNE    ??KO_parameter_initial_temp_8
+        LDD     R16, Z+2
+        CPI     R16, 48
+        BRNE    ??KO_parameter_initial_temp_8
+        LDD     R16, Z+3
+        CPI     R16, 51
+        BRNE    ??KO_parameter_initial_temp_8
+// 2831 	{
+// 2832 		KO_conf = flash_KO_515;
+        LDI     R16, LOW(KO_conf)
+        LDI     R17, (KO_conf) >> 8
+        LDI     R30, LOW(flash_KO_515)
+        LDI     R31, (flash_KO_515) >> 8
+        LDI     R20, 50
+        LDI     R21, 0
+        CALL    ?ML_FLASH_SRAM_16EC_16_L07
+// 2833 		write_moudle_parameter_temp();
+        RCALL   write_moudle_parameter_temp
+// 2834 	}
+// 2835 }
+??KO_parameter_initial_temp_8:
+        RET
+        CFI EndBlock cfiBlock11
+// 2836 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 2837 void write_moudle_parameter(void)
+write_moudle_parameter:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function write_moudle_parameter
+// 2838 {
+        LDI     R16, 0
+        LDI     R20, LOW((ee_KO_conf + 5))
+        LDI     R21, HIGH((ee_KO_conf + 5))
+        CALL    __eeput8_16
+// 2839 #ifdef HARDWARE_PIR
+// 2840 			ee_KO_conf.Reference = 0;
+// 2841 
+// 2842 			ee_KO_conf.Hours = 0;
+        LDI     R20, LOW((ee_KO_conf + 10))
+        LDI     R21, HIGH((ee_KO_conf + 10))
+        CALL    __eeput8_16
+// 2843 
+// 2844 			ee_KO_conf.Minutes = 15;
+        LDI     R16, 15
+        LDI     R20, LOW((ee_KO_conf + 11))
+        LDI     R21, HIGH((ee_KO_conf + 11))
+        CALL    __eeput8_16
+// 2845 
+// 2846 			ee_KO_conf.Seconds = 0;
+        LDI     R16, 0
+        LDI     R20, LOW((ee_KO_conf + 12))
+        LDI     R21, HIGH((ee_KO_conf + 12))
+        CALL    __eeput8_16
+// 2847 
+// 2848 			ee_KO_conf.PirSens = 3;
+        LDI     R16, 3
+        LDI     R20, LOW((ee_KO_conf + 20))
+        LDI     R21, HIGH((ee_KO_conf + 20))
+        CALL    __eeput8_16
+// 2849 			
+// 2850 #ifdef CELIING
+// 2851 			ee_KO_conf.DF = 35;
+        LDI     R16, 35
+        LDI     R20, LOW((ee_KO_conf + 22))
+        LDI     R21, HIGH((ee_KO_conf + 22))
+        CALL    __eeput8_16
+// 2852 #else
+// 2853 			ee_KO_conf.DF = 10;
+// 2854 #endif
+// 2855 			
+// 2856 			if(ee_product_information.cen_system)
+        LDI     R20, LOW((ee_product_information + 4))
+        LDI     R21, HIGH((ee_product_information + 4))
+        CALL    __eeget8_16
+        TST     R16
+        BREQ    ??write_moudle_parameter_0
+// 2857 			{
+// 2858 				ee_KO_conf.DF = 1;
+        LDI     R16, 1
+        LDI     R20, LOW((ee_KO_conf + 22))
+        LDI     R21, HIGH((ee_KO_conf + 22))
+        CALL    __eeput8_16
+// 2859 			}	
+// 2860   		
+// 2861 			ee_KO_conf.TypeLoop = 0;
+??write_moudle_parameter_0:
+        LDI     R16, 0
+        LDI     R20, LOW((ee_KO_conf + 23))
+        LDI     R21, HIGH((ee_KO_conf + 23))
+        CALL    __eeput8_16
+// 2862 			
+// 2863 #ifdef CELIING
+// 2864 			ee_KO_conf.DaylightSetp = 100;
+        LDI     R16, 100
+        LDI     R20, LOW((ee_KO_conf + 25))
+        LDI     R21, HIGH((ee_KO_conf + 25))
+        CALL    __eeput8_16
+// 2865 #else
+// 2866 			ee_KO_conf.DaylightSetp = 60;
+// 2867 #endif
+// 2868 			
+// 2869 			ee_KO_conf.PofL = 255;
+        LDI     R16, 255
+        LDI     R20, LOW((ee_KO_conf + 26))
+        LDI     R21, HIGH((ee_KO_conf + 26))
+        CALL    __eeput8_16
+// 2870 
+// 2871 			ee_KO_conf.LightReg = 0;
+        LDI     R16, 0
+        LDI     R20, LOW((ee_KO_conf + 28))
+        LDI     R21, HIGH((ee_KO_conf + 28))
+        CALL    __eeput8_16
+// 2872 
+// 2873 			ee_KO_conf.FuncMod = 2;
+        LDI     R16, 2
+        LDI     R20, LOW((ee_KO_conf + 29))
+        LDI     R21, HIGH((ee_KO_conf + 29))
+        CALL    __eeput8_16
+// 2874 
+// 2875 			ee_KO_conf.InitOccu = 1;
+        LDI     R16, 1
+        LDI     R20, LOW((ee_KO_conf + 30))
+        LDI     R21, HIGH((ee_KO_conf + 30))
+        CALL    __eeput8_16
+// 2876 
+// 2877 			ee_KO_conf.MaintainOccu = 1;
+        LDI     R20, LOW((ee_KO_conf + 31))
+        LDI     R21, HIGH((ee_KO_conf + 31))
+        CALL    __eeput8_16
+// 2878 
+// 2879 			ee_KO_conf.Retrigger = 1;
+        LDI     R20, LOW((ee_KO_conf + 32))
+        LDI     R21, HIGH((ee_KO_conf + 32))
+        CALL    __eeput8_16
+// 2880 
+// 2881 			ee_KO_conf.Alert = 0;
+        LDI     R16, 0
+        LDI     R20, LOW((ee_KO_conf + 34))
+        LDI     R21, HIGH((ee_KO_conf + 34))
+        CALL    __eeput8_16
+// 2882 #endif
+// 2883 			
+// 2884 #ifdef HARDWARE_US
+// 2885 			ee_KO_conf.Reference = 0;
+// 2886 
+// 2887 			ee_KO_conf.Hours = 0;
+// 2888 
+// 2889 			ee_KO_conf.Minutes = 15;
+// 2890 
+// 2891 			ee_KO_conf.Seconds = 0;
+// 2892 
+// 2893 			ee_KO_conf.USSens = 2;
+// 2894 			
+// 2895 #ifdef CELIING
+// 2896 			ee_KO_conf.DF = 35;
+// 2897 #else
+// 2898 			ee_KO_conf.DF = 10;
+// 2899 #endif
+// 2900   		if(ee_product_information.cen_system)
+// 2901 			{
+// 2902 				ee_KO_conf.DF = 2;
+// 2903 			}	
+// 2904 			
+// 2905 			ee_KO_conf.TypeLoop = 0;
+// 2906 			
+// 2907 #ifdef CELIING
+// 2908 			ee_KO_conf.DaylightSetp = 100;
+// 2909 #else
+// 2910 			ee_KO_conf.DaylightSetp = 60;
+// 2911 #endif
+// 2912 			
+// 2913 			ee_KO_conf.PofL = 255;
+// 2914 
+// 2915 			ee_KO_conf.LightReg = 0;
+// 2916 
+// 2917 			ee_KO_conf.FuncMod = 2;
+// 2918 
+// 2919 			ee_KO_conf.InitOccu = 2;
+// 2920 
+// 2921 			ee_KO_conf.MaintainOccu = 2;
+// 2922 
+// 2923 			ee_KO_conf.Retrigger = 2;
+// 2924 
+// 2925 			ee_KO_conf.Alert = 0;
+// 2926 #endif
+// 2927 			
+// 2928 #ifdef HARDWARE_PIR_US
+// 2929 			ee_KO_conf.Reference = 0;
+// 2930 
+// 2931 			ee_KO_conf.Hours = 0;
+// 2932 
+// 2933 			ee_KO_conf.Minutes = 15;
+// 2934 
+// 2935 			ee_KO_conf.Seconds = 0;
+// 2936   		
+// 2937 			ee_KO_conf.PirSens = 3;
+// 2938 			
+// 2939 			ee_KO_conf.USSens = 2;
+// 2940 			
+// 2941 #ifdef CELIING
+// 2942 			ee_KO_conf.DF = 35;
+// 2943 #else
+// 2944 			ee_KO_conf.DF = 10;
+// 2945 #endif
+// 2946   		
+// 2947 			if(ee_product_information.cen_system)
+// 2948 			{
+// 2949 				ee_KO_conf.DF = 4;
+// 2950 			}	
+// 2951 			
+// 2952 			ee_KO_conf.TypeLoop = 0;
+// 2953 			
+// 2954 #ifdef CELIING
+// 2955 			ee_KO_conf.DaylightSetp = 100;
+// 2956 #else
+// 2957 			ee_KO_conf.DaylightSetp = 60;
+// 2958 #endif
+// 2959 			
+// 2960 			ee_KO_conf.PofL = 255;
+// 2961 
+// 2962 			ee_KO_conf.LightReg = 0;
+// 2963 
+// 2964 			ee_KO_conf.FuncMod = 2;
+// 2965 
+// 2966 			ee_KO_conf.InitOccu = 3;
+// 2967 
+// 2968 			ee_KO_conf.MaintainOccu = 4;
+// 2969 
+// 2970 			ee_KO_conf.Retrigger = 4;
+// 2971 
+// 2972 			ee_KO_conf.Alert = 0;
+// 2973 #endif
+// 2974 }
+        RET
+        CFI EndBlock cfiBlock12
+// 2975 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 2976 void write_moudle_parameter_temp(void)
+write_moudle_parameter_temp:
+        CFI Block cfiBlock13 Using cfiCommon0
+        CFI Function write_moudle_parameter_temp
+// 2977 {
+// 2978 #ifdef HARDWARE_PIR
+// 2979 			KO_conf.Reference = 0;
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDI     R16, 0
+        STD     Z+5, R16
+// 2980 
+// 2981 			KO_conf.Hours = 0;
+        STD     Z+10, R16
+// 2982 
+// 2983 			KO_conf.Minutes = 15;
+        LDI     R16, 15
+        STD     Z+11, R16
+// 2984 
+// 2985 			KO_conf.Seconds = 0;
+        LDI     R16, 0
+        STD     Z+12, R16
+// 2986 
+// 2987 			KO_conf.PirSens = 3;
+        LDI     R16, 3
+        STD     Z+20, R16
+// 2988 			
+// 2989 #ifdef CELIING
+// 2990 			KO_conf.DF = 35;
+        LDI     R16, 35
+        STD     Z+22, R16
+// 2991 #else
+// 2992 			KO_conf.DF = 10;
+// 2993 #endif
+// 2994   		
+// 2995 			if(temp_product_information.cen_system)
+        LDS     R16, (temp_product_information + 4)
+        TST     R16
+        BREQ    ??write_moudle_parameter_temp_0
+// 2996 			{
+// 2997 				KO_conf.DF = 1;
+        LDI     R16, 1
+        STD     Z+22, R16
+// 2998 			}	
+// 2999 			
+// 3000 			KO_conf.TypeLoop = 0;
+??write_moudle_parameter_temp_0:
+        LDI     R16, 0
+        STD     Z+23, R16
+// 3001 			
+// 3002 #ifdef CELIING
+// 3003 			KO_conf.DaylightSetp = 100;
+        LDI     R16, 100
+        STD     Z+25, R16
+// 3004 #else
+// 3005 			KO_conf.DaylightSetp = 60;
+// 3006 #endif
+// 3007 			
+// 3008 			KO_conf.PofL = 255;
+        LDI     R16, 255
+        STD     Z+26, R16
+// 3009 
+// 3010 			KO_conf.LightReg = 0;
+        LDI     R16, 0
+        STD     Z+28, R16
+// 3011 
+// 3012 			KO_conf.FuncMod = 2;
+        LDI     R16, 2
+        STD     Z+29, R16
+// 3013 
+// 3014 			KO_conf.InitOccu = 1;
+        LDI     R16, 1
+        STD     Z+30, R16
+// 3015 
+// 3016 			KO_conf.MaintainOccu = 1;
+        STD     Z+31, R16
+// 3017 
+// 3018 			KO_conf.Retrigger = 1;
+        STD     Z+32, R16
+// 3019 
+// 3020 			KO_conf.Alert = 0;
+        LDI     R16, 0
+        STD     Z+34, R16
+// 3021 #endif
+// 3022 
+// 3023 #ifdef HARDWARE_US
+// 3024 			KO_conf.Reference = 0;
+// 3025 
+// 3026 			KO_conf.Hours = 0;
+// 3027 
+// 3028 			KO_conf.Minutes = 15;
+// 3029 
+// 3030 			KO_conf.Seconds = 0;
+// 3031 
+// 3032 			KO_conf.USSens = 2;
+// 3033 			
+// 3034 #ifdef CELIING
+// 3035 			KO_conf.DF = 35;
+// 3036 #else
+// 3037 			KO_conf.DF = 10;
+// 3038 #endif
+// 3039   		
+// 3040 			if(temp_product_information.cen_system)
+// 3041 			{
+// 3042 				KO_conf.DF = 2;
+// 3043 			}	
+// 3044 			
+// 3045 			KO_conf.TypeLoop = 0;
+// 3046 			
+// 3047 #ifdef CELIING
+// 3048 			KO_conf.DaylightSetp = 100;
+// 3049 #else
+// 3050 			KO_conf.DaylightSetp = 60;
+// 3051 #endif
+// 3052 			
+// 3053 			KO_conf.PofL = 255;
+// 3054 
+// 3055 			KO_conf.LightReg = 0;
+// 3056 
+// 3057 			KO_conf.FuncMod = 2;
+// 3058 
+// 3059 			KO_conf.InitOccu = 2;
+// 3060 
+// 3061 			KO_conf.MaintainOccu = 2;
+// 3062 
+// 3063 			KO_conf.Retrigger = 2;
+// 3064 
+// 3065 			KO_conf.Alert = 0;
+// 3066 #endif
+// 3067 
+// 3068 #ifdef HARDWARE_PIR_US
+// 3069 			KO_conf.Reference = 0;
+// 3070 
+// 3071 			KO_conf.Hours = 0;
+// 3072 
+// 3073 			KO_conf.Minutes = 15;
+// 3074 
+// 3075 			KO_conf.Seconds = 0;
+// 3076   		
+// 3077 			KO_conf.PirSens = 3;
+// 3078 			
+// 3079 			KO_conf.USSens = 2;
+// 3080 			
+// 3081 #ifdef CELIING
+// 3082 			KO_conf.DF = 35;
+// 3083 #else
+// 3084 			KO_conf.DF = 10;
+// 3085 #endif
+// 3086   		
+// 3087 			if(temp_product_information.cen_system)
+// 3088 			{
+// 3089 				KO_conf.DF = 4;
+// 3090 			}	
+// 3091 			
+// 3092 			KO_conf.TypeLoop = 0;
+// 3093 			
+// 3094 #ifdef CELIING
+// 3095 			KO_conf.DaylightSetp = 100;
+// 3096 #else
+// 3097 			KO_conf.DaylightSetp = 60;
+// 3098 #endif
+// 3099 			
+// 3100 			KO_conf.PofL = 255;
+// 3101 
+// 3102 			KO_conf.LightReg = 0;
+// 3103 
+// 3104 			KO_conf.FuncMod = 2;
+// 3105 
+// 3106 			KO_conf.InitOccu = 3;
+// 3107 
+// 3108 			KO_conf.MaintainOccu = 4;
+// 3109 
+// 3110 			KO_conf.Retrigger = 4;
+// 3111 
+// 3112 			KO_conf.Alert = 0;
+// 3113 #endif
+// 3114 }
+        RET
+        CFI EndBlock cfiBlock13
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for <Constant "$09\\r">>`:
+        DC8 "$09\015"
+`?<Initializer for <Constant "$2603\\r">>`:
+        DC8 "$2603\015"
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for write_KO>_0`:
+        DB      1
+        DB      0
+        DW      (??write_KO_44) /2
+        DW      34
+        DW      (??write_KO_1) /2
+        DW      (??write_KO_6) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_12) /2
+        DW      (??write_KO_13) /2
+        DW      (??write_KO_14) /2
+        DW      (??write_KO_15) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_16) /2
+        DW      (??write_KO_17) /2
+        DW      (??write_KO_18) /2
+        DW      (??write_KO_19) /2
+        DW      (??write_KO_21) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_23) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_42) /2
+        DW      (??write_KO_24) /2
+        DW      (??write_KO_26) /2
+        DW      (??write_KO_27) /2
+        DW      (??write_KO_28) /2
+        DW      (??write_KO_30) /2
+        DW      (??write_KO_31) /2
+        DW      (??write_KO_33) /2
+        DW      (??write_KO_35) /2
+        DW      (??write_KO_36) /2
+        DW      (??write_KO_37) /2
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_39) /2
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for write_KO>_1`:
+        DB      1
+        DB      1
+        DW      (??write_KO_44) /2
+        DW      (??write_KO_1) /2
+        DB      0x1
+        DW      (??write_KO_41) /2
+        DB      0x3
+        DW      (??write_KO_12) /2
+        DB      0x1
+        DW      (??write_KO_13) /2
+        DB      0x1
+        DW      (??write_KO_14) /2
+        DB      0x1
+        DW      (??write_KO_15) /2
+        DB      0x2
+        DW      (??write_KO_16) /2
+        DB      0x1
+        DW      (??write_KO_17) /2
+        DB      0x1
+        DW      (??write_KO_18) /2
+        DB      0x1
+        DW      (??write_KO_19) /2
+        DB      0x1
+        DW      (??write_KO_21) /2
+        DB      0x6
+        DW      (??write_KO_23) /2
+        DB      0x9
+        DW      (??write_KO_43) /2
+        DB      0x1
+        DW      (??write_KO_35) /2
+        DB      0x1
+        DW      (??write_KO_36) /2
+        DB      0x1
+        DW      (??write_KO_37) /2
+        DB      0x2
+        DW      (??write_KO_39) /2
+        DB      251
+        DB      0
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for write_ee_KO>_0`:
+        DB      1
+        DB      0
+        DW      (??write_ee_KO_41) /2
+        DW      34
+        DW      (??write_ee_KO_1) /2
+        DW      (??write_ee_KO_8) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_12) /2
+        DW      (??write_ee_KO_13) /2
+        DW      (??write_ee_KO_14) /2
+        DW      (??write_ee_KO_15) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_46) /2
+        DW      (??write_ee_KO_47) /2
+        DW      (??write_ee_KO_16) /2
+        DW      (??write_ee_KO_17) /2
+        DW      (??write_ee_KO_19) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_21) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_22) /2
+        DW      (??write_ee_KO_23) /2
+        DW      (??write_ee_KO_25) /2
+        DW      (??write_ee_KO_26) /2
+        DW      (??write_ee_KO_27) /2
+        DW      (??write_ee_KO_30) /2
+        DW      (??write_ee_KO_31) /2
+        DW      (??write_ee_KO_33) /2
+        DW      (??write_ee_KO_35) /2
+        DW      (??write_ee_KO_36) /2
+        DW      (??write_ee_KO_37) /2
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_39) /2
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for write_ee_KO>_1`:
+        DB      1
+        DB      1
+        DW      (??write_ee_KO_41) /2
+        DW      (??write_ee_KO_1) /2
+        DB      0x1
+        DW      (??write_ee_KO_8) /2
+        DB      0x3
+        DW      (??write_ee_KO_12) /2
+        DB      0x1
+        DW      (??write_ee_KO_13) /2
+        DB      0x1
+        DW      (??write_ee_KO_14) /2
+        DB      0x1
+        DW      (??write_ee_KO_15) /2
+        DB      0x2
+        DW      (??write_ee_KO_46) /2
+        DB      0x1
+        DW      (??write_ee_KO_47) /2
+        DB      0x1
+        DW      (??write_ee_KO_16) /2
+        DB      0x1
+        DW      (??write_ee_KO_17) /2
+        DB      0x1
+        DW      (??write_ee_KO_19) /2
+        DB      0x6
+        DW      (??write_ee_KO_21) /2
+        DB      0x9
+        DW      (??write_ee_KO_42) /2
+        DB      0x1
+        DW      (??write_ee_KO_35) /2
+        DB      0x1
+        DW      (??write_ee_KO_36) /2
+        DB      0x1
+        DW      (??write_ee_KO_37) /2
+        DB      0x2
+        DW      (??write_ee_KO_39) /2
+        DB      251
+        DB      0
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for read_KO_none_confed>_0`:
+        DB      1
+        DB      0
+        DW      (??read_KO_none_confed_24) /2
+        DW      34
+        DW      (??read_KO_none_confed_0) /2
+        DW      (??read_KO_none_confed_1) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_2) /2
+        DW      (??read_KO_none_confed_3) /2
+        DW      (??read_KO_none_confed_4) /2
+        DW      (??read_KO_none_confed_5) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_6) /2
+        DW      (??read_KO_none_confed_7) /2
+        DW      (??read_KO_none_confed_8) /2
+        DW      (??read_KO_none_confed_9) /2
+        DW      (??read_KO_none_confed_10) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_11) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_12) /2
+        DW      (??read_KO_none_confed_13) /2
+        DW      (??read_KO_none_confed_14) /2
+        DW      (??read_KO_none_confed_15) /2
+        DW      (??read_KO_none_confed_16) /2
+        DW      (??read_KO_none_confed_17) /2
+        DW      (??read_KO_none_confed_18) /2
+        DW      (??read_KO_none_confed_19) /2
+        DW      (??read_KO_none_confed_20) /2
+        DW      (??read_KO_none_confed_21) /2
+        DW      (??read_KO_none_confed_22) /2
+        DW      (??read_KO_none_confed_24) /2
+        DW      (??read_KO_none_confed_23) /2
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for read_KO>_0`:
+        DB      1
+        DB      0
+        DW      (??read_KO_1) /2
+        DW      34
+        DW      (??read_KO_29) /2
+        DW      (??read_KO_3) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_5) /2
+        DW      (??read_KO_7) /2
+        DW      (??read_KO_8) /2
+        DW      (??read_KO_9) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_10) /2
+        DW      (??read_KO_11) /2
+        DW      (??read_KO_12) /2
+        DW      (??read_KO_13) /2
+        DW      (??read_KO_14) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_15) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_16) /2
+        DW      (??read_KO_17) /2
+        DW      (??read_KO_18) /2
+        DW      (??read_KO_19) /2
+        DW      (??read_KO_20) /2
+        DW      (??read_KO_21) /2
+        DW      (??read_KO_22) /2
+        DW      (??read_KO_23) /2
+        DW      (??read_KO_24) /2
+        DW      (??read_KO_25) /2
+        DW      (??read_KO_26) /2
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_27) /2
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for read_KO>_1`:
+        DB      1
+        DB      1
+        DW      (??read_KO_1) /2
+        DW      (??read_KO_29) /2
+        DB      0x1
+        DW      (??read_KO_3) /2
+        DB      0x3
+        DW      (??read_KO_6) /2
+        DB      0x1
+        DW      (??read_KO_7) /2
+        DB      0x1
+        DW      (??read_KO_8) /2
+        DB      0x1
+        DW      (??read_KO_9) /2
+        DB      0x2
+        DW      (??read_KO_10) /2
+        DB      0x1
+        DW      (??read_KO_11) /2
+        DB      0x1
+        DW      (??read_KO_12) /2
+        DB      0x1
+        DW      (??read_KO_13) /2
+        DB      0x1
+        DW      (??read_KO_14) /2
+        DB      0x6
+        DW      (??read_KO_15) /2
+        DB      0x9
+        DW      (??read_KO_23) /2
+        DB      0x1
+        DW      (??read_KO_24) /2
+        DB      0x1
+        DW      (??read_KO_25) /2
+        DB      0x1
+        DW      (??read_KO_26) /2
+        DB      0x2
+        DW      (??read_KO_27) /2
+        DB      251
+        DB      0
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+`?<Constant "$09\\r">`:
+        DS8 5
+        REQUIRE `?<Initializer for <Constant "$09\\r">>`
+        DS8 7
+        REQUIRE `?<Initializer for <Constant "$2603\\r">>`
+
+        END
+// 
+// 3 972 bytes in segment CODE
+//     6 bytes in segment INITTAB
+//    12 bytes in segment NEAR_I
+//    12 bytes in segment NEAR_ID
+//   464 bytes in segment SWITCH
+// 
+// 4 448 bytes of CODE memory (+ 6 bytes shared)
+//    12 bytes of DATA memory
+//
+//Errors: none
+//Warnings: none

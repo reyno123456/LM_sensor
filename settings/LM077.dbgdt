@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log/>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>915</ColumnWidth1><ColumnWidth2>244</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>178</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+      <PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow></Disassembly>
+      <Find-in-Files>
+        
+        
+        
+      <ColumnWidth0>440</ColumnWidth0><ColumnWidth1>62</ColumnWidth1><ColumnWidth2>754</ColumnWidth2></Find-in-Files>
+    <Watch><Format><struct_types/><watch_formats/></Format><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><Column0>179</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Watch></Static>
+    <Windows>
+      
+      
+      
+    <Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-9654-4074</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-9131-4084</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+          
+          <Tab>
+            <Identity>TabID-13732-5021</Identity>
+            <TabName>Find in Files</TabName>
+            <Factory>Find-in-Files</Factory>
+            <Session/>
+          </Tab>
+        <Tab>
+            <Identity>TabID-29582-4110</Identity>
+            <TabName>Breakpoints</TabName>
+            <Factory>Breakpoints</Factory>
+          </Tab></Tabs>
+        
+      <SelectedTab>3</SelectedTab></Wnd3><Wnd4>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-20402-4077</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>LM077</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab><Identity>TabID-26336-28017</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>KO_conf</Expression></Expression><Expression><Expression>ee_product_information</Expression></Expression><Expression><Expression>Delay_Time_set</Expression></Expression><Expression><Expression>buffer</Expression></Expression><Expression><Expression>g_reception_buffer</Expression></Expression><Expression><Expression>g_slope</Expression></Expression><Expression><Expression>DLL</Expression></Expression><Expression><Expression>ee_KO_conf</Expression></Expression><Expression><Expression>product_information</Expression></Expression><Expression><Expression>g_asc_reception_buffer</Expression></Expression><Expression><Expression>temp_product_information</Expression></Expression><Expression><Expression>temp_KO_conf</Expression></Expression><Expression><Expression>temp_product_information</Expression></Expression><Expression><Expression>product_information</Expression></Expression><Expression><Expression>IR_reception</Expression></Expression><Expression><Expression>KO</Expression></Expression><Expression><Expression>ee_KO</Expression></Expression><Expression><Expression>buffer_short</Expression></Expression><Expression><Expression>Delay_Time_set</Expression></Expression><Expression><Expression>scs_frame</Expression></Expression><Expression><Expression>Configurators</Expression></Expression></Expressions><TabId>1</TabId><Column0>179</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM020.map</Filename><XPos>0</XPos><YPos>4583</YPos><SelStart>264946</SelStart><SelEnd>264946</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM076.map</Filename><XPos>0</XPos><YPos>4701</YPos><SelStart>267241</SelStart><SelEnd>267241</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM057_SMT.map</Filename><XPos>0</XPos><YPos>8531</YPos><SelStart>442735</SelStart><SelEnd>442735</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM018_SMT.map</Filename><XPos>0</XPos><YPos>2547</YPos><SelStart>18745</SelStart><SelEnd>18748</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\config\lnkm644ps.xcl</Filename><XPos>0</XPos><YPos>32</YPos><SelStart>1642</SelStart><SelEnd>1642</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\INC\iom644p.h</Filename><XPos>0</XPos><YPos>204</YPos><SelStart>10459</SelStart><SelEnd>10474</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\decode_scs.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>305</SelStart><SelEnd>305</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\US.h</Filename><XPos>0</XPos><YPos>75</YPos><SelStart>2744</SelStart><SelEnd>2744</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\PIR.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>413</SelStart><SelEnd>413</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM057.map</Filename><XPos>0</XPos><YPos>8434</YPos><SelStart>436805</SelStart><SelEnd>436805</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM056.map</Filename><XPos>0</XPos><YPos>4848</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\IR.h</Filename><XPos>0</XPos><YPos>9</YPos><SelStart>825</SelStart><SelEnd>825</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\function_modality.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>58</SelStart><SelEnd>58</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Release\List\LM077.map</Filename><XPos>0</XPos><YPos>4986</YPos><SelStart>290399</SelStart><SelEnd>290399</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\PIR.c</Filename><XPos>0</XPos><YPos>27</YPos><SelStart>1406</SelStart><SelEnd>1406</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\configuration.c</Filename><XPos>0</XPos><YPos>75</YPos><SelStart>2113</SelStart><SelEnd>2113</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\function_modality.c</Filename><XPos>0</XPos><YPos>11</YPos><SelStart>600</SelStart><SelEnd>600</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Debug\List\LM_IAR_5.0.map</Filename><XPos>0</XPos><YPos>5047</YPos><SelStart>295443</SelStart><SelEnd>295443</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\configuration.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>442</SelStart><SelEnd>442</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\decode_scs_next.c</Filename><XPos>0</XPos><YPos>2987</YPos><SelStart>15142</SelStart><SelEnd>15168</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\usart.c</Filename><XPos>0</XPos><YPos>33</YPos><SelStart>981</SelStart><SelEnd>990</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\application.h</Filename><XPos>0</XPos><YPos>99</YPos><SelStart>3157</SelStart><SelEnd>3165</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\global_variable.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>569</SelStart><SelEnd>569</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\decode_scs.c</Filename><XPos>0</XPos><YPos>493</YPos><SelStart>12731</SelStart><SelEnd>12731</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\moudle_SCS.h</Filename><XPos>0</XPos><YPos>159</YPos><SelStart>10849</SelStart><SelEnd>10874</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\main.c</Filename><XPos>0</XPos><YPos>282</YPos><SelStart>10952</SelStart><SelEnd>10952</SelEnd></Tab><ActiveTab>25</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\Debug\Exe\LM_IAR_5.0.d90</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\application.c</Filename><XPos>0</XPos><YPos>2487</YPos><SelStart>67469</SelStart><SelEnd>67469</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\function_service.c</Filename><XPos>0</XPos><YPos>1125</YPos><SelStart>36506</SelStart><SelEnd>36506</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\global_variable.c</Filename><XPos>0</XPos><YPos>4</YPos><SelStart>951</SelStart><SelEnd>961</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\function_service.h</Filename><XPos>0</XPos><YPos>48</YPos><SelStart>2132</SelStart><SelEnd>2132</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\board.h</Filename><XPos>0</XPos><YPos>60</YPos><SelStart>1377</SelStart><SelEnd>1377</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Alan\board.c</Filename><XPos>0</XPos><YPos>408</YPos><SelStart>10278</SelStart><SelEnd>10278</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-079b04c0><key>debuggergui.enu1</key></Toolbar-079b04c0><Toolbar-01488f70><key>iaridepm.enu1</key></Toolbar-01488f70></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>638</Bottom><Right>252</Right><x>-2</x><y>-2</y><xscreen>0</xscreen><yscreen>0</yscreen><sizeHorzCX>0</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>151190</sizeVertCX><sizeVertCY>637450</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>638</Bottom><Right>481</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>119048</sizeHorzCX><sizeHorzCY>199203</sizeHorzCY><sizeVertCX>287500</sizeVertCX><sizeVertCY>637450</sizeVertCY></Rect></Wnd5></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>321</Bottom><Right>1682</Right><x>-2</x><y>-2</y><xscreen>1684</xscreen><yscreen>323</yscreen><sizeHorzCX>1002381</sizeHorzCX><sizeHorzCY>321713</sizeHorzCY><sizeVertCX>0</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

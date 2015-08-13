@@ -1,0 +1,767 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR    11/Dec/2009  23:20:49 #
+# Copyright 1996-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  D:\avr\LM_Finial_Test\US.c                               #
+#    Command line =  D:\avr\LM_Finial_Test\US.c --cpu=m644p -ms -o            #
+#                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018    #
+#                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Lis #
+#                    t\ -lA D:\avr\LM_Finial_Test\Release\List\               #
+#                    --diag_suppress Pa082,Pe167,Pe186                        #
+#                    --initializers_in_flash -z6 --no_inline --no_cross_call  #
+#                    --no_tbaa -DENABLE_BIT_DEFINITIONS -e -I "C:\Program     #
+#                    Files\IAR Systems\Embedded Workbench 5.3\avr\INC\" -I    #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.3\avr\INC\CLIB\" --eeprom_size 2048                    #
+#    List file    =  D:\avr\LM_Finial_Test\Release\List\US.lst                #
+#    Object file  =  D:\avr\LM_Finial_Test\Release\Obj\US.r90                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\avr\LM_Finial_Test\US.c
+      1          
+      2          /*
+      3          	超声波模块的调用周期是200us
+      4          
+      5           G_Ult_detectionEnable  Motion.US_sensitivity要定义成全局变量
+      6          
+      7           SIZEOF_ULTAVESAMP_BUF
+      8           ADC_ULTRA,TDETCTDURATION,MINPULSEWTH,TULTCHECK,DETECTCNTOP2,T50USEC
+      9           OP1_SMPAVG,OP1_NUMSAMPAVG,OP2_NUMSAMPAVG,OP3_NUMSAMPAVG,OP4_NUMSAMPAVG
+     10           OP1_ULTDETECT，OP2_ULTDETECT，OP3_ULTDETECT，OP4_ULTDETECT，
+     11           OP1_AVGSHIFT，OP2_AVGSHIFT，OP3_AVGSHIFT，OP4_AVGSHIFT，
+     12          
+     13           */
+     14          
+     15          
+     16          #include <ioavr.h>
+     17          #include <inavr.h>
+     18          #include "US.h"
+     19          #include "moudle_SCS.h"
+     20          #include "global_variable.h"
+     21          #include "application.h"
+     22          
+     23          
+     24          
+     25          enum DTFLAG_STATUS { DISABLED,
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     26                               ENABLED }DTFLAG_STATUS;							
+   \                     DTFLAG_STATUS:
+   \   00000000                      DS8 1
+     27          							
+     28          enum INDSAMPLE_CNT  { OP1_SMPAVG ,
+     29                                OP2_SMPAVG ,
+     30                                OP3_SMPAVG ,
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     31                                OP4_SMPAVG} INDSAMPLE_CNT;
+   \                     INDSAMPLE_CNT:
+   \   00000000                      DS8 1
+     32          
+     33          //
+     34          struct
+     35          {
+     36          
+     37             union
+     38             {
+     39                  unsigned char ultFlags;
+     40                 	struct
+     41          	 {
+     42                        enum INDSAMPLE_CNT    fULTSampleCounter: 2;
+     43          		
+     44                        enum DTFLAG_STATUS    fULTdetectEnable: 1;        //   Externally enable/ dissable Ultrasonic detection controller flag
+     45          		
+     46                        enum DTFLAG_STATUS    fULTdetectPulse: 1;
+     47          		
+     48                        enum DTFLAG_STATUS    fULTdetDurationSet: 1;
+     49          		
+     50                        enum DTFLAG_STATUS    fULTOCCDetected: 1;        // Set when Ulrasonic motion Detection
+     51          		
+     52                  };
+     53            };
+     54          
+     55            unsigned char ultwindow;
+     56            //unsigned char ultSentivityDcnt;
+     57            unsigned char 	ultIndivSampleCount;
+     58            unsigned int 	 	ultSensorSampleValue;
+     59            unsigned char 	ultHAvgSamples;
+     60          	unsigned char 	ultPulseCount;			// 0615
+     61          	unsigned char		ultmaxCount;
+     62            unsigned char  	ultmidCount;
+     63          	unsigned char  	ultminCount;
+     64          	unsigned char  	ult_nodetectCount;	// 0615
+     65          	unsigned char  	ultOccDetectionCount;
+     66          	
+     67            unsigned int  ultMinPulseWidth;
+     68            unsigned int  ultMaxPulseWidth;
+     69            unsigned int  ultPulseWidthTimer;
+     70            unsigned int  ultDetectDurationTimer;
+     71            unsigned int  ultDDurationTime;
+     72            unsigned int  UltraEvent[2];
+     73            unsigned int  ultCheckTimer;
+     74            unsigned char ultSample;				
+     75            unsigned char ultAvgSampleCnt;
+     76            unsigned char SampleAvg_check;
+     77          
+     78          
+     79            unsigned char ultAvgSample[SIZEOF_ULTAVESAMP_BUF];
+     80          
+     81          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     82          } Usonic;
+   \                     Usonic:
+   \   00000000                      DS8 51
+     83          
+     84          /*
+     85          unsigned char ReadADC8Bit(char AD_CHANNEL)
+     86          	{
+     87          		
+     88          		char adResult;
+     89          		ADMUX  = AD_CHANNEL | ADC_VREF_TYPE;
+     90          		ADCSRA = ADCSRA_INIT;
+     91          		ADCSRA |= (1<<ADEN);
+     92          		ADCSRA |= (1<<ADSC);
+     93          		while(!(ADCSRA & (1<<ADIF)));	//wait for conversion done, ADIF flag active
+     94          		adResult = ADCH;
+     95          		g_temp = adResult;
+     96          		return adResult;
+     97          	}
+     98          */
+     99          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    100          void US_SENSE_SET(void)
+   \                     US_SENSE_SET:
+    101          {
+    102          	
+    103          	switch(KO_conf.USSens)
+   \   00000000   9100....           LDS     R16, (KO_conf + 21)
+   \   00000004   5000               SUBI    R16, 0
+   \   00000006   F029               BREQ    ??US_SENSE_SET_0
+   \   00000008   950A               DEC     R16
+   \   0000000A   F029               BREQ    ??US_SENSE_SET_1
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F049               BREQ    ??US_SENSE_SET_2
+   \   00000010   C006               RJMP    ??US_SENSE_SET_3
+    104          	{
+    105          		case 0:
+    106          			Usonic.ultwindow = LOW_USSENSITIVITY;
+   \                     ??US_SENSE_SET_0:
+   \   00000012   E500               LDI     R16, 80
+   \   00000014   C001               RJMP    ??US_SENSE_SET_4
+    107          			break;
+    108          		case 1:
+    109          			Usonic.ultwindow = Medium_USSENSITIVITY;
+   \                     ??US_SENSE_SET_1:
+   \   00000016   E400               LDI     R16, 64
+   \                     ??US_SENSE_SET_4:
+   \   00000018   9300....           STS     (Usonic + 1), R16
+   \   0000001C   9508               RET
+    110          			break;	
+    111          		case 2:
+    112          			Usonic.ultwindow = HIGH_USSENSITIVITY;
+   \                     ??US_SENSE_SET_3:
+   \   0000001E   E300               LDI     R16, 48
+   \   00000020   CFFB               RJMP    ??US_SENSE_SET_4
+    113          			break;	
+    114          		case 3:
+    115          			Usonic.ultwindow = MAX_USSENSITIVITY;
+   \                     ??US_SENSE_SET_2:
+   \   00000022   E206               LDI     R16, 38
+   \   00000024   CFF9               RJMP    ??US_SENSE_SET_4
+    116          			 break;
+    117          		default:
+    118          			Usonic.ultwindow = HIGH_USSENSITIVITY;
+    119          			break;
+    120          			
+    121          	}
+    122          }		
+    123          
+    124          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    125          void ultWarmUpEvents( void )
+   \                     ultWarmUpEvents:
+    126          {
+   \   00000000   019D               MOVW    R19:R18, R27:R26
+    127          	unsigned char i;
+    128          
+    129          	Usonic.fULTOCCDetected = DISABLED;
+   \   00000002   ....               LDI     R30, LOW(Usonic)
+   \   00000004   ....               LDI     R31, (Usonic) >> 8
+   \   00000006   8100               LD      R16, Z
+   \   00000008   7D0F               ANDI    R16, 0xDF
+   \   0000000A   8300               ST      Z, R16
+    130          	Usonic.fULTSampleCounter = OP1_SMPAVG;
+   \   0000000C   8100               LD      R16, Z
+   \   0000000E   7F0C               ANDI    R16, 0xFC
+   \   00000010   8300               ST      Z, R16
+    131          	
+    132          	Usonic.fULTdetectPulse = DISABLED;
+    133          	Usonic.fULTdetDurationSet = DISABLED;
+    134          	Usonic.fULTdetectEnable = ENABLED;	      		//调试程序是将Usonic.fULTdetectEnable使能
+   \   00000012   8100               LD      R16, Z
+   \   00000014   7E07               ANDI    R16, 0xE7
+   \   00000016   6004               ORI     R16, 0x04
+   \   00000018   8300               ST      Z, R16
+    135          	
+    136          	Usonic.ultwindow = HIGH_USSENSITIVITY ;       // set the Sensitibity of Usonicsonic
+   \   0000001A   E300               LDI     R16, 48
+   \   0000001C   8301               STD     Z+1, R16
+    137          	
+    138          	Usonic.ultHAvgSamples =  0x29;                // 正常的平均偏置值：when Vcc=5.0V and for 8 bit res ADC to get 820mV :  from .82/(5.0/255)= OX29
+   \   0000001E   E209               LDI     R16, 41
+   \   00000020   8305               STD     Z+5, R16
+    139          	
+    140          	Usonic.ultIndivSampleCount = 0;
+   \   00000022   E000               LDI     R16, 0
+   \   00000024   8302               STD     Z+2, R16
+    141          	Usonic.ultSensorSampleValue = 0;
+   \   00000026   8303               STD     Z+3, R16
+   \   00000028   8304               STD     Z+4, R16
+    142          	Usonic.ultOccDetectionCount = 0;
+   \   0000002A   8703               STD     Z+11, R16
+    143          	
+    144          	// Usonic.ultCheckTimer = TULTCHECK;
+    145          	Usonic.ultMinPulseWidth = MINPULSEWTH;
+   \   0000002C   E400               LDI     R16, 64
+   \   0000002E   E016               LDI     R17, 6
+   \   00000030   8704               STD     Z+12, R16
+   \   00000032   8715               STD     Z+13, R17
+    146          	Usonic.ultMaxPulseWidth = MAXPULSEWTH;
+   \   00000034   E100               LDI     R16, 16
+   \   00000036   E217               LDI     R17, 39
+   \   00000038   8706               STD     Z+14, R16
+   \   0000003A   8717               STD     Z+15, R17
+    147          	
+    148          	Usonic.ultDDurationTime = TDETCTDURATION;
+   \   0000003C   E104               LDI     R16, 20
+   \   0000003E   E010               LDI     R17, 0
+   \   00000040   8B04               STD     Z+20, R16
+   \   00000042   8B15               STD     Z+21, R17
+    149          	Usonic.ultPulseWidthTimer = 0;
+   \   00000044   8B10               STD     Z+16, R17
+   \   00000046   8B11               STD     Z+17, R17
+    150          	Usonic.ultDetectDurationTimer = 0;
+   \   00000048   8B12               STD     Z+18, R17
+   \   0000004A   8B13               STD     Z+19, R17
+    151          	Usonic.ultSample =0;
+   \   0000004C   8F14               STD     Z+28, R17
+    152          	Usonic.ultAvgSampleCnt =0;
+   \   0000004E   8F15               STD     Z+29, R17
+    153          	Usonic.ultFlags = 1;
+   \   00000050   E001               LDI     R16, 1
+   \   00000052   8300               ST      Z, R16
+    154          
+    155          	for ( i= 0; i<= (SIZEOF_ULTAVESAMP_BUF-1) ; i++)
+   \   00000054   E000               LDI     R16, 0
+   \   00000056   C006               RJMP    ??ultWarmUpEvents_0
+    156          	{     // clear RAM locations
+    157          		Usonic.ultAvgSample[i] = 0;
+   \                     ??ultWarmUpEvents_1:
+   \   00000058   01DF               MOVW    R27:R26, R31:R30
+   \   0000005A   0FA0               ADD     R26, R16
+   \   0000005C   1FB1               ADC     R27, R17
+   \   0000005E   965F               ADIW    R27:R26, 31
+   \   00000060   931C               ST      X, R17
+    158          	}
+   \   00000062   9503               INC     R16
+   \                     ??ultWarmUpEvents_0:
+   \   00000064   3104               CPI     R16, 20
+   \   00000066   F3C0               BRCS    ??ultWarmUpEvents_1
+    159          
+    160          }
+   \   00000068   01D9               MOVW    R27:R26, R19:R18
+   \   0000006A   9508               RET
+    161          
+    162          /*
+    163          void ulrStoreSampleAvg (void)
+    164          {
+    165          	unsigned char readUltSample;
+    166          	unsigned char opISampleCnt;
+    167          	
+    168          	readUltSample = ReadADC8Bit (ADC_ULTRA);
+    169          	Usonic.ultSensorSampleValue = Usonic.ultSensorSampleValue + (unsigned int) readUltSample;
+    170          	Usonic.ultIndivSampleCount++; // 计算采集信号的次数，当采集数目与设定的OPx_NUMSAMPAVG相等后，才可以做平均计算
+    171          	
+    172          	  //opISampleCnt = Usonic.ultFlags & ISAMPLECNT_MASK;
+    173          		
+    174          	opISampleCnt = 1;		//debug...
+    175          	switch  ( opISampleCnt )
+    176          	{
+    177          		
+    178               case 1:
+    179          			if ( Usonic.ultIndivSampleCount == OP2_NUMSAMPAVG)
+    180          			{        					
+    181          				Usonic.ultSensorSampleValue = ((Usonic.ultSensorSampleValue) >> OP2_AVGSHIFT ); // get the Op2 average      	
+    182          				Usonic.ultIndivSampleCount = 0;
+    183          				if(++Usonic.ultSample >= 19)
+    184          					Usonic.ultSample = 0;
+    185          				Usonic.ultAvgSample[Usonic.ultSample] = Usonic.ultSensorSampleValue;
+    186          				Usonic.ultSensorSampleValue = 0;
+    187          				Usonic.ultAvgSampleCnt = OP2_NUMSAMPAVG;
+    188                }
+    189          		    break;
+    190          
+    191               case 0:
+    192          			if ( Usonic.ultIndivSampleCount == OP1_NUMSAMPAVG)
+    193          			{
+    194          				// Check Sample counter for Option 1
+    195          				Usonic.ultSensorSampleValue = ((Usonic.ultSensorSampleValue) >> OP1_AVGSHIFT );      	
+    196          				Usonic.ultIndivSampleCount = 0;            // reset indi sample counter
+    197          				Usonic.ultSample++;                         // Adjust next address to be stored
+    198          				Usonic.ultAvgSample[Usonic.ultSample] = Usonic.ultSensorSampleValue; // put it in to array
+    199          				Usonic.ultSensorSampleValue = 0;
+    200          				Usonic.ultAvgSampleCnt = OP1_NUMSAMPAVG;        //用于计算有效信号的宽度
+    201                                  }
+    202          		     break;
+    203          					
+    204          		
+    205          	
+    206          		case 2:
+    207          			if( Usonic.ultIndivSampleCount == OP3_NUMSAMPAVG)
+    208          			{      	
+    209          				Usonic.ultSensorSampleValue = ((Usonic.ultSensorSampleValue) >> OP3_AVGSHIFT ); // get the Op3 average
+    210          				Usonic.ultIndivSampleCount = 0;
+    211          				Usonic.ultSample++;
+    212          				Usonic.ultAvgSample[Usonic.ultSample] = Usonic.ultSensorSampleValue;
+    213          				Usonic.ultSensorSampleValue = 0;
+    214          				Usonic.ultAvgSampleCnt = OP3_NUMSAMPAVG;
+    215          			}
+    216          		    break;
+    217          	
+    218          		case 3:
+    219          			if ( Usonic.ultIndivSampleCount == OP4_NUMSAMPAVG)
+    220          			{     	 	
+    221          				Usonic.ultSensorSampleValue = ((Usonic.ultSensorSampleValue) >> OP4_AVGSHIFT ); // get the Op4 average	 	      					
+    222          				Usonic.ultIndivSampleCount = 0;
+    223          				Usonic.ultSample++;
+    224          				Usonic.ultAvgSample[Usonic.ultSample] = Usonic.ultSensorSampleValue;
+    225          				Usonic.ultSensorSampleValue = 0;
+    226          				Usonic.ultAvgSampleCnt = OP4_NUMSAMPAVG;		//用于计算脉冲宽度
+    227          			}
+    228          		    break;
+    229          
+    230                default:   break;
+    231          
+    232          	}
+    233          }
+    234          
+    235          // call this  Ultrasonic detection is necessary for every 4mSec via CompA interrrupt
+    236          void ServiceUltra (void)
+    237          {
+    238            unsigned char i, VoltageTHold,ultDetectCnt ;
+    239            unsigned int  instPulseTimer;
+    240          
+    241            Usonic.fULTdetectPulse = DISABLED;     // Every 4mSec segment start with search for new pulse detection
+    242            Usonic.ultPulseWidthTimer =0;
+    243          			
+    244            VoltageTHold = Usonic.ultHAvgSamples + Usonic.ultwindow;
+    245          			
+    246            for( i=0 ; i <= SIZEOF_ULTAVESAMP_BUF-1 ; i++ )
+    247          	{
+    248               if(Usonic.ultAvgSample[i] >= VoltageTHold)
+    249               {
+    250                    Usonic.ultPulseWidthTimer++;
+    251          					instPulseTimer = (Usonic.ultPulseWidthTimer *((unsigned int)Usonic.ultAvgSampleCnt)*T50USEC) ;
+    252                                // calculate instant pulse with by using time between two Averages Samples
+    253          		      if (instPulseTimer  >= Usonic.ultMinPulseWidth )
+    254          					{
+    255                        if(Usonic.fULTdetectPulse == DISABLED )
+    256          							{
+    257          								Usonic.fULTdetectPulse = ENABLED;					// 这一组数据中已经统计到第一个有效信号
+    258          				        Usonic.ultPulseWidthTimer = 0;          	// reset the pulse width timer
+    259                    		}
+    260          							if (Usonic.fULTdetDurationSet == DISABLED)
+    261          							{
+    262                       		Usonic.fULTdetDurationSet = ENABLED;			//允许之后的使能判断程序
+    263                       		Usonic.ultDetectDurationTimer = 0;		
+    264                       		Usonic.ultOccDetectionCount = 1;        	// 检测到第一个有效信号后，开始计算有效的脉冲个数
+    265                   			}
+    266          
+    267          			        Usonic.ultOccDetectionCount++;       				// 统计有效的触发信号
+    268          					}
+    269          		}     // end of Vth check
+    270              else
+    271          		{
+    272                  Usonic.ultPulseWidthTimer= 0;
+    273          				Usonic.fULTdetectPulse = DISABLED;
+    274              }
+    275          	}  // end of For loop for every average sample collected
+    276          		
+    277          		
+    278          		
+    279          	if( Usonic.fULTdetDurationSet == ENABLED )
+    280          	{		
+    281          			Usonic.ultDetectDurationTimer++;		
+    282          			//每100ms进行一次触发信号的统计判断，判断以后会将 Usonic.ultOccDetectionCount清零。所以尽量多采集数据
+    283                if( Usonic.ultDetectDurationTimer >= Usonic.ultDDurationTime )
+    284          			{							
+    285          			// Usonic.ultDDurationTime = TDETCTDURATION = 25*4 MS
+    286          			Usonic.ultDetectDurationTimer= 0;           // Reset detection counter
+    287          			Usonic.fULTdetDurationSet = DISABLED;        // Clear flag for detection duration enable
+    288          
+    289          			ultDetectCnt = 1;  	//调试...	
+    290          			switch( ultDetectCnt )
+    291          			{
+    292          
+    293                    case 1:
+    294                        if (Usonic.ultOccDetectionCount >= OP2_ULTDETECT )
+    295                        {
+    296          										//Motion.US_DETECTION = 1;
+    297          										us_result = 1;
+    298          										Usonic.ultOccDetectionCount = 0;
+    299                        }
+    300                        break;
+    301                                 	
+    302                                        case 0:
+    303                                              if (Usonic.ultOccDetectionCount >= OP1_ULTDETECT )
+    304                                              {
+    305                                                      //Motion.US_DETECTION = ENABLED;
+    306                                                      us_result = 1;
+    307                                                      Usonic.ultOccDetectionCount = 0;
+    308                                              }
+    309                                            break;
+    310          										
+    311          
+    312          
+    313                                        case 2:
+    314                                            if (Usonic.ultOccDetectionCount >= OP3_ULTDETECT )
+    315          				    											{
+    316                                                   us_result = 1;
+    317          																					Usonic.ultOccDetectionCount = 0;
+    318                                            }
+    319                                          break;
+    320          
+    321                                        case 3:
+    322                                            if (Usonic.ultOccDetectionCount >= OP4_ULTDETECT )
+    323                                            {
+    324                                                   us_result = 1;
+    325                                                   Usonic.ultOccDetectionCount = 0;
+    326                                            }
+    327                                        break;
+    328          
+    329                                        default:break;
+    330                                  }
+    331                          }
+    332          							else
+    333          							{
+    334                              us_result = 0;
+    335                      	}
+    336                  }
+    337          		else
+    338                  {
+    339                         us_result = 0;
+    340                  }
+    341          
+    342                   if(us_result == 1)
+    343          					 US_detection_en = 1;
+    344          }
+    345          
+    346          
+    347          
+    348          void us_detection(void)//SIGNAL(TIMER0_COMPA_vect)		
+    349          {			
+    350          	
+    351          	if(1)//Usonic.fULTdetectEnable == 1)
+    352          	{	
+    353          		
+    354          	  	US_SENSE_SET();
+    355          		
+    356          	  	ulrStoreSampleAvg();
+    357          		
+    358          		if(Usonic.SampleAvg_check++ >= TULTCHECK)		//20 X 200 uSec = 4mSec,每4ms调用一次
+    359          		{
+    360          			Usonic.SampleAvg_check = 0;
+    361          			
+    362          			ServiceUltra ();		
+    363          		}
+    364          		
+    365          	}	
+    366          }
+    367          */
+    368          
+    369          
+    370          /*******************************************************************************
+    371          **		US 程序更新 0615
+    372          *******************************************************************************/
+    373          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    374          void Ultrasonic_detection (void)
+   \                     Ultrasonic_detection:
+    375          {
+   \   00000000   93BA               ST      -Y, R27
+   \   00000002   93AA               ST      -Y, R26
+    376          		unsigned char 	readUltSample;
+    377          		unsigned char 	VoltageTHold;
+    378          		unsigned int		Pulse_width_Timer;
+    379          			
+    380          		// ReadADC8Bit (ADC_ULTRA);
+    381          		 asm("nop");
+   \   00000004   0000               nop
+    382          		 readUltSample = read_adc8bit(ADC_ULTRA);
+   \   00000006   E001               LDI     R16, 1
+   \   00000008   ........           CALL    read_adc8bit
+    383          		 Usonic.ultSensorSampleValue = Usonic.ultSensorSampleValue + readUltSample;
+   \   0000000C   ....               LDI     R30, LOW(Usonic)
+   \   0000000E   ....               LDI     R31, (Usonic) >> 8
+   \   00000010   E010               LDI     R17, 0
+   \   00000012   8123               LDD     R18, Z+3
+   \   00000014   8134               LDD     R19, Z+4
+   \   00000016   0F20               ADD     R18, R16
+   \   00000018   1F31               ADC     R19, R17
+   \   0000001A   8323               STD     Z+3, R18
+   \   0000001C   8334               STD     Z+4, R19
+    384          	
+    385          		 if ( ++Usonic.ultIndivSampleCount == OP1_NUMSAMPAVG	) 		//											// 4 signals for 1 AvgSample
+   \   0000001E   8102               LDD     R16, Z+2
+   \   00000020   9503               INC     R16
+   \   00000022   8302               STD     Z+2, R16
+   \   00000024   8102               LDD     R16, Z+2
+   \   00000026   3002               CPI     R16, 2
+   \   00000028   F009               BREQ    $+2+2
+   \   0000002A   C068               RJMP    ??Ultrasonic_detection_0
+    386          		 {        					
+    387          					Usonic.ultIndivSampleCount = 0;
+   \   0000002C   8312               STD     Z+2, R17
+    388          					Usonic.ultSensorSampleValue = ((Usonic.ultSensorSampleValue) >> OP1_AVGSHIFT ); 						// get the Op2 average      	
+   \   0000002E   8103               LDD     R16, Z+3
+   \   00000030   8114               LDD     R17, Z+4
+   \   00000032   9516               LSR     R17
+   \   00000034   9507               ROR     R16
+   \   00000036   8303               STD     Z+3, R16
+   \   00000038   8314               STD     Z+4, R17
+    389          				
+    390          					Usonic.ultAvgSample[Usonic.ultSample] = Usonic.ultSensorSampleValue;						// 4 signals every AvgSample	---> 4*20	
+   \   0000003A   8D24               LDD     R18, Z+28
+   \   0000003C   E030               LDI     R19, 0
+   \   0000003E   01DF               MOVW    R27:R26, R31:R30
+   \   00000040   0FA2               ADD     R26, R18
+   \   00000042   1FB3               ADC     R27, R19
+   \   00000044   965F               ADIW    R27:R26, 31
+   \   00000046   930C               ST      X, R16
+    391          					Usonic.ultSensorSampleValue = 0;
+   \   00000048   8333               STD     Z+3, R19
+   \   0000004A   8334               STD     Z+4, R19
+    392          					Usonic.ultAvgSampleCnt = OP2_NUMSAMPAVG;
+   \   0000004C   E004               LDI     R16, 4
+   \   0000004E   8F05               STD     Z+29, R16
+    393          				
+    394          					VoltageTHold = Usonic.ultHAvgSamples + Usonic.ultwindow;
+    395          					if( Usonic.ultAvgSample[Usonic.ultSample] > VoltageTHold )											// calculate the pulse width
+   \   00000050   8125               LDD     R18, Z+5
+   \   00000052   8101               LDD     R16, Z+1
+   \   00000054   0F20               ADD     R18, R16
+   \   00000056   8D04               LDD     R16, Z+28
+   \   00000058   01DF               MOVW    R27:R26, R31:R30
+   \   0000005A   0FA0               ADD     R26, R16
+   \   0000005C   1FB3               ADC     R27, R19
+   \   0000005E   965F               ADIW    R27:R26, 31
+   \   00000060   910C               LD      R16, X
+   \   00000062   1720               CP      R18, R16
+   \   00000064   F450               BRCC    ??Ultrasonic_detection_1
+    396          					{
+    397          							Usonic.ultPulseCount++;
+   \   00000066   8106               LDD     R16, Z+6
+   \   00000068   9503               INC     R16
+   \   0000006A   8306               STD     Z+6, R16
+    398          					
+    399          							Usonic.ultPulseWidthTimer++;
+   \   0000006C   8900               LDD     R16, Z+16
+   \   0000006E   8911               LDD     R17, Z+17
+   \   00000070   5F0F               SUBI    R16, 255
+   \   00000072   4F1F               SBCI    R17, 255
+   \   00000074   8B00               STD     Z+16, R16
+   \   00000076   8B11               STD     Z+17, R17
+    400          						
+    401          							Pulse_width_Timer = (Usonic.ultPulseWidthTimer * (Usonic.ultAvgSampleCnt) * T200USEC);		// MAX = 20*4*200 = 16000	// MIN = 1*4*200 = 800
+   \   00000078   C019               RJMP    ??Ultrasonic_detection_2
+    402          					}
+    403          					else
+    404          					{
+    405          							if(Pulse_width_Timer >= MAXPULSEWTH )
+   \                     ??Ultrasonic_detection_1:
+   \   0000007A   3180               CPI     R24, 16
+   \   0000007C   E207               LDI     R16, 39
+   \   0000007E   0790               CPC     R25, R16
+   \   00000080   F020               BRCS    ??Ultrasonic_detection_3
+    406          							{
+    407          									Usonic.ultmaxCount++;																					// 统计最长的有效脉冲		validly detection
+   \   00000082   8107               LDD     R16, Z+7
+   \   00000084   9503               INC     R16
+   \   00000086   8307               STD     Z+7, R16
+   \   00000088   C00F               RJMP    ??Ultrasonic_detection_4
+    408          							}	
+    409          							else if (Pulse_width_Timer >= MIDPULSEWTH )
+   \                     ??Ultrasonic_detection_3:
+   \   0000008A   3A80               CPI     R24, 160
+   \   0000008C   E00F               LDI     R16, 15
+   \   0000008E   0790               CPC     R25, R16
+   \   00000090   F020               BRCS    ??Ultrasonic_detection_5
+    410          							{
+    411          									Usonic.ultminCount++;       																	// 统计最窄有效脉冲个数						
+   \   00000092   8501               LDD     R16, Z+9
+   \   00000094   9503               INC     R16
+   \   00000096   8701               STD     Z+9, R16
+   \   00000098   C007               RJMP    ??Ultrasonic_detection_4
+    412          							}	
+    413          							else if(Pulse_width_Timer >= MINPULSEWTH )
+   \                     ??Ultrasonic_detection_5:
+   \   0000009A   3480               CPI     R24, 64
+   \   0000009C   E006               LDI     R16, 6
+   \   0000009E   0790               CPC     R25, R16
+   \   000000A0   F018               BRCS    ??Ultrasonic_detection_4
+    414          							{
+    415          									Usonic.ultmidCount++;																					// 统计中等有效脉冲个数
+   \   000000A2   8500               LDD     R16, Z+8
+   \   000000A4   9503               INC     R16
+   \   000000A6   8700               STD     Z+8, R16
+    416          							}
+    417          					
+    418          							Usonic.ultPulseWidthTimer= 0;
+   \                     ??Ultrasonic_detection_4:
+   \   000000A8   8B30               STD     Z+16, R19
+   \   000000AA   8B31               STD     Z+17, R19
+    419          							Pulse_width_Timer = 0;
+    420          					}
+    421          				
+    422          					if(++Usonic.ultSample >= 19)																					// 20*OPn_NUMSAMPAVG个采样信号。
+   \                     ??Ultrasonic_detection_2:
+   \   000000AC   8D04               LDD     R16, Z+28
+   \   000000AE   9503               INC     R16
+   \   000000B0   8F04               STD     Z+28, R16
+   \   000000B2   8D04               LDD     R16, Z+28
+   \   000000B4   3103               CPI     R16, 19
+   \   000000B6   F110               BRCS    ??Ultrasonic_detection_0
+    423          					{
+    424          							Usonic.ultSample = 0;
+   \   000000B8   8F34               STD     Z+28, R19
+    425          							if((Usonic.ultmaxCount > 0)||(Usonic.ultPulseCount > ValidPulses_Threshold)
+    426          								 ||(Usonic.ultminCount > MIN_Threshold)||(Usonic.ultmidCount > MID_Threshold))
+   \   000000BA   8107               LDD     R16, Z+7
+   \   000000BC   2300               TST     R16
+   \   000000BE   F449               BRNE    ??Ultrasonic_detection_6
+   \   000000C0   8106               LDD     R16, Z+6
+   \   000000C2   3006               CPI     R16, 6
+   \   000000C4   F430               BRCC    ??Ultrasonic_detection_6
+   \   000000C6   8501               LDD     R16, Z+9
+   \   000000C8   3005               CPI     R16, 5
+   \   000000CA   F418               BRCC    ??Ultrasonic_detection_6
+   \   000000CC   8500               LDD     R16, Z+8
+   \   000000CE   3003               CPI     R16, 3
+   \   000000D0   F020               BRCS    ??Ultrasonic_detection_7
+    427          							{
+    428          									us_result = 1;				// validly detection
+   \                     ??Ultrasonic_detection_6:
+   \   000000D2   E001               LDI     R16, 1
+   \   000000D4   9300....           STS     us_result, R16
+   \   000000D8   C005               RJMP    ??Ultrasonic_detection_8
+    429          							}
+    430          							else
+    431          							{
+    432          									us_result = 0;				// invalidly detection
+   \                     ??Ultrasonic_detection_7:
+   \   000000DA   9330....           STS     us_result, R19
+    433          									Usonic.ult_nodetectCount++;							
+   \   000000DE   8502               LDD     R16, Z+10
+   \   000000E0   9503               INC     R16
+   \   000000E2   8702               STD     Z+10, R16
+    434          							}
+    435          							
+    436          							if((us_result == 1)||(Usonic.ult_nodetectCount >=5))							// Judgement space = 20*OPn_NUMSAMPAVG or 5*20*OPn_NUMSAMPAVG
+   \                     ??Ultrasonic_detection_8:
+   \   000000E4   9100....           LDS     R16, us_result
+   \   000000E8   3001               CPI     R16, 1
+   \   000000EA   F019               BREQ    ??Ultrasonic_detection_9
+   \   000000EC   8502               LDD     R16, Z+10
+   \   000000EE   3005               CPI     R16, 5
+   \   000000F0   F028               BRCS    ??Ultrasonic_detection_0
+    437          							{
+    438          								Usonic.ultminCount	= 0;
+   \                     ??Ultrasonic_detection_9:
+   \   000000F2   8731               STD     Z+9, R19
+    439          									Usonic.ultmidCount = 0;
+   \   000000F4   8730               STD     Z+8, R19
+    440          										Usonic.ultmaxCount= 0;
+   \   000000F6   8337               STD     Z+7, R19
+    441          											Usonic.ultPulseCount = 0;
+   \   000000F8   8336               STD     Z+6, R19
+    442          												Usonic.ult_nodetectCount = 0;
+   \   000000FA   8732               STD     Z+10, R19
+    443          												
+    444          							}
+    445          					}
+    446               }
+    447          		
+    448          		 if(us_result == 1)		 US_detection_en = 1;
+   \                     ??Ultrasonic_detection_0:
+   \   000000FC   9100....           LDS     R16, us_result
+   \   00000100   3001               CPI     R16, 1
+   \   00000102   F419               BRNE    ??Ultrasonic_detection_10
+   \   00000104   E001               LDI     R16, 1
+   \   00000106   9300....           STS     US_detection_en, R16
+    449          	
+    450          }
+   \                     ??Ultrasonic_detection_10:
+   \   0000010A   91A9               LD      R26, Y+
+   \   0000010C   91B9               LD      R27, Y+
+   \   0000010E   9508               RET
+    451          
+    452          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    453          void us_detection(void)
+   \                     us_detection:
+    454          {			
+    455          	  US_SENSE_SET();
+   \   00000000   ....               RCALL   US_SENSE_SET
+    456          		
+    457          		Ultrasonic_detection ();
+   \   00000002   ....               RCALL   Ultrasonic_detection
+    458          }
+   \   00000004   9508               RET
+
+   Maximum stack usage in bytes:
+
+     Function                  CSTACK RSTACK
+     --------                  ------ ------
+     US_SENSE_SET                  0      2
+     Ultrasonic_detection          4      2
+       -> read_adc8bit             4      2
+     ultWarmUpEvents               0      2
+     us_detection                  0      2
+       -> US_SENSE_SET             0      2
+       -> Ultrasonic_detection     0      2
+
+
+   Segment part sizes:
+
+     Function/Label       Bytes
+     --------------       -----
+     DTFLAG_STATUS           1
+     INDSAMPLE_CNT           1
+     Usonic                 51
+     US_SENSE_SET           38
+     ultWarmUpEvents       108
+     Ultrasonic_detection  272
+     us_detection            6
+      Others                 6
+
+ 
+ 424 bytes in segment CODE
+   6 bytes in segment INITTAB
+  53 bytes in segment NEAR_Z
+ 
+ 424 bytes of CODE memory (+ 6 bytes shared)
+  53 bytes of DATA memory
+
+Errors: none
+Warnings: none

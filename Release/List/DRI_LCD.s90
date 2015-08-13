@@ -1,0 +1,2855 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:20:52 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\DRI_LCD.c                         /
+//    Command line =  D:\avr\LM_Finial_Test\DRI_LCD.c --cpu=m644p -ms -o      /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\DRI_LCD.s90          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME DRI_LCD
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B10_L09
+        EXTERN ?EPILOGUE_B12_L09
+        EXTERN ?EPILOGUE_B15_L09
+        EXTERN ?EPILOGUE_B5_L09
+        EXTERN ?EPILOGUE_B6_L09
+        EXTERN ?EPILOGUE_B7_L09
+        EXTERN ?EPILOGUE_B8_L09
+        EXTERN ?PROLOGUE10_L09
+        EXTERN ?PROLOGUE12_L09
+        EXTERN ?PROLOGUE15_L09
+        EXTERN ?PROLOGUE5_L09
+        EXTERN ?PROLOGUE6_L09
+        EXTERN ?PROLOGUE7_L09
+        EXTERN ?PROLOGUE8_L09
+        EXTERN ?Register_R10_is_cg_reg
+        EXTERN ?Register_R11_is_cg_reg
+        EXTERN ?Register_R12_is_cg_reg
+        EXTERN ?Register_R13_is_cg_reg
+        EXTERN ?Register_R14_is_cg_reg
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?Register_R6_is_cg_reg
+        EXTERN ?Register_R7_is_cg_reg
+        EXTERN ?Register_R8_is_cg_reg
+        EXTERN ?Register_R9_is_cg_reg
+        EXTERN ?SS_DIVMOD_L02
+        EXTERN ?S_EC_MUL_L02
+        EXTERN ?S_SHL_L02
+        EXTERN ?UC_DIVMOD_L01
+        EXTERN ?US_SHR_L02
+        EXTERN ?need_segment_init
+        EXTERN __eeget8_16
+        EXTERN __eeput8_16
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC LCD_Clr
+        FUNCTION LCD_Clr,021201H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_RAM_ADDRESS
+        FUNCTION LCD_RAM_ADDRESS,021201H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_dischar
+        FUNCTION LCD_dischar,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_dischar0811
+        FUNCTION LCD_dischar0811,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_dischar1616
+        FUNCTION LCD_dischar1616,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_dischar88
+        FUNCTION LCD_dischar88,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_disdatatrans
+        FUNCTION LCD_disdatatrans,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_display_datas
+        FUNCTION LCD_display_datas,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_display_line
+        FUNCTION LCD_display_line,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_display_single_line
+        FUNCTION LCD_display_single_line,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_disstr_V3
+        FUNCTION LCD_disstr_V3,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_distring
+        FUNCTION LCD_distring,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_distring_V2
+        FUNCTION LCD_distring_V2,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_distring_ee
+        FUNCTION LCD_distring_ee,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC LCD_init
+        FUNCTION LCD_init,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_rd_data
+        FUNCTION LCD_rd_data,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_wr_command
+        FUNCTION LCD_wr_command,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC LCD_wr_data
+        FUNCTION LCD_wr_data,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Lcd_dis_data
+        PUBLIC WRITE16X16
+        FUNCTION WRITE16X16,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_DDRA
+        PUBWEAK _A_OCR2A
+        PUBWEAK _A_PORTA
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTC
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC byte_reverse
+        FUNCTION byte_reverse,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC datatrans
+        FUNCTION datatrans,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC ee_back_light_duty
+        PUBLIC light_adj
+        FUNCTION light_adj,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        EXTERN delay_us
+        FUNCTION delay_us,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN get_key
+        FUNCTION get_key,0200H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN delay_ms
+        FUNCTION delay_ms,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN ASC
+        EXTERN ASC0811
+        EXTERN FontTrebuchetMS16_CharInfo
+        EXTERN g_temp
+
+// D:\avr\LM_Finial_Test\DRI_LCD.c
+//    1 /***********************************************************************************************
+//    2 *	DRI_LCD.C
+//    3 *	descreption: driver for LCD
+//    4 *	autor	: David Wei
+//    5 *	date	: May, 13, 2009
+//    6 ************************************************************************************************/
+//    7 #ifndef ENABLE_BIT_DEFINITIONS
+//    8 #define ENABLE_BIT_DEFINITIONS
+//    9 #endif
+//   10 
+//   11 #include <ioavr.h>
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0b3H
+// <__C53> volatile __io _A_OCR2A
+_A_OCR2A:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// <__C237> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// <__C246> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+// <__C255> volatile __io _A_PORTA
+_A_PORTA:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+// <__C258> volatile __io _A_DDRA
+_A_DDRA:
+        DS8 1
+//   12 #include <inavr.h>
+//   13 #include "DRI_LCD.H"
+//   14 #include "DRI_LCDCHARACTERS.H"
+//   15 #include "font.h"
+//   16 #include "global_variable.h"
+//   17 
+
+        RSEG EEPROM_I:XDATA:NOROOT(0)
+//   18 __eeprom unsigned char ee_back_light_duty = 128;
+ee_back_light_duty:
+        DC8 128
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   19 unsigned char Lcd_dis_data[10]={0,0,0,0,0,0,0,0,0,0};
+Lcd_dis_data:
+        DS8 10
+
+        RSEG CODE:CODE:NOROOT(1)
+//   20 void LCD_init()
+LCD_init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function LCD_init
+//   21 {
+//   22 	/*
+//   23 		SET_RD;
+//   24     LCD_RST_0;
+//   25     delay_ms(5);
+//   26     LCD_RST_1;
+//   27     delay_us(200);
+//   28 
+//   29     LCD_wr_command(0xe2);   //system reset
+//   30     delay_ms(1);
+//   31     LCD_wr_command(0x31);   //set advanced program control
+//   32     LCD_wr_command(0x08);
+//   33     LCD_wr_command(0x2b);   // external power control
+//   34     LCD_wr_command(0x26); //set TC=-0.05%
+//   35     LCD_wr_command(0xA2);   //set line rate //A2:37.0Klps
+//   36     LCD_wr_command(0xe9);   //0XEb//set bias1/10  //ea//eb
+//   37     LCD_wr_command(0xf1);   //set com end
+//   38     LCD_wr_command(0x9f);   //set duty :1/160
+//   39     LCD_wr_command(0x81);   //set VLCD value
+//   40     LCD_wr_command(0xcb);   //VLCD=(CV0+Cpm*pm)*(1+(T-25)*CT%)//94//7c????16.7V
+//   41     LCD_wr_command(0xc4);   //0XC4 //set LCD mapping control  //scan dirction com0~127
+//   42     LCD_wr_command(0x89);   //set RAM address control
+//   43     LCD_wr_command(0xd1);   // R_G_B
+//   44     LCD_wr_command(0xd5);   //4k color
+//   45     LCD_wr_command(0xc8);
+//   46     LCD_wr_command(0x16);
+//   47     LCD_wr_command(0x25);
+//   48     LCD_wr_command(0xad);  //0xad//display  on
+//   49     LCD_wr_command(0xad);   //0xad//display  on
+//   50 
+//   51     LCD_Clr();
+//   52     LCD_wr_command(0xf4);  //set oolumn start address
+//   53     LCD_wr_command(0x25);  //  start address
+//   54     LCD_wr_command(0xf6);  //  set column end address
+//   55     LCD_wr_command(0x5a);  //(0x4f+1)*3=240  5a   //90
+//   56 
+//   57     LCD_wr_command(0xf5);  //set row start address
+//   58     LCD_wr_command(0x00);  //start address=0x00
+//   59     LCD_wr_command(0xf7); //set row end address
+//   60     LCD_wr_command(0x9f); //row end address=9f
+//   61 	*/
+//   62 	DDRA = 0xFF;
+        FUNCALL LCD_init, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_Clr
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_init, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R16, 255
+        OUT     0x01, R16
+//   63 	SET_RD;
+        SBI     0x05, 0x01
+//   64 	LCD_RST_0;
+        CBI     0x08, 0x07
+//   65 	delay_us(200);
+        LDI     R16, 200
+        LDI     R17, 0
+        CALL    delay_us
+//   66 	LCD_RST_1;
+        SBI     0x08, 0x07
+//   67 	delay_us(200);
+        LDI     R16, 200
+        LDI     R17, 0
+        CALL    delay_us
+//   68 	
+//   69 	LCD_wr_command(0xe2);   //system reset
+        LDI     R16, 226
+        RCALL   LCD_wr_command
+//   70 	delay_us(200);
+        LDI     R16, 200
+        LDI     R17, 0
+        CALL    delay_us
+//   71 	LCD_wr_command(0x31);   //set advanced program control
+        LDI     R16, 49
+        RCALL   LCD_wr_command
+//   72 	LCD_wr_command(0x08);
+        LDI     R16, 8
+        RCALL   LCD_wr_command
+//   73 	LCD_wr_command(0x2b);   // external power control
+        LDI     R16, 43
+        RCALL   LCD_wr_command
+//   74 	LCD_wr_command(0x26); //set TC=-0.05%
+        LDI     R16, 38
+        RCALL   LCD_wr_command
+//   75 	LCD_wr_command(0xA2);   //set line rate //A2:37.0Klps
+        LDI     R16, 162
+        RCALL   LCD_wr_command
+//   76 	LCD_wr_command(0xe9);   //0XEb//set bias1/10  //ea//eb
+        LDI     R16, 233
+        RCALL   LCD_wr_command
+//   77 	LCD_wr_command(0xf1);   //set com end
+        LDI     R16, 241
+        RCALL   LCD_wr_command
+//   78 	LCD_wr_command(0x9f);   //set duty :1/160
+        LDI     R16, 159
+        RCALL   LCD_wr_command
+//   79 	LCD_wr_command(0x81);   //set VLCD value
+        LDI     R16, 129
+        RCALL   LCD_wr_command
+//   80 	LCD_wr_command(0xcb);   //VLCD=(CV0+Cpm*pm)*(1+(T-25)*CT%)//94//7c¡¡¡¡16.7V
+        LDI     R16, 203
+        RCALL   LCD_wr_command
+//   81 	LCD_wr_command(0xc4);   //0XC4 //set LCD mapping control  //scan dirction com0~127
+        LDI     R16, 196
+        RCALL   LCD_wr_command
+//   82 	LCD_wr_command(0x89);   //set RAM address control
+        LDI     R16, 137
+        RCALL   LCD_wr_command
+//   83 	LCD_wr_command(0xd1);   // R_G_B
+        LDI     R16, 209
+        RCALL   LCD_wr_command
+//   84 	LCD_wr_command(0xd5);   //4k color
+        LDI     R16, 213
+        RCALL   LCD_wr_command
+//   85 	LCD_wr_command(0xc8);   //
+        LDI     R16, 200
+        RCALL   LCD_wr_command
+//   86 	
+//   87 	LCD_wr_command(0x16);
+        LDI     R16, 22
+        RCALL   LCD_wr_command
+//   88 	LCD_wr_command(0x25);
+        LDI     R16, 37
+        RCALL   LCD_wr_command
+//   89 	LCD_wr_command(0xad);   //0xad//display  on
+        LDI     R16, 173
+        RCALL   LCD_wr_command
+//   90 	delay_us(200);
+        LDI     R16, 200
+        LDI     R17, 0
+        CALL    delay_us
+//   91 	
+//   92 	LCD_Clr();
+        RCALL   LCD_Clr
+//   93 	LCD_wr_command(0xf4);  //set oolumn start address
+        LDI     R16, 244
+        RCALL   LCD_wr_command
+//   94 	LCD_wr_command(0x25);  //  start address
+        LDI     R16, 37
+        RCALL   LCD_wr_command
+//   95 	LCD_wr_command(0xf6);  //  set column end address
+        LDI     R16, 246
+        RCALL   LCD_wr_command
+//   96 	LCD_wr_command(0x5a);  //(0x4f+1)*3=240  5a   //90
+        LDI     R16, 90
+        RCALL   LCD_wr_command
+//   97 	
+//   98 	LCD_wr_command(0xf5);  //set row start address
+        LDI     R16, 245
+        RCALL   LCD_wr_command
+//   99 	LCD_wr_command(0x00);  //start address=0x00
+        LDI     R16, 0
+        RCALL   LCD_wr_command
+//  100 	LCD_wr_command(0xf7); //set row end address
+        LDI     R16, 247
+        RCALL   LCD_wr_command
+//  101 	LCD_wr_command(0x9f); //row end address=9f
+        LDI     R16, 159
+        RCALL   LCD_wr_command
+//  102 }
+        RET
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_PORTC
+        REQUIRE _A_PORTB
+        REQUIRE _A_DDRA
+//  103 
+//  104 //volatile unsigned char temp;
+
+        RSEG CODE:CODE:NOROOT(1)
+//  105 void LCD_wr_command(unsigned char command)
+LCD_wr_command:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function LCD_wr_command
+//  106 {
+//  107 	LCDCS;
+        FUNCALL LCD_wr_command, byte_reverse
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CBI     0x05, 0x00
+//  108 	CLR_LCD_A0;          //write command
+        CBI     0x05, 0x03
+//  109 	CLR_WR;
+        CBI     0x05, 0x02
+//  110 	PORTA = byte_reverse(command);
+        RCALL   byte_reverse
+        OUT     0x02, R16
+//  111 	SET_WR;
+        SBI     0x05, 0x02
+//  112 	SET_LCD_A0;
+        SBI     0x05, 0x03
+//  113 	NONECS;
+        SBI     0x05, 0x00
+//  114 }
+        RET
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_PORTB
+        REQUIRE _A_PORTA
+
+        RSEG CODE:CODE:NOROOT(1)
+//  115 void LCD_wr_data(unsigned char datas)
+LCD_wr_data:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function LCD_wr_data
+//  116 {
+//  117 	LCDCS;
+        FUNCALL LCD_wr_data, byte_reverse
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CBI     0x05, 0x00
+//  118 	CLR_WR;
+        CBI     0x05, 0x02
+//  119 	SET_LCD_A0;;          //write display datas
+        SBI     0x05, 0x03
+//  120 	PORTA = byte_reverse(datas);
+        RCALL   byte_reverse
+        OUT     0x02, R16
+//  121 	SET_WR;
+        SBI     0x05, 0x02
+//  122 	CLR_LCD_A0;
+        CBI     0x05, 0x03
+//  123 	NONECS;
+        SBI     0x05, 0x00
+//  124 }
+        RET
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_PORTB
+        REQUIRE _A_PORTA
+//  125 ///read 1 byte data from LCD
+
+        RSEG CODE:CODE:NOROOT(1)
+//  126 unsigned char LCD_rd_data(void)
+LCD_rd_data:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function LCD_rd_data
+//  127 {
+//  128 	unsigned char temp;
+//  129 	
+//  130 	SET_WR;
+        FUNCALL LCD_rd_data, byte_reverse
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        SBI     0x05, 0x02
+//  131 	DDRA=0;
+        LDI     R16, 0
+        OUT     0x01, R16
+//  132 	LCDCS;
+        CBI     0x05, 0x00
+//  133 	SET_LCD_A0;
+        SBI     0x05, 0x03
+//  134 	CLR_RD;
+        CBI     0x05, 0x01
+//  135 	temp = byte_reverse(PORTA);
+        IN      R16, 0x02
+        RCALL   byte_reverse
+//  136 	SET_RD;
+        SBI     0x05, 0x01
+//  137 	CLR_WR;
+        CBI     0x05, 0x02
+//  138 	CLR_LCD_A0;
+        CBI     0x05, 0x03
+//  139 	NONECS;
+        SBI     0x05, 0x00
+//  140 	DDRA=0xff;
+        LDI     R17, 255
+        OUT     0x01, R17
+//  141 	return temp;
+        RET
+        CFI EndBlock cfiBlock3
+        REQUIRE _A_PORTB
+        REQUIRE _A_PORTA
+        REQUIRE _A_DDRA
+//  142 }
+//  143 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  144 unsigned char byte_reverse(unsigned char data)
+byte_reverse:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function byte_reverse
+//  145 {
+//  146 	unsigned char i;
+//  147 	unsigned char temp = 0;
+//  148 	/*
+//  149 #ifndef FINAL_VERSION2
+//  150 	for(i=0;i<8;i++)
+//  151 	{
+//  152 		if(GetBit(data,7-i))
+//  153 			SetBit(temp,i);
+//  154 	}
+//  155 	return temp;
+//  156 #else
+//  157 	return data;
+//  158 #endif
+//  159 	*/
+//  160 #ifdef FINAL_VERSION2
+//  161 	return data;
+        RET
+        CFI EndBlock cfiBlock4
+//  162 #else
+//  163 	for(i=0;i<8;i++)
+//  164 	{
+//  165 		if(GetBit(data,7-i))
+//  166 			SetBit(temp,i);
+//  167 	}
+//  168 	return temp;
+//  169 #endif
+//  170 }
+//  171 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  172 void LCD_RAM_ADDRESS()
+LCD_RAM_ADDRESS:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function LCD_RAM_ADDRESS
+//  173 {
+//  174 	LCD_wr_command(0xf4);  //set oolumn start address
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_RAM_ADDRESS, LCD_wr_command
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R16, 244
+        RCALL   LCD_wr_command
+//  175 	LCD_wr_command(0x25);  //  start address
+        LDI     R16, 37
+        RCALL   LCD_wr_command
+//  176 	LCD_wr_command(0xf6);  //  set column end address
+        LDI     R16, 246
+        RCALL   LCD_wr_command
+//  177 	LCD_wr_command(0x5a);  //(0x4f+1)*3=240  5a   //90
+        LDI     R16, 90
+        RCALL   LCD_wr_command
+//  178 	
+//  179 	LCD_wr_command(0xf5);  //set row start address
+        LDI     R16, 245
+        RCALL   LCD_wr_command
+//  180 	LCD_wr_command(0x00);  //start address=0x00
+        LDI     R16, 0
+        RCALL   LCD_wr_command
+//  181 	LCD_wr_command(0xf7); //set row end address
+        LDI     R16, 247
+        RCALL   LCD_wr_command
+//  182 	LCD_wr_command(0x9f); //row end address=9f
+        LDI     R16, 159
+        RCALL   LCD_wr_command
+//  183 	LCD_wr_command(0x70);  //set row MSB address
+        LDI     R16, 112
+        RCALL   LCD_wr_command
+//  184 	LCD_wr_command(0x60);  //set row LSB address
+        LDI     R16, 96
+        RCALL   LCD_wr_command
+//  185 	LCD_wr_command(0x12);  //set column MSB address  //    12
+        LDI     R16, 18
+        RCALL   LCD_wr_command
+//  186 	LCD_wr_command(0x05);  //set column LSB address  //37  05
+        LDI     R16, 5
+        RCALL   LCD_wr_command
+//  187 	LCD_wr_command(0xf8); //inside mode
+        LDI     R16, 248
+        RCALL   LCD_wr_command
+//  188 }
+        RET
+        CFI EndBlock cfiBlock5
+//  189 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  190 void LCD_display_datas(unsigned char datas)    //R-G-B=4-4-4
+LCD_display_datas:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function LCD_display_datas
+//  191 {
+        FUNCALL LCD_display_datas, LCD_RAM_ADDRESS
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_datas, LCD_wr_data
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE5_L09
+        CFI R4 Frame(CFA_Y, -1)
+        CFI R27 Frame(CFA_Y, -2)
+        CFI R26 Frame(CFA_Y, -3)
+        CFI R25 Frame(CFA_Y, -4)
+        CFI R24 Frame(CFA_Y, -5)
+        CFI CFA_Y Y+5
+        REQUIRE ?Register_R4_is_cg_reg
+        MOV     R4, R16
+//  192 	unsigned int i,j;
+//  193 	
+//  194 	LCD_RAM_ADDRESS();
+        RCALL   LCD_RAM_ADDRESS
+//  195 	
+//  196 	for(i=0;i<160;i++)
+        LDI     R26, 0
+        LDI     R27, 0
+        RJMP    ??LCD_display_datas_0
+//  197 	{
+//  198     for(j=0;j<81;j++)
+//  199       LCD_wr_data(datas);
+??LCD_display_datas_1:
+        MOV     R16, R4
+        RCALL   LCD_wr_data
+        ADIW    R25:R24, 1
+??LCD_display_datas_2:
+        CPI     R24, 81
+        LDI     R16, 0
+        CPC     R25, R16
+        BRCS    ??LCD_display_datas_1
+        ADIW    R27:R26, 1
+??LCD_display_datas_0:
+        CPI     R26, 160
+        LDI     R16, 0
+        CPC     R27, R16
+        BRCC    ??LCD_display_datas_3
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??LCD_display_datas_2
+//  200 	}
+//  201  }
+??LCD_display_datas_3:
+        LDI     R30, 5
+        JMP     ?EPILOGUE_B5_L09
+        CFI EndBlock cfiBlock6
+//  202 
+//  203 
+//  204 /**************************************************************
+//  205 *    name: 		LCD_disdatatrans
+//  206 *    function: 	translate display data from 1Byte to 4Byte
+//  207 *	 input:		1Byte unsigned char datas
+//  208 *	 return:	an unsigned char pointer to point the 4 Byte datas
+//  209 *
+//  210 ***************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  211 void LCD_disdatatrans(unsigned char datas)
+LCD_disdatatrans:
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function LCD_disdatatrans
+//  212 {
+//  213 unsigned char i=0;
+//  214 for (i=0;i<4;i++)
+        LDI     R18, 0
+        RJMP    ??LCD_disdatatrans_0
+//  215 	{
+//  216 	if ((datas&0x80)==0)
+//  217 		{
+//  218 		Lcd_dis_data[i]=0;
+//  219 		}
+//  220 	else
+//  221 		{
+//  222 		Lcd_dis_data[i]=0xF0;
+??LCD_disdatatrans_1:
+        LDI     R17, 240
+        ST      Z, R17
+//  223 		}
+//  224 	datas= datas<<1;
+??LCD_disdatatrans_2:
+        LSL     R16
+//  225 	if ((datas&0x80)!=0)
+        BST     R16, 7
+        BRTC    ??LCD_disdatatrans_3
+//  226 		{
+//  227 		Lcd_dis_data[i]|=0x0F;
+        LD      R17, Z
+        ORI     R17, 0x0F
+        ST      Z, R17
+//  228 		}
+//  229 	datas= datas<<1;
+??LCD_disdatatrans_3:
+        LSL     R16
+        INC     R18
+??LCD_disdatatrans_0:
+        CPI     R18, 4
+        BRCC    ??LCD_disdatatrans_4
+        LDI     R19, 0
+        LDI     R30, LOW(Lcd_dis_data)
+        LDI     R31, (Lcd_dis_data) >> 8
+        ADD     R30, R18
+        ADC     R31, R19
+        BST     R16, 7
+        BRTS    ??LCD_disdatatrans_1
+        ST      Z, R19
+        RJMP    ??LCD_disdatatrans_2
+//  230 	}
+//  231 }
+??LCD_disdatatrans_4:
+        RET
+        CFI EndBlock cfiBlock7
+//  232 
+//  233 
+//  234 /**************************************************************
+//  235 *    name: 		LCD_dischar1616
+//  236 *    function: 	display a 16*16 leble
+//  237 *	 input:		16*16 lebel display, x and y coordinates
+//  238 *	 return:	none
+//  239 *
+//  240 ***************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  241 void LCD_dischar1616(unsigned char __flash * dis_datas, unsigned char x, unsigned char y)
+LCD_dischar1616:
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function LCD_dischar1616
+//  242 {
+        FUNCALL LCD_dischar1616, LCD_wr_data
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_wr_command
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_wr_command
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_wr_command
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_wr_command
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_wr_data
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar1616, LCD_disdatatrans
+        LOCFRAME CSTACK, 10, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE10_L09
+        CFI R9 Frame(CFA_Y, -1)
+        CFI R8 Frame(CFA_Y, -2)
+        CFI R7 Frame(CFA_Y, -3)
+        CFI R6 Frame(CFA_Y, -4)
+        CFI R5 Frame(CFA_Y, -5)
+        CFI R4 Frame(CFA_Y, -6)
+        CFI R27 Frame(CFA_Y, -7)
+        CFI R26 Frame(CFA_Y, -8)
+        CFI R25 Frame(CFA_Y, -9)
+        CFI R24 Frame(CFA_Y, -10)
+        CFI CFA_Y Y+10
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        REQUIRE ?Register_R8_is_cg_reg
+        REQUIRE ?Register_R9_is_cg_reg
+        MOVW    R25:R24, R17:R16
+        MOV     R4, R18
+        MOV     R26, R19
+//  243     unsigned char i,j,k;
+//  244     j=0;
+//  245     for (j=0;j<16;j++)
+        LDI     R27, 0
+        RJMP    ??LCD_dischar1616_0
+//  246     {
+//  247         LCD_wr_command(0x70+(y+j)/16);  //set row MSB address
+//  248         LCD_wr_command(0x60+(y+j)%16);  //set row LSB address
+//  249         LCD_wr_command(0x12+(x+5)/16);  //set column MSB address  //    12
+//  250         LCD_wr_command(0x00+(x+5)%16);  //set column LSB address  //37  05
+//  251         for(k=0;k<2;k++)
+//  252         {
+//  253             LCD_disdatatrans(*(dis_datas+k+2*j));	
+//  254             {
+//  255                 for(i=0;i<4;i++)
+//  256                 LCD_wr_data(Lcd_dis_data[i]);
+//  257             }
+//  258         }
+//  259         LCD_wr_data(0);
+??LCD_dischar1616_1:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R27
+??LCD_dischar1616_0:
+        CPI     R27, 16
+        BRCS    $+2+2
+        RJMP    ??LCD_dischar1616_2
+        MOV     R6, R26
+        CLR     R7
+        MOV     R16, R27
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        SUBI    R16, 160
+        RCALL   LCD_wr_command
+        MOV     R6, R4
+        CLR     R7
+        LDI     R16, 5
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 238
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        RCALL   LCD_wr_command
+        CLR     R6
+        RJMP    ??LCD_dischar1616_3
+??LCD_dischar1616_4:
+        CLR     R9
+        MOVW    R31:R30, R9:R8
+        SUBI    R30, LOW((-(Lcd_dis_data) & 0xFFFF))
+        SBCI    R31, (-(Lcd_dis_data) & 0xFFFF) >> 8
+        LD      R16, Z
+        RCALL   LCD_wr_data
+        INC     R8
+??LCD_dischar1616_5:
+        LDI     R16, 4
+        CP      R8, R16
+        BRCS    ??LCD_dischar1616_4
+        INC     R6
+??LCD_dischar1616_3:
+        LDI     R16, 2
+        CP      R6, R16
+        BRCC    ??LCD_dischar1616_1
+        CLR     R7
+        MOVW    R31:R30, R25:R24
+        ADD     R30, R6
+        ADC     R31, R7
+        MUL     R27, R16
+        ADD     R30, R0
+        ADC     R31, R1
+        LPM     R16, Z
+        RCALL   LCD_disdatatrans
+        CLR     R8
+        RJMP    ??LCD_dischar1616_5
+//  260     }
+//  261 }
+??LCD_dischar1616_2:
+        LDI     R30, 10
+        JMP     ?EPILOGUE_B10_L09
+        CFI EndBlock cfiBlock8
+//  262 /**************************************************************
+//  263 *    name: 		LCD_dischar88
+//  264 *    function: 	display a 88 leble
+//  265 *	 input:		16*16 lebel display, x and y coordinates,,each x =3 line, each y=1 line
+//  266 *	 return:	none
+//  267 *
+//  268 ***************************************************************/
+//  269 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  270 void LCD_dischar88 (unsigned char *dis_datas, unsigned char x, unsigned char y)
+LCD_dischar88:
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function LCD_dischar88
+//  271 {
+        FUNCALL LCD_dischar88, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar88, LCD_disdatatrans
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE8_L09
+        CFI R7 Frame(CFA_Y, -1)
+        CFI R6 Frame(CFA_Y, -2)
+        CFI R5 Frame(CFA_Y, -3)
+        CFI R4 Frame(CFA_Y, -4)
+        CFI R27 Frame(CFA_Y, -5)
+        CFI R26 Frame(CFA_Y, -6)
+        CFI R25 Frame(CFA_Y, -7)
+        CFI R24 Frame(CFA_Y, -8)
+        CFI CFA_Y Y+8
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        MOVW    R25:R24, R17:R16
+        MOV     R26, R18
+        MOV     R4, R19
+//  272 unsigned char j,i;
+//  273 j=0;
+//  274 for (j=0;j<8;j++)
+        LDI     R27, 0
+        RJMP    ??LCD_dischar88_0
+//  275 {
+//  276 	LCD_wr_command(0x70+((y+j)/16));  //set row MSB address
+//  277 	LCD_wr_command(0x60+((y+j)%16));  //set row LSB address
+//  278 	LCD_wr_command(0x12+((x+5)/16));  //set column MSB address  //    12
+//  279 	LCD_wr_command((0x05+x)%16);  //set column LSB address  //37  05
+//  280 	LCD_disdatatrans(*(dis_datas+j));	
+//  281 	{
+//  282 	for(i=0;i<4;i++)
+//  283 	LCD_wr_data(Lcd_dis_data[i]);
+??LCD_dischar88_1:
+        CLR     R7
+        MOVW    R31:R30, R7:R6
+        SUBI    R30, LOW((-(Lcd_dis_data) & 0xFFFF))
+        SBCI    R31, (-(Lcd_dis_data) & 0xFFFF) >> 8
+        LD      R16, Z
+        RCALL   LCD_wr_data
+        INC     R6
+??LCD_dischar88_2:
+        LDI     R16, 4
+        CP      R6, R16
+        BRCS    ??LCD_dischar88_1
+//  284 	}
+//  285 	LCD_wr_data(0);
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R27
+??LCD_dischar88_0:
+        CPI     R27, 8
+        BRCC    ??LCD_dischar88_3
+        MOV     R6, R4
+        CLR     R7
+        MOV     R16, R27
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        SUBI    R16, 160
+        RCALL   LCD_wr_command
+        MOV     R6, R26
+        CLR     R7
+        LDI     R16, 5
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 238
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        RCALL   LCD_wr_command
+        MOV     R16, R27
+        LDI     R17, 0
+        MOVW    R31:R30, R25:R24
+        ADD     R30, R16
+        ADC     R31, R17
+        LD      R16, Z
+        RCALL   LCD_disdatatrans
+        CLR     R6
+        RJMP    ??LCD_dischar88_2
+//  286 }
+//  287 }
+??LCD_dischar88_3:
+        LDI     R30, 8
+        JMP     ?EPILOGUE_B8_L09
+        CFI EndBlock cfiBlock9
+//  288 /**************************************************************
+//  289 *    name: 		LCD_Clr
+//  290 *    function: 	display a char
+//  291 *	 input:		1Byte unsigned char datas, x and y coordinates
+//  292 *	 return:	none
+//  293 *
+//  294 ***************************************************************/
+//  295 
+//  296 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  297 void LCD_Clr()
+LCD_Clr:
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function LCD_Clr
+//  298 {
+        FUNCALL LCD_Clr, LCD_RAM_ADDRESS
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_Clr, LCD_wr_data
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+//  299 	unsigned char i,j;
+//  300 	LCD_RAM_ADDRESS();
+        RCALL   LCD_RAM_ADDRESS
+//  301 	for(i=0;i<160;i++)
+        LDI     R25, 0
+        RJMP    ??LCD_Clr_0
+//  302 	{
+//  303 		for(j=0;j<82;j++)
+//  304 			LCD_wr_data(0x00);
+??LCD_Clr_1:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R24
+??LCD_Clr_2:
+        CPI     R24, 82
+        BRCS    ??LCD_Clr_1
+        INC     R25
+??LCD_Clr_0:
+        CPI     R25, 160
+        BRCC    ??LCD_Clr_3
+        LDI     R24, 0
+        RJMP    ??LCD_Clr_2
+//  305 	}
+//  306 }
+??LCD_Clr_3:
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock10
+//  307 
+//  308 /**************************************************************
+//  309 *    name: 		LCD_display_line
+//  310 *    function: 	display a line on x y
+//  311 *	 input:		x, y
+//  312 *	 return:	none
+//  313 *
+//  314 ***************************************************************/
+//  315 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  316 void LCD_display_line(unsigned char y)
+LCD_display_line:
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function LCD_display_line
+//  317 {
+        FUNCALL LCD_display_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_line, LCD_wr_data
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_line, LCD_wr_data
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        MOV     R24, R16
+//  318 	unsigned char i;
+//  319 	LCD_wr_command(0x70+(y/16));  //set row MSB address
+        SWAP    R16
+        ANDI    R16, 0x0F
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+//  320 	LCD_wr_command(0x60+(y%16));  //set row LSB address
+        ANDI    R24, 0x0F
+        SUBI    R24, 160
+        MOV     R16, R24
+        RCALL   LCD_wr_command
+//  321 	LCD_wr_command(0x12);  //set column MSB address  //    12
+        LDI     R16, 18
+        RCALL   LCD_wr_command
+//  322 	LCD_wr_command(0x05);  //set column LSB address  //37  05
+        LDI     R16, 5
+        RCALL   LCD_wr_command
+//  323 	for(i=0;i<80;i++)
+        LDI     R24, 0
+        RJMP    ??LCD_display_line_0
+//  324 		{
+//  325 		LCD_wr_data(0xff);
+??LCD_display_line_1:
+        LDI     R16, 255
+        RCALL   LCD_wr_data
+//  326 		}
+        INC     R24
+??LCD_display_line_0:
+        CPI     R24, 80
+        BRCS    ??LCD_display_line_1
+//  327 	LCD_wr_data(0x00);
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+//  328 }
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock11
+//  329 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  330 void WRITE16X16(unsigned char low,unsigned char high,unsigned char datas)
+WRITE16X16:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function WRITE16X16
+//  331 { unsigned char i,j;
+        FUNCALL WRITE16X16, LCD_RAM_ADDRESS
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL WRITE16X16, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL WRITE16X16, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL WRITE16X16, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL WRITE16X16, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL WRITE16X16, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE7_L09
+        CFI R6 Frame(CFA_Y, -1)
+        CFI R5 Frame(CFA_Y, -2)
+        CFI R4 Frame(CFA_Y, -3)
+        CFI R27 Frame(CFA_Y, -4)
+        CFI R26 Frame(CFA_Y, -5)
+        CFI R25 Frame(CFA_Y, -6)
+        CFI R24 Frame(CFA_Y, -7)
+        CFI CFA_Y Y+7
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        MOV     R6, R16
+        MOV     R4, R17
+        MOV     R25, R18
+//  332   LCD_RAM_ADDRESS();
+        RCALL   LCD_RAM_ADDRESS
+//  333   for (i=0;i<high;i++)
+        LDI     R26, 0
+        RJMP    ??WRITE16X16_0
+//  334 	{
+//  335 	 for(j=0;j<81;j++)
+//  336 	 LCD_wr_data(0x00);
+??WRITE16X16_1:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R24
+??WRITE16X16_2:
+        CPI     R24, 81
+        BRCS    ??WRITE16X16_1
+        INC     R26
+??WRITE16X16_0:
+        CP      R26, R4
+        BRCC    ??WRITE16X16_3
+        LDI     R24, 0
+        RJMP    ??WRITE16X16_2
+//  337 	}
+//  338   for (i=0;i<16;i++)
+??WRITE16X16_3:
+        LDI     R26, 0
+        RJMP    ??WRITE16X16_4
+//  339         {
+//  340 	 for(j=0;j<low;j++)
+//  341 	 LCD_wr_data(0x00);
+//  342 	 for(j=0;j<8;j++)
+//  343 	 LCD_wr_data(datas);
+//  344 	 for(j=0;j<81-8-low;j++)
+//  345 	 LCD_wr_data(0x00);
+??WRITE16X16_5:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R24
+??WRITE16X16_6:
+        MOV     R18, R24
+        LDI     R19, 0
+        LDI     R16, 73
+        LDI     R17, 0
+        SUB     R16, R6
+        SBCI    R17, 0
+        CP      R18, R16
+        CPC     R19, R17
+        BRLT    ??WRITE16X16_5
+        INC     R26
+??WRITE16X16_4:
+        CPI     R26, 16
+        BRCC    ??WRITE16X16_7
+        LDI     R24, 0
+        RJMP    ??WRITE16X16_8
+??WRITE16X16_9:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R24
+??WRITE16X16_8:
+        CP      R24, R6
+        BRCS    ??WRITE16X16_9
+        LDI     R24, 0
+        RJMP    ??WRITE16X16_10
+??WRITE16X16_11:
+        MOV     R16, R25
+        RCALL   LCD_wr_data
+        INC     R24
+??WRITE16X16_10:
+        CPI     R24, 8
+        BRCS    ??WRITE16X16_11
+        LDI     R24, 0
+        RJMP    ??WRITE16X16_6
+//  346 	}
+//  347   for (i=0;i<160-16-high;i++)
+??WRITE16X16_7:
+        LDI     R26, 0
+        RJMP    ??WRITE16X16_12
+//  348         {
+//  349 	 for(j=0;j<81;j++)
+//  350 	 LCD_wr_data(0x00);
+??WRITE16X16_13:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R24
+??WRITE16X16_14:
+        CPI     R24, 81
+        BRCS    ??WRITE16X16_13
+        INC     R26
+??WRITE16X16_12:
+        LDI     R27, 0
+        LDI     R16, 144
+        LDI     R17, 0
+        SUB     R16, R4
+        SBCI    R17, 0
+        CP      R26, R16
+        CPC     R27, R17
+        BRGE    ??WRITE16X16_15
+        LDI     R24, 0
+        RJMP    ??WRITE16X16_14
+//  351 	}
+//  352 }
+??WRITE16X16_15:
+        LDI     R30, 7
+        JMP     ?EPILOGUE_B7_L09
+        CFI EndBlock cfiBlock12
+//  353 
+//  354 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  355 void LCD_display_single_line(unsigned char y)
+LCD_display_single_line:
+        CFI Block cfiBlock13 Using cfiCommon0
+        CFI Function LCD_display_single_line
+//  356 {
+        FUNCALL LCD_display_single_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_single_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_single_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_single_line, LCD_wr_command
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_single_line, LCD_wr_data
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_display_single_line, LCD_wr_data
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        MOV     R24, R16
+//  357 	unsigned char i;
+//  358 	LCD_wr_command(0x70+(y/16));  //set row MSB address
+        SWAP    R16
+        ANDI    R16, 0x0F
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+//  359 	LCD_wr_command(0x60+(y%16));  //set row LSB address
+        ANDI    R24, 0x0F
+        SUBI    R24, 160
+        MOV     R16, R24
+        RCALL   LCD_wr_command
+//  360 	LCD_wr_command(0x12);  //set column MSB address  //    12
+        LDI     R16, 18
+        RCALL   LCD_wr_command
+//  361 	LCD_wr_command(0x05);  //set column LSB address  //37  05
+        LDI     R16, 5
+        RCALL   LCD_wr_command
+//  362 	for(i=0;i<80;i++)
+        LDI     R24, 0
+        RJMP    ??LCD_display_single_line_0
+//  363 	{
+//  364 			LCD_wr_data(0xff);
+??LCD_display_single_line_1:
+        LDI     R16, 255
+        RCALL   LCD_wr_data
+//  365 	}
+        INC     R24
+??LCD_display_single_line_0:
+        CPI     R24, 80
+        BRCS    ??LCD_display_single_line_1
+//  366 	LCD_wr_data(0x00);
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+//  367 }
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock13
+//  368 
+//  369 ///////////////////////////////////////////////////////////////////////////////////////////////////////
+//  370 //ÏÔÊ¾1¸ö×Ö·û´®£¬x×ø±ê·¶Î§0~159  y×ø±ê·¶Î§0~159
+
+        RSEG CODE:CODE:NOROOT(1)
+//  371 void LCD_disstr_V3(unsigned char *str, unsigned char x, unsigned char y, unsigned char Reverse_flag)
+LCD_disstr_V3:
+        CFI Block cfiBlock14 Using cfiCommon0
+        CFI Function LCD_disstr_V3
+//  372 {
+        FUNCALL LCD_disstr_V3, LCD_wr_data
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_command
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_command
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_command
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_command
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_data
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_data
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_disstr_V3, LCD_wr_data
+        LOCFRAME CSTACK, 15, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE15_L09
+        CFI R14 Frame(CFA_Y, -1)
+        CFI R13 Frame(CFA_Y, -2)
+        CFI R12 Frame(CFA_Y, -3)
+        CFI R11 Frame(CFA_Y, -4)
+        CFI R10 Frame(CFA_Y, -5)
+        CFI R9 Frame(CFA_Y, -6)
+        CFI R8 Frame(CFA_Y, -7)
+        CFI R7 Frame(CFA_Y, -8)
+        CFI R6 Frame(CFA_Y, -9)
+        CFI R5 Frame(CFA_Y, -10)
+        CFI R4 Frame(CFA_Y, -11)
+        CFI R27 Frame(CFA_Y, -12)
+        CFI R26 Frame(CFA_Y, -13)
+        CFI R25 Frame(CFA_Y, -14)
+        CFI R24 Frame(CFA_Y, -15)
+        CFI CFA_Y Y+15
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        REQUIRE ?Register_R8_is_cg_reg
+        REQUIRE ?Register_R9_is_cg_reg
+        REQUIRE ?Register_R10_is_cg_reg
+        REQUIRE ?Register_R11_is_cg_reg
+        REQUIRE ?Register_R12_is_cg_reg
+        REQUIRE ?Register_R13_is_cg_reg
+        REQUIRE ?Register_R14_is_cg_reg
+        MOVW    R13:R12, R17:R16
+        MOV     R14, R18
+        MOV     R9, R19
+        MOV     R7, R20
+//  373 	unsigned char i=0,j=0,k=0,c=0,number=0,flag=0,width=0;
+        CLR     R8
+//  374 	unsigned char data1,data2,move=0;
+//  375 	unsigned int data16=0;
+        RJMP    ??LCD_disstr_V3_0
+//  376 	while(*(str+number)!='\0')
+//  377 		{
+//  378 		number++;
+??LCD_disstr_V3_1:
+        INC     R8
+//  379 		}
+??LCD_disstr_V3_0:
+        MOV     R16, R8
+        LDI     R17, 0
+        MOVW    R31:R30, R13:R12
+        ADD     R30, R16
+        ADC     R31, R17
+        LD      R16, Z
+        TST     R16
+        BRNE    ??LCD_disstr_V3_1
+//  380 	for(i=0;i<16;i++)
+        LDI     R24, 0
+        RJMP    ??LCD_disstr_V3_2
+//  381 	{
+//  382 		LCD_wr_command(0x70+(y+i)/16);  //set row MSB address
+//  383 		LCD_wr_command(0x60+(y+i)%16);  //set row LSB address
+//  384 		
+//  385 		LCD_wr_command(0x12+(x/3+5)/16);  //set column MSB address  //    12
+//  386 		LCD_wr_command(0x00+(x/3+5)%16);   //set column LSB address  //37  05
+//  387 		flag=0;
+//  388 		move=0;
+//  389 		for(j=0;j<number;j++)
+//  390 		{	
+//  391 			c=*(str+j);
+//  392 			
+//  393 			width=FontTrebuchetMS16_CharInfo[c-0x20].distance;
+//  394 			
+//  395 			if(FontTrebuchetMS16_CharInfo[c-0x20].bytes==2)
+//  396 			{	data1=ASC[c-0x20][i*2];
+//  397 				data2=ASC[c-0x20][i*2+1];
+//  398 			}
+//  399 			else
+//  400 			{
+//  401 				data1=ASC[c-0x20][i];
+//  402 				data2=0;
+//  403 			}
+//  404 			data16=data1*256+data2;
+//  405 			
+//  406 			if (j==0)
+//  407 				move=x%3;
+//  408 			else
+//  409 				move=0;
+//  410 			if(GetBit(flag,0))
+//  411 				move++;
+//  412 			width+=move;
+//  413 			data16=data16>>move;
+//  414 			if(GetBit(flag,1))
+//  415 				data16|=8000;
+//  416 			flag=0;
+//  417 
+//  418 			for(k=0;k<(width-width%2)/2;k++)
+//  419 			{	
+//  420 				if ((data16&0x8000)==0)
+//  421 				{
+//  422 					Lcd_dis_data[0]=0;
+//  423 				}
+//  424 				else
+//  425 				{
+//  426 					Lcd_dis_data[0]=0xF0;
+//  427 				}
+//  428 				data16= data16<<1;
+//  429 				if ((data16&0x8000)!=0)
+//  430 				{
+//  431 					Lcd_dis_data[0]|=0x0F;
+//  432 				}
+//  433 				data16= data16<<1;
+//  434 				if(Reverse_flag)
+//  435 					LCD_wr_data(~Lcd_dis_data[0]);
+//  436 				else
+//  437 					LCD_wr_data(Lcd_dis_data[0]);
+//  438 			}
+//  439 			if((width%2)==1)
+//  440 			{
+//  441 				if((data16&0x8000)!=0)
+//  442 					flag=3;
+//  443 				else
+//  444 					flag=1;
+//  445 			}
+//  446 		}
+//  447 		if(Reverse_flag)
+//  448 		LCD_wr_data(0xFF);
+//  449 		else
+//  450 				LCD_wr_data(0);
+??LCD_disstr_V3_3:
+        LDI     R16, 0
+??LCD_disstr_V3_4:
+        RCALL   LCD_wr_data
+        INC     R24
+??LCD_disstr_V3_2:
+        CPI     R24, 16
+        BRCS    $+2+2
+        RJMP    ??LCD_disstr_V3_5
+        MOV     R26, R9
+        LDI     R27, 0
+        LDI     R25, 0
+        ADD     R26, R24
+        ADC     R27, R27
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R27:R26
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R27:R26
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        SUBI    R16, 160
+        RCALL   LCD_wr_command
+        LDI     R20, 3
+        MOV     R16, R14
+        CALL    ?UC_DIVMOD_L01
+        MOV     R26, R16
+        LDI     R27, 0
+        ADIW    R27:R26, 5
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R27:R26
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 238
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R27:R26
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        RCALL   LCD_wr_command
+        CLR     R6
+        RJMP    ??LCD_disstr_V3_6
+??LCD_disstr_V3_7:
+        LDI     R25, 1
+??LCD_disstr_V3_8:
+        INC     R6
+??LCD_disstr_V3_6:
+        CP      R6, R8
+        BRCS    $+2+2
+        RJMP    ??LCD_disstr_V3_9
+        MOV     R16, R6
+        LDI     R17, 0
+        MOVW    R31:R30, R13:R12
+        ADD     R30, R16
+        ADC     R31, R17
+        LD      R20, Z
+        LDI     R18, LOW((FontTrebuchetMS16_CharInfo - 95))
+        LDI     R19, HIGH((FontTrebuchetMS16_CharInfo - 95))
+        LDI     R21, 0
+        LDI     R16, 3
+        CALL    ?S_EC_MUL_L02
+        MOVW    R5:R4, R19:R18
+        ADD     R4, R16
+        ADC     R5, R17
+        MOV     R16, R20
+        LDI     R17, 0
+        LDI     R20, 5
+        CALL    ?S_SHL_L02
+        MOVW    R19:R18, R17:R16
+        LDI     R16, LOW(ASC)
+        LDI     R17, (ASC) >> 8
+        ADD     R16, R18
+        ADC     R17, R19
+        MOVW    R31:R30, R5:R4
+        ADIW    R31:R30, 1
+        LPM     R18, Z
+        CPI     R18, 2
+        BRNE    ??LCD_disstr_V3_10
+        LDI     R18, 2
+        MUL     R24, R18
+        ADD     R16, R0
+        ADC     R17, R1
+        SUBI    R16, 0
+        SBCI    R17, 4
+        MOVW    R31:R30, R17:R16
+        LPM     R27, Z
+        ADIW    R31:R30, 1
+        LPM     R16, Z
+        RJMP    ??LCD_disstr_V3_11
+??LCD_disstr_V3_10:
+        MOV     R18, R24
+        ADD     R16, R18
+        ADC     R17, R21
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, 0
+        SBCI    R31, 4
+        LPM     R27, Z
+        LDI     R16, 0
+??LCD_disstr_V3_11:
+        LDI     R26, 0
+        ADD     R26, R16
+        TST     R6
+        BRNE    ??LCD_disstr_V3_12
+        LDI     R20, 3
+        MOV     R16, R14
+        CALL    ?UC_DIVMOD_L01
+        RJMP    ??LCD_disstr_V3_13
+??LCD_disstr_V3_12:
+        LDI     R20, 0
+??LCD_disstr_V3_13:
+        BST     R25, 0
+        BRTC    ??LCD_disstr_V3_14
+        INC     R20
+??LCD_disstr_V3_14:
+        MOVW    R31:R30, R5:R4
+        LPM     R4, Z
+        ADD     R4, R20
+        MOVW    R17:R16, R27:R26
+        CALL    ?US_SHR_L02
+        MOVW    R27:R26, R17:R16
+        BST     R25, 1
+        BRTC    ??LCD_disstr_V3_15
+        ORI     R26, 0x40
+        ORI     R27, 0x1F
+??LCD_disstr_V3_15:
+        LDI     R25, 0
+        CLR     R10
+        RJMP    ??LCD_disstr_V3_16
+??LCD_disstr_V3_17:
+        RCALL   LCD_wr_data
+        INC     R10
+??LCD_disstr_V3_16:
+        CLR     R11
+        MOV     R16, R4
+        LDI     R17, 0
+        MOV     R18, R4
+        ANDI    R18, 0x01
+        SUB     R16, R18
+        SBCI    R17, 0
+        LDI     R20, 2
+        LDI     R21, 0
+        CALL    ?SS_DIVMOD_L02
+        CP      R10, R16
+        CPC     R11, R17
+        BRGE    ??LCD_disstr_V3_18
+        BST     R27, 7
+        BRTS    ??LCD_disstr_V3_19
+        STS     Lcd_dis_data, R25
+        RJMP    ??LCD_disstr_V3_20
+??LCD_disstr_V3_19:
+        LDI     R16, 240
+        STS     Lcd_dis_data, R16
+??LCD_disstr_V3_20:
+        LSL     R26
+        ROL     R27
+        BST     R27, 7
+        BRTC    ??LCD_disstr_V3_21
+        LDS     R16, Lcd_dis_data
+        ORI     R16, 0x0F
+        STS     Lcd_dis_data, R16
+??LCD_disstr_V3_21:
+        LSL     R26
+        ROL     R27
+        TST     R7
+        LDS     R16, Lcd_dis_data
+        BREQ    ??LCD_disstr_V3_17
+        COM     R16
+        RJMP    ??LCD_disstr_V3_17
+??LCD_disstr_V3_18:
+        BST     R4, 0
+        BRTS    $+2+2
+        RJMP    ??LCD_disstr_V3_8
+        BST     R27, 7
+        BRTS    $+2+2
+        RJMP    ??LCD_disstr_V3_7
+        LDI     R25, 3
+        RJMP    ??LCD_disstr_V3_8
+??LCD_disstr_V3_9:
+        TST     R7
+        BRNE    $+2+2
+        RJMP    ??LCD_disstr_V3_3
+        LDI     R16, 255
+        RJMP    ??LCD_disstr_V3_4
+//  451 
+//  452 	}
+//  453 }
+??LCD_disstr_V3_5:
+        LDI     R30, 15
+        JMP     ?EPILOGUE_B15_L09
+        CFI EndBlock cfiBlock14
+//  454 
+//  455 //ÏÔÊ¾1¸ö×Ö·ûÐÂ×ø±ê±í·¶Î§0~159  y×ø±ê·¶Î§0~159
+
+        RSEG CODE:CODE:NOROOT(1)
+//  456 unsigned char LCD_dischar(unsigned char c, unsigned char x, unsigned char y, unsigned char Reverse_flag)
+LCD_dischar:
+        CFI Block cfiBlock15 Using cfiCommon0
+        CFI Function LCD_dischar
+//  457 {
+        FUNCALL LCD_dischar, LCD_wr_data
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_command
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_command
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_command
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_command
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, datatrans
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_data
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar, LCD_wr_data
+        LOCFRAME CSTACK, 12, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE12_L09
+        CFI R11 Frame(CFA_Y, -1)
+        CFI R10 Frame(CFA_Y, -2)
+        CFI R9 Frame(CFA_Y, -3)
+        CFI R8 Frame(CFA_Y, -4)
+        CFI R7 Frame(CFA_Y, -5)
+        CFI R6 Frame(CFA_Y, -6)
+        CFI R5 Frame(CFA_Y, -7)
+        CFI R4 Frame(CFA_Y, -8)
+        CFI R27 Frame(CFA_Y, -9)
+        CFI R26 Frame(CFA_Y, -10)
+        CFI R25 Frame(CFA_Y, -11)
+        CFI R24 Frame(CFA_Y, -12)
+        CFI CFA_Y Y+12
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        REQUIRE ?Register_R8_is_cg_reg
+        REQUIRE ?Register_R9_is_cg_reg
+        REQUIRE ?Register_R10_is_cg_reg
+        REQUIRE ?Register_R11_is_cg_reg
+        MOV     R5, R16
+        MOV     R8, R17
+        MOV     R9, R18
+        MOV     R10, R19
+//  458 	unsigned char i,j,k;
+//  459 	j=0;
+//  460 	FONT_CHARINFO a=FontTrebuchetMS16_CharInfo[c-0x20];
+        LDI     R24, LOW((FontTrebuchetMS16_CharInfo - 95))
+        LDI     R25, HIGH((FontTrebuchetMS16_CharInfo - 95))
+        MOV     R20, R5
+        LDI     R21, 0
+        LDI     R16, 3
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        ADD     R24, R16
+        ADC     R25, R17
+        MOVW    R31:R30, R25:R24
+        LPM     R26, Z
+        ADIW    R31:R30, 1
+        LPM     R4, Z
+//  461 	for (j=0;j<16;j++)
+        LDI     R27, 0
+        RJMP    ??LCD_dischar_0
+//  462 	{
+//  463 		LCD_wr_command(0x70+(y+j)/16);  //set row MSB address
+//  464 		LCD_wr_command(0x60+(y+j)%16);  //set row LSB address
+//  465 		
+//  466 		LCD_wr_command(0x12+(x/3+5)/16);  //set column MSB address  //    12
+//  467 		LCD_wr_command(0x00+(x/3+5)%16);   //set column LSB address  //37  05
+//  468 
+//  469 		k=datatrans(ASC[c-0x20]+j*a.bytes,a.bytes,a.distance,x);	
+//  470 
+//  471 		for(i=0;i<k;i++)
+//  472 		{
+//  473 		    if(Reverse_flag == 1)
+//  474 			LCD_wr_data(~Lcd_dis_data[i]);
+//  475 		    else
+//  476 			LCD_wr_data(Lcd_dis_data[i]);
+//  477 		}
+//  478 		LCD_wr_data(0);
+??LCD_dischar_1:
+        LDI     R16, 0
+        RCALL   LCD_wr_data
+        INC     R27
+??LCD_dischar_0:
+        CPI     R27, 16
+        BRCS    $+2+2
+        RJMP    ??LCD_dischar_2
+        MOV     R6, R9
+        CLR     R7
+        MOV     R16, R27
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        SUBI    R16, 160
+        RCALL   LCD_wr_command
+        LDI     R20, 3
+        MOV     R16, R8
+        CALL    ?UC_DIVMOD_L01
+        MOV     R6, R16
+        CLR     R7
+        LDI     R16, 5
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 238
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        RCALL   LCD_wr_command
+        MOV     R20, R8
+        MOV     R19, R26
+        MOV     R18, R4
+        MOV     R21, R18
+        MOV     R22, R19
+        MOV     R23, R20
+        LDI     R18, LOW((ASC - 1024))
+        LDI     R19, HIGH((ASC - 1024))
+        MUL     R27, R4
+        ADD     R18, R0
+        ADC     R19, R1
+        MOV     R16, R5
+        LDI     R17, 0
+        LDI     R20, 5
+        CALL    ?S_SHL_L02
+        ADD     R18, R16
+        ADC     R19, R17
+        MOVW    R17:R16, R19:R18
+        MOV     R20, R23
+        MOV     R19, R22
+        MOV     R18, R21
+        RCALL   datatrans
+        MOV     R11, R16
+        CLR     R6
+        RJMP    ??LCD_dischar_3
+??LCD_dischar_4:
+        RCALL   LCD_wr_data
+        INC     R6
+??LCD_dischar_3:
+        CP      R6, R11
+        BRCS    $+2+2
+        RJMP    ??LCD_dischar_1
+        CLR     R7
+        MOVW    R31:R30, R7:R6
+        SUBI    R30, LOW((-(Lcd_dis_data) & 0xFFFF))
+        SBCI    R31, (-(Lcd_dis_data) & 0xFFFF) >> 8
+        LD      R16, Z
+        LDI     R17, 1
+        CP      R10, R17
+        BRNE    ??LCD_dischar_4
+        COM     R16
+        RJMP    ??LCD_dischar_4
+//  479 	}
+//  480 	return (FontTrebuchetMS16_CharInfo[c-0x20].distance+1);
+??LCD_dischar_2:
+        MOVW    R31:R30, R25:R24
+        LPM     R16, Z
+        INC     R16
+        LDI     R30, 12
+        JMP     ?EPILOGUE_B12_L09
+        CFI EndBlock cfiBlock15
+//  481 }
+//  482 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  483 unsigned char  datatrans(unsigned char const __flash *datas,unsigned char bytenumber,unsigned char distance, unsigned char x)
+datatrans:
+        CFI Block cfiBlock16 Using cfiCommon0
+        CFI Function datatrans
+//  484 {
+        CALL    ?PROLOGUE12_L09
+        CFI R11 Frame(CFA_Y, -1)
+        CFI R10 Frame(CFA_Y, -2)
+        CFI R9 Frame(CFA_Y, -3)
+        CFI R8 Frame(CFA_Y, -4)
+        CFI R7 Frame(CFA_Y, -5)
+        CFI R6 Frame(CFA_Y, -6)
+        CFI R5 Frame(CFA_Y, -7)
+        CFI R4 Frame(CFA_Y, -8)
+        CFI R27 Frame(CFA_Y, -9)
+        CFI R26 Frame(CFA_Y, -10)
+        CFI R25 Frame(CFA_Y, -11)
+        CFI R24 Frame(CFA_Y, -12)
+        CFI CFA_Y Y+12
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R8_is_cg_reg
+        REQUIRE ?Register_R9_is_cg_reg
+        REQUIRE ?Register_R10_is_cg_reg
+        REQUIRE ?Register_R11_is_cg_reg
+        MOVW    R25:R24, R17:R16
+        MOV     R27, R19
+        MOV     R16, R20
+//  485 	unsigned char i=0,j=0,data1,data2;
+        LDI     R26, 0
+//  486 	//	for(i=0;i++;i<(width+x%3)/2+(x%3)%2)
+//  487 	unsigned int data16=0;
+//  488 	data1=*datas;
+//  489 	if(bytenumber==2)
+        CPI     R18, 2
+        BRNE    ??datatrans_0
+//  490 	{
+//  491 		datas++;
+//  492 		data2=*datas;	
+        MOVW    R31:R30, R25:R24
+        ADIW    R31:R30, 1
+        LPM     R4, Z
+        RJMP    ??datatrans_1
+//  493 	}
+//  494 	else
+//  495 		data2=0;
+??datatrans_0:
+        CLR     R4
+//  496 	data16=data1*256+data2;
+//  497 	data16=data16>>(x%3);
+??datatrans_1:
+        LDI     R20, 3
+        CALL    ?UC_DIVMOD_L01
+        MOV     R6, R20
+        MOVW    R31:R30, R25:R24
+        LPM     R17, Z
+        LDI     R16, 0
+        CLR     R5
+        ADD     R16, R4
+        CALL    ?US_SHR_L02
+        MOVW    R9:R8, R17:R16
+//  498 
+//  499 	for(i=0;i<((distance+x%3)/2+(distance+x%3)%2);i++)
+        CLR     R4
+        RJMP    ??datatrans_2
+//  500 	{
+//  501 		j++;
+//  502 		if ((data16&0x8000)==0)
+//  503 		{
+//  504 			Lcd_dis_data[i]=0;
+//  505 		}
+//  506 		else
+//  507 		{
+//  508 			Lcd_dis_data[i]=0xF0;
+??datatrans_3:
+        LDI     R16, 240
+        ST      Z, R16
+//  509 		}
+//  510 		data16= data16<<1;
+??datatrans_4:
+        LSL     R8
+        ROL     R9
+//  511 		if ((data16&0x8000)!=0)
+        BST     R9, 7
+        BRTC    ??datatrans_5
+//  512 		{
+//  513 			Lcd_dis_data[i]|=0x0F;
+        LD      R16, Z
+        ORI     R16, 0x0F
+        ST      Z, R16
+//  514 		}
+//  515 		data16= data16<<1;	
+??datatrans_5:
+        LSL     R8
+        ROL     R9
+        INC     R4
+??datatrans_2:
+        MOV     R10, R27
+        CLR     R11
+        ADD     R10, R6
+        ADC     R11, R5
+        LDI     R20, 2
+        LDI     R21, 0
+        MOVW    R17:R16, R11:R10
+        CALL    ?SS_DIVMOD_L02
+        MOVW    R25:R24, R17:R16
+        LDI     R20, 2
+        LDI     R21, 0
+        MOVW    R17:R16, R11:R10
+        CALL    ?SS_DIVMOD_L02
+        ADD     R24, R20
+        ADC     R25, R21
+        CP      R4, R24
+        CPC     R5, R25
+        BRGE    ??datatrans_6
+        INC     R26
+        LDI     R30, LOW(Lcd_dis_data)
+        LDI     R31, (Lcd_dis_data) >> 8
+        ADD     R30, R4
+        ADC     R31, R5
+        BST     R9, 7
+        BRTS    ??datatrans_3
+        ST      Z, R5
+        RJMP    ??datatrans_4
+//  516 	}
+//  517 	return j;
+??datatrans_6:
+        MOV     R16, R26
+        LDI     R30, 12
+        JMP     ?EPILOGUE_B12_L09
+        CFI EndBlock cfiBlock16
+//  518 
+//  519 }
+//  520 
+//  521 /**************************************************************
+//  522 *    name: 		LCD_distring    //wang
+//  523 *    function: 	display a string 
+//  524 *	 input:		"string",x,y coordinates  
+//  525 *	 return:	none
+//  526 *
+//  527 ***************************************************************/
+//  528 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  529 void LCD_distring(unsigned char *dis_datas, unsigned char x, unsigned char y,unsigned char Reverse_flag)
+LCD_distring:
+        CFI Block cfiBlock17 Using cfiCommon0
+        CFI Function LCD_distring
+//  530 {
+        FUNCALL LCD_distring, LCD_dischar0811
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R27:R26, R17:R16
+        MOV     R25, R18
+        MOV     R5, R19
+        MOV     R4, R20
+//  531 	unsigned char i = 0;
+        LDI     R24, 0
+//  532     
+//  533 	do
+//  534 	{
+//  535       LCD_dischar0811(ASC0811[*(dis_datas+i) - 32], x+2*i, y, Reverse_flag);
+??LCD_distring_0:
+        MOV     R20, R4
+        MOV     R19, R5
+        MOV     R16, R24
+        LSL     R16
+        MOV     R18, R25
+        ADD     R18, R16
+        MOV     R22, R18
+        MOV     R23, R19
+        MOV     R2, R20
+        LDI     R18, LOW((ASC0811 - 352))
+        LDI     R19, HIGH((ASC0811 - 352))
+        MOV     R16, R24
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        ADD     R30, R16
+        ADC     R31, R17
+        LD      R20, Z
+        LDI     R21, 0
+        LDI     R16, 11
+        CALL    ?S_EC_MUL_L02
+        ADD     R18, R16
+        ADC     R19, R17
+        MOVW    R17:R16, R19:R18
+        MOV     R20, R2
+        MOV     R19, R23
+        MOV     R18, R22
+        RCALL   LCD_dischar0811
+//  536 			i++;            
+        INC     R24
+//  537 	}
+//  538 	while((*(dis_datas + i)) != '\0');	
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        ADD     R30, R24
+        ADC     R31, R17
+        LD      R16, Z
+        TST     R16
+        BRNE    ??LCD_distring_0
+//  539 }
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock17
+//  540 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  541 void LCD_distring_V2(unsigned char __flash *dis_datas, unsigned char x, unsigned char y,unsigned char Reverse_flag)
+LCD_distring_V2:
+        CFI Block cfiBlock18 Using cfiCommon0
+        CFI Function LCD_distring_V2
+//  542 {
+        FUNCALL LCD_distring_V2, LCD_dischar0811
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R27:R26, R17:R16
+        MOV     R25, R18
+        MOV     R5, R19
+        MOV     R4, R20
+//  543 	unsigned char i = 0;
+        LDI     R24, 0
+//  544 
+//  545 	g_temp = *dis_datas;
+        MOVW    R31:R30, R27:R26
+        LPM     R16, Z
+        STS     g_temp, R16
+//  546 	do
+//  547 	{
+//  548         LCD_dischar0811(ASC0811[*(dis_datas+i) - 32], x+2*i, y, Reverse_flag);
+??LCD_distring_V2_0:
+        MOV     R20, R4
+        MOV     R19, R5
+        MOV     R16, R24
+        LSL     R16
+        MOV     R18, R25
+        ADD     R18, R16
+        MOV     R22, R18
+        MOV     R23, R19
+        MOV     R2, R20
+        LDI     R18, LOW((ASC0811 - 352))
+        LDI     R19, HIGH((ASC0811 - 352))
+        MOV     R16, R24
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        ADD     R30, R16
+        ADC     R31, R17
+        LPM     R20, Z
+        LDI     R21, 0
+        LDI     R16, 11
+        CALL    ?S_EC_MUL_L02
+        ADD     R18, R16
+        ADC     R19, R17
+        MOVW    R17:R16, R19:R18
+        MOV     R20, R2
+        MOV     R19, R23
+        MOV     R18, R22
+        RCALL   LCD_dischar0811
+//  549 		i++;
+        INC     R24
+//  550 	}
+//  551 	while((*(dis_datas + i)) != '\0');
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        ADD     R30, R24
+        ADC     R31, R17
+        LPM     R16, Z
+        TST     R16
+        BRNE    ??LCD_distring_V2_0
+//  552 
+//  553 }
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock18
+//  554 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  555 void LCD_distring_ee(unsigned char __eeprom *dis_datas, unsigned char x, unsigned char y,unsigned char Reverse_flag)
+LCD_distring_ee:
+        CFI Block cfiBlock19 Using cfiCommon0
+        CFI Function LCD_distring_ee
+//  556 {
+        FUNCALL LCD_distring_ee, LCD_dischar0811
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        MOVW    R27:R26, R17:R16
+        MOV     R25, R18
+        MOV     R5, R19
+        MOV     R4, R20
+//  557 	unsigned char i = 0;
+        LDI     R24, 0
+//  558     
+//  559 	do
+//  560 	{
+//  561       LCD_dischar0811(ASC0811[*(dis_datas+i) - 32], x+2*i, y, Reverse_flag);
+??LCD_distring_ee_0:
+        MOV     R20, R4
+        MOV     R19, R5
+        MOV     R16, R24
+        LSL     R16
+        MOV     R18, R25
+        ADD     R18, R16
+        MOV     R22, R18
+        MOV     R23, R19
+        MOV     R2, R20
+        LDI     R18, LOW((ASC0811 - 352))
+        LDI     R19, HIGH((ASC0811 - 352))
+        MOV     R16, R24
+        LDI     R17, 0
+        MOVW    R21:R20, R27:R26
+        ADD     R20, R16
+        ADC     R21, R17
+        CALL    __eeget8_16
+        MOV     R20, R16
+        LDI     R21, 0
+        LDI     R16, 11
+        CALL    ?S_EC_MUL_L02
+        ADD     R18, R16
+        ADC     R19, R17
+        MOVW    R17:R16, R19:R18
+        MOV     R20, R2
+        MOV     R19, R23
+        MOV     R18, R22
+        RCALL   LCD_dischar0811
+//  562 			i++;            
+        INC     R24
+//  563 	}
+//  564 	while((*(dis_datas + i)) != '\0');	
+        LDI     R17, 0
+        MOVW    R21:R20, R27:R26
+        ADD     R20, R24
+        ADC     R21, R17
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??LCD_distring_ee_0
+//  565 }
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock19
+//  566 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  567 void LCD_dischar0811(unsigned char __flash * dis_datas, unsigned char x, unsigned char y,unsigned char Reverse_flag)
+LCD_dischar0811:
+        CFI Block cfiBlock20 Using cfiCommon0
+        CFI Function LCD_dischar0811
+//  568 {
+        FUNCALL LCD_dischar0811, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_command
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_disdatatrans
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL LCD_dischar0811, LCD_wr_data
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE8_L09
+        CFI R7 Frame(CFA_Y, -1)
+        CFI R6 Frame(CFA_Y, -2)
+        CFI R5 Frame(CFA_Y, -3)
+        CFI R4 Frame(CFA_Y, -4)
+        CFI R27 Frame(CFA_Y, -5)
+        CFI R26 Frame(CFA_Y, -6)
+        CFI R25 Frame(CFA_Y, -7)
+        CFI R24 Frame(CFA_Y, -8)
+        CFI CFA_Y Y+8
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        MOVW    R25:R24, R17:R16
+        MOV     R5, R18
+        MOV     R26, R19
+        MOV     R27, R20
+//  569 	unsigned char i,j;
+//  570 	j=0;
+//  571 	for (j=0;j<11;j++)
+        CLR     R4
+        RJMP    ??LCD_dischar0811_0
+//  572 	{
+//  573 		LCD_wr_command(0x70+(y+j)/16);  //set row MSB address
+//  574 		LCD_wr_command(0x60+(y+j)%16);  //set row LSB address
+//  575 		LCD_wr_command(0x12+(x+5)/16);  //set column MSB address  //    12
+//  576 		LCD_wr_command(0x00+(x+5)%16);   //set column LSB address  //37  05
+//  577         
+//  578 		LCD_disdatatrans(*(dis_datas+j));	
+//  579 		for(i=0;i<4;i++)
+//  580 		{
+//  581 		    if(Reverse_flag == 1)
+//  582 				    LCD_wr_data(~Lcd_dis_data[i]);
+//  583 		    else
+//  584 			LCD_wr_data(Lcd_dis_data[i]);            
+//  585 		}
+//  586 
+//  587 		if(Reverse_flag)
+//  588 			LCD_wr_data(255);
+//  589 		else
+//  590 			LCD_wr_data(0);
+??LCD_dischar0811_1:
+        LDI     R16, 0
+??LCD_dischar0811_2:
+        RCALL   LCD_wr_data
+        INC     R4
+??LCD_dischar0811_0:
+        LDI     R16, 11
+        CP      R4, R16
+        BRCS    $+2+2
+        RJMP    ??LCD_dischar0811_3
+        MOV     R6, R26
+        CLR     R7
+        MOV     R16, R4
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 144
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        SUBI    R16, 160
+        RCALL   LCD_wr_command
+        MOV     R6, R5
+        CLR     R7
+        LDI     R16, 5
+        ADD     R6, R16
+        ADC     R7, R7
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        SUBI    R16, 238
+        RCALL   LCD_wr_command
+        LDI     R20, 16
+        LDI     R21, 0
+        MOVW    R17:R16, R7:R6
+        CALL    ?SS_DIVMOD_L02
+        MOV     R16, R20
+        RCALL   LCD_wr_command
+        MOV     R16, R4
+        LDI     R17, 0
+        MOVW    R31:R30, R25:R24
+        ADD     R30, R16
+        ADC     R31, R17
+        LPM     R16, Z
+        RCALL   LCD_disdatatrans
+        CLR     R6
+        RJMP    ??LCD_dischar0811_4
+??LCD_dischar0811_5:
+        RCALL   LCD_wr_data
+        INC     R6
+??LCD_dischar0811_4:
+        LDI     R16, 4
+        CP      R6, R16
+        BRCC    ??LCD_dischar0811_6
+        CLR     R7
+        MOVW    R31:R30, R7:R6
+        SUBI    R30, LOW((-(Lcd_dis_data) & 0xFFFF))
+        SBCI    R31, (-(Lcd_dis_data) & 0xFFFF) >> 8
+        LD      R16, Z
+        CPI     R27, 1
+        BRNE    ??LCD_dischar0811_5
+        COM     R16
+        RJMP    ??LCD_dischar0811_5
+??LCD_dischar0811_6:
+        TST     R27
+        BRNE    $+2+2
+        RJMP    ??LCD_dischar0811_1
+        LDI     R16, 255
+        RJMP    ??LCD_dischar0811_2
+//  591 	}
+//  592 }
+??LCD_dischar0811_3:
+        LDI     R30, 8
+        JMP     ?EPILOGUE_B8_L09
+        CFI EndBlock cfiBlock20
+//  593 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  594 void light_adj(void)
+light_adj:
+        CFI Block cfiBlock21 Using cfiCommon0
+        CFI Function light_adj
+//  595 {
+//  596 	if(get_key())
+        FUNCALL light_adj, get_key
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL light_adj, delay_ms
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    get_key
+        TST     R16
+        BREQ    ??light_adj_0
+//  597 		{
+//  598 			ee_back_light_duty += 4;
+        LDI     R20, LOW(ee_back_light_duty)
+        LDI     R21, (ee_back_light_duty) >> 8
+        CALL    __eeget8_16
+        SUBI    R16, 252
+        LDI     R20, LOW(ee_back_light_duty)
+        LDI     R21, (ee_back_light_duty) >> 8
+        CALL    __eeput8_16
+//  599 			if(ee_back_light_duty >= 252)
+        LDI     R20, LOW(ee_back_light_duty)
+        LDI     R21, (ee_back_light_duty) >> 8
+        CALL    __eeget8_16
+        CPI     R16, 252
+        BRCS    ??light_adj_1
+//  600 				ee_back_light_duty = 0;
+        LDI     R16, 0
+        LDI     R20, LOW(ee_back_light_duty)
+        LDI     R21, (ee_back_light_duty) >> 8
+        CALL    __eeput8_16
+//  601 			
+//  602 			OCR2A=ee_back_light_duty;
+??light_adj_1:
+        LDI     R20, LOW(ee_back_light_duty)
+        LDI     R21, (ee_back_light_duty) >> 8
+        CALL    __eeget8_16
+        STS     _A_OCR2A, R16
+//  603 			delay_ms(20);
+        LDI     R16, 20
+        LDI     R17, 0
+        CALL    delay_ms
+//  604 		}
+//  605 }
+??light_adj_0:
+        RET
+        CFI EndBlock cfiBlock21
+        REQUIRE _A_OCR2A
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//     5 bytes in segment ABSOLUTE
+// 2 286 bytes in segment CODE
+//     1 byte  in segment EEPROM_I
+//     6 bytes in segment INITTAB
+//    10 bytes in segment NEAR_Z
+// 
+// 2 286 bytes of CODE  memory (+ 6 bytes shared)
+//    10 bytes of DATA  memory (+ 5 bytes shared)
+//     1 byte  of XDATA memory
+//
+//Errors: none
+//Warnings: 2

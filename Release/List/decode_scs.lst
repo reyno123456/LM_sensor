@@ -1,0 +1,1952 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR    11/Dec/2009  23:21:45 #
+# Copyright 1996-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  D:\avr\LM_Finial_Test\decode_scs.c                       #
+#    Command line =  D:\avr\LM_Finial_Test\decode_scs.c --cpu=m644p -ms -o    #
+#                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018    #
+#                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Lis #
+#                    t\ -lA D:\avr\LM_Finial_Test\Release\List\               #
+#                    --diag_suppress Pa082,Pe167,Pe186                        #
+#                    --initializers_in_flash -z6 --no_inline --no_cross_call  #
+#                    --no_tbaa -DENABLE_BIT_DEFINITIONS -e -I "C:\Program     #
+#                    Files\IAR Systems\Embedded Workbench 5.3\avr\INC\" -I    #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.3\avr\INC\CLIB\" --eeprom_size 2048                    #
+#    List file    =  D:\avr\LM_Finial_Test\Release\List\decode_scs.lst        #
+#    Object file  =  D:\avr\LM_Finial_Test\Release\Obj\decode_scs.r90         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\avr\LM_Finial_Test\decode_scs.c
+      1          #include <ioavr.h>
+      2          #include <stdio.h>
+      3          #include "usart.h"
+      4          #include "board.h"
+      5          #include "moudle_SCS.h"
+      6          #include "decode_scs.h"
+      7          #include "stdlib.h"
+      8          #include "global_variable.h"
+      9          #include "application.h"
+     10          #include "decode_scs_next.h"
+     11          #include "moudle_scs.h"
+     12          #include "application.h"
+     13          #include "string.h"
+     14          #include "configuration.h"
+     15          #include "function_service.h"
+     16          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     17          void reception_buffer_clear(unsigned char temp)
+   \                     reception_buffer_clear:
+     18          {
+     19          #ifndef DEBUG
+     20          
+     21          	unsigned char i;
+     22          		
+     23          	for(i=0;i<8;i++)
+   \   00000000   E000               LDI     R16, 0
+   \   00000002   C007               RJMP    ??reception_buffer_clear_0
+     24          	{
+     25          		g_short_buffer[i] = 0;
+   \                     ??reception_buffer_clear_1:
+   \   00000004   E020               LDI     R18, 0
+   \   00000006   E010               LDI     R17, 0
+   \   00000008   01F8               MOVW    R31:R30, R17:R16
+   \   0000000A   ....               SUBI    R30, LOW((-(g_short_buffer) & 0xFFFF))
+   \   0000000C   ....               SBCI    R31, (-(g_short_buffer) & 0xFFFF) >> 8
+   \   0000000E   8320               ST      Z, R18
+     26          	}
+   \   00000010   9503               INC     R16
+   \                     ??reception_buffer_clear_0:
+   \   00000012   3008               CPI     R16, 8
+   \   00000014   F3B8               BRCS    ??reception_buffer_clear_1
+     27          
+     28          	for(i=0;i<4;i++)
+   \   00000016   E000               LDI     R16, 0
+   \   00000018   C007               RJMP    ??reception_buffer_clear_2
+     29          	{
+     30          		g_asc_short_buffer[i] = 0;
+   \                     ??reception_buffer_clear_3:
+   \   0000001A   E020               LDI     R18, 0
+   \   0000001C   E010               LDI     R17, 0
+   \   0000001E   01F8               MOVW    R31:R30, R17:R16
+   \   00000020   ....               SUBI    R30, LOW((-(g_asc_short_buffer) & 0xFFFF))
+   \   00000022   ....               SBCI    R31, (-(g_asc_short_buffer) & 0xFFFF) >> 8
+   \   00000024   8320               ST      Z, R18
+     31          	}
+   \   00000026   9503               INC     R16
+   \                     ??reception_buffer_clear_2:
+   \   00000028   3004               CPI     R16, 4
+   \   0000002A   F3B8               BRCS    ??reception_buffer_clear_3
+     32          
+     33          	for(i=0;i<8;i++)
+   \   0000002C   E000               LDI     R16, 0
+   \   0000002E   C007               RJMP    ??reception_buffer_clear_4
+     34          	{
+     35          		g_asc_reception_buffer[i] = 0;
+   \                     ??reception_buffer_clear_5:
+   \   00000030   E020               LDI     R18, 0
+   \   00000032   E010               LDI     R17, 0
+   \   00000034   01F8               MOVW    R31:R30, R17:R16
+   \   00000036   ....               SUBI    R30, LOW((-(g_asc_reception_buffer) & 0xFFFF))
+   \   00000038   ....               SBCI    R31, (-(g_asc_reception_buffer) & 0xFFFF) >> 8
+   \   0000003A   8320               ST      Z, R18
+     36          	}
+   \   0000003C   9503               INC     R16
+   \                     ??reception_buffer_clear_4:
+   \   0000003E   3008               CPI     R16, 8
+   \   00000040   F3B8               BRCS    ??reception_buffer_clear_5
+     37          
+     38          	for(i=0;i<16;i++)
+   \   00000042   E000               LDI     R16, 0
+   \   00000044   C007               RJMP    ??reception_buffer_clear_6
+     39          	{
+     40          		g_reception_buffer[i] = 0;
+   \                     ??reception_buffer_clear_7:
+   \   00000046   E020               LDI     R18, 0
+   \   00000048   E010               LDI     R17, 0
+   \   0000004A   01F8               MOVW    R31:R30, R17:R16
+   \   0000004C   ....               SUBI    R30, LOW((-(g_reception_buffer) & 0xFFFF))
+   \   0000004E   ....               SBCI    R31, (-(g_reception_buffer) & 0xFFFF) >> 8
+   \   00000050   8320               ST      Z, R18
+     41          	}
+   \   00000052   9503               INC     R16
+   \                     ??reception_buffer_clear_6:
+   \   00000054   3100               CPI     R16, 16
+   \   00000056   F3B8               BRCS    ??reception_buffer_clear_7
+     42          	
+     43          #else
+     44          	extern unsigned char g_RxBuffer[];
+     45          	extern unsigned char RxNumber;
+     46          		
+     47          	for(i=0;i<RX_BUFFER_SIZE;i++)
+     48          	{
+     49          		g_RxBuffer[i] = 0;
+     50          	}
+     51          	RxNumber = 0;
+     52          
+     53          #endif
+     54          }
+   \   00000058   9508               RET
+     55          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     56          unsigned char decode_id(void)
+   \                     decode_id:
+     57          {
+   \   00000000   939A               ST      -Y, R25
+   \   00000002   938A               ST      -Y, R24
+   \   00000004   9724               SBIW    R29:R28, 4
+     58          	unsigned char i;
+     59          	unsigned char buffer[3];
+     60          
+     61          	//static unsigned char ID_buffer[8];
+     62          	volatile unsigned char current = 0xFF;
+   \   00000006   EF0F               LDI     R16, 255
+   \   00000008   8308               ST      Y, R16
+     63          
+     64          	for(i=0;i<DEEP;i++)
+   \   0000000A   E080               LDI     R24, 0
+   \   0000000C   C001               RJMP    ??decode_id_0
+   \                     ??decode_id_1:
+   \   0000000E   9583               INC     R24
+   \                     ??decode_id_0:
+   \   00000010   3283               CPI     R24, 35
+   \   00000012   F468               BRCC    ??decode_id_2
+     65          	{
+     66          		if(scs_frame[i].finished)
+   \   00000014   2F48               MOV     R20, R24
+   \   00000016   E050               LDI     R21, 0
+   \   00000018   E108               LDI     R16, 24
+   \   0000001A   E010               LDI     R17, 0
+   \   0000001C   ........           CALL    ?S_EC_MUL_L02
+   \   00000020   01F8               MOVW    R31:R30, R17:R16
+   \   00000022   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   00000024   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000026   8906               LDD     R16, Z+22
+   \   00000028   2300               TST     R16
+   \   0000002A   F389               BREQ    ??decode_id_1
+     67          		{
+     68          			current = i;
+   \   0000002C   8348               ST      Y, R20
+     69          			break;
+     70          		}
+     71          	}
+     72          
+     73          	if(scs_frame[current].finished && current != 0xFF)
+   \                     ??decode_id_2:
+   \   0000002E   8148               LD      R20, Y
+   \   00000030   E050               LDI     R21, 0
+   \   00000032   E108               LDI     R16, 24
+   \   00000034   E010               LDI     R17, 0
+   \   00000036   ........           CALL    ?S_EC_MUL_L02
+   \   0000003A   01F8               MOVW    R31:R30, R17:R16
+   \   0000003C   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   0000003E   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000040   8906               LDD     R16, Z+22
+   \   00000042   2300               TST     R16
+   \   00000044   F409               BRNE    $+2+2
+   \   00000046   C053               RJMP    ??decode_id_3
+   \   00000048   8108               LD      R16, Y
+   \   0000004A   3F0F               CPI     R16, 255
+   \   0000004C   F409               BRNE    $+2+2
+   \   0000004E   C04F               RJMP    ??decode_id_3
+     74          	{
+     75          		switch(StrToChar(&scs_frame[current].byte[1]))
+   \   00000050   ....               LDI     R18, LOW((scs_frame + 1))
+   \   00000052   ....               LDI     R19, HIGH((scs_frame + 1))
+   \   00000054   8148               LD      R20, Y
+   \   00000056   E108               LDI     R16, 24
+   \   00000058   E010               LDI     R17, 0
+   \   0000005A   ........           CALL    ?S_EC_MUL_L02
+   \   0000005E   0F20               ADD     R18, R16
+   \   00000060   1F31               ADC     R19, R17
+   \   00000062   0189               MOVW    R17:R16, R19:R18
+   \   00000064   ........           CALL    StrToChar
+   \   00000068   3108               CPI     R16, 24
+   \   0000006A   F009               BREQ    $+2+2
+   \   0000006C   C050               RJMP    ??decode_id_4
+     76          		{
+     77          			case 0x18:
+     78          				for(i=0;i<16;i++)
+   \   0000006E   E080               LDI     R24, 0
+   \   00000070   C013               RJMP    ??decode_id_5
+     79          				{
+     80          					g_reception_buffer[i] = scs_frame[current].byte[i+3];
+   \                     ??decode_id_6:
+   \   00000072   ....               LDI     R30, LOW((scs_frame + 3))
+   \   00000074   ....               LDI     R31, HIGH((scs_frame + 3))
+   \   00000076   E090               LDI     R25, 0
+   \   00000078   0FE8               ADD     R30, R24
+   \   0000007A   1FF9               ADC     R31, R25
+   \   0000007C   8148               LD      R20, Y
+   \   0000007E   E050               LDI     R21, 0
+   \   00000080   E108               LDI     R16, 24
+   \   00000082   E010               LDI     R17, 0
+   \   00000084   ........           CALL    ?S_EC_MUL_L02
+   \   00000088   0FE0               ADD     R30, R16
+   \   0000008A   1FF1               ADC     R31, R17
+   \   0000008C   8100               LD      R16, Z
+   \   0000008E   01FC               MOVW    R31:R30, R25:R24
+   \   00000090   ....               SUBI    R30, LOW((-(g_reception_buffer) & 0xFFFF))
+   \   00000092   ....               SBCI    R31, (-(g_reception_buffer) & 0xFFFF) >> 8
+   \   00000094   8300               ST      Z, R16
+     81          				}
+   \   00000096   9583               INC     R24
+   \                     ??decode_id_5:
+   \   00000098   3180               CPI     R24, 16
+   \   0000009A   F358               BRCS    ??decode_id_6
+     82          				for(i=0;i<8;i++)
+   \   0000009C   E080               LDI     R24, 0
+   \   0000009E   C017               RJMP    ??decode_id_7
+     83          				{
+     84          					buffer[0] = g_reception_buffer[i * 2];
+   \                     ??decode_id_8:
+   \   000000A0   E002               LDI     R16, 2
+   \   000000A2   9F80               MUL     R24, R16
+   \   000000A4   ....               LDI     R30, LOW(g_reception_buffer)
+   \   000000A6   ....               LDI     R31, (g_reception_buffer) >> 8
+   \   000000A8   0DE0               ADD     R30, R0
+   \   000000AA   1DF1               ADC     R31, R1
+   \   000000AC   8100               LD      R16, Z
+   \   000000AE   8309               STD     Y+1, R16
+     85          					buffer[1] = g_reception_buffer[i * 2 + 1];
+   \   000000B0   8101               LDD     R16, Z+1
+   \   000000B2   830A               STD     Y+2, R16
+     86          					buffer[2] = 0;
+   \   000000B4   E000               LDI     R16, 0
+   \   000000B6   830B               STD     Y+3, R16
+     87          					g_asc_reception_buffer[i] = StrToChar(buffer);
+   \   000000B8   018E               MOVW    R17:R16, R29:R28
+   \   000000BA   5F0F               SUBI    R16, 255
+   \   000000BC   4F1F               SBCI    R17, 255
+   \   000000BE   ........           CALL    StrToChar
+   \   000000C2   E090               LDI     R25, 0
+   \   000000C4   01FC               MOVW    R31:R30, R25:R24
+   \   000000C6   ....               SUBI    R30, LOW((-(g_asc_reception_buffer) & 0xFFFF))
+   \   000000C8   ....               SBCI    R31, (-(g_asc_reception_buffer) & 0xFFFF) >> 8
+   \   000000CA   8300               ST      Z, R16
+     88          				}
+   \   000000CC   9583               INC     R24
+   \                     ??decode_id_7:
+   \   000000CE   3088               CPI     R24, 8
+   \   000000D0   F338               BRCS    ??decode_id_8
+     89          
+     90          				switch(g_asc_reception_buffer[0])
+   \   000000D2   9100....           LDS     R16, g_asc_reception_buffer
+   \   000000D6   3D00               CPI     R16, 208
+   \   000000D8   F451               BRNE    ??decode_id_3
+     91          				{
+     92          					case 0xD0:
+     93                      if(g_reception_buffer[6] == '0' || g_reception_buffer[6] == 'F')
+   \   000000DA   9100....           LDS     R16, (g_reception_buffer + 6)
+   \   000000DE   3300               CPI     R16, 48
+   \   000000E0   F021               BREQ    ??decode_id_9
+   \   000000E2   9100....           LDS     R16, (g_reception_buffer + 6)
+   \   000000E6   3406               CPI     R16, 70
+   \   000000E8   F411               BRNE    ??decode_id_3
+     94          						  id_frame();
+   \                     ??decode_id_9:
+   \   000000EA   ........           CALL    id_frame
+     95          					break;
+     96          
+     97          					default:break;
+     98          				}
+     99          			break;
+    100          
+    101          			default:
+    102          				scs_frame[current].finished = 0;	
+    103                  if(state.id_setting == 1)
+    104          	      {
+    105          		      if( Time_delay.timer_flex.time_out == 1 )
+    106          		      {
+    107          			      state.id_setting = 0;
+    108          			      send_frame_pp_ext_broad("D000010E00000000",TRANS_DELAY);
+    109          			      asm("nop");
+    110          		      }
+    111          	      }
+    112          			return 1;
+    113          		}
+    114          	}
+    115          	scs_frame[current].finished = 0;
+   \                     ??decode_id_3:
+   \   000000EE   E020               LDI     R18, 0
+   \   000000F0   8148               LD      R20, Y
+   \   000000F2   E050               LDI     R21, 0
+   \   000000F4   E108               LDI     R16, 24
+   \   000000F6   E010               LDI     R17, 0
+   \   000000F8   ........           CALL    ?S_EC_MUL_L02
+   \   000000FC   01F8               MOVW    R31:R30, R17:R16
+   \   000000FE   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   00000100   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000102   8B26               STD     Z+22, R18
+    116          	return 0;
+   \   00000104   E000               LDI     R16, 0
+   \                     ??decode_id_10:
+   \   00000106   9624               ADIW    R29:R28, 4
+   \   00000108   9189               LD      R24, Y+
+   \   0000010A   9199               LD      R25, Y+
+   \   0000010C   9508               RET
+   \                     ??decode_id_4:
+   \   0000010E   E020               LDI     R18, 0
+   \   00000110   8148               LD      R20, Y
+   \   00000112   E050               LDI     R21, 0
+   \   00000114   E108               LDI     R16, 24
+   \   00000116   E010               LDI     R17, 0
+   \   00000118   ........           CALL    ?S_EC_MUL_L02
+   \   0000011C   01F8               MOVW    R31:R30, R17:R16
+   \   0000011E   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   00000120   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000122   8B26               STD     Z+22, R18
+   \   00000124   ....               LDI     R30, LOW(state)
+   \   00000126   ....               LDI     R31, (state) >> 8
+   \   00000128   8100               LD      R16, Z
+   \   0000012A   8111               LDD     R17, Z+1
+   \   0000012C   FF07               SBRS    R16, 7
+   \   0000012E   C010               RJMP    ??decode_id_11
+   \   00000130   9100....           LDS     R16, (Time_delay + 157)
+   \   00000134   3001               CPI     R16, 1
+   \   00000136   F461               BRNE    ??decode_id_11
+   \   00000138   8100               LD      R16, Z
+   \   0000013A   8111               LDD     R17, Z+1
+   \   0000013C   770F               ANDI    R16, 0x7F
+   \   0000013E   8311               STD     Z+1, R17
+   \   00000140   8300               ST      Z, R16
+   \   00000142   E322               LDI     R18, 50
+   \   00000144   E030               LDI     R19, 0
+   \   00000146   ....               LDI     R16, LOW(`?<Constant "D000010E00000000">`)
+   \   00000148   ....               LDI     R17, (`?<Constant "D000010E00000000">`) >> 8
+   \   0000014A   ........           CALL    send_frame_pp_ext_broad
+   \   0000014E   0000               nop
+   \                     ??decode_id_11:
+   \   00000150   E001               LDI     R16, 1
+   \   00000152   CFD9               RJMP    ??decode_id_10
+    117          }
+    118          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    119          unsigned char decode_SCS(void)
+   \                     decode_SCS:
+    120          {
+   \   00000000   939A               ST      -Y, R25
+   \   00000002   938A               ST      -Y, R24
+   \   00000004   9724               SBIW    R29:R28, 4
+    121          	volatile unsigned char current = 0xFF;
+   \   00000006   EF0F               LDI     R16, 255
+   \   00000008   8308               ST      Y, R16
+    122          	unsigned char i;
+    123          	unsigned char buffer[3];
+    124          	//unsigned char current;
+    125          
+    126          	for(i=0;i<DEEP;i++)
+   \   0000000A   E080               LDI     R24, 0
+   \   0000000C   C001               RJMP    ??decode_SCS_0
+   \                     ??decode_SCS_1:
+   \   0000000E   9583               INC     R24
+   \                     ??decode_SCS_0:
+   \   00000010   3283               CPI     R24, 35
+   \   00000012   F468               BRCC    ??decode_SCS_2
+    127          	{
+    128          		if(scs_frame[i].finished)
+   \   00000014   2F48               MOV     R20, R24
+   \   00000016   E050               LDI     R21, 0
+   \   00000018   E108               LDI     R16, 24
+   \   0000001A   E010               LDI     R17, 0
+   \   0000001C   ........           CALL    ?S_EC_MUL_L02
+   \   00000020   01F8               MOVW    R31:R30, R17:R16
+   \   00000022   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   00000024   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000026   8906               LDD     R16, Z+22
+   \   00000028   2300               TST     R16
+   \   0000002A   F389               BREQ    ??decode_SCS_1
+    129          		{
+    130          			current = i;
+   \   0000002C   8348               ST      Y, R20
+    131          			break;
+    132          		}
+    133          	}
+    134          
+    135          	if(scs_frame[current].finished && current != 0xFF)
+   \                     ??decode_SCS_2:
+   \   0000002E   8148               LD      R20, Y
+   \   00000030   E050               LDI     R21, 0
+   \   00000032   E108               LDI     R16, 24
+   \   00000034   E010               LDI     R17, 0
+   \   00000036   ........           CALL    ?S_EC_MUL_L02
+   \   0000003A   01F8               MOVW    R31:R30, R17:R16
+   \   0000003C   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   0000003E   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000040   8906               LDD     R16, Z+22
+   \   00000042   2300               TST     R16
+   \   00000044   F409               BRNE    $+2+2
+   \   00000046   C090               RJMP    ??decode_SCS_3
+   \   00000048   8108               LD      R16, Y
+   \   0000004A   3F0F               CPI     R16, 255
+   \   0000004C   F409               BRNE    $+2+2
+   \   0000004E   C08C               RJMP    ??decode_SCS_3
+    136          	{
+    137          		switch(StrToChar(&scs_frame[current].byte[1]))
+   \   00000050   ....               LDI     R18, LOW((scs_frame + 1))
+   \   00000052   ....               LDI     R19, HIGH((scs_frame + 1))
+   \   00000054   8148               LD      R20, Y
+   \   00000056   E108               LDI     R16, 24
+   \   00000058   E010               LDI     R17, 0
+   \   0000005A   ........           CALL    ?S_EC_MUL_L02
+   \   0000005E   0F20               ADD     R18, R16
+   \   00000060   1F31               ADC     R19, R17
+   \   00000062   0189               MOVW    R17:R16, R19:R18
+   \   00000064   ........           CALL    StrToChar
+   \   00000068   5000               SUBI    R16, 0
+   \   0000006A   F409               BRNE    $+2+2
+   \   0000006C   C07D               RJMP    ??decode_SCS_3
+   \   0000006E   950A               DEC     R16
+   \   00000070   F409               BRNE    $+2+2
+   \   00000072   C07A               RJMP    ??decode_SCS_3
+   \   00000074   5006               SUBI    R16, 6
+   \   00000076   F409               BRNE    $+2+2
+   \   00000078   C077               RJMP    ??decode_SCS_3
+   \   0000007A   5100               SUBI    R16, 16
+   \   0000007C   F019               BREQ    ??decode_SCS_4
+   \   0000007E   950A               DEC     R16
+   \   00000080   F1A1               BREQ    ??decode_SCS_5
+   \   00000082   C065               RJMP    ??decode_SCS_6
+    138          		{
+    139              	case 0x00:
+    140                break;
+    141          
+    142              	case 0x01:
+    143                break;
+    144          
+    145              	case 0x07:
+    146                break;
+    147          
+    148          			case 0x17:
+    149          				for(i=0;i<8;i++)
+   \                     ??decode_SCS_4:
+   \   00000084   E080               LDI     R24, 0
+   \   00000086   C013               RJMP    ??decode_SCS_7
+    150          				{
+    151          					g_short_buffer[i] = scs_frame[current].byte[i+3];
+   \                     ??decode_SCS_8:
+   \   00000088   ....               LDI     R30, LOW((scs_frame + 3))
+   \   0000008A   ....               LDI     R31, HIGH((scs_frame + 3))
+   \   0000008C   E090               LDI     R25, 0
+   \   0000008E   0FE8               ADD     R30, R24
+   \   00000090   1FF9               ADC     R31, R25
+   \   00000092   8148               LD      R20, Y
+   \   00000094   E050               LDI     R21, 0
+   \   00000096   E108               LDI     R16, 24
+   \   00000098   E010               LDI     R17, 0
+   \   0000009A   ........           CALL    ?S_EC_MUL_L02
+   \   0000009E   0FE0               ADD     R30, R16
+   \   000000A0   1FF1               ADC     R31, R17
+   \   000000A2   8100               LD      R16, Z
+   \   000000A4   01FC               MOVW    R31:R30, R25:R24
+   \   000000A6   ....               SUBI    R30, LOW((-(g_short_buffer) & 0xFFFF))
+   \   000000A8   ....               SBCI    R31, (-(g_short_buffer) & 0xFFFF) >> 8
+   \   000000AA   8300               ST      Z, R16
+    152          				}
+   \   000000AC   9583               INC     R24
+   \                     ??decode_SCS_7:
+   \   000000AE   3088               CPI     R24, 8
+   \   000000B0   F358               BRCS    ??decode_SCS_8
+    153          				
+    154          				for(i=0;i<4;i++)
+   \   000000B2   E080               LDI     R24, 0
+   \                     ??decode_SCS_9:
+   \   000000B4   3084               CPI     R24, 4
+   \   000000B6   F008               BRCS    $+2+2
+   \   000000B8   C057               RJMP    ??decode_SCS_3
+    155          				{	
+    156          					buffer[0] = g_short_buffer[i * 2];
+   \   000000BA   E002               LDI     R16, 2
+   \   000000BC   9F80               MUL     R24, R16
+   \   000000BE   ....               LDI     R30, LOW(g_short_buffer)
+   \   000000C0   ....               LDI     R31, (g_short_buffer) >> 8
+   \   000000C2   0DE0               ADD     R30, R0
+   \   000000C4   1DF1               ADC     R31, R1
+   \   000000C6   8100               LD      R16, Z
+   \   000000C8   8309               STD     Y+1, R16
+    157          					buffer[1] = g_short_buffer[i * 2 + 1];
+   \   000000CA   8101               LDD     R16, Z+1
+   \   000000CC   830A               STD     Y+2, R16
+    158          					buffer[2] = 0;
+   \   000000CE   E000               LDI     R16, 0
+   \   000000D0   830B               STD     Y+3, R16
+    159          					g_asc_short_buffer[i] = StrToChar(buffer);
+   \   000000D2   018E               MOVW    R17:R16, R29:R28
+   \   000000D4   5F0F               SUBI    R16, 255
+   \   000000D6   4F1F               SBCI    R17, 255
+   \   000000D8   ........           CALL    StrToChar
+   \   000000DC   E090               LDI     R25, 0
+   \   000000DE   01FC               MOVW    R31:R30, R25:R24
+   \   000000E0   ....               SUBI    R30, LOW((-(g_asc_short_buffer) & 0xFFFF))
+   \   000000E2   ....               SBCI    R31, (-(g_asc_short_buffer) & 0xFFFF) >> 8
+   \   000000E4   8300               ST      Z, R16
+    160          				}
+   \   000000E6   9583               INC     R24
+   \   000000E8   CFE5               RJMP    ??decode_SCS_9
+    161          			break;
+    162          
+    163          			case 0x18:
+    164          				for(i=0;i<16;i++)
+   \                     ??decode_SCS_5:
+   \   000000EA   E080               LDI     R24, 0
+   \   000000EC   C013               RJMP    ??decode_SCS_10
+    165          				{
+    166          					g_reception_buffer[i] = scs_frame[current].byte[i+3];
+   \                     ??decode_SCS_11:
+   \   000000EE   ....               LDI     R30, LOW((scs_frame + 3))
+   \   000000F0   ....               LDI     R31, HIGH((scs_frame + 3))
+   \   000000F2   E090               LDI     R25, 0
+   \   000000F4   0FE8               ADD     R30, R24
+   \   000000F6   1FF9               ADC     R31, R25
+   \   000000F8   8148               LD      R20, Y
+   \   000000FA   E050               LDI     R21, 0
+   \   000000FC   E108               LDI     R16, 24
+   \   000000FE   E010               LDI     R17, 0
+   \   00000100   ........           CALL    ?S_EC_MUL_L02
+   \   00000104   0FE0               ADD     R30, R16
+   \   00000106   1FF1               ADC     R31, R17
+   \   00000108   8100               LD      R16, Z
+   \   0000010A   01FC               MOVW    R31:R30, R25:R24
+   \   0000010C   ....               SUBI    R30, LOW((-(g_reception_buffer) & 0xFFFF))
+   \   0000010E   ....               SBCI    R31, (-(g_reception_buffer) & 0xFFFF) >> 8
+   \   00000110   8300               ST      Z, R16
+    167          				}
+   \   00000112   9583               INC     R24
+   \                     ??decode_SCS_10:
+   \   00000114   3180               CPI     R24, 16
+   \   00000116   F358               BRCS    ??decode_SCS_11
+    168          
+    169          				for(i=0;i<8;i++)
+   \   00000118   E080               LDI     R24, 0
+   \                     ??decode_SCS_12:
+   \   0000011A   3088               CPI     R24, 8
+   \   0000011C   F528               BRCC    ??decode_SCS_3
+    170          				{
+    171          					buffer[0] = g_reception_buffer[i * 2];
+   \   0000011E   E002               LDI     R16, 2
+   \   00000120   9F80               MUL     R24, R16
+   \   00000122   ....               LDI     R30, LOW(g_reception_buffer)
+   \   00000124   ....               LDI     R31, (g_reception_buffer) >> 8
+   \   00000126   0DE0               ADD     R30, R0
+   \   00000128   1DF1               ADC     R31, R1
+   \   0000012A   8100               LD      R16, Z
+   \   0000012C   8309               STD     Y+1, R16
+    172          					buffer[1] = g_reception_buffer[i * 2 + 1];
+   \   0000012E   8101               LDD     R16, Z+1
+   \   00000130   830A               STD     Y+2, R16
+    173          					buffer[2] = 0;
+   \   00000132   E000               LDI     R16, 0
+   \   00000134   830B               STD     Y+3, R16
+    174          					g_asc_reception_buffer[i] = StrToChar(buffer);
+   \   00000136   018E               MOVW    R17:R16, R29:R28
+   \   00000138   5F0F               SUBI    R16, 255
+   \   0000013A   4F1F               SBCI    R17, 255
+   \   0000013C   ........           CALL    StrToChar
+   \   00000140   E090               LDI     R25, 0
+   \   00000142   01FC               MOVW    R31:R30, R25:R24
+   \   00000144   ....               SUBI    R30, LOW((-(g_asc_reception_buffer) & 0xFFFF))
+   \   00000146   ....               SBCI    R31, (-(g_asc_reception_buffer) & 0xFFFF) >> 8
+   \   00000148   8300               ST      Z, R16
+    175          				}
+   \   0000014A   9583               INC     R24
+   \   0000014C   CFE6               RJMP    ??decode_SCS_12
+    176          			break;
+    177          
+    178          			default:
+    179          				scs_frame[current].finished = 0;		
+   \                     ??decode_SCS_6:
+   \   0000014E   E020               LDI     R18, 0
+   \   00000150   8148               LD      R20, Y
+   \   00000152   E050               LDI     R21, 0
+   \   00000154   E108               LDI     R16, 24
+   \   00000156   E010               LDI     R17, 0
+   \   00000158   ........           CALL    ?S_EC_MUL_L02
+   \   0000015C   01F8               MOVW    R31:R30, R17:R16
+   \   0000015E   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   00000160   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   00000162   8B26               STD     Z+22, R18
+    180          			return 1;
+   \   00000164   E001               LDI     R16, 1
+   \   00000166   C00C               RJMP    ??decode_SCS_13
+    181          		}
+    182          	}
+    183          	scs_frame[current].finished = 0;
+   \                     ??decode_SCS_3:
+   \   00000168   E020               LDI     R18, 0
+   \   0000016A   8148               LD      R20, Y
+   \   0000016C   E050               LDI     R21, 0
+   \   0000016E   E108               LDI     R16, 24
+   \   00000170   E010               LDI     R17, 0
+   \   00000172   ........           CALL    ?S_EC_MUL_L02
+   \   00000176   01F8               MOVW    R31:R30, R17:R16
+   \   00000178   ....               SUBI    R30, LOW((-(scs_frame) & 0xFFFF))
+   \   0000017A   ....               SBCI    R31, (-(scs_frame) & 0xFFFF) >> 8
+   \   0000017C   8B26               STD     Z+22, R18
+    184          	return 0;
+   \   0000017E   E000               LDI     R16, 0
+   \                     ??decode_SCS_13:
+   \   00000180   9624               ADIW    R29:R28, 4
+   \   00000182   9189               LD      R24, Y+
+   \   00000184   9199               LD      R25, Y+
+   \   00000186   9508               RET
+    185          }
+    186          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    187          unsigned char is_gateway_busy(void)
+   \                     is_gateway_busy:
+    188          {
+   \   00000000   ........           CALL    ?PROLOGUE4_L09
+    189          	unsigned char i;
+    190          	//unsigned char current;
+    191          
+    192          	for(i=0;i<DEEP;i++)
+   \   00000004   E080               LDI     R24, 0
+   \   00000006   C001               RJMP    ??is_gateway_busy_0
+   \                     ??is_gateway_busy_1:
+   \   00000008   9583               INC     R24
+   \                     ??is_gateway_busy_0:
+   \   0000000A   3283               CPI     R24, 35
+   \   0000000C   F5B0               BRCC    ??is_gateway_busy_2
+    193          	{
+    194          		if(scs_frame[i].finished)
+   \   0000000E   2F48               MOV     R20, R24
+   \   00000010   E050               LDI     R21, 0
+   \   00000012   E108               LDI     R16, 24
+   \   00000014   E010               LDI     R17, 0
+   \   00000016   ........           CALL    ?S_EC_MUL_L02
+   \   0000001A   ....               LDI     R26, LOW(scs_frame)
+   \   0000001C   ....               LDI     R27, (scs_frame) >> 8
+   \   0000001E   0FA0               ADD     R26, R16
+   \   00000020   1FB1               ADC     R27, R17
+   \   00000022   01FD               MOVW    R31:R30, R27:R26
+   \   00000024   8906               LDD     R16, Z+22
+   \   00000026   2300               TST     R16
+   \   00000028   F379               BREQ    ??is_gateway_busy_1
+    195          		{
+    196                scs_frame[i].finished = 0;
+   \   0000002A   8B56               STD     Z+22, R21
+    197                switch(StrToChar(&scs_frame[i].byte[1]))
+   \   0000002C   018D               MOVW    R17:R16, R27:R26
+   \   0000002E   5F0F               SUBI    R16, 255
+   \   00000030   4F1F               SBCI    R17, 255
+   \   00000032   ........           CALL    StrToChar
+   \   00000036   5000               SUBI    R16, 0
+   \   00000038   F059               BREQ    ??is_gateway_busy_3
+   \   0000003A   950A               DEC     R16
+   \   0000003C   F0D1               BREQ    ??is_gateway_busy_4
+   \   0000003E   5006               SUBI    R16, 6
+   \   00000040   F049               BREQ    ??is_gateway_busy_5
+   \   00000042   950A               DEC     R16
+   \   00000044   F049               BREQ    ??is_gateway_busy_6
+   \   00000046   500B               SUBI    R16, 11
+   \   00000048   F0B1               BREQ    ??is_gateway_busy_7
+   \   0000004A   500F               SUBI    R16, 15
+   \   0000004C   F091               BREQ    ??is_gateway_busy_4
+   \   0000004E   CFDC               RJMP    ??is_gateway_busy_1
+    198          		  {
+    199                  case 0x00:
+    200                    //scs_frame[current].finished = 0;
+    201                    return 0x02;
+   \                     ??is_gateway_busy_3:
+   \   00000050   E002               LDI     R16, 2
+   \   00000052   C014               RJMP    ??is_gateway_busy_8
+    202          
+    203                  case 0x01:
+    204                   return 0x01;
+    205          
+    206                  case 0x07:
+    207                    return 0x07;
+   \                     ??is_gateway_busy_5:
+   \   00000054   E007               LDI     R16, 7
+   \   00000056   C012               RJMP    ??is_gateway_busy_8
+    208          
+    209                  case 0x08:
+    210                    if(StrToChar(&scs_frame[i].byte[3]) == 2 || StrToChar(&scs_frame[i].byte[3]) == 3)
+   \                     ??is_gateway_busy_6:
+   \   00000058   018D               MOVW    R17:R16, R27:R26
+   \   0000005A   5F0D               SUBI    R16, 253
+   \   0000005C   4F1F               SBCI    R17, 255
+   \   0000005E   ........           CALL    StrToChar
+   \   00000062   3002               CPI     R16, 2
+   \   00000064   F031               BREQ    ??is_gateway_busy_4
+   \   00000066   9613               ADIW    R27:R26, 3
+   \   00000068   018D               MOVW    R17:R16, R27:R26
+   \   0000006A   ........           CALL    StrToChar
+   \   0000006E   3003               CPI     R16, 3
+   \   00000070   F659               BRNE    ??is_gateway_busy_1
+   \                     ??is_gateway_busy_4:
+   \   00000072   E001               LDI     R16, 1
+   \   00000074   C003               RJMP    ??is_gateway_busy_8
+    211                      return 1;
+    212                  break;
+    213          
+    214          				case 0x13:
+    215          					return 0x13;
+   \                     ??is_gateway_busy_7:
+   \   00000076   E103               LDI     R16, 19
+   \   00000078   C001               RJMP    ??is_gateway_busy_8
+    216          				
+    217                  case 0x22:
+    218                    return 1;
+    219          
+    220          			  default: break;
+    221          		  }
+    222          		}
+    223          	}
+    224            return 0;
+   \                     ??is_gateway_busy_2:
+   \   0000007A   E000               LDI     R16, 0
+   \                     ??is_gateway_busy_8:
+   \   0000007C   E0E4               LDI     R30, 4
+   \   0000007E   ........           JMP     ?EPILOGUE_B4_L09
+    225          }
+    226          
+    227          //SCS_received.presence GR presence
+    228          //SCS_received.GS_presence GS presence
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    229          void application_decode_short(void)
+   \                     application_decode_short:
+    230          {	
+   \   00000000   93BA               ST      -Y, R27
+   \   00000002   93AA               ST      -Y, R26
+    231          	if(KO_conf.AddressType == GROUP)
+   \   00000004   ....               LDI     R26, LOW(KO_conf)
+   \   00000006   ....               LDI     R27, (KO_conf) >> 8
+   \   00000008   9100....           LDS     R16, (KO_conf + 1)
+   \   0000000C   3002               CPI     R16, 2
+   \   0000000E   F009               BREQ    $+2+2
+   \   00000010   C08A               RJMP    ??application_decode_short_0
+   \   00000012   9100....           LDS     R16, g_asc_short_buffer
+   \   00000016   9110....           LDS     R17, (KO_conf + 5)
+   \   0000001A   1701               CP      R16, R17
+   \   0000001C   F469               BRNE    ??application_decode_short_1
+    232          	{
+    233          		if(g_asc_short_buffer[0] == KO_conf.Reference)		//APL\00\12\00
+    234          		{
+    235          			if(g_asc_short_buffer[2] == 0x12 && g_asc_short_buffer[3] == 0x00 )
+   \   0000001E   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000022   3102               CPI     R16, 18
+   \   00000024   F449               BRNE    ??application_decode_short_1
+   \   00000026   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000002A   2300               TST     R16
+   \   0000002C   F429               BRNE    ??application_decode_short_1
+    236          				SCS_received.GR_ON = 1;
+   \   0000002E   ....               LDI     R30, LOW(SCS_received)
+   \   00000030   ....               LDI     R31, (SCS_received) >> 8
+   \   00000032   8100               LD      R16, Z
+   \   00000034   6008               ORI     R16, 0x08
+   \   00000036   8300               ST      Z, R16
+    237          		}
+    238          		
+    239          		if(g_asc_short_buffer[0] == 0xB5)
+   \                     ??application_decode_short_1:
+   \   00000038   9100....           LDS     R16, g_asc_short_buffer
+   \   0000003C   3B05               CPI     R16, 181
+   \   0000003E   F009               BREQ    $+2+2
+   \   00000040   C072               RJMP    ??application_decode_short_0
+    240          		{
+    241          			if(g_asc_short_buffer[1] == KO_conf.GR)
+   \   00000042   9100....           LDS     R16, (g_asc_short_buffer + 1)
+   \   00000046   9110....           LDS     R17, (KO_conf + 6)
+   \   0000004A   1701               CP      R16, R17
+   \   0000004C   F009               BREQ    $+2+2
+   \   0000004E   C042               RJMP    ??application_decode_short_2
+    242          			{
+    243          				if(g_asc_short_buffer[2] == 0x1D)
+   \   00000050   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000054   310D               CPI     R16, 29
+   \   00000056   F491               BRNE    ??application_decode_short_3
+    244          				{
+    245          					if(g_asc_short_buffer[3] == 0x00)	
+   \   00000058   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000005C   2300               TST     R16
+   \   0000005E   F429               BRNE    ??application_decode_short_4
+    246          						SCS_received.presence = 1;	// B|5 G|G 1|D 0|0  "presence"
+   \   00000060   ....               LDI     R30, LOW(SCS_received)
+   \   00000062   ....               LDI     R31, (SCS_received) >> 8
+   \   00000064   8100               LD      R16, Z
+   \   00000066   6001               ORI     R16, 0x01
+   \   00000068   C008               RJMP    ??application_decode_short_5
+    247          					else if(g_asc_short_buffer[3] == 0x01)	
+   \                     ??application_decode_short_4:
+   \   0000006A   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000006E   3001               CPI     R16, 1
+   \   00000070   F429               BRNE    ??application_decode_short_3
+    248          						SCS_received.no_presence = 1;	// B|5 G|G 1|D 0|1 "no presence"
+   \   00000072   ....               LDI     R30, LOW(SCS_received)
+   \   00000074   ....               LDI     R31, (SCS_received) >> 8
+   \   00000076   8100               LD      R16, Z
+   \   00000078   6002               ORI     R16, 0x02
+   \                     ??application_decode_short_5:
+   \   0000007A   8300               ST      Z, R16
+    249          				}
+    250          				
+    251          				if(g_asc_short_buffer[2] == 0x12)
+   \                     ??application_decode_short_3:
+   \   0000007C   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000080   3102               CPI     R16, 18
+   \   00000082   F541               BRNE    ??application_decode_short_2
+    252          				{
+    253          					if(g_asc_short_buffer[3] == 0x00)
+   \   00000084   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   00000088   2300               TST     R16
+   \   0000008A   F429               BRNE    ??application_decode_short_6
+    254          						SCS_received.GR_ON = 1;		//B|5 G|G 1|2 0|0   "Group frame ON"
+   \   0000008C   ....               LDI     R30, LOW(SCS_received)
+   \   0000008E   ....               LDI     R31, (SCS_received) >> 8
+   \   00000090   8100               LD      R16, Z
+   \   00000092   6008               ORI     R16, 0x08
+   \   00000094   8300               ST      Z, R16
+    255          					
+    256          					if(g_asc_short_buffer[3] == 0x01)	
+   \                     ??application_decode_short_6:
+   \   00000096   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000009A   3001               CPI     R16, 1
+   \   0000009C   F429               BRNE    ??application_decode_short_7
+    257          						SCS_received.GR_OFF = 1;	// B|5 G|G 1|2 0|1  "group frame OFF"
+   \   0000009E   ....               LDI     R30, LOW(SCS_received)
+   \   000000A0   ....               LDI     R31, (SCS_received) >> 8
+   \   000000A2   8100               LD      R16, Z
+   \   000000A4   6100               ORI     R16, 0x10
+   \   000000A6   8300               ST      Z, R16
+   \                     ??application_decode_short_7:
+   \   000000A8   9100....           LDS     R16, (g_short_buffer + 7)
+   \   000000AC   3404               CPI     R16, 68
+   \   000000AE   F491               BRNE    ??application_decode_short_2
+    258          					
+    259          					if(g_short_buffer[7] == 'D')			// dimmer	0526
+    260          					{
+    261          						if(g_short_buffer[6] == '0')
+   \   000000B0   9100....           LDS     R16, (g_short_buffer + 6)
+   \   000000B4   3300               CPI     R16, 48
+   \   000000B6   F429               BRNE    ??application_decode_short_8
+    262          							SCS_received.GR_OFF = 1;	
+   \   000000B8   ....               LDI     R30, LOW(SCS_received)
+   \   000000BA   ....               LDI     R31, (SCS_received) >> 8
+   \   000000BC   8100               LD      R16, Z
+   \   000000BE   6100               ORI     R16, 0x10
+   \   000000C0   C008               RJMP    ??application_decode_short_9
+    263          						else if(g_short_buffer[6] <= '9')
+   \                     ??application_decode_short_8:
+   \   000000C2   9100....           LDS     R16, (g_short_buffer + 6)
+   \   000000C6   330A               CPI     R16, 58
+   \   000000C8   F428               BRCC    ??application_decode_short_2
+    264          							SCS_received.GR_ON = 1;
+   \   000000CA   ....               LDI     R30, LOW(SCS_received)
+   \   000000CC   ....               LDI     R31, (SCS_received) >> 8
+   \   000000CE   8100               LD      R16, Z
+   \   000000D0   6008               ORI     R16, 0x08
+   \                     ??application_decode_short_9:
+   \   000000D2   8300               ST      Z, R16
+    265          					}
+    266          				}							
+    267          			}
+    268          				
+    269          			if(((KO_conf.GS1 != 0)||(KO_conf.GS2 != 0)) && (g_asc_short_buffer[1] != 0))
+   \                     ??application_decode_short_2:
+   \   000000D4   9100....           LDS     R16, (KO_conf + 7)
+   \   000000D8   2300               TST     R16
+   \   000000DA   F421               BRNE    ??application_decode_short_10
+   \   000000DC   9100....           LDS     R16, (KO_conf + 8)
+   \   000000E0   2300               TST     R16
+   \   000000E2   F109               BREQ    ??application_decode_short_0
+   \                     ??application_decode_short_10:
+   \   000000E4   9100....           LDS     R16, (g_asc_short_buffer + 1)
+   \   000000E8   2300               TST     R16
+   \   000000EA   F0E9               BREQ    ??application_decode_short_0
+    270          			{
+    271          				if((g_asc_short_buffer[1] == KO_conf.GS1)||(g_asc_short_buffer[1] == KO_conf.GS2))				
+   \   000000EC   9100....           LDS     R16, (g_asc_short_buffer + 1)
+   \   000000F0   9110....           LDS     R17, (KO_conf + 7)
+   \   000000F4   1701               CP      R16, R17
+   \   000000F6   F031               BREQ    ??application_decode_short_11
+   \   000000F8   9100....           LDS     R16, (g_asc_short_buffer + 1)
+   \   000000FC   9110....           LDS     R17, (KO_conf + 8)
+   \   00000100   1701               CP      R16, R17
+   \   00000102   F489               BRNE    ??application_decode_short_0
+    272          				{
+    273          					if(g_asc_short_buffer[2] == 0x1D)
+   \                     ??application_decode_short_11:
+   \   00000104   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000108   310D               CPI     R16, 29
+   \   0000010A   F469               BRNE    ??application_decode_short_0
+    274          					{
+    275          						if(g_asc_short_buffer[3] == 0)	
+   \   0000010C   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   00000110   2300               TST     R16
+   \   00000112   F449               BRNE    ??application_decode_short_0
+    276          						{
+    277          							if(Time_delay.GS_wait_22s ==0)
+   \   00000114   9100....           LDS     R16, (Time_delay + 10)
+   \   00000118   2300               TST     R16
+   \   0000011A   F429               BRNE    ??application_decode_short_0
+    278          									SCS_received.GS_presence = 1;									
+   \   0000011C   ....               LDI     R30, LOW(SCS_received)
+   \   0000011E   ....               LDI     R31, (SCS_received) >> 8
+   \   00000120   8100               LD      R16, Z
+   \   00000122   6004               ORI     R16, 0x04
+   \   00000124   8300               ST      Z, R16
+    279          						}
+    280          						// B|5 G|S 1|D 0|0  "presence" send by GS
+    281          					}
+    282          				}		
+    283          			}
+    284          		}	
+    285          	}
+    286          	
+    287          	if(((KO_conf.AddressType == GROUP)&&(KO_conf.Reference == g_asc_short_buffer[1]))||((KO_conf.AddressType == PP)&&(KO_conf.DesAdd == g_asc_short_buffer[1])))
+   \                     ??application_decode_short_0:
+   \   00000126   9100....           LDS     R16, (KO_conf + 1)
+   \   0000012A   3002               CPI     R16, 2
+   \   0000012C   F431               BRNE    ??application_decode_short_12
+   \   0000012E   9100....           LDS     R16, (KO_conf + 5)
+   \   00000132   9110....           LDS     R17, (g_asc_short_buffer + 1)
+   \   00000136   1701               CP      R16, R17
+   \   00000138   F061               BREQ    ??application_decode_short_13
+   \                     ??application_decode_short_12:
+   \   0000013A   9100....           LDS     R16, (KO_conf + 1)
+   \   0000013E   2300               TST     R16
+   \   00000140   F009               BREQ    $+2+2
+   \   00000142   C0A6               RJMP    ??application_decode_short_14
+   \   00000144   9100....           LDS     R16, (KO_conf + 2)
+   \   00000148   9110....           LDS     R17, (g_asc_short_buffer + 1)
+   \   0000014C   1701               CP      R16, R17
+   \   0000014E   F009               BREQ    $+2+2
+   \   00000150   C09F               RJMP    ??application_decode_short_14
+   \                     ??application_decode_short_13:
+   \   00000152   9100....           LDS     R16, g_asc_short_buffer
+   \   00000156   3B08               CPI     R16, 184
+   \   00000158   F009               BREQ    $+2+2
+   \   0000015A   C080               RJMP    ??application_decode_short_15
+    288          	{		
+    289          		if(g_asc_short_buffer[0] == 0xB8)	// frame B8						// B|8 G|G 1|2 0|1
+    290          		{
+    291          			if(g_asc_short_buffer[2] == 0x12)
+   \   0000015C   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000160   3102               CPI     R16, 18
+   \   00000162   F009               BREQ    $+2+2
+   \   00000164   C061               RJMP    ??application_decode_short_16
+    292          			{
+    293          				if(Time_delay.regulation.time_out == 0)			// received a single update frame,200ms after received a ON before
+   \   00000166   9100....           LDS     R16, (Time_delay + 278)
+   \   0000016A   2300               TST     R16
+   \   0000016C   ....               LDI     R30, LOW(DLL)
+   \   0000016E   ....               LDI     R31, (DLL) >> 8
+   \   00000170   A906               LDD     R16, Z+54
+   \   00000172   F431               BRNE    ??application_decode_short_17
+    294          				{			
+    295          					DLL.start_regulation = 1;				// ALAN 0729, Start to regulation when received update ON of its own GR
+   \   00000174   6001               ORI     R16, 0x01
+   \   00000176   AB06               STD     Z+54, R16
+    296          					SetBit(KO_conf.status[0],Status_Regulationing);
+   \   00000178   01FD               MOVW    R31:R30, R27:R26
+   \   0000017A   A505               LDD     R16, Z+45
+   \   0000017C   6400               ORI     R16, 0x40
+   \   0000017E   C005               RJMP    ??application_decode_short_18
+    297          				}
+    298          				else
+    299          				{
+    300          					//DLL.start_regulation = 0;				
+    301          					//ClrBit(KO_conf.status[0],Status_Regulationing);
+    302          					DLL.start_regulation = 0;				// ALAN 0729, Start to regulation when received update ON of its own GR
+   \                     ??application_decode_short_17:
+   \   00000180   7F0E               ANDI    R16, 0xFE
+   \   00000182   AB06               STD     Z+54, R16
+    303          					ClrBit(KO_conf.status[0],Status_Regulationing);
+   \   00000184   01FD               MOVW    R31:R30, R27:R26
+   \   00000186   A505               LDD     R16, Z+45
+   \   00000188   7B0F               ANDI    R16, 0xBF
+   \                     ??application_decode_short_18:
+   \   0000018A   A705               STD     Z+45, R16
+   \   0000018C   9100....           LDS     R16, (g_short_buffer + 7)
+   \   00000190   5300               SUBI    R16, 48
+   \   00000192   F029               BREQ    ??application_decode_short_19
+   \   00000194   950A               DEC     R16
+   \   00000196   F089               BREQ    ??application_decode_short_20
+   \   00000198   5103               SUBI    R16, 19
+   \   0000019A   F0E9               BREQ    ??application_decode_short_21
+   \   0000019C   C045               RJMP    ??application_decode_short_16
+    304          				}
+    305          
+    306          				switch(g_short_buffer[7])
+    307          				{
+    308          					case '0':
+    309          						Sensor_mode.power_on_flag = 1;
+   \                     ??application_decode_short_19:
+   \   0000019E   ....               LDI     R30, LOW(Sensor_mode)
+   \   000001A0   ....               LDI     R31, (Sensor_mode) >> 8
+   \   000001A2   8107               LDD     R16, Z+7
+   \   000001A4   6200               ORI     R16, 0x20
+   \   000001A6   8307               STD     Z+7, R16
+    310          						KO_conf.status[1] = Status_ON;		//reyno 0616
+   \   000001A8   E604               LDI     R16, 100
+   \   000001AA   9300....           STS     (KO_conf + 46), R16
+    311          						SCS_received.update_state_ON = 1;
+   \   000001AE   ....               LDI     R30, LOW(SCS_received)
+   \   000001B0   ....               LDI     R31, (SCS_received) >> 8
+   \   000001B2   8100               LD      R16, Z
+   \   000001B4   6800               ORI     R16, 0x80
+   \   000001B6   8300               ST      Z, R16
+   \   000001B8   C037               RJMP    ??application_decode_short_16
+    312          						break;
+    313          					case '1':
+    314          						Sensor_mode.power_on_flag = 0;
+   \                     ??application_decode_short_20:
+   \   000001BA   ....               LDI     R30, LOW(Sensor_mode)
+   \   000001BC   ....               LDI     R31, (Sensor_mode) >> 8
+   \   000001BE   8107               LDD     R16, Z+7
+   \   000001C0   7D0F               ANDI    R16, 0xDF
+   \   000001C2   8307               STD     Z+7, R16
+    315          						KO_conf.status[1] = Status_OFF;		//reyno 0616
+   \   000001C4   E000               LDI     R16, 0
+   \   000001C6   9300....           STS     (KO_conf + 46), R16
+    316          						SCS_received.update_state_OFF = 1;
+   \   000001CA   ....               LDI     R30, LOW(SCS_received)
+   \   000001CC   ....               LDI     R31, (SCS_received) >> 8
+   \   000001CE   8101               LDD     R16, Z+1
+   \   000001D0   6001               ORI     R16, 0x01
+   \   000001D2   8301               STD     Z+1, R16
+   \   000001D4   C029               RJMP    ??application_decode_short_16
+    317          						break;
+    318          					case 'D':
+    319          						Sensor_mode.power_on_flag = 1;
+   \                     ??application_decode_short_21:
+   \   000001D6   ....               LDI     R30, LOW(Sensor_mode)
+   \   000001D8   ....               LDI     R31, (Sensor_mode) >> 8
+   \   000001DA   8107               LDD     R16, Z+7
+   \   000001DC   6200               ORI     R16, 0x20
+   \   000001DE   8307               STD     Z+7, R16
+    320          						SCS_received.update_state_LEVEL = 1;
+   \   000001E0   ....               LDI     R30, LOW(SCS_received)
+   \   000001E2   ....               LDI     R31, (SCS_received) >> 8
+   \   000001E4   8101               LDD     R16, Z+1
+   \   000001E6   6002               ORI     R16, 0x02
+   \   000001E8   8301               STD     Z+1, R16
+    321          						SCS_received.P2P_dimmer_flag = 1;			// dimmer,used for regulation
+   \   000001EA   8102               LDD     R16, Z+2
+   \   000001EC   6002               ORI     R16, 0x02
+   \   000001EE   8302               STD     Z+2, R16
+    322          						SCS_received.P2P_actuator_flag = 0;
+   \   000001F0   8102               LDD     R16, Z+2
+   \   000001F2   7F0E               ANDI    R16, 0xFE
+   \   000001F4   8302               STD     Z+2, R16
+    323          						
+    324          						switch (g_short_buffer[6])
+   \   000001F6   9100....           LDS     R16, (g_short_buffer + 6)
+   \   000001FA   ....               LDI     R30, LOW(`?<Jumptable for application_decode_short>_0`)
+   \   000001FC   ....               LDI     R31, (`?<Jumptable for application_decode_short>_0`) >> 8
+   \   000001FE   ........           JMP     ?CV_SWITCH_L06
+    325          						{
+    326          							case '1':
+    327          							KO_conf.status[1]=1;
+   \                     ??application_decode_short_22:
+   \   00000202   E001               LDI     R16, 1
+   \   00000204   C00F               RJMP    ??application_decode_short_23
+    328          							break;
+    329          							
+    330          							case '2':
+    331          							KO_conf.status[1]=10;
+   \                     ??application_decode_short_24:
+   \   00000206   E00A               LDI     R16, 10
+   \   00000208   C00D               RJMP    ??application_decode_short_23
+    332          							break;
+    333          							
+    334          							case '3':
+    335          							KO_conf.status[1]=20;
+   \                     ??application_decode_short_25:
+   \   0000020A   E104               LDI     R16, 20
+   \   0000020C   C00B               RJMP    ??application_decode_short_23
+    336          							break;
+    337          							
+    338          							case '4':
+    339          							KO_conf.status[1]=30;
+   \                     ??application_decode_short_26:
+   \   0000020E   E10E               LDI     R16, 30
+   \   00000210   C009               RJMP    ??application_decode_short_23
+    340          							break;
+    341          							
+    342          							case '5':
+    343          							KO_conf.status[1]=40;
+   \                     ??application_decode_short_27:
+   \   00000212   E208               LDI     R16, 40
+   \   00000214   C007               RJMP    ??application_decode_short_23
+    344          							break;
+    345          							
+    346          							case '6':
+    347          							KO_conf.status[1]=50;
+   \                     ??application_decode_short_28:
+   \   00000216   E302               LDI     R16, 50
+   \   00000218   C005               RJMP    ??application_decode_short_23
+    348          							break;
+    349          							
+    350          							case '7':
+    351          							KO_conf.status[1]=60;
+   \                     ??application_decode_short_29:
+   \   0000021A   E30C               LDI     R16, 60
+   \   0000021C   C003               RJMP    ??application_decode_short_23
+    352          							break;
+    353          							
+    354          							case '8':
+    355          								KO_conf.status[1]=75;
+   \                     ??application_decode_short_30:
+   \   0000021E   E40B               LDI     R16, 75
+   \   00000220   C001               RJMP    ??application_decode_short_23
+    356          							break;
+    357          							
+    358          							case '9':
+    359          								KO_conf.status[1]=Status_ON;
+   \                     ??application_decode_short_31:
+   \   00000222   E604               LDI     R16, 100
+   \                     ??application_decode_short_23:
+   \   00000224   9300....           STS     (KO_conf + 46), R16
+    360          							break;
+    361          							
+    362          							default:break;
+    363          						}
+    364          						break;
+    365          						default:	break;	
+    366          					}
+    367          			}
+    368          			
+    369          			if(g_asc_short_buffer[2] == 0x1D)
+   \                     ??application_decode_short_16:
+   \   00000228   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   0000022C   310D               CPI     R16, 29
+   \   0000022E   F4B1               BRNE    ??application_decode_short_15
+    370          			{
+    371          				if(KO_conf.AddressType == PP)
+   \   00000230   9100....           LDS     R16, (KO_conf + 1)
+   \   00000234   2300               TST     R16
+   \   00000236   F491               BRNE    ??application_decode_short_15
+    372          				{
+    373          					if(g_asc_short_buffer[3] == 0x00)
+   \   00000238   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000023C   2300               TST     R16
+   \   0000023E   F429               BRNE    ??application_decode_short_32
+    374          						SCS_received.presence = 1;
+   \   00000240   ....               LDI     R30, LOW(SCS_received)
+   \   00000242   ....               LDI     R31, (SCS_received) >> 8
+   \   00000244   8100               LD      R16, Z
+   \   00000246   6001               ORI     R16, 0x01
+   \   00000248   C008               RJMP    ??application_decode_short_33
+    375          					else if(g_asc_short_buffer[3] == 0x01)
+   \                     ??application_decode_short_32:
+   \   0000024A   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   0000024E   3001               CPI     R16, 1
+   \   00000250   F429               BRNE    ??application_decode_short_15
+    376          						SCS_received.no_presence = 1;
+   \   00000252   ....               LDI     R30, LOW(SCS_received)
+   \   00000254   ....               LDI     R31, (SCS_received) >> 8
+   \   00000256   8100               LD      R16, Z
+   \   00000258   6002               ORI     R16, 0x02
+   \                     ??application_decode_short_33:
+   \   0000025A   8300               ST      Z, R16
+    377          				}
+    378          			}
+    379          		}
+    380          		
+    381          		if(KO_conf.AddressType == PP)
+   \                     ??application_decode_short_15:
+   \   0000025C   9100....           LDS     R16, (KO_conf + 1)
+   \   00000260   2300               TST     R16
+   \   00000262   F4B1               BRNE    ??application_decode_short_14
+    382          		{
+    383          			switch(g_asc_short_buffer[2])
+   \   00000264   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   00000268   3102               CPI     R16, 18
+   \   0000026A   F491               BRNE    ??application_decode_short_14
+    384          			{
+    385          				case 0x12:
+    386          					/*
+    387          					if(KO_conf.LightReg == 1)
+    388          					{	
+    389          						DLL.start_regulation = 1;
+    390          						SetBit(KO_conf.status[0],Status_Regulationing);
+    391          						regulation_timer_initial();
+    392          					}
+    393          					*/
+    394          					if(g_asc_short_buffer[3] == 0x00)
+   \   0000026C   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   00000270   2300               TST     R16
+   \   00000272   F429               BRNE    ??application_decode_short_34
+    395          						SCS_received.GR_ON = 1;         // 0714 alan in order to compatible with GR, P2P and GR use the same flag SCS_received.GR_ON
+   \   00000274   ....               LDI     R30, LOW(SCS_received)
+   \   00000276   ....               LDI     R31, (SCS_received) >> 8
+   \   00000278   8100               LD      R16, Z
+   \   0000027A   6008               ORI     R16, 0x08
+   \   0000027C   C008               RJMP    ??application_decode_short_35
+    396          					else if(g_asc_short_buffer[3] == 0x01)
+   \                     ??application_decode_short_34:
+   \   0000027E   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   00000282   3001               CPI     R16, 1
+   \   00000284   F429               BRNE    ??application_decode_short_14
+    397          						SCS_received.GR_OFF = 1;
+   \   00000286   ....               LDI     R30, LOW(SCS_received)
+   \   00000288   ....               LDI     R31, (SCS_received) >> 8
+   \   0000028A   8100               LD      R16, Z
+   \   0000028C   6100               ORI     R16, 0x10
+   \                     ??application_decode_short_35:
+   \   0000028E   8300               ST      Z, R16
+   \                     ??application_decode_short_14:
+   \   00000290   9100....           LDS     R16, g_asc_short_buffer
+   \   00000294   9110....           LDS     R17, (KO_conf + 2)
+   \   00000298   1701               CP      R16, R17
+   \   0000029A   F531               BRNE    ??application_decode_short_36
+    398          				break;
+    399          				default:break;
+    400          			}
+    401          		}	
+    402          	}
+    403          	
+    404          	//receive APL XX 12 00
+    405          	if(g_asc_short_buffer[0] == KO_conf.DesAdd)
+    406          	{
+    407          		switch(g_asc_short_buffer[2])
+   \   0000029C   9100....           LDS     R16, (g_asc_short_buffer + 2)
+   \   000002A0   3102               CPI     R16, 18
+   \   000002A2   F511               BRNE    ??application_decode_short_36
+    408          		{
+    409          			case 0x12:
+    410          				if(g_asc_short_buffer[3] == 0x00)
+   \   000002A4   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   000002A8   2300               TST     R16
+   \   000002AA   F4A9               BRNE    ??application_decode_short_37
+    411          				{
+    412          					SCS_received.GR_ON = 1;         // 0714 alan in order to compatible with GR, P2P and GR use the same flag SCS_received.GR_ON
+   \   000002AC   ....               LDI     R30, LOW(SCS_received)
+   \   000002AE   ....               LDI     R31, (SCS_received) >> 8
+   \   000002B0   8100               LD      R16, Z
+   \   000002B2   6008               ORI     R16, 0x08
+   \   000002B4   8300               ST      Z, R16
+    413          					if(KO_conf.LightReg == 1)
+   \   000002B6   9100....           LDS     R16, (KO_conf + 28)
+   \   000002BA   3001               CPI     R16, 1
+   \   000002BC   F4A9               BRNE    ??application_decode_short_36
+    414          					{	
+    415          						DLL.start_regulation = 1;
+   \   000002BE   ....               LDI     R30, LOW(DLL)
+   \   000002C0   ....               LDI     R31, (DLL) >> 8
+   \   000002C2   A906               LDD     R16, Z+54
+   \   000002C4   6001               ORI     R16, 0x01
+   \   000002C6   AB06               STD     Z+54, R16
+    416          						SetBit(KO_conf.status[0],Status_Regulationing);
+   \   000002C8   01FD               MOVW    R31:R30, R27:R26
+   \   000002CA   A505               LDD     R16, Z+45
+   \   000002CC   6400               ORI     R16, 0x40
+   \   000002CE   A705               STD     Z+45, R16
+    417          						regulation_timer_initial();
+   \   000002D0   ........           CALL    regulation_timer_initial
+   \   000002D4   C009               RJMP    ??application_decode_short_36
+    418          					}
+    419          				}
+    420          				else if(g_asc_short_buffer[3] == 0x01)
+   \                     ??application_decode_short_37:
+   \   000002D6   9100....           LDS     R16, (g_asc_short_buffer + 3)
+   \   000002DA   3001               CPI     R16, 1
+   \   000002DC   F429               BRNE    ??application_decode_short_36
+    421          					SCS_received.GR_OFF = 1;
+   \   000002DE   ....               LDI     R30, LOW(SCS_received)
+   \   000002E0   ....               LDI     R31, (SCS_received) >> 8
+   \   000002E2   8100               LD      R16, Z
+   \   000002E4   6100               ORI     R16, 0x10
+   \   000002E6   8300               ST      Z, R16
+    422          			break;
+    423          			default:break;
+    424          		}
+    425          	}
+    426          	
+    427          }
+   \                     ??application_decode_short_36:
+   \   000002E8   91A9               LD      R26, Y+
+   \   000002EA   91B9               LD      R27, Y+
+   \   000002EC   9508               RET
+    428          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    429          void application_decode_long(void)
+   \                     application_decode_long:
+    430          {
+   \   00000000   01AD               MOVW    R21:R20, R27:R26
+    431          	if((g_asc_reception_buffer[1] == KO_conf.DesAdd && KO_conf.AddressType == PP) || (g_asc_reception_buffer[1] == KO_conf.Reference && KO_conf.AddressType == GROUP) || (g_asc_reception_buffer[1] == KO_conf.GR && KO_conf.AddressType == GROUP))
+   \   00000002   ....               LDI     R16, LOW(KO_conf)
+   \   00000004   ....               LDI     R17, (KO_conf) >> 8
+   \   00000006   ....               LDI     R30, LOW(g_asc_reception_buffer)
+   \   00000008   ....               LDI     R31, (g_asc_reception_buffer) >> 8
+   \   0000000A   8121               LDD     R18, Z+1
+   \   0000000C   9130....           LDS     R19, (KO_conf + 2)
+   \   00000010   1723               CP      R18, R19
+   \   00000012   F421               BRNE    ??application_decode_long_0
+   \   00000014   9120....           LDS     R18, (KO_conf + 1)
+   \   00000018   2322               TST     R18
+   \   0000001A   F091               BREQ    ??application_decode_long_1
+   \                     ??application_decode_long_0:
+   \   0000001C   8121               LDD     R18, Z+1
+   \   0000001E   9130....           LDS     R19, (KO_conf + 5)
+   \   00000022   1723               CP      R18, R19
+   \   00000024   F421               BRNE    ??application_decode_long_2
+   \   00000026   9120....           LDS     R18, (KO_conf + 1)
+   \   0000002A   3022               CPI     R18, 2
+   \   0000002C   F049               BREQ    ??application_decode_long_1
+   \                     ??application_decode_long_2:
+   \   0000002E   8121               LDD     R18, Z+1
+   \   00000030   9130....           LDS     R19, (KO_conf + 6)
+   \   00000034   1723               CP      R18, R19
+   \   00000036   F571               BRNE    ??application_decode_long_3
+   \   00000038   9120....           LDS     R18, (KO_conf + 1)
+   \   0000003C   3022               CPI     R18, 2
+   \   0000003E   F551               BRNE    ??application_decode_long_3
+    432          	{
+    433          		if(g_asc_reception_buffer[5] == 0x0D)
+   \                     ??application_decode_long_1:
+   \   00000040   8125               LDD     R18, Z+5
+   \   00000042   302D               CPI     R18, 13
+   \   00000044   F459               BRNE    ??application_decode_long_4
+    434          		{
+    435          			SCS_received.P2P_dimmer_flag = 1;			// dimmer,used for regulation
+   \   00000046   ....               LDI     R26, LOW((SCS_received + 2))
+   \   00000048   ....               LDI     R27, HIGH((SCS_received + 2))
+   \   0000004A   912C               LD      R18, X
+   \   0000004C   6022               ORI     R18, 0x02
+   \   0000004E   932C               ST      X, R18
+    436          			SCS_received.P2P_actuator_flag = 0;
+   \   00000050   912C               LD      R18, X
+   \   00000052   7F2E               ANDI    R18, 0xFE
+   \   00000054   932C               ST      X, R18
+    437          			
+    438          			KO_conf.status[1] = g_asc_reception_buffer[5];
+   \   00000056   8125               LDD     R18, Z+5
+   \   00000058   9320....           STS     (KO_conf + 46), R18
+    439          		}
+    440          		
+    441          		//D2 A|Pl 0|1 3|4 0|D X|X X|X X|X		Extended state update frame
+    442          		if((g_asc_reception_buffer[0]==0xD2)&&(g_asc_reception_buffer[3]==0x34)&&(g_asc_reception_buffer[4]==0x0D))//&&(g_reception_buffer[11]=='0'||g_reception_buffer[11]=='D'))
+   \                     ??application_decode_long_4:
+   \   0000005C   8120               LD      R18, Z
+   \   0000005E   3D22               CPI     R18, 210
+   \   00000060   F4C9               BRNE    ??application_decode_long_3
+   \   00000062   8123               LDD     R18, Z+3
+   \   00000064   3324               CPI     R18, 52
+   \   00000066   F4B1               BRNE    ??application_decode_long_3
+   \   00000068   8124               LDD     R18, Z+4
+   \   0000006A   302D               CPI     R18, 13
+   \   0000006C   F499               BRNE    ??application_decode_long_3
+    443          		{
+    444          			if(Time_delay.regulation.time_out == 0)			// received a single update frame,200ms after received a ON before
+   \   0000006E   9120....           LDS     R18, (Time_delay + 278)
+   \   00000072   2322               TST     R18
+   \   00000074   ....               LDI     R30, LOW(DLL)
+   \   00000076   ....               LDI     R31, (DLL) >> 8
+   \   00000078   A926               LDD     R18, Z+54
+   \   0000007A   F431               BRNE    ??application_decode_long_5
+    445          			{			
+    446          				DLL.start_regulation = 1;									// ALAN 0729, Start to regulation when received update ON of its own GR
+   \   0000007C   6021               ORI     R18, 0x01
+   \   0000007E   AB26               STD     Z+54, R18
+    447          				SetBit(KO_conf.status[0],Status_Regulationing);
+   \   00000080   01F8               MOVW    R31:R30, R17:R16
+   \   00000082   A505               LDD     R16, Z+45
+   \   00000084   6400               ORI     R16, 0x40
+   \   00000086   C005               RJMP    ??application_decode_long_6
+    448          				//DLL.start_regulation = 0;				
+    449          				//ClrBit(KO_conf.status[0],Status_Regulationing);
+    450          			}
+    451          			else
+    452          			{
+    453          				DLL.start_regulation = 0;				
+   \                     ??application_decode_long_5:
+   \   00000088   7F2E               ANDI    R18, 0xFE
+   \   0000008A   AB26               STD     Z+54, R18
+    454          				ClrBit(KO_conf.status[0],Status_Regulationing);
+   \   0000008C   01F8               MOVW    R31:R30, R17:R16
+   \   0000008E   A505               LDD     R16, Z+45
+   \   00000090   7B0F               ANDI    R16, 0xBF
+   \                     ??application_decode_long_6:
+   \   00000092   A705               STD     Z+45, R16
+    455          				//DLL.start_regulation = 1;									// ALAN 0729, Start to regulation when received update ON of its own GR
+    456          				//SetBit(KO_conf.status[0],Status_Regulationing);
+    457          			}
+    458          		}
+    459          	}
+    460          }
+   \                     ??application_decode_long_3:
+   \   00000094   01DA               MOVW    R27:R26, R21:R20
+   \   00000096   9508               RET
+    461          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    462          void calibration_decode(void)
+   \                     calibration_decode:
+    463          {
+   \   00000000   93BA               ST      -Y, R27
+   \   00000002   93AA               ST      -Y, R26
+   \   00000004   9100....           LDS     R16, (g_asc_reception_buffer + 3)
+   \   00000008   3402               CPI     R16, 66
+   \   0000000A   F009               BREQ    $+2+2
+   \   0000000C   C066               RJMP    ??calibration_decode_0
+    464          	// add 0519
+    465          	// Enter calibration waiting mode	D1 01 01 42 14 00 00 00
+    466          	// Exit calibration waiting mode	D1 01 01 42 14 00 00 FF
+    467          	// Sent calibration lux				D1 01 01 42 10 0X XX XX
+    468          	// change by reyno May30
+    469          	if(g_asc_reception_buffer[3] == 0x42)       	// D5 LOC 01 42 14 XX XX XX 0519
+    470          	{
+    471          		if(g_asc_reception_buffer[4] == 0x14 )
+   \   0000000E   9100....           LDS     R16, (g_asc_reception_buffer + 4)
+   \   00000012   3104               CPI     R16, 20
+   \   00000014   F559               BRNE    ??calibration_decode_1
+    472          		{
+    473          			if(g_asc_reception_buffer[7] ==0x00)
+   \   00000016   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   0000001A   2300               TST     R16
+   \   0000001C   F4B1               BRNE    ??calibration_decode_2
+    474          			{
+    475          				SCS_received.calib_wait = 1;    	// D1 LOC 01 42 14 XX XX 00
+   \   0000001E   ....               LDI     R30, LOW(SCS_received)
+   \   00000020   ....               LDI     R31, (SCS_received) >> 8
+   \   00000022   8104               LDD     R16, Z+4
+   \   00000024   6001               ORI     R16, 0x01
+   \   00000026   8304               STD     Z+4, R16
+    476          		  	led_blinking(250,250);
+   \   00000028   EF4A               LDI     R20, 250
+   \   0000002A   E050               LDI     R21, 0
+   \   0000002C   E060               LDI     R22, 0
+   \   0000002E   E070               LDI     R23, 0
+   \   00000030   EF0A               LDI     R16, 250
+   \   00000032   E010               LDI     R17, 0
+   \   00000034   E020               LDI     R18, 0
+   \   00000036   E030               LDI     R19, 0
+   \   00000038   ........           CALL    led_blinking
+    477          				state.main_state = CALIBRATION;
+   \   0000003C   E303               LDI     R16, 51
+   \   0000003E   E910               LDI     R17, 144
+   \   00000040   9300....           STS     (state + 2), R16
+   \   00000044   9310....           STS     (state + 3), R17
+   \   00000048   C011               RJMP    ??calibration_decode_1
+    478          			}
+    479          			else if(g_asc_reception_buffer[7] == 0xFF)
+   \                     ??calibration_decode_2:
+   \   0000004A   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   0000004E   3F0F               CPI     R16, 255
+   \   00000050   F469               BRNE    ??calibration_decode_1
+    480          			{
+    481          				SCS_received.calib_wait = 0; 		//SCS_received.calib_exit = 1; 		// D1 LOC 01 42 14 XX XX FF
+   \   00000052   ....               LDI     R30, LOW(SCS_received)
+   \   00000054   ....               LDI     R31, (SCS_received) >> 8
+   \   00000056   8104               LDD     R16, Z+4
+   \   00000058   7F0E               ANDI    R16, 0xFE
+   \   0000005A   8304               STD     Z+4, R16
+    482          		 		led_blinking_disable(0);
+   \   0000005C   E000               LDI     R16, 0
+   \   0000005E   ........           CALL    led_blinking_disable
+    483          				state.main_state = NORMAL;
+   \   00000062   E000               LDI     R16, 0
+   \   00000064   9300....           STS     (state + 2), R16
+   \   00000068   9300....           STS     (state + 3), R16
+    484          			}
+    485          		}
+    486          		
+    487          		if(g_asc_reception_buffer[4] == 0x10)
+   \                     ??calibration_decode_1:
+   \   0000006C   9100....           LDS     R16, (g_asc_reception_buffer + 4)
+   \   00000070   3100               CPI     R16, 16
+   \   00000072   F599               BRNE    ??calibration_decode_0
+    488          		{
+    489          			if(SCS_received.calib_wait == 1)
+   \   00000074   ....               LDI     R30, LOW(SCS_received)
+   \   00000076   ....               LDI     R31, (SCS_received) >> 8
+   \   00000078   8104               LDD     R16, Z+4
+   \   0000007A   FF00               SBRS    R16, 0
+   \   0000007C   C02E               RJMP    ??calibration_decode_0
+    490          			{
+    491          				unsigned long int temp_lux;
+    492          				temp_lux = g_asc_reception_buffer[5]&0x0F;
+   \   0000007E   9100....           LDS     R16, (g_asc_reception_buffer + 5)
+   \   00000082   700F               ANDI    R16, 0x0F
+    493          				temp_lux <<= 8;
+    494          				temp_lux += g_asc_reception_buffer[6];
+   \   00000084   2F10               MOV     R17, R16
+   \   00000086   E000               LDI     R16, 0
+   \   00000088   9140....           LDS     R20, (g_asc_reception_buffer + 6)
+   \   0000008C   E050               LDI     R21, 0
+   \   0000008E   E060               LDI     R22, 0
+   \   00000090   0F04               ADD     R16, R20
+    495          				temp_lux <<= 8;
+    496          				temp_lux += g_asc_reception_buffer[7];
+   \   00000092   E030               LDI     R19, 0
+   \   00000094   2F21               MOV     R18, R17
+   \   00000096   2F10               MOV     R17, R16
+   \   00000098   E000               LDI     R16, 0
+   \   0000009A   9140....           LDS     R20, (g_asc_reception_buffer + 7)
+   \   0000009E   E070               LDI     R23, 0
+   \   000000A0   0F04               ADD     R16, R20
+    497          			
+    498          				DLL.setpoint_M = temp_lux*10/DLL.day_level;
+   \   000000A2   ....               LDI     R26, LOW(DLL)
+   \   000000A4   ....               LDI     R27, (DLL) >> 8
+   \   000000A6   E04A               LDI     R20, 10
+   \   000000A8   ........           CALL    ?L_EC_MUL_L03
+   \   000000AC   9616               ADIW    R27:R26, 6
+   \   000000AE   914D               LD      R20, X+
+   \   000000B0   915C               LD      R21, X
+   \   000000B2   9717               SBIW    R27:R26, 7
+   \   000000B4   ........           CALL    ?UL_DIVMOD_L03
+   \   000000B8   965C               ADIW    R27:R26, 28
+   \   000000BA   930D               ST      X+, R16
+   \   000000BC   931C               ST      X, R17
+   \   000000BE   975D               SBIW    R27:R26, 29
+    499          				eep_setpoint[2] = DLL.setpoint_M;
+   \   000000C0   965C               ADIW    R27:R26, 28
+   \   000000C2   910D               LD      R16, X+
+   \   000000C4   911C               LD      R17, X
+   \   000000C6   ....               LDI     R20, LOW((eep_setpoint + 4))
+   \   000000C8   ....               LDI     R21, HIGH((eep_setpoint + 4))
+   \   000000CA   ........           CALL    __eeput16_16
+    500          				daylight_set_init();
+   \   000000CE   ........           CALL    daylight_set_init
+    501          				buzzer_ms(500);	
+   \   000000D2   EF04               LDI     R16, 244
+   \   000000D4   E011               LDI     R17, 1
+   \   000000D6   ........           CALL    buzzer_ms
+    502          			}
+    503          		}
+    504          	}
+    505          }
+   \                     ??calibration_decode_0:
+   \   000000DA   91A9               LD      R26, Y+
+   \   000000DC   91B9               LD      R27, Y+
+   \   000000DE   9508               RET
+    506          
+    507          //reyno 0602
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    508          void scs_calibration(void)
+   \                     scs_calibration:
+    509          {								
+   \   00000000   ........           CALL    ?PROLOGUE8_L09
+   \   00000004                      REQUIRE ?Register_R4_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R5_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R6_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R7_is_cg_reg
+   \   00000004   9100....           LDS     R16, (g_asc_reception_buffer + 3)
+   \   00000008   3402               CPI     R16, 66
+   \   0000000A   F009               BREQ    $+2+2
+   \   0000000C   C105               RJMP    ??scs_calibration_0
+    510          	if(g_asc_reception_buffer[3] == 0x42)       	// D5 LOC 01 42 14 XX XX XX 0519
+    511          	{
+    512          		if(g_asc_reception_buffer[4] == 0x14 )
+   \   0000000E   9100....           LDS     R16, (g_asc_reception_buffer + 4)
+   \   00000012   3104               CPI     R16, 20
+   \   00000014   F009               BREQ    $+2+2
+   \   00000016   C04B               RJMP    ??scs_calibration_1
+    513          		{
+    514          			if(g_asc_reception_buffer[7] ==0x00)
+   \   00000018   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   0000001C   2300               TST     R16
+   \   0000001E   F4B1               BRNE    ??scs_calibration_2
+    515          			{
+    516          				SCS_received.calib_wait = 1;    	// D1 LOC 01 42 14 XX XX 00
+   \   00000020   ....               LDI     R30, LOW(SCS_received)
+   \   00000022   ....               LDI     R31, (SCS_received) >> 8
+   \   00000024   8104               LDD     R16, Z+4
+   \   00000026   6001               ORI     R16, 0x01
+   \   00000028   8304               STD     Z+4, R16
+    517          		  	led_blinking(250,250);
+   \   0000002A   EF4A               LDI     R20, 250
+   \   0000002C   E050               LDI     R21, 0
+   \   0000002E   E060               LDI     R22, 0
+   \   00000030   E070               LDI     R23, 0
+   \   00000032   EF0A               LDI     R16, 250
+   \   00000034   E010               LDI     R17, 0
+   \   00000036   E020               LDI     R18, 0
+   \   00000038   E030               LDI     R19, 0
+   \   0000003A   ........           CALL    led_blinking
+    518          				state.main_state = CALIBRATION;
+   \   0000003E   E303               LDI     R16, 51
+   \   00000040   E910               LDI     R17, 144
+   \   00000042   9300....           STS     (state + 2), R16
+   \   00000046   9310....           STS     (state + 3), R17
+   \   0000004A   C031               RJMP    ??scs_calibration_1
+    519          			}
+    520          			else if(g_asc_reception_buffer[7] ==0x01)
+   \                     ??scs_calibration_2:
+   \   0000004C   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   00000050   3001               CPI     R16, 1
+   \   00000052   F471               BRNE    ??scs_calibration_3
+    521          			{
+    522          				state.main_state = FACTORY_CALIBRATION;
+   \   00000054   E404               LDI     R16, 68
+   \   00000056   E910               LDI     R17, 144
+   \   00000058   9300....           STS     (state + 2), R16
+   \   0000005C   9310....           STS     (state + 3), R17
+    523          				buzzer_ms(500);
+   \   00000060   EF04               LDI     R16, 244
+   \   00000062   E011               LDI     R17, 1
+   \   00000064   ........           CALL    buzzer_ms
+    524          				led_blinking_disable(0);
+   \   00000068   E000               LDI     R16, 0
+   \   0000006A   ........           CALL    led_blinking_disable
+   \   0000006E   C01F               RJMP    ??scs_calibration_1
+    525          			}
+    526          			else if(g_asc_reception_buffer[7] == 0xFF)
+   \                     ??scs_calibration_3:
+   \   00000070   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   00000074   3F0F               CPI     R16, 255
+   \   00000076   F4D9               BRNE    ??scs_calibration_1
+    527          			{
+    528          				SCS_received.calib_wait = 0; 		//SCS_received.calib_exit = 1; 		// D1 LOC 01 42 14 XX XX FF
+   \   00000078   ....               LDI     R30, LOW(SCS_received)
+   \   0000007A   ....               LDI     R31, (SCS_received) >> 8
+   \   0000007C   8104               LDD     R16, Z+4
+   \   0000007E   7F0E               ANDI    R16, 0xFE
+   \   00000080   8304               STD     Z+4, R16
+    529          		 		led_blinking_disable(0);
+   \   00000082   E000               LDI     R16, 0
+   \   00000084   ........           CALL    led_blinking_disable
+    530          				state.main_state = NORMAL;
+   \   00000088   E000               LDI     R16, 0
+   \   0000008A   9300....           STS     (state + 2), R16
+   \   0000008E   9300....           STS     (state + 3), R16
+    531          				if(ee_main_state == FACTORY_CALIBRATION_STEP1)
+   \   00000092   ....               LDI     R20, LOW(ee_main_state)
+   \   00000094   ....               LDI     R21, (ee_main_state) >> 8
+   \   00000096   ........           CALL    __eeget16_16
+   \   0000009A   3405               CPI     R16, 69
+   \   0000009C   E920               LDI     R18, 144
+   \   0000009E   0712               CPC     R17, R18
+   \   000000A0   F431               BRNE    ??scs_calibration_1
+    532          					ee_main_state = NORMAL;
+   \   000000A2   E000               LDI     R16, 0
+   \   000000A4   E010               LDI     R17, 0
+   \   000000A6   ....               LDI     R20, LOW(ee_main_state)
+   \   000000A8   ....               LDI     R21, (ee_main_state) >> 8
+   \   000000AA   ........           CALL    __eeput16_16
+    533          			}
+    534          		}
+    535          		
+    536          		if(g_asc_reception_buffer[4] == 0x10)
+   \                     ??scs_calibration_1:
+   \   000000AE   9100....           LDS     R16, (g_asc_reception_buffer + 4)
+   \   000000B2   3100               CPI     R16, 16
+   \   000000B4   F009               BREQ    $+2+2
+   \   000000B6   C0B0               RJMP    ??scs_calibration_0
+    537          		{
+    538          			if(SCS_received.calib_wait == 1)
+   \   000000B8   ....               LDI     R30, LOW(SCS_received)
+   \   000000BA   ....               LDI     R31, (SCS_received) >> 8
+   \   000000BC   8104               LDD     R16, Z+4
+   \   000000BE   FF00               SBRS    R16, 0
+   \   000000C0   C0AB               RJMP    ??scs_calibration_0
+    539          			{
+    540          				unsigned long int temp = 0;				// add by alan
+    541          				float f_temp;
+    542          				temp = g_asc_reception_buffer[5];
+   \   000000C2   9180....           LDS     R24, (g_asc_reception_buffer + 5)
+    543          				temp = temp<<8;
+    544          				temp += g_asc_reception_buffer[6];
+   \   000000C6   2F98               MOV     R25, R24
+   \   000000C8   E080               LDI     R24, 0
+   \   000000CA   9100....           LDS     R16, (g_asc_reception_buffer + 6)
+   \   000000CE   0F80               ADD     R24, R16
+    545          				temp = temp<<8;
+    546          				temp += g_asc_reception_buffer[7];
+   \   000000D0   E0B0               LDI     R27, 0
+   \   000000D2   2FA9               MOV     R26, R25
+   \   000000D4   2F98               MOV     R25, R24
+   \   000000D6   E080               LDI     R24, 0
+   \   000000D8   9100....           LDS     R16, (g_asc_reception_buffer + 7)
+   \   000000DC   0F80               ADD     R24, R16
+    547          				temp &= 0xFFFFF;
+   \   000000DE   70AF               ANDI    R26, 0x0F
+    548          				if(Sensor_mode.power_on_flag)
+   \   000000E0   018C               MOVW    R17:R16, R25:R24
+   \   000000E2   019D               MOVW    R19:R18, R27:R26
+   \   000000E4   ........           CALL    ?UL2F_L04
+   \   000000E8   E040               LDI     R20, 0
+   \   000000EA   E050               LDI     R21, 0
+   \   000000EC   E260               LDI     R22, 32
+   \   000000EE   E471               LDI     R23, 65
+   \   000000F0   ........           CALL    ?F_MUL_L04
+   \   000000F4   0128               MOVW    R5:R4, R17:R16
+   \   000000F6   0139               MOVW    R7:R6, R19:R18
+   \   000000F8   E00A               LDI     R16, 10
+   \   000000FA   E010               LDI     R17, 0
+   \   000000FC   E020               LDI     R18, 0
+   \   000000FE   E030               LDI     R19, 0
+   \   00000100   01AC               MOVW    R21:R20, R25:R24
+   \   00000102   01BD               MOVW    R23:R22, R27:R26
+   \   00000104   ........           CALL    ?L_EC_MUL_L03
+   \   00000108   ....               LDI     R26, LOW(KO_conf)
+   \   0000010A   ....               LDI     R27, (KO_conf) >> 8
+   \   0000010C   ....               LDI     R30, LOW(Sensor_mode)
+   \   0000010E   ....               LDI     R31, (Sensor_mode) >> 8
+   \   00000110   8147               LDD     R20, Z+7
+   \   00000112   FF45               SBRS    R20, 5
+   \   00000114   C03E               RJMP    ??scs_calibration_4
+    549          				{	
+    550          					KO_conf.DF = temp*10/ DLL.calc_level;			//0526
+   \   00000116   9140....           LDS     R20, (DLL + 18)
+   \   0000011A   9150....           LDS     R21, (DLL + 19)
+   \   0000011E   E060               LDI     R22, 0
+   \   00000120   ........           CALL    ?UL_DIVMOD_L03
+   \   00000124   9300....           STS     (KO_conf + 22), R16
+    551          					f_temp = (float)temp*10/ (float)DLL.calc_level;
+   \   00000128   9100....           LDS     R16, (DLL + 18)
+   \   0000012C   9110....           LDS     R17, (DLL + 19)
+   \   00000130   E020               LDI     R18, 0
+   \   00000132   E030               LDI     R19, 0
+   \   00000134   ........           CALL    ?UL2F_L04
+   \   00000138   01A8               MOVW    R21:R20, R17:R16
+   \   0000013A   01B9               MOVW    R23:R22, R19:R18
+   \   0000013C   0182               MOVW    R17:R16, R5:R4
+   \   0000013E   0193               MOVW    R19:R18, R7:R6
+   \   00000140   ........           CALL    ?F_DIV_L04
+   \   00000144   0128               MOVW    R5:R4, R17:R16
+   \   00000146   0139               MOVW    R7:R6, R19:R18
+    552          					if((f_temp - KO_conf.DF >= 0.5) && (KO_conf.DF != 255))
+   \   00000148   9100....           LDS     R16, (KO_conf + 22)
+   \   0000014C   E010               LDI     R17, 0
+   \   0000014E   E020               LDI     R18, 0
+   \   00000150   E030               LDI     R19, 0
+   \   00000152   ........           CALL    ?UL2F_L04
+   \   00000156   01A8               MOVW    R21:R20, R17:R16
+   \   00000158   01B9               MOVW    R23:R22, R19:R18
+   \   0000015A   0182               MOVW    R17:R16, R5:R4
+   \   0000015C   0193               MOVW    R19:R18, R7:R6
+   \   0000015E   ........           CALL    ?F_SUB_L04
+   \   00000162   E040               LDI     R20, 0
+   \   00000164   E050               LDI     R21, 0
+   \   00000166   E060               LDI     R22, 0
+   \   00000168   E37F               LDI     R23, 63
+   \   0000016A   ........           CALL    ?F_CMP_GE_L04
+   \   0000016E   F440               BRCC    ??scs_calibration_5
+   \   00000170   9100....           LDS     R16, (KO_conf + 22)
+   \   00000174   3F0F               CPI     R16, 255
+   \   00000176   F021               BREQ    ??scs_calibration_5
+    553          						KO_conf.DF++;
+   \   00000178   01FD               MOVW    R31:R30, R27:R26
+   \   0000017A   8906               LDD     R16, Z+22
+   \   0000017C   9503               INC     R16
+   \   0000017E   8B06               STD     Z+22, R16
+    554          					write_KO(22,KO_conf.DF); //reyno 0602
+   \                     ??scs_calibration_5:
+   \   00000180   9110....           LDS     R17, (KO_conf + 22)
+   \   00000184   E106               LDI     R16, 22
+   \   00000186   ........           CALL    write_KO
+    555          					write_ee_KO(22,KO_conf.DF);
+   \   0000018A   9110....           LDS     R17, (KO_conf + 22)
+   \   0000018E   E106               LDI     R16, 22
+   \   00000190   C03D               RJMP    ??scs_calibration_6
+    556          				}
+    557          				else
+    558          				{
+    559          					KO_conf.NF = temp*10/ DLL.calc_level;			//0526
+   \                     ??scs_calibration_4:
+   \   00000192   9140....           LDS     R20, (DLL + 18)
+   \   00000196   9150....           LDS     R21, (DLL + 19)
+   \   0000019A   E060               LDI     R22, 0
+   \   0000019C   ........           CALL    ?UL_DIVMOD_L03
+   \   000001A0   9300....           STS     (KO_conf + 24), R16
+    560          					f_temp = (float)temp*10/ (float)DLL.calc_level;
+   \   000001A4   9100....           LDS     R16, (DLL + 18)
+   \   000001A8   9110....           LDS     R17, (DLL + 19)
+   \   000001AC   E020               LDI     R18, 0
+   \   000001AE   E030               LDI     R19, 0
+   \   000001B0   ........           CALL    ?UL2F_L04
+   \   000001B4   01A8               MOVW    R21:R20, R17:R16
+   \   000001B6   01B9               MOVW    R23:R22, R19:R18
+   \   000001B8   0182               MOVW    R17:R16, R5:R4
+   \   000001BA   0193               MOVW    R19:R18, R7:R6
+   \   000001BC   ........           CALL    ?F_DIV_L04
+   \   000001C0   0128               MOVW    R5:R4, R17:R16
+   \   000001C2   0139               MOVW    R7:R6, R19:R18
+    561          					if((f_temp - KO_conf.NF >= 0.5) && (KO_conf.NF != 255))
+   \   000001C4   9100....           LDS     R16, (KO_conf + 24)
+   \   000001C8   E010               LDI     R17, 0
+   \   000001CA   E020               LDI     R18, 0
+   \   000001CC   E030               LDI     R19, 0
+   \   000001CE   ........           CALL    ?UL2F_L04
+   \   000001D2   01A8               MOVW    R21:R20, R17:R16
+   \   000001D4   01B9               MOVW    R23:R22, R19:R18
+   \   000001D6   0182               MOVW    R17:R16, R5:R4
+   \   000001D8   0193               MOVW    R19:R18, R7:R6
+   \   000001DA   ........           CALL    ?F_SUB_L04
+   \   000001DE   E040               LDI     R20, 0
+   \   000001E0   E050               LDI     R21, 0
+   \   000001E2   E060               LDI     R22, 0
+   \   000001E4   E37F               LDI     R23, 63
+   \   000001E6   ........           CALL    ?F_CMP_GE_L04
+   \   000001EA   F440               BRCC    ??scs_calibration_7
+   \   000001EC   9100....           LDS     R16, (KO_conf + 24)
+   \   000001F0   3F0F               CPI     R16, 255
+   \   000001F2   F021               BREQ    ??scs_calibration_7
+    562          						KO_conf.NF++;
+   \   000001F4   01FD               MOVW    R31:R30, R27:R26
+   \   000001F6   8D00               LDD     R16, Z+24
+   \   000001F8   9503               INC     R16
+   \   000001FA   8F00               STD     Z+24, R16
+    563          					write_KO(24,KO_conf.NF); //reyno 0602
+   \                     ??scs_calibration_7:
+   \   000001FC   9110....           LDS     R17, (KO_conf + 24)
+   \   00000200   E108               LDI     R16, 24
+   \   00000202   ........           CALL    write_KO
+    564          					write_ee_KO(24,KO_conf.NF);
+   \   00000206   9110....           LDS     R17, (KO_conf + 24)
+   \   0000020A   E108               LDI     R16, 24
+   \                     ??scs_calibration_6:
+   \   0000020C   ........           CALL    write_ee_KO
+    565          				}
+    566          				buzzer_ms(500);
+   \   00000210   EF04               LDI     R16, 244
+   \   00000212   E011               LDI     R17, 1
+   \   00000214   ........           CALL    buzzer_ms
+    567          			}
+    568          		}
+    569          	}
+    570          }
+   \                     ??scs_calibration_0:
+   \   00000218   E0E8               LDI     R30, 8
+   \   0000021A   ........           JMP     ?EPILOGUE_B8_L09
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for <Constant "D000010E00000000"`:
+   \   00000000   304430303130       DC8 "D000010E00000000"
+   \              453030303030
+   \              3030303000  
+
+   \                                 In  segment SWITCH, align 2, keep-with-next
+   \                     `?<Jumptable for application_decode_short>_0`:
+   \   00000000   31                 DB      49
+   \   00000001   00                 DB      0
+   \   00000002   ....               DW      (??application_decode_short_16) /2
+   \   00000004   0009               DW      9
+   \   00000006   ....               DW      (??application_decode_short_22) /2
+   \   00000008   ....               DW      (??application_decode_short_24) /2
+   \   0000000A   ....               DW      (??application_decode_short_25) /2
+   \   0000000C   ....               DW      (??application_decode_short_26) /2
+   \   0000000E   ....               DW      (??application_decode_short_27) /2
+   \   00000010   ....               DW      (??application_decode_short_28) /2
+   \   00000012   ....               DW      (??application_decode_short_29) /2
+   \   00000014   ....               DW      (??application_decode_short_30) /2
+   \   00000016   ....               DW      (??application_decode_short_31) /2
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+   \                     `?<Constant "D000010E00000000">`:
+   \   00000000                      DS8 17
+   \   00000011                      REQUIRE `?<Initializer for <Constant "D000010E00000000"`
+
+   Maximum stack usage in bytes:
+
+     Function                      CSTACK RSTACK
+     --------                      ------ ------
+     application_decode_long           0      2
+     application_decode_short          2      2
+       -> regulation_timer_initial     2      2
+     calibration_decode                2      4
+       -> led_blinking                 2      2
+       -> led_blinking_disable         2      2
+       -> daylight_set_init            2      2
+       -> buzzer_ms                    2      2
+     decode_SCS                        8      4
+       -> StrToChar                    8      2
+       -> StrToChar                    8      2
+       -> StrToChar                    8      2
+     decode_id                         8      4
+       -> StrToChar                    8      2
+       -> StrToChar                    8      2
+       -> id_frame                     8      2
+       -> send_frame_pp_ext_broad      8      2
+     is_gateway_busy                   4      4
+       -> StrToChar                    4      2
+       -> StrToChar                    4      2
+       -> StrToChar                    4      2
+     reception_buffer_clear            0      2
+     scs_calibration                   8      4
+       -> led_blinking                 8      2
+       -> buzzer_ms                    8      2
+       -> led_blinking_disable         8      2
+       -> led_blinking_disable         8      2
+       -> write_KO                     8      2
+       -> write_ee_KO                  8      2
+       -> write_KO                     8      2
+       -> write_ee_KO                  8      2
+       -> buzzer_ms                    8      2
+
+
+   Segment part sizes:
+
+     Function/Label                                 Bytes
+     --------------                                 -----
+     reception_buffer_clear                           90
+     decode_id                                       340
+     decode_SCS                                      392
+     is_gateway_busy                                 130
+     application_decode_short                        750
+     application_decode_long                         152
+     calibration_decode                              224
+     scs_calibration                                 542
+     ?<Initializer for <Constant "D000010E00000000"   17
+     ?<Jumptable for application_decode_short>_0      24
+     ?<Constant "D000010E00000000">                   17
+      Others                                           6
+
+ 
+ 2 620 bytes in segment CODE
+     6 bytes in segment INITTAB
+    17 bytes in segment NEAR_I
+    17 bytes in segment NEAR_ID
+    24 bytes in segment SWITCH
+ 
+ 2 661 bytes of CODE memory (+ 6 bytes shared)
+    17 bytes of DATA memory
+
+Errors: none
+Warnings: none

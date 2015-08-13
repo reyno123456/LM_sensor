@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>4081588759</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\IR.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\LM_IAR_5.0.d90</file>
+      <file>$PROJ_DIR$\Debug\Obj\usart.r90</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl3s-ec_mul-sf.r90</file>
+      <file>$PROJ_DIR$\Debug\List\configuration.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\function_modality.r90</file>
+      <file>$PROJ_DIR$\Debug\List\board.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\decode_scs.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\iccext.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\US.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\board.r90</file>
+      <file>$PROJ_DIR$\Debug\List\US.i</file>
+      <file>$PROJ_DIR$\Debug\List\LM_IAR_5.0.map</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\board.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\PIR.i</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\decode_scs.r90</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LM057.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\US.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\application.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\PIR.r90</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Debug\List\application.i</file>
+      <file>$PROJ_DIR$\Debug\List\main.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\usart.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\IR.i</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\decode_scs_next.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\function_modality.i</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\List\global_variable.i</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$TOOLKIT_DIR$\config\lnkm644ps.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\iom644p.h</file>
+      <file>$PROJ_DIR$\Debug\List\decode_scs_next.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\PIR.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\configuration.r90</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\function_service.r90</file>
+      <file>$PROJ_DIR$\Debug\List\function_service.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\IR.r90</file>
+      <file>$TOOLKIT_DIR$\inc\inavr.h</file>
+      <file>$PROJ_DIR$\Debug\List\usart.i</file>
+      <file>$PROJ_DIR$\Debug\List\decode_scs.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\global_variable.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\function_service.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\configuration.pbi</file>
+      <file>$PROJ_DIR$\configuration.h</file>
+      <file>$PROJ_DIR$\decode_scs.c</file>
+      <file>$PROJ_DIR$\decode_scs.h</file>
+      <file>$PROJ_DIR$\decode_scs_next.c</file>
+      <file>$PROJ_DIR$\decode_scs_next.h</file>
+      <file>$PROJ_DIR$\function_modality.c</file>
+      <file>$PROJ_DIR$\function_modality.h</file>
+      <file>$PROJ_DIR$\function_service.c</file>
+      <file>$PROJ_DIR$\function_service.h</file>
+      <file>$PROJ_DIR$\global_variable.c</file>
+      <file>$PROJ_DIR$\global_variable.h</file>
+      <file>$PROJ_DIR$\IR.c</file>
+      <file>$PROJ_DIR$\IR.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\moudle_SCS.h</file>
+      <file>$PROJ_DIR$\PIR.c</file>
+      <file>$PROJ_DIR$\PIR.h</file>
+      <file>$PROJ_DIR$\US.c</file>
+      <file>$PROJ_DIR$\US.h</file>
+      <file>$PROJ_DIR$\usart.c</file>
+      <file>$PROJ_DIR$\usart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\global_variable.r90</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$PROJ_DIR$\board.h</file>
+      <file>$PROJ_DIR$\configuration.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\decode_scs_next.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\application.r90</file>
+      <file>$PROJ_DIR$\board.c</file>
+      <file>$PROJ_DIR$\application.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\function_modality.pbi</file>
+      <file>$PROJ_DIR$\application.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\LM_IAR_5.0.d90</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 35 43 23 20 77 10 39 17 76 5 41 72 71 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\LM057.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 0 38 9 21 14 49 7 30 80 48 47 22 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 12 1</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\decode_scs.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 17 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 32 40 24 70 74 64 52 16 60 62 81 54 34 50 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 32 40 24 70 74 64 52 16 60 62 81 54 34 50 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\decode_scs_next.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 76 37</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 32 40 24 70 74 64 52 16 60 62 54 81 34 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 32 40 24 70 74 64 52 16 60 62 54 81 34 50 58 66 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\function_modality.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 5 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 80</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 60 64 62 56 81 74 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 60 64 62 56 81 74 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\function_service.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 41 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 62 66 68 74 70 64 81 50 52 54 60 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 62 66 68 74 70 64 81 50 52 54 60 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\global_variable.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 72 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 47</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 64 62 81 66 74</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64 62 81 66 74</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\IR.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 43 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 70 74 64 60 62 81 34 24 54 50 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 70 74 64 60 62 81 34 24 54 50 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 71 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 74 70 52 16 24 64 66 50 60 62 81 54 34 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 74 70 52 16 24 64 66 50 60 62 81 54 34 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\PIR.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 23 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 66 74 64 60 62 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 66 74 64 60 62 81</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\US.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 20 11</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 68 74 64 60 62 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 68 74 64 60 62 81</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 2 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 32 40 24 44 13 70 74 64 60 62 81 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 32 40 24 44 13 70 74 64 60 62 81 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\configuration.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 39 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 44 13 64 60 62 74 50 54 81 70 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 44 13 64 60 62 74 50 54 81 70 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\board.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 10 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 73 36 18 74 44 13 60 64 62 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 36 18 74 44 13 60 64 62 81</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\application.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 77 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 60 64 62 81 73 36 18 74 66 34 24 52 54 50 70 58 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60 64 62 81 73 36 18 74 66 34 24 52 54 50 70 58 8 29</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\Release\Obj\board.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\function_service.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\global_variable.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl3s-ec_mul-sf.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\configuration.pbi</file>
+      <file>$PROJ_DIR$\Release\List\application.s90</file>
+      <file>$TOOLKIT_DIR$\inc\clib\iccext.h</file>
+      <file>$PROJ_DIR$\Release\Obj\PIR.pbi</file>
+      <file>$PROJ_DIR$\Release\List\function_modality.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\usart.r90</file>
+      <file>$PROJ_DIR$\Release\List\board.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\IR.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$PROJ_DIR$\Release\Obj\board.r90</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$PROJ_DIR$\Release\List\PIR.lst</file>
+      <file>$PROJ_DIR$\Release\List\global_variable.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\application.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\function_modality.pbi</file>
+      <file>$PROJ_DIR$\Release\List\decode_scs_next.lst</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Release\List\US.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\US.r90</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Release\List\main.s90</file>
+      <file>$PROJ_DIR$\Release\List\usart.lst</file>
+      <file>$PROJ_DIR$\Release\List\configuration.lst</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$PROJ_DIR$\Release\List\board.lst</file>
+      <file>$TOOLKIT_DIR$\config\lnkm644ps.xcl</file>
+      <file>$PROJ_DIR$\Release\List\IR.lst</file>
+      <file>$TOOLKIT_DIR$\inc\iom644p.h</file>
+      <file>$PROJ_DIR$\Release\List\main.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release\List\decode_scs.lst</file>
+      <file>$PROJ_DIR$\Release\List\function_service.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\IR.r90</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$TOOLKIT_DIR$\inc\inavr.h</file>
+      <file>$PROJ_DIR$\Release\List\IR.s90</file>
+      <file>$PROJ_DIR$\Release\List\PIR.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\LM057.pbd</file>
+      <file>$PROJ_DIR$\Release\Obj\configuration.r90</file>
+      <file>$PROJ_DIR$\Release\Exe\LM057.hex</file>
+      <file>$PROJ_DIR$\Release\Obj\US.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\function_modality.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\application.pbi</file>
+      <file>$PROJ_DIR$\Release\List\configuration.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\usart.pbi</file>
+      <file>$PROJ_DIR$\Release\Exe\LM057.eep</file>
+      <file>$PROJ_DIR$\Release\Obj\decode_scs_next.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\main.r90</file>
+      <file>$PROJ_DIR$\Release\List\function_modality.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\global_variable.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\decode_scs.r90</file>
+      <file>$PROJ_DIR$\Release\List\application.lst</file>
+      <file>$PROJ_DIR$\Release\List\LM057.map</file>
+      <file>$PROJ_DIR$\Release\List\global_variable.s90</file>
+      <file>$PROJ_DIR$\configuration.h</file>
+      <file>$PROJ_DIR$\decode_scs.c</file>
+      <file>$PROJ_DIR$\decode_scs.h</file>
+      <file>$PROJ_DIR$\decode_scs_next.c</file>
+      <file>$PROJ_DIR$\decode_scs_next.h</file>
+      <file>$PROJ_DIR$\function_modality.c</file>
+      <file>$PROJ_DIR$\function_modality.h</file>
+      <file>$PROJ_DIR$\function_service.c</file>
+      <file>$PROJ_DIR$\function_service.h</file>
+      <file>$PROJ_DIR$\global_variable.c</file>
+      <file>$PROJ_DIR$\global_variable.h</file>
+      <file>$PROJ_DIR$\IR.c</file>
+      <file>$PROJ_DIR$\IR.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\moudle_SCS.h</file>
+      <file>$PROJ_DIR$\PIR.c</file>
+      <file>$PROJ_DIR$\PIR.h</file>
+      <file>$PROJ_DIR$\US.c</file>
+      <file>$PROJ_DIR$\US.h</file>
+      <file>$PROJ_DIR$\usart.c</file>
+      <file>$PROJ_DIR$\usart.h</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$PROJ_DIR$\board.h</file>
+      <file>$PROJ_DIR$\configuration.c</file>
+      <file>$PROJ_DIR$\Release\Obj\decode_scs.pbi</file>
+      <file>$PROJ_DIR$\board.c</file>
+      <file>$PROJ_DIR$\application.c</file>
+      <file>$PROJ_DIR$\Release\List\decode_scs.s90</file>
+      <file>$PROJ_DIR$\Release\List\function_service.lst</file>
+      <file>$PROJ_DIR$\Release\List\usart.s90</file>
+      <file>$PROJ_DIR$\Release\List\decode_scs_next.s90</file>
+      <file>$PROJ_DIR$\Release\List\US.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\PIR.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\decode_scs_next.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\function_service.r90</file>
+      <file>$PROJ_DIR$\application.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 58 51 45</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Obj\LM057.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 11 7 46 48 0 4 84 52 19 1 2 35 50</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\LM057.hex</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 58 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 31 38 92 23 18 14 44 56 93 47 94 55 53 9 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\decode_scs.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 56 87 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 25 39 21 80 82 74 62 13 70 72 95 64 29 60 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 25 39 21 80 82 74 62 13 70 72 95 64 29 60 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\decode_scs_next.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 93 90 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 25 39 21 80 82 74 62 13 70 72 64 95 29 60 68 76 78</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 25 39 21 80 82 74 62 13 70 72 64 95 29 60 68 76 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\function_modality.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 47 54 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 70 74 72 66 95 82 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 70 74 72 66 95 82 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\function_service.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 94 37 88</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 72 76 78 82 80 74 95 60 62 64 70 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 72 76 78 82 80 74 95 60 62 64 70 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\global_variable.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 55 59 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 74 72 95 76 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74 72 95 76 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\IR.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 38 41 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 80 82 74 70 72 95 29 21 64 60 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 80 82 74 70 72 95 29 21 64 60 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 53 26 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 82 80 62 13 21 74 76 60 70 72 95 64 29 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 82 80 62 13 21 74 76 60 70 72 95 64 29 68</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\PIR.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 92 42 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 76 82 74 70 72 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 76 82 74 70 72 95</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\US.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 23 22 91</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 78 82 74 70 72 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 78 82 74 70 72 95</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 9 89 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 25 39 21 40 12 80 82 74 70 72 95 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 25 39 21 40 12 80 82 74 70 72 95 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\configuration.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 44 49 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 40 12 74 70 72 82 60 64 95 80 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 40 12 74 70 72 82 60 64 95 80 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\board.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 14 10 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 81 33 15 82 40 12 70 74 72 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 33 15 82 40 12 70 74 72 95</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\application.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 18 5 57</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 70 74 72 95 81 33 15 82 76 29 21 62 64 60 80 68 6 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70 74 72 95 81 33 15 82 76 29 21 62 64 60 80 68 6 24</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+

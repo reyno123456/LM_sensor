@@ -1,0 +1,5019 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:21:22 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\IR.c                              /
+//    Command line =  D:\avr\LM_Finial_Test\IR.c --cpu=m644p -ms -o           /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\IR.s90               /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME IR
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?CV_SWITCH_L06
+        EXTERN ?EPILOGUE_B13_L09
+        EXTERN ?EPILOGUE_B5_L09
+        EXTERN ?F_CMP_GE_L04
+        EXTERN ?F_DIV_L04
+        EXTERN ?F_MUL_L04
+        EXTERN ?F_SUB_L04
+        EXTERN ?L_EC_MUL_L03
+        EXTERN ?L_SHL_L03
+        EXTERN ?PROLOGUE13_L09
+        EXTERN ?PROLOGUE5_L09
+        EXTERN ?Register_R10_is_cg_reg
+        EXTERN ?Register_R11_is_cg_reg
+        EXTERN ?Register_R12_is_cg_reg
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?Register_R6_is_cg_reg
+        EXTERN ?Register_R7_is_cg_reg
+        EXTERN ?Register_R8_is_cg_reg
+        EXTERN ?Register_R9_is_cg_reg
+        EXTERN ?S_EC_MUL_L02
+        EXTERN ?UL2F_L04
+        EXTERN ?US_DIVMOD_L02
+        EXTERN ?need_segment_init
+        EXTERN __eeget16_16
+        EXTERN __eeget8_16
+        EXTERN __eeput8_16
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBWEAK `??usart1_rx_ser??INTVEC 112`
+        PUBWEAK `??usart_tx_ser??INTVEC 120`
+        PUBLIC IR_36kHz
+        FUNCTION IR_36kHz,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC PWM_output_init
+        FUNCTION PWM_output_init,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_ICR1
+        PUBWEAK _A_OCR1A
+        PUBWEAK _A_OCR1B
+        PUBWEAK _A_TCCR1A
+        PUBWEAK _A_TCCR1B
+        PUBWEAK _A_UBRR1
+        PUBWEAK _A_UCSR1A
+        PUBWEAK _A_UCSR1B
+        PUBWEAK _A_UCSR1C
+        PUBWEAK _A_UDR1
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC _calculate_crc
+        FUNCTION _calculate_crc,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC close_IR_36kHz
+        FUNCTION close_IR_36kHz,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC decode_IR
+        FUNCTION decode_IR,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC get_current_scenario_number
+        FUNCTION get_current_scenario_number,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC init_USART1
+        FUNCTION init_USART1,0201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC ir_buffer_clear
+        FUNCTION ir_buffer_clear,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC ir_pnl
+        FUNCTION ir_pnl,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC is_scenario_full
+        FUNCTION is_scenario_full,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC put_c1
+        FUNCTION put_c1,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC put_s1
+        FUNCTION put_s1,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC setting_diagnostic_ir
+        FUNCTION setting_diagnostic_ir,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC temp_ns
+        PUBLIC timer_IR_initial
+        FUNCTION timer_IR_initial,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC usart1_rx_ser
+        FUNCTION usart1_rx_ser,0233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 9, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC usart_tx_ser
+        FUNCTION usart_tx_ser,0233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 SameValue
+        CFI R17 SameValue
+        CFI R18 SameValue
+        CFI R19 SameValue
+        CFI R20 SameValue
+        CFI R21 SameValue
+        CFI R22 SameValue
+        CFI R23 SameValue
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 SameValue
+        CFI R31 SameValue
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon1
+        
+usart1_rx_ser       SYMBOL "usart1_rx_ser"
+`??usart1_rx_ser??INTVEC 112` SYMBOL "??INTVEC 112", usart1_rx_ser
+usart_tx_ser        SYMBOL "usart_tx_ser"
+`??usart_tx_ser??INTVEC 120` SYMBOL "??INTVEC 120", usart_tx_ser
+
+        EXTERN delay_ms
+        FUNCTION delay_ms,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN send_aux_frame
+        FUNCTION send_aux_frame,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN frame_ON_send
+        FUNCTION frame_ON_send,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN frame_OFF_send
+        FUNCTION frame_OFF_send,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN strncpy
+        FUNCTION strncpy,010202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN CharToStr
+        FUNCTION CharToStr,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN send_frame_pp_broad
+        FUNCTION send_frame_pp_broad,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN send_frame_pp_ext_broad
+        FUNCTION send_frame_pp_ext_broad,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN led_blinking
+        FUNCTION led_blinking,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN timer_flex_initial
+        FUNCTION timer_flex_initial,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN send_group_pnl_frame
+        FUNCTION send_group_pnl_frame,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN led_blinking_normal
+        FUNCTION led_blinking_normal,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN send_group_frame
+        FUNCTION send_group_frame,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN factory_default
+        FUNCTION factory_default,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN system_reset
+        FUNCTION system_reset,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN timer_dimmer_initial
+        FUNCTION timer_dimmer_initial,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN read_KO
+        FUNCTION read_KO,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN StrToChar
+        FUNCTION StrToChar,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN write_KO
+        FUNCTION write_KO,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN write_ee_KO
+        FUNCTION write_ee_KO,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN buzzer_ms
+        FUNCTION buzzer_ms,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN led_blinking_disable
+        FUNCTION led_blinking_disable,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN DLL
+        EXTERN Delay_Time_set
+        EXTERN IR_reception
+        EXTERN KO_conf
+        EXTERN SCS_received
+        EXTERN Sensor_mode
+        EXTERN Time_delay
+        EXTERN ee_ID
+        EXTERN ee_KO_conf
+        EXTERN ee_flags
+        EXTERN ee_parameter
+        EXTERN ee_scenario
+        EXTERN ee_variable
+        EXTERN flags
+        EXTERN g_asc_reception_buffer
+        EXTERN g_ir_reception
+        EXTERN g_ns_index
+        EXTERN key_result
+        EXTERN parameters
+        EXTERN product_information
+        EXTERN set_point
+        EXTERN state
+        EXTERN temp_variable
+        EXTERN tx1_buffer
+        EXTERN tx1_counter
+        EXTERN tx1_rd_index
+        EXTERN tx1_wr_index
+
+// D:\avr\LM_Finial_Test\IR.c
+//    1 
+//    2 //                                                                                                                     PL   Ex
+//    3 //Start Group PnL	Used to start PnL procedure	                                                                        0x70	0x2C						
+//    4 //NEXT_ACTUATOR	Used to move to the next actuator	                                                                    0x70	0x2D						
+//    5 //INCLUDE	                                                                                                            0x70	0x2E						
+//    6 //EXCLUDE		                                                                                                          0x70	0x2F						
+//    7 //END_GROUP_PnL	Used to stop PnL procedure	                                                                          0x70	0x34						
+//    8 //ERASE_GROUP_PNL	Used to reset PnL GROUP	                                                                            0x70	0x35						
+//    9 //ADD_PERIPHERAL	Used to execute a self configuration (Plug&Go) by Room Control. (It's not a complete reset ROOM).	  0x70	0x36						
+//   10 
+//   11 
+//   12 
+//   13 #include <ioavr.h>
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0ceH
+// <__C2> volatile __io _A_UDR1
+_A_UDR1:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0ccH
+// <__C6> volatile __io _A_UBRR1
+_A_UBRR1:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0caH
+// <__C9> volatile __io _A_UCSR1C
+_A_UCSR1C:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c9H
+// <__C12> volatile __io _A_UCSR1B
+_A_UCSR1B:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c8H
+// <__C15> volatile __io _A_UCSR1A
+_A_UCSR1A:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,08aH
+// <__C65> volatile __io _A_OCR1B
+_A_OCR1B:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,088H
+// <__C69> volatile __io _A_OCR1A
+_A_OCR1A:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,086H
+// <__C73> volatile __io _A_ICR1
+_A_ICR1:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,081H
+// <__C83> volatile __io _A_TCCR1B
+_A_TCCR1B:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,080H
+// <__C86> volatile __io _A_TCCR1A
+_A_TCCR1A:
+        DS8 1
+//   14 #include <inavr.h>
+//   15 #include "usart.h"
+//   16 #include "board.h"
+//   17 #include "moudle_SCS.h"
+//   18 #include "global_variable.h"
+//   19 #include "IR.h"
+//   20 #include "application.h"
+//   21 #include "string.h"
+//   22 #include "decode_scs_next.h"
+//   23 #include "configuration.h"
+//   24 #include "function_service.h"
+//   25 
+//   26 //ISR(USART1_RX_vect)
+//   27 /*
+//   28 #pragma vector=USART1_RX_vect
+//   29 __interrupt void usart1_rx_ser(void)
+//   30 {
+//   31 	unsigned char temp;
+//   32   temp = UDR1;
+//   33 
+//   34 	if (temp == 0xAA && IR_reception.begin_actual == 0)
+//   35 	{
+//   36 		IR_reception.info = 0;
+//   37 		IR_reception.begin_actual = 0;
+//   38 		IR_reception.finished = 0;
+//   39 		IR_reception.pipe[0] = temp;
+//   40 		IR_reception.CRC_OK = 0;
+//   41 	}
+//   42 	else
+//   43 	{
+//   44 		IR_reception.pipe[++IR_reception.begin_actual] = temp;	
+//   45 
+//   46     if(IR_reception.begin_actual >= 14)
+//   47       IR_reception.begin_actual = 0;
+//   48 
+//   49 		if(IR_reception.begin_actual == 5)//&&(g_reception_IR.pipe[5] == 0x12))
+//   50 		{		
+//   51 			switch(IR_reception.pipe[5]&0xC0)
+//   52 			{
+//   53 				case 0x00:
+//   54 					IR_reception.info = 6;			//只剩一帧CRC没有接收到，该数据帧共有0~6共7bytes
+//   55 					break;
+//   56 				case 0x40:
+//   57 					IR_reception.info = 7;			//该数据帧共有0~7共8bytes
+//   58 					break;
+//   59 				case 0x80:
+//   60 					IR_reception.info = 9;			//该数据帧共有0~9共10bytes
+//   61 					break;
+//   62 				case 0xC0:
+//   63 					IR_reception.info = 13;			//该数据帧共有0~13共14bytes
+//   64 					break;
+//   65 				default:
+//   66           IR_reception.info = 20;     //for solve the IR receive question
+//   67           break;			
+//   68 			}
+//   69 		}
+//   70 
+//   71 		if(IR_reception.begin_actual == IR_reception.info)
+//   72 		{
+//   73       IR_reception.begin_actual = 0;
+//   74 			IR_reception.finished = 1;
+//   75 		}
+//   76 	}
+//   77 }
+//   78 */
+//   79 
+//   80 #pragma vector=USART1_RX_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+//   81 __interrupt void usart1_rx_ser(void)
+usart1_rx_ser:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function usart1_rx_ser
+//   82 {
+        ST      -Y, R27
+        CFI R27 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R26
+        CFI R26 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        ST      -Y, R31
+        CFI R31 Frame(CFA_Y, -3)
+        CFI CFA_Y Y+3
+        ST      -Y, R30
+        CFI R30 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+        ST      -Y, R20
+        CFI R20 Frame(CFA_Y, -5)
+        CFI CFA_Y Y+5
+        ST      -Y, R19
+        CFI R19 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        ST      -Y, R18
+        CFI R18 Frame(CFA_Y, -7)
+        CFI CFA_Y Y+7
+        ST      -Y, R17
+        CFI R17 Frame(CFA_Y, -8)
+        CFI CFA_Y Y+8
+        ST      -Y, R16
+        CFI R16 Frame(CFA_Y, -9)
+        CFI CFA_Y Y+9
+        IN      R20, 0x3F
+//   83 	unsigned char temp;
+//   84   temp = UDR1;
+        LDS     R16, _A_UDR1
+//   85 
+//   86 	if (temp == 0xAA && IR_reception.begin_actual == 0)
+        LDI     R30, LOW(IR_reception)
+        LDI     R31, (IR_reception) >> 8
+        CPI     R16, 170
+        BRNE    ??usart1_rx_ser_0
+        LDD     R17, Z+14
+        TST     R17
+        BRNE    ??usart1_rx_ser_0
+//   87 	{
+//   88 		IR_reception.info = 0;
+        LDI     R16, 0
+        STD     Z+15, R16
+//   89 		IR_reception.begin_actual = 1;
+        LDI     R16, 1
+        STD     Z+14, R16
+//   90 		IR_reception.finished = 0;
+        LDI     R16, 0
+        STD     Z+16, R16
+//   91 		IR_reception.pipe[0] = temp;
+        LDI     R16, 170
+        ST      Z, R16
+//   92 		IR_reception.CRC_OK = 0;
+        LDI     R16, 0
+        STD     Z+17, R16
+        RJMP    ??usart1_rx_ser_1
+//   93 	}
+//   94 	else if( IR_reception.begin_actual != 0 )
+??usart1_rx_ser_0:
+        LDD     R17, Z+14
+        TST     R17
+        BREQ    ??usart1_rx_ser_1
+//   95 	{
+//   96 		IR_reception.pipe[IR_reception.begin_actual] = temp;	
+        LDD     R18, Z+14
+        LDI     R19, 0
+        MOVW    R27:R26, R31:R30
+        ADD     R26, R18
+        ADC     R27, R19
+        ST      X, R16
+//   97 
+//   98     if(IR_reception.begin_actual >= 200)
+        LDD     R16, Z+14
+        CPI     R16, 200
+        BRCS    ??usart1_rx_ser_2
+//   99       IR_reception.begin_actual = 0;
+        STD     Z+14, R19
+//  100 
+//  101 		if(IR_reception.begin_actual == 5)//&&(g_reception_IR.pipe[5] == 0x12))
+??usart1_rx_ser_2:
+        LDD     R16, Z+14
+        CPI     R16, 5
+        BRNE    ??usart1_rx_ser_3
+//  102 		{		
+//  103 			switch(IR_reception.pipe[5]&0xC0)
+        LDD     R16, Z+5
+        ANDI    R16, 0xC0
+        SUBI    R16, 128
+        BREQ    ??usart1_rx_ser_4
+        SUBI    R16, 64
+        BREQ    ??usart1_rx_ser_5
+        SUBI    R16, 64
+        BREQ    ??usart1_rx_ser_6
+        SUBI    R16, 64
+        BREQ    ??usart1_rx_ser_7
+        RJMP    ??usart1_rx_ser_8
+//  104 			{
+//  105 				case 0x00:
+//  106 					IR_reception.info = 6;			//只剩一帧CRC没有接收到，该数据帧共有0~6共7bytes
+??usart1_rx_ser_6:
+        LDI     R16, 6
+        RJMP    ??usart1_rx_ser_9
+//  107 					break;
+//  108 				case 0x40:
+//  109 					IR_reception.info = 7;			//该数据帧共有0~7共8bytes
+??usart1_rx_ser_7:
+        LDI     R16, 7
+        RJMP    ??usart1_rx_ser_9
+//  110 					break;
+//  111 				case 0x80:
+//  112 					IR_reception.info = 9;			//该数据帧共有0~9共10bytes
+??usart1_rx_ser_4:
+        LDI     R16, 9
+        RJMP    ??usart1_rx_ser_9
+//  113 					break;
+//  114 				case 0xC0:
+//  115 					IR_reception.info = 13;			//该数据帧共有0~13共14bytes
+??usart1_rx_ser_5:
+        LDI     R16, 13
+        RJMP    ??usart1_rx_ser_9
+//  116 					break;
+//  117 				default:
+//  118           IR_reception.info = 20;     //for solve the IR receive question
+??usart1_rx_ser_8:
+        LDI     R16, 20
+??usart1_rx_ser_9:
+        STD     Z+15, R16
+//  119           break;			
+//  120 			}
+//  121 		}
+//  122 
+//  123 		if(IR_reception.begin_actual == IR_reception.info)
+??usart1_rx_ser_3:
+        LDD     R16, Z+14
+        LDD     R17, Z+15
+        CP      R16, R17
+        BRNE    ??usart1_rx_ser_10
+//  124 		{
+//  125       IR_reception.begin_actual = 0;
+        STD     Z+14, R19
+//  126 			IR_reception.finished = 1;
+        LDI     R16, 1
+        STD     Z+16, R16
+        RJMP    ??usart1_rx_ser_1
+//  127 		}
+//  128     else
+//  129     {
+//  130         IR_reception.begin_actual ++;
+??usart1_rx_ser_10:
+        LDD     R16, Z+14
+        INC     R16
+        STD     Z+14, R16
+//  131     }
+//  132 	}
+//  133 }
+??usart1_rx_ser_1:
+        OUT     0x3F, R20
+        LD      R16, Y+
+        CFI R16 SameValue
+        CFI CFA_Y Y+8
+        LD      R17, Y+
+        CFI R17 SameValue
+        CFI CFA_Y Y+7
+        LD      R18, Y+
+        CFI R18 SameValue
+        CFI CFA_Y Y+6
+        LD      R19, Y+
+        CFI R19 SameValue
+        CFI CFA_Y Y+5
+        LD      R20, Y+
+        CFI R20 SameValue
+        CFI CFA_Y Y+4
+        LD      R30, Y+
+        CFI R30 SameValue
+        CFI CFA_Y Y+3
+        LD      R31, Y+
+        CFI R31 SameValue
+        CFI CFA_Y Y+2
+        LD      R26, Y+
+        CFI R26 SameValue
+        CFI CFA_Y Y+1
+        LD      R27, Y+
+        CFI R27 SameValue
+        CFI CFA_Y Y+0
+        RETI
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_UDR1
+//  134 
+//  135 //ISR(USART1_TX_vect)
+//  136 #pragma vector=USART1_TX_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+//  137 __interrupt void usart_tx_ser(void)
+usart_tx_ser:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function usart_tx_ser
+//  138 {
+        ST      -Y, R31
+        CFI R31 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R30
+        CFI R30 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        ST      -Y, R18
+        CFI R18 Frame(CFA_Y, -3)
+        CFI CFA_Y Y+3
+        ST      -Y, R17
+        CFI R17 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+        ST      -Y, R16
+        CFI R16 Frame(CFA_Y, -5)
+        CFI CFA_Y Y+5
+        IN      R18, 0x3F
+//  139     if (tx1_counter)
+        LDS     R16, tx1_counter
+        TST     R16
+        BREQ    ??usart_tx_ser_0
+//  140     {
+//  141            --tx1_counter;
+        LDS     R16, tx1_counter
+        DEC     R16
+        STS     tx1_counter, R16
+//  142 		
+//  143            UDR1 = tx1_buffer[tx1_rd_index];
+        LDS     R16, tx1_rd_index
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(tx1_buffer) & 0xFFFF))
+        SBCI    R31, (-(tx1_buffer) & 0xFFFF) >> 8
+        LD      R16, Z
+        STS     _A_UDR1, R16
+//  144 		
+//  145            if (++tx1_rd_index == TX1_BUFFER_SIZE) tx1_rd_index=0;
+        LDS     R16, tx1_rd_index
+        INC     R16
+        STS     tx1_rd_index, R16
+        CPI     R16, 14
+        BRNE    ??usart_tx_ser_0
+        STS     tx1_rd_index, R17
+//  146     };
+//  147 }
+??usart_tx_ser_0:
+        OUT     0x3F, R18
+        LD      R16, Y+
+        CFI R16 SameValue
+        CFI CFA_Y Y+4
+        LD      R17, Y+
+        CFI R17 SameValue
+        CFI CFA_Y Y+3
+        LD      R18, Y+
+        CFI R18 SameValue
+        CFI CFA_Y Y+2
+        LD      R30, Y+
+        CFI R30 SameValue
+        CFI CFA_Y Y+1
+        LD      R31, Y+
+        CFI R31 SameValue
+        CFI CFA_Y Y+0
+        RETI
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_UDR1
+//  148 
+//  149 /*USART1发送单个字符*/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  150 void put_c1(char c)
+put_c1:
+??put_c1_0:
+        CFI Block cfiBlock2 Using cfiCommon1
+        CFI Function put_c1
+//  151 {
+//  152     while (tx1_counter == TX1_BUFFER_SIZE);   //发送数据队列中还有数据没有发送完，等待
+        LDS     R17, tx1_counter
+        CPI     R17, 14
+        BREQ    ??put_c1_0
+//  153 
+//  154     __disable_interrupt();
+        CLI
+//  155     if (tx1_counter || ((UCSR1A & DATA_UD1_EMPTY)==0))    //若发送数据队列有数据或者数据寄存器UDR非空时执行(因为队列先进先出的原因，所以，c要放进非空的发送数据队列里面)
+        LDS     R17, tx1_counter
+        TST     R17
+        BRNE    ??put_c1_1
+        LDS     R17, _A_UCSR1A
+        MOV     R18, R17
+        SBRC    R18, 5
+        RJMP    ??put_c1_2
+//  156 		{
+//  157            tx1_buffer[tx1_wr_index]=c;
+??put_c1_1:
+        LDS     R18, tx1_wr_index
+        LDI     R19, 0
+        MOVW    R31:R30, R19:R18
+        SUBI    R30, LOW((-(tx1_buffer) & 0xFFFF))
+        SBCI    R31, (-(tx1_buffer) & 0xFFFF) >> 8
+        ST      Z, R16
+//  158            if (++tx1_wr_index == TX1_BUFFER_SIZE) tx1_wr_index=0;
+        LDS     R16, tx1_wr_index
+        INC     R16
+        STS     tx1_wr_index, R16
+        CPI     R16, 14
+        BRNE    ??put_c1_3
+        STS     tx1_wr_index, R19
+//  159            ++tx1_counter;
+??put_c1_3:
+        LDS     R16, tx1_counter
+        INC     R16
+        STS     tx1_counter, R16
+        RJMP    ??put_c1_4
+//  160        }
+//  161     else
+//  162            UDR1=c;
+??put_c1_2:
+        STS     _A_UDR1, R16
+//  163     __enable_interrupt();
+??put_c1_4:
+        SEI
+//  164 		
+//  165 }
+        RET
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_UDR1
+        REQUIRE _A_UCSR1A
+//  166 
+//  167 //0xAA,0x86,0x50,0x55,0x15,0x07
+
+        RSEG CODE:CODE:NOROOT(1)
+//  168 void put_s1(unsigned char *ptr, unsigned char end_pipe)
+put_s1:
+        CFI Block cfiBlock3 Using cfiCommon1
+        CFI Function put_s1
+//  169 {	
+        FUNCALL put_s1, _calculate_crc
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL put_s1, delay_ms
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL put_s1, put_c1
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL put_s1, put_c1
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL put_s1, delay_ms
+        LOCFRAME CSTACK, 5, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE5_L09
+        CFI R4 Frame(CFA_Y, -1)
+        CFI R27 Frame(CFA_Y, -2)
+        CFI R26 Frame(CFA_Y, -3)
+        CFI R25 Frame(CFA_Y, -4)
+        CFI R24 Frame(CFA_Y, -5)
+        CFI CFA_Y Y+5
+        REQUIRE ?Register_R4_is_cg_reg
+        MOVW    R25:R24, R17:R16
+        MOV     R27, R18
+//  170 	unsigned char i;
+//  171 	unsigned char crc;
+//  172 	//IR_36kHz();				//发送IR数据前先使能36KHZ的载波输出	
+//  173 	//crc = 0x51
+//  174 	crc = 0;
+        CLR     R4
+//  175 	for (i=1; i<end_pipe; i++)		//对数据帧的<HEADER>, <FIRST ADDRESS>, <PAYLOAD>位进行CRC校验
+        LDI     R26, 1
+        RJMP    ??put_s1_0
+//  176 	{
+//  177 		crc = _calculate_crc(*(ptr+i),crc);
+??put_s1_1:
+        MOV     R17, R4
+        MOV     R18, R26
+        LDI     R19, 0
+        MOVW    R31:R30, R25:R24
+        ADD     R30, R18
+        ADC     R31, R19
+        LD      R16, Z
+        RCALL   _calculate_crc
+        MOV     R4, R16
+//  178 	}
+        INC     R26
+??put_s1_0:
+        CP      R26, R27
+        BRCS    ??put_s1_1
+//  179 
+//  180 	delay_ms(10);	
+        LDI     R16, 10
+        LDI     R17, 0
+        CALL    delay_ms
+//  181  	for(i=0;i<end_pipe;i++)
+        LDI     R26, 0
+        RJMP    ??put_s1_2
+//  182 	{
+//  183 		put_c1(*ptr++);
+??put_s1_3:
+        MOVW    R31:R30, R25:R24
+        LD      R16, Z+
+        MOVW    R25:R24, R31:R30
+        RCALL   put_c1
+//  184 	}
+        INC     R26
+??put_s1_2:
+        CP      R26, R27
+        BRCS    ??put_s1_3
+//  185 	put_c1(crc);
+        MOV     R16, R4
+        RCALL   put_c1
+//  186 	delay_ms(70);
+        LDI     R16, 70
+        LDI     R17, 0
+        CALL    delay_ms
+//  187 	//buzzer_ms(10);
+//  188 	flags.ir_buzzer = 1;
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ORI     R17, 0x10
+        STD     Z+3, R17
+        STD     Z+2, R16
+//  189 	//delay_ms(6);
+//  190 	
+//  191 	//close_IR_36kHz();	//发送数据结束后，把36KHZ载波输出关闭
+//  192 }
+        LDI     R30, 5
+        JMP     ?EPILOGUE_B5_L09
+        CFI EndBlock cfiBlock3
+//  193 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  194 void init_USART1()
+init_USART1:
+        CFI Block cfiBlock4 Using cfiCommon1
+        CFI Function init_USART1
+//  195 {
+//  196 	UCSR1A=(1<<RXC1)|(1<<TXC1);
+        LDI     R16, 192
+        STS     _A_UCSR1A, R16
+//  197 	UCSR1B=(1<<RXCIE1)|(1<<TXCIE1)|(1<<RXEN1)|(1<<TXEN1);		//0xD8
+        LDI     R16, 216
+        STS     _A_UCSR1B, R16
+//  198 	UCSR1C=(1<<USBS1)|(1<<UCSZ11)|(1<<UCSZ10);				//0x06;
+        LDI     R16, 14
+        STS     _A_UCSR1C, R16
+//  199 	UBRR1H=0x00;
+        LDI     R16, 0
+        STS     205, R16
+//  200 	UBRR1L=191;		//2400=191, 4800=95
+        LDI     R16, 191
+        STS     _A_UBRR1, R16
+//  201 }
+        RET
+        CFI EndBlock cfiBlock4
+        REQUIRE _A_UBRR1
+        REQUIRE _A_UCSR1B
+        REQUIRE _A_UCSR1C
+        REQUIRE _A_UCSR1A
+//  202 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  203 unsigned char _calculate_crc(unsigned char data, unsigned char crc)
+_calculate_crc:
+        CFI Block cfiBlock5 Using cfiCommon1
+        CFI Function _calculate_crc
+//  204 {
+//  205   unsigned char i;
+//  206 	crc = crc ^ data;
+        EOR     R17, R16
+//  207 	for (i = 0; i < 8; i++)
+        LDI     R16, 0
+        RJMP    ??_calculate_crc_0
+//  208 	{
+//  209 		if (crc & 0x01)
+//  210 			crc = (crc >> 1) ^ 0x8C;
+//  211 		else
+//  212 			crc >>= 1;
+??_calculate_crc_1:
+        INC     R16
+??_calculate_crc_0:
+        CPI     R16, 8
+        BRCC    ??_calculate_crc_2
+        MOV     R18, R17
+        LSR     R18
+        BST     R17, 0
+        MOV     R17, R18
+        BRTC    ??_calculate_crc_1
+        LDI     R18, 140
+        EOR     R17, R18
+        RJMP    ??_calculate_crc_1
+//  213 	}
+//  214 	return crc;
+??_calculate_crc_2:
+        MOV     R16, R17
+        RET
+        CFI EndBlock cfiBlock5
+//  215 }
+//  216 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  217 void PWM_output_init(void)
+PWM_output_init:
+        CFI Block cfiBlock6 Using cfiCommon1
+        CFI Function PWM_output_init
+//  218 {
+//  219 	TCCR1A = (1<<COM1A1)|(0<<COM1A0)|(1<<COM1B1)|(0<<COM1B0)|(0<<WGM11)|(0<<WGM10);
+        LDI     R16, 160
+        STS     _A_TCCR1A, R16
+//  220 	TCCR1B = (1<<WGM13)|(0<<WGM12)|(0<<CS12)|(0<<CS11)|(1<<CS10);	// CLOCK/1	
+        LDI     R16, 17
+        STS     _A_TCCR1B, R16
+//  221 }
+        RET
+        CFI EndBlock cfiBlock6
+        REQUIRE _A_TCCR1B
+        REQUIRE _A_TCCR1A
+//  222 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  223 void IR_36kHz(void)
+IR_36kHz:
+        CFI Block cfiBlock7 Using cfiCommon1
+        CFI Function IR_36kHz
+//  224 {
+//  225 	PWM_output_init();	
+        FUNCALL IR_36kHz, PWM_output_init
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        RCALL   PWM_output_init
+//  226 	ICR1 = 102;		// 36K
+        LDI     R16, 102
+        LDI     R17, 0
+        STS     (_A_ICR1 + 1), R17
+        STS     _A_ICR1, R16
+//  227 	OCR1A = 31;		//30%
+        LDI     R16, 31
+        STS     (_A_OCR1A + 1), R17
+        STS     _A_OCR1A, R16
+//  228 	OCR1B = 0;		//0%
+        STS     (_A_OCR1B + 1), R17
+        STS     _A_OCR1B, R17
+//  229 }
+        RET
+        CFI EndBlock cfiBlock7
+        REQUIRE _A_OCR1B
+        REQUIRE _A_OCR1A
+        REQUIRE _A_ICR1
+//  230 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  231 void close_IR_36kHz(void)
+close_IR_36kHz:
+        CFI Block cfiBlock8 Using cfiCommon1
+        CFI Function close_IR_36kHz
+//  232 {
+//  233 	TCCR1B = (0<<CS12)|(0<<CS11)|(0<<CS10);	// CLOCK = 0	
+        LDI     R16, 0
+        STS     _A_TCCR1B, R16
+//  234 	OCR1A = 0;
+        STS     (_A_OCR1A + 1), R16
+        STS     _A_OCR1A, R16
+//  235 	TCCR1A = 0;
+        STS     _A_TCCR1A, R16
+//  236 	//TCCR1B = 0;
+//  237 }
+        RET
+        CFI EndBlock cfiBlock8
+        REQUIRE _A_OCR1A
+        REQUIRE _A_TCCR1B
+        REQUIRE _A_TCCR1A
+//  238 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  239 void timer_IR_initial(unsigned long int ms)
+timer_IR_initial:
+        CFI Block cfiBlock9 Using cfiCommon1
+        CFI Function timer_IR_initial
+//  240 {
+//  241 	Time_delay.IR.stack_top = ms;
+        LDI     R30, LOW((Time_delay + 230))
+        LDI     R31, HIGH((Time_delay + 230))
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  242 	Time_delay.IR.count = 0;
+        LDI     R16, 0
+        LDI     R30, LOW((Time_delay + 226))
+        LDI     R31, HIGH((Time_delay + 226))
+        ST      Z, R16
+        STD     Z+1, R16
+        STD     Z+2, R16
+        STD     Z+3, R16
+//  243 	Time_delay.IR.time_out = 0;
+        STS     (Time_delay + 234), R16
+//  244 	Time_delay.IR.started = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 236), R16
+//  245 	Time_delay.IR.enabled = 1;
+        STS     (Time_delay + 235), R16
+//  246 }
+        RET
+        CFI EndBlock cfiBlock9
+//  247 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  248 void decode_IR()
+decode_IR:
+        CFI Block cfiBlock10 Using cfiCommon1
+        CFI Function decode_IR
+//  249 {
+        FUNCALL decode_IR, _calculate_crc
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_IR_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, frame_ON_send
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, frame_OFF_send
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, strncpy
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, CharToStr
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, strncpy
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, CharToStr
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, strncpy
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, CharToStr
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, led_blinking
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_flex_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_group_pnl_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, led_blinking_normal
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_group_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, CharToStr
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, strncpy
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, factory_default
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, system_reset
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_dimmer_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_group_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_dimmer_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, read_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, StrToChar
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, StrToChar
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, StrToChar
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, StrToChar
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, put_s1
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, is_scenario_full
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, strncpy
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, CharToStr
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_frame_pp_ext_broad
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_flex_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, led_blinking
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, timer_flex_initial
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_ee_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_ee_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, write_ee_KO
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, buzzer_ms
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL decode_IR, send_aux_frame
+        LOCFRAME CSTACK, 66, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE13_L09
+        CFI R12 Frame(CFA_Y, -1)
+        CFI R11 Frame(CFA_Y, -2)
+        CFI R10 Frame(CFA_Y, -3)
+        CFI R9 Frame(CFA_Y, -4)
+        CFI R8 Frame(CFA_Y, -5)
+        CFI R7 Frame(CFA_Y, -6)
+        CFI R6 Frame(CFA_Y, -7)
+        CFI R5 Frame(CFA_Y, -8)
+        CFI R4 Frame(CFA_Y, -9)
+        CFI R27 Frame(CFA_Y, -10)
+        CFI R26 Frame(CFA_Y, -11)
+        CFI R25 Frame(CFA_Y, -12)
+        CFI R24 Frame(CFA_Y, -13)
+        CFI CFA_Y Y+13
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        REQUIRE ?Register_R8_is_cg_reg
+        REQUIRE ?Register_R9_is_cg_reg
+        REQUIRE ?Register_R10_is_cg_reg
+        REQUIRE ?Register_R11_is_cg_reg
+        REQUIRE ?Register_R12_is_cg_reg
+        SBIW    R29:R28, 53
+        CFI CFA_Y Y+66
+//  250 	unsigned int par_num;
+//  251 	//unsigned int par_val;
+//  252 	unsigned char i;
+//  253 	unsigned char crc;
+//  254 	//unsigned char *p_ee = &ee_KO_conf;
+//  255 	volatile unsigned char buffer_ir[13];
+//  256 	unsigned char buffer_scs[17];
+//  257 	unsigned char buffer_char[3];
+//  258 	//unsigned char *p_IR = &IR_reception.pipe[0];
+//  259 	unsigned char old_ns_index = 0;
+        CLR     R8
+//  260   unsigned char ns;
+//  261   volatile unsigned long int current_id = 0;
+        LDI     R17, 0
+        LDI     R19, 0
+        STD     Y+3, R17
+        STD     Y+4, R17
+        STD     Y+5, R17
+        STD     Y+6, R17
+//  262   unsigned char temp;
+//  263   unsigned char available_command = 0;
+        LDI     R24, 0
+//  264   unsigned char group_flag = 0;
+        LDI     R25, 0
+//  265 	unsigned char ns_sended[16];
+//  266 	unsigned char j;
+//  267 	unsigned char avoid_twice = 0;
+//  268 	unsigned char temp_ns;
+//  269 	unsigned char current_scenario = OUT_RANGE;
+        CLR     R12
+        DEC     R12
+        LDS     R16, (IR_reception + 16)
+        CPI     R16, 1
+        BRNE    ??decode_IR_0
+//  270 	static unsigned char ns_400ms;
+//  271 	//CRC checking
+//  272 	if(IR_reception.finished == 1)
+//  273 	{
+//  274 		crc = 0;
+//  275 		for (i=1; i<IR_reception.info; i++)		//对数据帧的<HEADER>, <FIRST ADDRESS>, <PAYLOAD>位进行CRC校验
+        LDI     R26, 1
+        RJMP    ??decode_IR_1
+//  276 		{
+//  277 			crc = _calculate_crc(IR_reception.pipe[i],crc);
+??decode_IR_2:
+        LDI     R27, 0
+        MOVW    R31:R30, R27:R26
+        SUBI    R30, LOW((-(IR_reception) & 0xFFFF))
+        SBCI    R31, (-(IR_reception) & 0xFFFF) >> 8
+        LD      R16, Z
+        RCALL   _calculate_crc
+        MOV     R17, R16
+//  278 		}
+        INC     R26
+??decode_IR_1:
+        LDS     R16, (IR_reception + 15)
+        CP      R26, R16
+        BRCS    ??decode_IR_2
+//  279 
+//  280 		if(crc == IR_reception.pipe[IR_reception.info])
+        LDS     R18, (IR_reception + 15)
+        LDI     R19, 0
+        MOVW    R31:R30, R19:R18
+        SUBI    R30, LOW((-(IR_reception) & 0xFFFF))
+        SBCI    R31, (-(IR_reception) & 0xFFFF) >> 8
+        LD      R16, Z
+        CP      R17, R16
+        BRNE    ??decode_IR_3
+//  281 			IR_reception.CRC_OK = 1;
+        LDI     R16, 1
+        STS     (IR_reception + 17), R16
+        RJMP    ??decode_IR_0
+//  282 		else
+//  283 			IR_reception.CRC_OK = 0;
+??decode_IR_3:
+        STS     (IR_reception + 17), R19
+//  284 	}
+//  285 
+//  286 	//if((IR_reception.CRC_OK == 1) || (IR_reception.CRC_OK == 0))
+//  287 	if((IR_reception.CRC_OK == 1) )
+??decode_IR_0:
+        LDS     R16, (IR_reception + 17)
+        CPI     R16, 1
+        BREQ    $+2+2
+        RJMP    ??decode_IR_4
+//  288 	{
+//  289 		timer_IR_initial(2000);
+        LDI     R16, 208
+        LDI     R17, 7
+        LDI     R18, 0
+        RCALL   timer_IR_initial
+//  290 		state.IR_Trans = 1;
+        LDI     R30, LOW(state)
+        LDI     R31, (state) >> 8
+        LDD     R16, Z+5
+        LDD     R17, Z+6
+        ORI     R16, 0x01
+        STD     Z+6, R17
+        STD     Z+5, R16
+//  291 		flags.ir_buzzer = 0;
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ANDI    R17, 0xEF
+        STD     Z+3, R17
+        STD     Z+2, R16
+//  292 		//IR_reception.finished = 0;
+//  293 		//IR_reception.CRC_OK = 0;
+//  294 		//buzzer_ms(100);
+//  295     ns = IR_reception.pipe[4] & 0x0F;
+        LDS     R6, (IR_reception + 4)
+        LDI     R16, 15
+        AND     R6, R16
+//  296     current_id = IR_reception.pipe[2];
+        LDS     R16, (IR_reception + 2)
+        STD     Y+3, R16
+        STD     Y+4, R8
+        STD     Y+5, R8
+        STD     Y+6, R8
+//  297     current_id = current_id << 8;
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        MOV     R19, R18
+        MOV     R18, R17
+        MOV     R17, R16
+        STD     Y+3, R8
+        STD     Y+4, R17
+        STD     Y+5, R18
+        STD     Y+6, R19
+//  298     current_id = current_id + IR_reception.pipe[3];
+        LDS     R16, (IR_reception + 3)
+        LDD     R20, Y+3
+        LDD     R21, Y+4
+        LDD     R22, Y+5
+        LDD     R23, Y+6
+        ADD     R20, R16
+        ADC     R21, R8
+        ADC     R22, R8
+        ADC     R23, R8
+        STD     Y+3, R20
+        STD     Y+4, R21
+        STD     Y+5, R22
+        STD     Y+6, R23
+//  299 		current_id = current_id << 4;
+        LDI     R20, 4
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        CALL    ?L_SHL_L03
+        STD     Y+3, R16
+        STD     Y+4, R17
+        STD     Y+5, R18
+        STD     Y+6, R19
+//  300     temp = IR_reception.pipe[4];
+        LDS     R16, (IR_reception + 4)
+//  301     temp = temp >> 4;
+//  302     temp = temp & 0x0F;
+//  303     current_id = current_id + temp;
+        SWAP    R16
+        ANDI    R16, 0x0F
+        LDD     R20, Y+3
+        LDD     R21, Y+4
+        LDD     R22, Y+5
+        LDD     R23, Y+6
+        ADD     R20, R16
+        ADC     R21, R8
+        ADC     R22, R8
+        ADC     R23, R8
+        STD     Y+3, R20
+        STD     Y+4, R21
+        STD     Y+5, R22
+        STD     Y+6, R23
+//  304 
+//  305     if(current_id == 0xFFFFF)
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        CPI     R16, 255
+        CPC     R17, R12
+        LDI     R20, 15
+        CPC     R18, R20
+        CPC     R19, R8
+        BRNE    ??decode_IR_5
+//  306     {
+//  307       if(ns == 0)
+        TST     R6
+        BRNE    ??decode_IR_6
+//  308       {
+//  309         available_command = 0;
+//  310         group_flag = 1;
+        LDI     R25, 1
+        RJMP    ??decode_IR_7
+//  311       }
+//  312       else if(ns < 16)
+??decode_IR_6:
+        LDI     R16, 16
+        CP      R6, R16
+        BRCC    ??decode_IR_7
+//  313         available_command = 1;
+        LDI     R24, 1
+        RJMP    ??decode_IR_7
+//  314       else
+//  315         available_command = 0;
+//  316     }
+//  317     else
+//  318     {
+//  319       for(i=15;i!=0xFF;i--)
+??decode_IR_5:
+        LDI     R26, 15
+        RJMP    ??decode_IR_8
+??decode_IR_9:
+        DEC     R26
+??decode_IR_8:
+        CPI     R26, 255
+        BREQ    ??decode_IR_7
+//  320 		  {
+//  321 			  if( (IR_reception.pipe[2] == ee_scenario[i].id[0]) && (IR_reception.pipe[3] == ee_scenario[i].id[1]) && (IR_reception.pipe[4] == ee_scenario[i].id[2]))
+        MOV     R20, R26
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R18, LOW(ee_scenario)
+        LDI     R19, (ee_scenario) >> 8
+        ADD     R18, R16
+        ADC     R19, R17
+        LDS     R17, (IR_reception + 2)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_9
+        LDS     R17, (IR_reception + 3)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_9
+        LDS     R17, (IR_reception + 4)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_9
+//  322 			  {
+//  323           ns = ee_scenario[i].ns_number;
+        MOVW    R21:R20, R19:R18
+        CALL    __eeget8_16
+        MOV     R6, R16
+//  324 				  available_command = 1;
+        LDI     R24, 1
+//  325 					current_scenario = i;
+        MOV     R12, R26
+//  326 				  break;
+//  327 			  }
+//  328 			}
+//  329     }
+//  330 
+//  331 		for(i=0;i<14;i++)
+??decode_IR_7:
+        LDI     R26, 0
+        RJMP    ??decode_IR_10
+//  332 		{
+//  333 			g_ir_reception[i] = IR_reception.pipe[i];
+??decode_IR_11:
+        LDI     R27, 0
+        MOVW    R31:R30, R27:R26
+        SUBI    R30, LOW((-(IR_reception) & 0xFFFF))
+        SBCI    R31, (-(IR_reception) & 0xFFFF) >> 8
+        LD      R16, Z
+        MOVW    R31:R30, R27:R26
+        SUBI    R30, LOW((-(g_ir_reception) & 0xFFFF))
+        SBCI    R31, (-(g_ir_reception) & 0xFFFF) >> 8
+        ST      Z, R16
+//  334 		}
+        INC     R26
+??decode_IR_10:
+        CPI     R26, 14
+        BRCS    ??decode_IR_11
+//  335 
+//  336 		switch(IR_reception.info)
+        LDS     R16, (IR_reception + 15)
+        SUBI    R16, 6
+        BREQ    ??decode_IR_12
+        DEC     R16
+        BRNE    $+2+2
+        RJMP    ??decode_IR_13
+        SUBI    R16, 2
+        BRNE    $+2+2
+        RJMP    ??decode_IR_14
+        SUBI    R16, 4
+        BRNE    $+2+2
+        RJMP    ??decode_IR_15
+        RJMP    ??decode_IR_16
+//  337 		{
+//  338 			case 6:
+//  339 				//IR_reception.info = 6;			//只剩一帧CRC没有接收到，该数据帧共有0~6共7bytes
+//  340         switch(IR_reception.pipe[5])
+??decode_IR_12:
+        LDS     R16, (IR_reception + 5)
+        SUBI    R16, 1
+        BREQ    ??decode_IR_17
+        DEC     R16
+        BREQ    ??decode_IR_18
+        SUBI    R16, 5
+        BREQ    ??decode_IR_19
+        RJMP    ??decode_IR_16
+//  341         {
+//  342           case 0x01:    //ON
+//  343             //load_update(0);
+//  344             if(available_command)
+??decode_IR_17:
+        TST     R24
+        BREQ    ??decode_IR_20
+//  345             {
+//  346               send_aux_frame(ON,ns,current_scenario);
+        MOV     R18, R12
+        MOV     R17, R6
+        LDI     R16, 1
+??decode_IR_21:
+        CALL    send_aux_frame
+        RJMP    ??decode_IR_16
+//  347             }
+//  348             else if(group_flag)
+??decode_IR_20:
+        TST     R25
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  349             {
+//  350               if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  351               {
+//  352               }
+//  353               else
+//  354               {
+//  355 								//SCS_received.Manual_ON = 1;     // add by alan on 20090404   //0715
+//  356 								frame_ON_send();
+        CALL    frame_ON_send
+//  357 								/*
+//  358                 if(KO_conf.AddressType == GROUP)	
+//  359 									send_group_frame(ON);
+//  360 								else if(KO_conf.AddressType == PP)
+//  361 									frame_pp_on_off('0');
+//  362 								*/
+//  363 								SCS_received.GR_ON = 1;
+        LDI     R30, LOW(SCS_received)
+        LDI     R31, (SCS_received) >> 8
+        LD      R16, Z
+        ORI     R16, 0x08
+        ST      Z, R16
+        RJMP    ??decode_IR_16
+//  364               }
+//  365             }
+//  366           break;
+//  367 
+//  368           case 0x02:    //OFF
+//  369 						//load_update(1);
+//  370             if(available_command)
+??decode_IR_18:
+        TST     R24
+        BREQ    ??decode_IR_22
+//  371             {
+//  372                 send_aux_frame(OFF,ns,current_scenario);
+        MOV     R18, R12
+        MOV     R17, R6
+        LDI     R16, 2
+        RJMP    ??decode_IR_21
+//  373             }
+//  374             else if(group_flag)
+??decode_IR_22:
+        TST     R25
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  375             {
+//  376               if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  377               {
+//  378               }
+//  379               else
+//  380               {
+//  381 								/*
+//  382 								if(KO_conf.AddressType == GROUP)
+//  383 									send_group_frame(OFF);
+//  384 								else if(KO_conf.AddressType == PP)
+//  385 									frame_pp_on_off('1');
+//  386 								*/
+//  387 								frame_OFF_send();
+        CALL    frame_OFF_send
+//  388 								SCS_received.GR_OFF = 1;
+        LDI     R30, LOW(SCS_received)
+        LDI     R31, (SCS_received) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//  389 								SCS_received.P2P_actuator_flag = 0;
+        LDD     R16, Z+2
+        ANDI    R16, 0xFE
+        STD     Z+2, R16
+//  390 								SCS_received.P2P_dimmer_flag = 0;
+        LDD     R16, Z+2
+        ANDI    R16, 0xFD
+        STD     Z+2, R16
+        RJMP    ??decode_IR_16
+//  391               }
+//  392             }
+//  393           break;
+//  394 
+//  395           case 0x07:
+//  396             if(current_id != 0xFFFFF)
+??decode_IR_19:
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        CPI     R16, 255
+        LDI     R20, 255
+        CPC     R17, R20
+        LDI     R20, 15
+        CPC     R18, R20
+        CPC     R19, R8
+        BRNE    $+2+2
+        RJMP    ??decode_IR_23
+//  397             {
+//  398               for(i=15;i!=0xFF;i--)
+        LDI     R26, 15
+        RJMP    ??decode_IR_24
+??decode_IR_25:
+        DEC     R26
+??decode_IR_24:
+        CPI     R26, 255
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  399 					    {
+//  400 						    if( (IR_reception.pipe[2] == ee_scenario[i].id[0]) && (IR_reception.pipe[3] == ee_scenario[i].id[1]) && (IR_reception.pipe[4] == ee_scenario[i].id[2]))
+        MOV     R20, R26
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R24, LOW(ee_scenario)
+        LDI     R25, (ee_scenario) >> 8
+        ADD     R24, R16
+        ADC     R25, R17
+        LDS     R17, (IR_reception + 2)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_25
+        LDS     R17, (IR_reception + 3)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_25
+        LDS     R17, (IR_reception + 4)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_25
+//  401 						    {
+//  402 							    strncpy(buffer_scs,"B1009300",9);
+        LDI     R20, 9
+        LDI     R21, 0
+        LDI     R18, LOW(`?<Constant "B1009300">`)
+        LDI     R19, (`?<Constant "B1009300">`) >> 8
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    strncpy
+//  403 							    CharToStr(ee_scenario[i].ns_number,buffer_char);
+        MOVW    R19:R18, R29:R28
+        MOVW    R21:R20, R25:R24
+        CALL    __eeget8_16
+        CALL    CharToStr
+//  404 							    buffer_scs[2] = buffer_char[0];
+        LD      R16, Y
+        STD     Y+22, R16
+//  405 							    buffer_scs[3] = buffer_char[1];
+        LDD     R16, Y+1
+        STD     Y+23, R16
+//  406 							    send_frame_pp_broad(buffer_scs,0);
+        LDI     R18, 0
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    send_frame_pp_broad
+//  407 							    break;
+        RJMP    ??decode_IR_16
+//  408 						    }
+//  409 					    }
+//  410             }
+//  411             else
+//  412             {
+//  413               if(ns < 16)
+??decode_IR_23:
+        LDI     R16, 16
+        CP      R6, R16
+        BRCS    $+2+2
+        RJMP    ??decode_IR_16
+//  414               {
+//  415                 send_aux_frame(ACTION,ns,current_scenario);
+        MOV     R18, R12
+        MOV     R17, R6
+        LDI     R16, 7
+        RJMP    ??decode_IR_21
+//  416               }
+//  417             }
+//  418           break;
+//  419 
+//  420           default:break;
+//  421         }
+//  422 			break;
+//  423 			
+//  424 			case 7:
+//  425 				//IR_reception.info = 7;			//该数据帧共有0~7共8bytes
+//  426 				if(IR_reception.pipe[5] == 0x70)
+??decode_IR_13:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 112
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  427 				{
+//  428 					switch(IR_reception.pipe[6])
+        LDS     R16, (IR_reception + 6)
+        LDI     R30, LOW(`?<Jumptable for decode_IR>_0`)
+        LDI     R31, (`?<Jumptable for decode_IR>_0`) >> 8
+        JMP     ?CV_SWITCH_L06
+//  429 					{
+//  430 						case 0x00:  //announce ID
+//  431 							//led_blinking(1000,1000);
+//  432 							//state.main_state = PNL_IR_SCENARIO_STEP1;
+//  433 							//timer_flex_initial(60000);
+//  434 						break;
+//  435 
+//  436 						case 0x0E:  //erase_ID address_erase
+//  437 							if( (IR_reception.pipe[4] & 0x0F) == 0)
+??decode_IR_26:
+        LDS     R16, (IR_reception + 4)
+        ANDI    R16, 0x0F
+        LDI     R26, 0
+        BREQ    $+2+2
+        RJMP    ??decode_IR_27
+//  438 							{
+//  439 								for(i=0;i<16;i++)
+        RJMP    ??decode_IR_28
+//  440 								{
+//  441 									ns_sended[i] = 0;
+??decode_IR_29:
+        MOVW    R31:R30, R29:R28
+        ADIW    R31:R30, 37
+        ADD     R30, R26
+        ADC     R31, R8
+        ST      Z, R8
+//  442 								}
+        INC     R26
+??decode_IR_28:
+        CPI     R26, 16
+        BRCS    ??decode_IR_29
+//  443                 strncpy(buffer_scs,"D200090811000066",17);
+        LDI     R20, 17
+        LDI     R21, 0
+        LDI     R18, LOW((`?<Constant "B1009300">` + 9))
+        LDI     R19, HIGH((`?<Constant "B1009300">` + 9))
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    strncpy
+//  444                 for(i=0;i<16;i++)
+        LDI     R26, 0
+        RJMP    ??decode_IR_30
+//  445                 {
+//  446 									avoid_twice = 0;
+//  447 									//&& (ee_scenario[i].id[2] & 0xF0 == IR_reception.pipe[4] & 0xF0)
+//  448 									if((ee_scenario[i].id[0] == IR_reception.pipe[2] )&& (ee_scenario[i].id[1] == IR_reception.pipe[3]))
+//  449 									{
+//  450 										if((ee_scenario[i].id[2] & 0xF0) == (IR_reception.pipe[4] & 0xF0))
+//  451 										{
+//  452 											CharToStr(ee_scenario[i].ns_number,buffer_char);
+//  453                     	buffer_scs[10] = buffer_char[0];
+//  454                     	buffer_scs[11] = buffer_char[1];
+//  455 											temp_ns = i;
+//  456 											
+//  457 											if(ee_scenario[i].confed)
+//  458 											{
+//  459 												for(j=0;j<i;j++)
+??decode_IR_31:
+        INC     R18
+??decode_IR_32:
+        CP      R18, R26
+        BRCC    ??decode_IR_33
+//  460 												{
+//  461 													if(ns_sended[j] == ee_scenario[i].ns_number)
+        MOVW    R31:R30, R29:R28
+        ADIW    R31:R30, 37
+        ADD     R30, R18
+        ADC     R31, R8
+        LD      R17, Z
+        MOVW    R21:R20, R25:R24
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_31
+//  462 													{
+//  463 														avoid_twice = 1;
+        LDI     R27, 1
+//  464 														break;
+//  465 													}
+//  466 												}
+//  467 											}
+//  468 										
+//  469 											if(avoid_twice == 0)
+??decode_IR_33:
+        TST     R27
+        BRNE    ??decode_IR_34
+//  470 											{
+//  471                     		send_frame_pp_ext_broad(buffer_scs,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    send_frame_pp_ext_broad
+//  472 												ns_sended[temp_ns] = ee_scenario[temp_ns].ns_number;
+        MOVW    R21:R20, R25:R24
+        CALL    __eeget8_16
+        MOVW    R31:R30, R29:R28
+        ADIW    R31:R30, 37
+        ADD     R30, R26
+        ADC     R31, R8
+        ST      Z, R16
+//  473 											}
+//  474 										
+//  475 											ee_scenario[temp_ns].ns_number = 0x01;
+??decode_IR_34:
+        LDI     R16, 1
+        MOVW    R21:R20, R25:R24
+        CALL    __eeput8_16
+//  476 											ee_scenario[temp_ns].id[0] = 0;
+        LDI     R16, 0
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  477 											ee_scenario[temp_ns].id[1] = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  478 											ee_scenario[temp_ns].id[2] = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  479 											ee_scenario[temp_ns].key_number = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  480 											ee_scenario[temp_ns].confed = 0;
+        ADIW    R25:R24, 6
+        MOVW    R21:R20, R25:R24
+        CALL    __eeput8_16
+//  481 											
+//  482 											g_ns_index = temp_ns;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        MOV     R16, R26
+        CALL    __eeput8_16
+??decode_IR_35:
+        INC     R26
+??decode_IR_30:
+        CPI     R26, 16
+        BRCS    $+2+2
+        RJMP    ??decode_IR_36
+        LDI     R27, 0
+        MOV     R20, R26
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R24, LOW(ee_scenario)
+        LDI     R25, (ee_scenario) >> 8
+        ADD     R24, R16
+        ADC     R25, R17
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        LDS     R17, (IR_reception + 2)
+        CP      R16, R17
+        BRNE    ??decode_IR_35
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        LDS     R17, (IR_reception + 3)
+        CP      R16, R17
+        BRNE    ??decode_IR_35
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        ANDI    R16, 0xF0
+        LDS     R17, (IR_reception + 4)
+        ANDI    R17, 0xF0
+        CP      R16, R17
+        BRNE    ??decode_IR_35
+        MOVW    R19:R18, R29:R28
+        MOVW    R21:R20, R25:R24
+        CALL    __eeget8_16
+        CALL    CharToStr
+        LD      R16, Y
+        STD     Y+30, R16
+        LDD     R16, Y+1
+        STD     Y+31, R16
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 250
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    $+2+2
+        RJMP    ??decode_IR_33
+        LDI     R18, 0
+        RJMP    ??decode_IR_32
+//  483 										}
+//  484 									}
+//  485 									/*
+//  486                   if(ee_scenario[i].confed)
+//  487                   {
+//  488                     CharToStr(ee_scenario[i].ns_number,buffer_char);
+//  489                     buffer_scs[10] = buffer_char[0];
+//  490                     buffer_scs[11] = buffer_char[1];
+//  491                     send_frame_pp_ext_broad(buffer_scs,TRANS_DELAY);
+//  492                   }
+//  493 									*/
+//  494                 }
+//  495                 /*
+//  496 								for(i=0;i<16;i++)
+//  497 								{
+//  498 									ee_scenario[i].ns_number = 0x01;
+//  499 									ee_scenario[i].id[0] = 0;
+//  500 									ee_scenario[i].id[1] = 0;
+//  501 									ee_scenario[i].id[2] = 0;
+//  502 									ee_scenario[i].key_number = 0;
+//  503 									ee_scenario[i].confed = 0;
+//  504 								}
+//  505 								*/
+//  506 							}
+//  507 							else
+//  508 							{
+//  509 								for(i=0;i<16;i++)
+//  510 								{
+//  511 									if( (IR_reception.pipe[2] == ee_scenario[i].id[0]) && (IR_reception.pipe[3] == ee_scenario[i].id[1]) && (IR_reception.pipe[4] == ee_scenario[i].id[2]))
+??decode_IR_37:
+        MOV     R20, R26
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R24, LOW(ee_scenario)
+        LDI     R25, (ee_scenario) >> 8
+        ADD     R24, R16
+        ADC     R25, R17
+        LDS     R17, (IR_reception + 2)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BREQ    $+2+2
+        RJMP    ??decode_IR_38
+        LDS     R17, (IR_reception + 3)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BREQ    $+2+2
+        RJMP    ??decode_IR_38
+        LDS     R17, (IR_reception + 4)
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_38
+//  512 									{
+//  513 										strncpy(buffer_scs,"D200090811000066",17);
+        LDI     R20, 17
+        LDI     R21, 0
+        LDI     R18, LOW((`?<Constant "B1009300">` + 9))
+        LDI     R19, HIGH((`?<Constant "B1009300">` + 9))
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    strncpy
+//  514 										CharToStr(ee_scenario[i].ns_number,buffer_char);
+        MOVW    R19:R18, R29:R28
+        MOVW    R21:R20, R25:R24
+        CALL    __eeget8_16
+        CALL    CharToStr
+//  515 										buffer_scs[10] = buffer_char[0];
+        LD      R16, Y
+        STD     Y+30, R16
+//  516 										buffer_scs[11] = buffer_char[1];
+        LDD     R16, Y+1
+        STD     Y+31, R16
+//  517 										send_frame_pp_ext_broad(buffer_scs,0);
+        LDI     R18, 0
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    send_frame_pp_ext_broad
+//  518 
+//  519 										ee_scenario[i].ns_number =0x01;
+        LDI     R16, 1
+        MOVW    R21:R20, R25:R24
+        CALL    __eeput8_16
+//  520 										ee_scenario[i].id[0] = 0;
+        LDI     R16, 0
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  521 										ee_scenario[i].id[1] = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  522 										ee_scenario[i].id[2] = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  523 										ee_scenario[i].key_number = 0;
+        MOVW    R21:R20, R25:R24
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+//  524 										ee_scenario[i].confed = 0;
+        ADIW    R25:R24, 6
+        MOVW    R21:R20, R25:R24
+        CALL    __eeput8_16
+//  525 									}
+//  526 								}
+??decode_IR_38:
+        INC     R26
+??decode_IR_27:
+        CPI     R26, 16
+        BRCC    $+2+2
+        RJMP    ??decode_IR_37
+//  527 							}
+//  528 							
+//  529 							led_blinking(60,250);
+??decode_IR_36:
+        LDI     R20, 250
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 0
+        LDI     R16, 60
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    led_blinking
+//  530 							timer_flex_initial(5000);
+        LDI     R16, 136
+        LDI     R17, 19
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    timer_flex_initial
+//  531 							state.main_state = PNL_IR_SCENARIO_STEP8;
+        LDI     R16, 24
+??decode_IR_39:
+        LDI     R17, 144
+        LDI     R30, LOW(state)
+        LDI     R31, (state) >> 8
+??decode_IR_40:
+        STD     Z+2, R16
+        STD     Z+3, R17
+        RJMP    ??decode_IR_16
+//  532 
+//  533 						break;
+//  534 
+//  535 						case 0x07: //close learning
+//  536 							//strlcpy(buffer_ID,&IR_reception.pipe[2],4);
+//  537               if(state.main_state > PNL_IR_SCENARIO_STEP3 && state.main_state < PNL_IR_SCENARIO_STEP7)
+??decode_IR_41:
+        LDI     R30, LOW(state)
+        LDI     R31, (state) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        CPI     R16, 22
+        LDI     R18, 144
+        CPC     R17, R18
+        BRCC    $+2+2
+        RJMP    ??decode_IR_16
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        CPI     R16, 23
+        CPC     R17, R18
+        BRCS    $+2+2
+        RJMP    ??decode_IR_16
+//  538 							{
+//  539 								if(current_id == temp_variable.ID)
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        LDI     R30, LOW(temp_variable)
+        LDI     R31, (temp_variable) >> 8
+        LDD     R20, Z+15
+        LDD     R21, Z+16
+        LDD     R22, Z+17
+        LDD     R23, Z+18
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  540 								{
+//  541 									temp_variable.ID = 0;
+        STD     Z+15, R8
+        STD     Z+16, R8
+        STD     Z+17, R8
+        STD     Z+18, R8
+//  542 									state.pnl_slave = NORMAL;
+        STS     (state + 4), R8
+//  543 							  	state.main_state = PNL_IR_SCENARIO_STEP7;
+        LDI     R16, 23
+        RJMP    ??decode_IR_39
+//  544 								}
+//  545 							}
+//  546 						break;
+//  547 
+//  548 						case 0x2C:	//START_GROUP_PNL
+//  549               if(state.main_state == STATE_NORMAL)
+??decode_IR_42:
+        LDI     R30, LOW(state)
+        LDI     R31, (state) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        OR      R16, R17
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  550               {
+//  551                 if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BRNE    ??decode_IR_43
+//  552                 {
+//  553 							    state.main_state = PNL_NONE_CONFED_STEP1;
+        LDI     R16, 1
+        LDI     R17, 144
+        STD     Z+2, R16
+        STD     Z+3, R17
+//  554                   key_result.short_pressed = 1;
+??decode_IR_44:
+        STS     key_result, R16
+        RJMP    ??decode_IR_16
+//  555                 }
+//  556                 else if(product_information.conf_type == ADVANCED)
+??decode_IR_43:
+        LDS     R16, product_information
+        CPI     R16, 2
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  557                 {
+//  558                   state.main_state = PNL_AD_CONFED_STEP1;
+        LDI     R16, 7
+??decode_IR_45:
+        LDI     R17, 144
+        STD     Z+2, R16
+        STD     Z+3, R17
+//  559                   key_result.short_pressed = 1;
+        LDI     R16, 1
+        RJMP    ??decode_IR_44
+//  560                 }
+//  561               }
+//  562 						break;
+//  563 							
+//  564 						case 0x2D: //NEXT_ACTUATOR
+//  565 							send_frame_pp_ext_broad("D20001428C000B01",TRANS_DELAY);
+??decode_IR_46:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 26))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 26))
+??decode_IR_47:
+        CALL    send_frame_pp_ext_broad
+        RJMP    ??decode_IR_16
+//  566 						break;
+//  567 
+//  568 						case 0x2E: //INCLUDE
+//  569 							send_frame_pp_ext_broad("D20001428C000B02",TRANS_DELAY);
+??decode_IR_48:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 43))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 43))
+        RJMP    ??decode_IR_47
+//  570 						break;
+//  571 
+//  572 						case 0x2F: //EXCLUDE
+//  573 							send_frame_pp_ext_broad("D20001428C000B03",TRANS_DELAY);
+??decode_IR_49:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 60))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 60))
+        RJMP    ??decode_IR_47
+//  574 						break;
+//  575 
+//  576 						case 0x30:    //SET_ON
+//  577 							//SCS_received.Manual_ON = 1;    // add by alan on 20090404  //0715
+//  578               send_frame_pp_ext_broad("D20001428C000B04",TRANS_DELAY);
+??decode_IR_50:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 77))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 77))
+        RJMP    ??decode_IR_47
+//  579 						break;
+//  580 						
+//  581 						case 0x31:    //SET_OFF
+//  582 							//SCS_received.Manual_OFF = 1;    // add by alan on 20090404  //0715
+//  583               send_frame_pp_ext_broad("D20001428C000B05",TRANS_DELAY);
+??decode_IR_51:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 94))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 94))
+        RJMP    ??decode_IR_47
+//  584 						break;
+//  585 
+//  586             case 0x32:    //SET_DIMMING_UP
+//  587               send_frame_pp_ext_broad("D20001428C000B06",TRANS_DELAY);
+??decode_IR_52:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 111))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 111))
+        RJMP    ??decode_IR_47
+//  588             break;
+//  589 
+//  590             case 0x33:    //SET_DIMMING_DOWN
+//  591               send_frame_pp_ext_broad("D20001428C000B07",TRANS_DELAY);
+??decode_IR_53:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 128))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 128))
+        RJMP    ??decode_IR_47
+//  592             break;
+//  593 
+//  594 						case 0x34:  //END_GROUP_PNL
+//  595               if(state.main_state != STATE_NORMAL)
+??decode_IR_54:
+        LDI     R30, LOW(state)
+        LDI     R31, (state) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        OR      R16, R17
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  596               {
+//  597                 if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BRNE    ??decode_IR_55
+//  598                 {
+//  599 							    state.main_state = PNL_NONE_CONFED_STEP4;
+        LDI     R16, 4
+        LDI     R17, 144
+        RJMP    ??decode_IR_40
+//  600                   //key_result.short_pressed = 1;
+//  601                 }
+//  602                 else if(product_information.conf_type == ADVANCED)
+??decode_IR_55:
+        LDS     R16, product_information
+        CPI     R16, 2
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  603                 {
+//  604                   state.main_state = PNL_AD_CONFED_STEP90;
+        LDI     R16, 17
+        RJMP    ??decode_IR_45
+//  605                   key_result.short_pressed = 1;
+//  606                 }
+//  607               }
+//  608 						break;
+//  609 
+//  610 						case 0x35: //ERASE_GROUP_PNL
+//  611 							//send_frame_pp_ext_broad("D20001428CGG0944",TRANS_DELAY);
+//  612               if(available_command)
+??decode_IR_56:
+        TST     R24
+        BREQ    ??decode_IR_57
+//  613               {
+//  614 								if(KO_conf.Reference != 0)
+        LDS     R16, (KO_conf + 5)
+        TST     R16
+        BREQ    ??decode_IR_58
+//  615 									send_group_pnl_frame(SET,KO_conf.Reference,REF_TRANS);
+        LDI     R18, 51
+        LDS     R17, (KO_conf + 5)
+        LDI     R16, 50
+        CALL    send_group_pnl_frame
+//  616 			
+//  617 								if(ee_flags.PnG_confed)
+??decode_IR_58:
+        LDI     R20, LOW(ee_flags)
+        LDI     R21, (ee_flags) >> 8
+        CALL    __eeget16_16
+        ANDI    R16, 0x02
+        BREQ    ??decode_IR_59
+//  618 								{
+//  619 									KO_conf.Reference = ee_variable.Reference;
+        LDI     R20, LOW((ee_variable + 1))
+        LDI     R21, HIGH((ee_variable + 1))
+        CALL    __eeget8_16
+        STS     (KO_conf + 5), R16
+//  620 									ee_KO_conf.Reference = ee_variable.Reference;
+        LDI     R20, LOW((ee_variable + 1))
+        LDI     R21, HIGH((ee_variable + 1))
+        CALL    __eeget8_16
+        RJMP    ??decode_IR_60
+//  621 								}
+//  622 								else
+//  623 								{
+//  624 									KO_conf.Reference = 0;
+??decode_IR_59:
+        LDI     R16, 0
+        STS     (KO_conf + 5), R16
+//  625 									ee_KO_conf.Reference = 0;
+??decode_IR_60:
+        LDI     R20, LOW((ee_KO_conf + 5))
+        LDI     R21, HIGH((ee_KO_conf + 5))
+        CALL    __eeput8_16
+//  626 								}
+//  627 
+//  628                 send_frame_pp_ext_broad("D20001428C000B05",TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 94))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 94))
+        CALL    send_frame_pp_ext_broad
+//  629                 led_blinking_normal();
+        CALL    led_blinking_normal
+        RJMP    ??decode_IR_16
+//  630               }
+//  631               else if(group_flag)
+??decode_IR_57:
+        TST     R25
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  632               {
+//  633                 if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  634                 {
+//  635                 }
+//  636                 else
+//  637                 {
+//  638 									send_group_frame(ERASE);
+        LDI     R16, 8
+        CALL    send_group_frame
+//  639                   if(available_command)
+        RJMP    ??decode_IR_16
+//  640               		{
+//  641 										if(KO_conf.Reference != 0)
+//  642 											send_group_pnl_frame(SET,KO_conf.Reference,REF_TRANS);
+//  643 			
+//  644 										if(ee_flags.PnG_confed)
+//  645 										{
+//  646 											KO_conf.Reference = ee_variable.Reference;
+//  647 											ee_KO_conf.Reference = ee_variable.Reference;
+//  648 										}
+//  649 										else
+//  650 										{
+//  651 											KO_conf.Reference = 0;
+//  652 											ee_KO_conf.Reference = 0;
+//  653 										}
+//  654                   	led_blinking_normal();
+//  655                 	}
+//  656               	}
+//  657 							}
+//  658 						break;
+//  659 
+//  660 						case 0x36: //ADD_PERIPHERAL
+//  661 							send_frame_pp_ext_broad("D20001428C000802",TRANS_DELAY);
+??decode_IR_61:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 145))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 145))
+        RJMP    ??decode_IR_47
+//  662 						break;
+//  663 
+//  664 						case 0x37:			// return to factory default
+//  665               if(product_information.conf_type == ADVANCED)
+??decode_IR_62:
+        LDS     R16, product_information
+        CPI     R16, 2
+        BRNE    ??decode_IR_63
+//  666               {
+//  667                 if(KO_conf.GR != 0)
+        LDS     R16, (KO_conf + 6)
+        TST     R16
+        BREQ    ??decode_IR_63
+//  668                 {
+//  669                   CharToStr(KO_conf.GR,buffer_char);
+        MOVW    R19:R18, R29:R28
+        LDS     R16, (KO_conf + 6)
+        CALL    CharToStr
+//  670                   strncpy(buffer_scs,"D20001428C000947",17);
+        LDI     R20, 17
+        LDI     R21, 0
+        LDI     R18, LOW((`?<Constant "B1009300">` + 162))
+        LDI     R19, HIGH((`?<Constant "B1009300">` + 162))
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    strncpy
+//  671                   buffer_scs[10] = buffer_char[0];
+        LD      R16, Y
+        STD     Y+30, R16
+//  672                   buffer_scs[11] = buffer_char[1];
+        LDD     R16, Y+1
+        STD     Y+31, R16
+//  673                   send_frame_pp_ext_broad(buffer_scs,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    send_frame_pp_ext_broad
+//  674                 }
+//  675               }
+//  676               factory_default();
+??decode_IR_63:
+        CALL    factory_default
+//  677               system_reset();
+        CALL    system_reset
+        RJMP    ??decode_IR_16
+//  678 						break;
+//  679 	
+//  680 						case 0x38:			//reset room controler
+//  681 							send_frame_pp_ext_broad("D20001428C0008F0",TRANS_DELAY);
+??decode_IR_64:
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 179))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 179))
+        RJMP    ??decode_IR_47
+//  682 						break;
+//  683 						default:break;
+//  684 					}	
+//  685 				}
+//  686 			break;
+//  687 			
+//  688 			case 9:
+//  689 				//IR_reception.info = 9;			//该数据帧共有0~9共10bytes
+//  690         if(IR_reception.pipe[5] == 0x83)  //dimmer step
+??decode_IR_14:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 131
+        BRNE    ??decode_IR_65
+//  691         {
+//  692           if(available_command)
+        TST     R24
+        BREQ    ??decode_IR_66
+//  693           {
+//  694 							send_aux_frame(DIM_STEP,ns,current_scenario);
+        MOV     R18, R12
+        MOV     R17, R6
+        LDI     R16, 3
+        CALL    send_aux_frame
+//  695 							timer_dimmer_initial(400);
+        RJMP    ??decode_IR_67
+//  696 							flags.dimmer_started = 1;
+//  697 							ns_400ms = ns;
+//  698           }
+//  699           else if(group_flag)
+??decode_IR_66:
+        TST     R25
+        BREQ    ??decode_IR_65
+//  700           {
+//  701             if(product_information.conf_type != NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BREQ    ??decode_IR_65
+//  702 						{
+//  703               send_group_frame(DIM_STEP);
+        LDI     R16, 3
+        CALL    send_group_frame
+//  704 							timer_dimmer_initial(400);
+??decode_IR_67:
+        LDI     R16, 144
+        LDI     R17, 1
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    timer_dimmer_initial
+//  705 							flags.dimmer_started = 1;
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+12
+        LDD     R17, Z+13
+        ORI     R16, 0x01
+        STD     Z+13, R17
+        STD     Z+12, R16
+//  706 							ns_400ms = ns;
+        STS     ??ns_400ms, R6
+//  707 						}
+//  708           }
+//  709         }
+//  710 
+//  711         if(IR_reception.pipe[5] == 0x84)  //go to level time
+??decode_IR_65:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 132
+        BRNE    ??decode_IR_68
+//  712         {
+//  713           if(available_command)
+        TST     R24
+        BREQ    ??decode_IR_68
+//  714           {
+//  715               send_aux_frame(GO_TO_LEVEL_TIME,ns,current_scenario);
+        MOV     R18, R12
+        MOV     R17, R6
+        LDI     R16, 4
+        CALL    send_aux_frame
+//  716           }
+//  717         }
+//  718 
+//  719 				if(IR_reception.pipe[5] == 0xB1)
+??decode_IR_68:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 177
+        BREQ    $+2+2
+        RJMP    ??decode_IR_69
+//  720 				{
+//  721 					if(IR_reception.pipe[6] == 0x04)			//Parameter read
+        LDS     R16, (IR_reception + 6)
+        CPI     R16, 4
+        BREQ    $+2+2
+        RJMP    ??decode_IR_69
+//  722 					{
+//  723 						buffer_ir[0] = 0xAA;
+        LDI     R16, 170
+        STD     Y+7, R16
+//  724 						buffer_ir[1] = 0x80;
+        LDI     R16, 128
+        STD     Y+8, R16
+//  725 						buffer_ir[2] = 0xFF;
+        LDI     R16, 255
+        STD     Y+9, R16
+//  726 						buffer_ir[3] = 0xFF;
+        STD     Y+10, R16
+//  727 						buffer_ir[4] = 0xF0;
+        LDI     R16, 240
+        STD     Y+11, R16
+//  728 						buffer_ir[5] = 0xF1;
+        LDI     R16, 241
+        STD     Y+12, R16
+//  729 						buffer_ir[6] = 0x05;
+        LDI     R16, 5
+        STD     Y+13, R16
+//  730 						buffer_ir[7] = IR_reception.pipe[7];		//20090515
+        LDS     R16, (IR_reception + 7)
+        STD     Y+14, R16
+//  731 						buffer_ir[8] = IR_reception.pipe[8];		//20090515
+        LDS     R16, (IR_reception + 8)
+        STD     Y+15, R16
+//  732 						buffer_ir[10] = 0x00;
+        STD     Y+17, R8
+//  733 						buffer_ir[11] = 0x00;
+        STD     Y+18, R8
+//  734 						buffer_ir[12] = 0x00;
+        STD     Y+19, R8
+//  735 						par_num = (unsigned int)(IR_reception.pipe[8] << 8) + IR_reception.pipe[7];
+        LDS     R25, (IR_reception + 8)
+        LDI     R24, 0
+        LDS     R16, (IR_reception + 7)
+        ADD     R24, R16
+//  736 						if(par_num <= PARAMETER_NUMBER)
+        CPI     R24, 36
+        CPC     R25, R8
+        BRCC    ??decode_IR_70
+//  737 						{
+//  738 							if(par_num == 27)
+        CPI     R24, 27
+        CPC     R25, R8
+        LDS     R16, (IR_reception + 7)
+        STD     Y+14, R16
+        LDS     R16, (IR_reception + 8)
+        STD     Y+15, R16
+        BRNE    ??decode_IR_71
+//  739 							{
+//  740 								buffer_ir[7] = IR_reception.pipe[7];
+//  741 								buffer_ir[8] = IR_reception.pipe[8];
+//  742 								buffer_ir[9] = KO_conf.DayLightLevLux[0];
+        LDS     R16, (KO_conf + 35)
+        STD     Y+16, R16
+//  743 								buffer_ir[10] = KO_conf.DayLightLevLux[1];
+        LDS     R16, (KO_conf + 36)
+??decode_IR_72:
+        STD     Y+17, R16
+        RJMP    ??decode_IR_73
+//  744 							}
+//  745 							else
+//  746 							{
+//  747 								buffer_ir[7] = IR_reception.pipe[7];
+//  748 								buffer_ir[8] = IR_reception.pipe[8];
+//  749 								//if(product_information.conf_type == NONE_CONFED)
+//  750 									//buffer_ir[9] = read_KO_none_confed(IR_reception.pipe[7]);
+//  751 								//else
+//  752 								buffer_ir[9] = read_KO(IR_reception.pipe[7]);
+??decode_IR_71:
+        LDS     R16, (IR_reception + 7)
+        CALL    read_KO
+        STD     Y+16, R16
+//  753 								if(product_information.conf_type == NONE_CONFED)
+        LDS     R16, product_information
+        CPI     R16, 3
+        BREQ    $+2+2
+        RJMP    ??decode_IR_73
+        RJMP    ??decode_IR_16
+//  754 								{
+//  755 									break;
+//  756 									//buffer_ir[10] = 0xFF;
+//  757 								}
+//  758 							}
+//  759 						}
+//  760 						else if(par_num == 256)
+??decode_IR_70:
+        CPI     R24, 0
+        LDI     R16, 1
+        CPC     R25, R16
+        BRNE    ??decode_IR_74
+//  761 						{
+//  762 							buffer_ir[7] = IR_reception.pipe[7];
+        LDS     R16, (IR_reception + 7)
+        STD     Y+14, R16
+//  763 							buffer_ir[8] = IR_reception.pipe[8];
+        LDS     R16, (IR_reception + 8)
+        STD     Y+15, R16
+//  764 							
+//  765 
+//  766 							#ifdef HARDWARE_PIR
+//  767 								buffer_ir[9] = 0x12; 			//need improve
+        LDI     R16, 18
+??decode_IR_75:
+        STD     Y+16, R16
+        RJMP    ??decode_IR_73
+//  768 							#endif
+//  769 
+//  770 							#ifdef HARDWARE_US
+//  771 								buffer_ir[9] = 0x22; 			//need improve
+//  772 							#endif
+//  773 								
+//  774 							#ifdef HARDWARE_PIR_US
+//  775 								buffer_ir[9] = 0x32; 			//need improve
+//  776 							#endif
+//  777 						}
+//  778 						else if(par_num == 257)		// low byte of ID
+??decode_IR_74:
+        CPI     R24, 1
+        CPC     R25, R16
+        BRNE    ??decode_IR_76
+//  779 						{
+//  780 							//buffer_ir[9] = 0x76;
+//  781 							//buffer_ir[10] = 0x98;
+//  782 							buffer_ir[7] = IR_reception.pipe[7];			//add 20090213
+        LDS     R16, (IR_reception + 7)
+        STD     Y+14, R16
+//  783 							buffer_ir[8] = IR_reception.pipe[8];			//add 20090213
+        LDS     R16, (IR_reception + 8)
+        STD     Y+15, R16
+        LDI     R20, LOW((ee_ID + 4))
+        LDI     R21, HIGH((ee_ID + 4))
+        CALL    __eeget8_16
+        ST      Y, R16
+//  784 
+//  785 							buffer_char[0] = ee_ID[4];
+//  786 							buffer_char[1] = ee_ID[5];
+        LDI     R20, LOW((ee_ID + 5))
+        LDI     R21, HIGH((ee_ID + 5))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  787 							buffer_ir[10] = StrToChar(buffer_char);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+        STD     Y+17, R16
+//  788 							buffer_char[0] = ee_ID[6];
+        LDI     R20, LOW((ee_ID + 6))
+        LDI     R21, HIGH((ee_ID + 6))
+        CALL    __eeget8_16
+        ST      Y, R16
+//  789 							buffer_char[1] = ee_ID[7];
+        LDI     R20, LOW((ee_ID + 7))
+        LDI     R21, HIGH((ee_ID + 7))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  790 							buffer_ir[9] = StrToChar(buffer_char);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+        RJMP    ??decode_IR_75
+//  791 						}
+//  792 						else if(par_num == 258)		// high byte of ID
+??decode_IR_76:
+        CPI     R24, 2
+        CPC     R25, R16
+        BRNE    ??decode_IR_77
+        LDI     R20, LOW((ee_ID + 2))
+        LDI     R21, HIGH((ee_ID + 2))
+        CALL    __eeget8_16
+        ST      Y, R16
+//  793 						{
+//  794 							//buffer_ir[9] = 0x05;
+//  795 							//buffer_ir[10] = 0x00;
+//  796               buffer_char[0] = ee_ID[2];
+//  797 							buffer_char[1] = ee_ID[3];
+        LDI     R20, LOW((ee_ID + 3))
+        LDI     R21, HIGH((ee_ID + 3))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  798 							buffer_ir[9] = StrToChar(buffer_char);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+        STD     Y+16, R16
+//  799 							buffer_char[0] = ee_ID[0];
+        LDI     R20, LOW(ee_ID)
+        LDI     R21, (ee_ID) >> 8
+        CALL    __eeget8_16
+        ST      Y, R16
+//  800 							buffer_char[1] = ee_ID[1];
+        LDI     R20, LOW((ee_ID + 1))
+        LDI     R21, HIGH((ee_ID + 1))
+        CALL    __eeget8_16
+        STD     Y+1, R16
+//  801 							buffer_ir[10] = StrToChar(buffer_char);
+        MOVW    R17:R16, R29:R28
+        CALL    StrToChar
+        RJMP    ??decode_IR_72
+//  802 						}
+//  803             else if(par_num == 259)
+??decode_IR_77:
+        CPI     R24, 3
+        CPC     R25, R16
+        BRNE    ??decode_IR_78
+//  804             {
+//  805               //version = ee_parameter.software_version[0];
+//  806               buffer_ir[9] = ee_parameter.software_version[0] - 0x30;
+        LDI     R20, LOW((ee_parameter + 6))
+        LDI     R21, HIGH((ee_parameter + 6))
+        CALL    __eeget8_16
+        SUBI    R16, 48
+        STD     Y+16, R16
+//  807               buffer_ir[10] = ee_parameter.software_version[1] - 0x30;
+        LDI     R20, LOW((ee_parameter + 7))
+        LDI     R21, HIGH((ee_parameter + 7))
+        CALL    __eeget8_16
+        SUBI    R16, 48
+        RJMP    ??decode_IR_72
+//  808             }
+//  809             else if(par_num == 260)
+??decode_IR_78:
+        CPI     R24, 4
+        CPC     R25, R16
+        BRNE    ??decode_IR_73
+//  810             {
+//  811 							//setting_diagnostic_ir(&buffer_ir[9]);
+//  812 							buffer_ir[9] = KO_conf.status[0];
+        LDS     R16, (KO_conf + 45)
+        STD     Y+16, R16
+//  813 							buffer_ir[10] = KO_conf.status[1];
+        LDS     R16, (KO_conf + 46)
+        STD     Y+17, R16
+//  814 							
+//  815 							ClrBit(KO_conf.status[0],Status_Derogation);
+        LDI     R30, LOW(KO_conf)
+        LDI     R31, (KO_conf) >> 8
+        LDD     R16, Z+45
+        ANDI    R16, 0xEF
+        STD     Z+45, R16
+//  816 							ClrBit(KO_conf.status[0],Status_Regulation);
+        LDD     R16, Z+45
+        ANDI    R16, 0xDF
+        STD     Z+45, R16
+//  817 							ClrBit(KO_conf.status[0],Status_Detection);	
+        LDD     R16, Z+45
+        ANDI    R16, 0xF7
+        STD     Z+45, R16
+//  818             }
+//  819 						put_s1(buffer_ir,13);
+??decode_IR_73:
+        LDI     R18, 13
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 249
+        SBCI    R17, 255
+        RCALL   put_s1
+//  820 					}
+//  821 				}
+//  822 
+//  823 				if(IR_reception.pipe[5] == 0xB0)
+??decode_IR_69:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 176
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  824 				{
+//  825 					if(IR_reception.pipe[6] == 0x06)    //open learning
+        LDS     R16, (IR_reception + 6)
+        CPI     R16, 6
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  826 					{
+//  827 						//if(state.main_state == STATE_NORMAL)
+//  828 						//{
+//  829 							temp_variable.ID = current_id;
+        LDI     R24, LOW(temp_variable)
+        LDI     R25, (temp_variable) >> 8
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        MOVW    R31:R30, R25:R24
+        STD     Z+15, R16
+        STD     Z+16, R17
+        STD     Z+17, R18
+        STD     Z+18, R19
+//  830 							
+//  831 							if(is_scenario_full() == 0)
+        RCALL   is_scenario_full
+        TST     R16
+        BREQ    $+2+2
+        RJMP    ??decode_IR_79
+//  832 							{
+//  833 								send_frame_pp_broad("B0009900",TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 196))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 196))
+        CALL    send_frame_pp_broad
+//  834               	temp_variable.scenario_id = current_id;
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        MOVW    R31:R30, R25:R24
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  835               	temp_variable.scenario_ns = ns;
+        STS     (temp_variable + 4), R6
+//  836 								strncpy(buffer_scs,"D20001428C000A05",17);
+        LDI     R20, 17
+        LDI     R21, 0
+        LDI     R18, LOW((`?<Constant "B1009300">` + 205))
+        LDI     R19, HIGH((`?<Constant "B1009300">` + 205))
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    strncpy
+//  837 
+//  838 								for(i=0;i<16;i++)
+        LDI     R26, 0
+        RJMP    ??decode_IR_80
+??decode_IR_81:
+        INC     R26
+??decode_IR_80:
+        CPI     R26, 16
+        BRCC    ??decode_IR_82
+//  839 								{
+//  840 									if( (g_ir_reception[2] == ee_scenario[i].id[0]) && (g_ir_reception[3] == ee_scenario[i].id[1]) && (g_ir_reception[4] == ee_scenario[i].id[2]) )
+        MOV     R20, R26
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R18, LOW(ee_scenario)
+        LDI     R19, (ee_scenario) >> 8
+        ADD     R18, R16
+        ADC     R19, R17
+        LDI     R30, LOW(g_ir_reception)
+        LDI     R31, (g_ir_reception) >> 8
+        LDD     R17, Z+2
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_81
+        LDD     R17, Z+3
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_81
+        LDD     R17, Z+4
+        SUBI    R18, 252
+        SBCI    R19, 255
+        MOVW    R21:R20, R19:R18
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??decode_IR_81
+//  841 									{
+//  842 										old_ns_index = i;
+        MOV     R8, R26
+//  843 										break;
+//  844 									}
+//  845 								}
+//  846 							
+//  847 								if(i>=16)
+??decode_IR_82:
+        CPI     R26, 16
+        BRCS    ??decode_IR_83
+//  848 								{
+//  849 									buffer_char[0] = '0';
+        LDI     R16, 48
+        ST      Y, R16
+//  850 									buffer_char[1] = '1';
+        LDI     R16, 49
+        STD     Y+1, R16
+        RJMP    ??decode_IR_84
+//  851 								}
+//  852 								else
+//  853 								{
+//  854 									CharToStr(ee_scenario[old_ns_index].ns_number,buffer_char);
+??decode_IR_83:
+        MOVW    R19:R18, R29:R28
+        MOV     R20, R8
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R20, LOW(ee_scenario)
+        LDI     R21, (ee_scenario) >> 8
+        ADD     R20, R16
+        ADC     R21, R17
+        CALL    __eeget8_16
+        CALL    CharToStr
+//  855 								}
+//  856 								buffer_scs[10] = buffer_char[0];
+??decode_IR_84:
+        LD      R16, Y
+        STD     Y+30, R16
+//  857 								buffer_scs[11] = buffer_char[1];
+        LDD     R16, Y+1
+        STD     Y+31, R16
+//  858 								send_frame_pp_ext_broad(buffer_scs,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 236
+        SBCI    R17, 255
+        CALL    send_frame_pp_ext_broad
+//  859 
+//  860 								timer_flex_initial(3000);
+        LDI     R16, 184
+        LDI     R17, 11
+??decode_IR_85:
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    timer_flex_initial
+//  861 								state.main_state = PNL_IR_SCENARIO_STEP2;
+        LDI     R16, 19
+        RJMP    ??decode_IR_39
+//  862 							}
+//  863 							else
+//  864 							{
+//  865 								led_blinking(120,0);
+??decode_IR_79:
+        LDI     R20, 0
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 0
+        LDI     R16, 120
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    led_blinking
+//  866 								timer_flex_initial(5000);
+        LDI     R16, 136
+        LDI     R17, 19
+        RJMP    ??decode_IR_85
+//  867 								state.main_state = PNL_IR_SCENARIO_STEP2;
+//  868 							}
+//  869 						//}
+//  870 					}
+//  871 				}
+//  872 			break;
+//  873 
+//  874 			case 13:
+//  875 				//IR_reception.info = 13;			//该数据帧共有0~13共14bytes
+//  876 				if(IR_reception.pipe[5] == 0xF1) 		
+??decode_IR_15:
+        LDS     R16, (IR_reception + 5)
+        CPI     R16, 241
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  877 				{
+//  878 					if(IR_reception.pipe[6] == 0x03) 			//Parameter set
+        LDS     R16, (IR_reception + 6)
+        CPI     R16, 3
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  879 					{
+//  880             par_num = (unsigned int)(IR_reception.pipe[8] << 8) + IR_reception.pipe[7];
+        LDS     R25, (IR_reception + 8)
+        LDI     R24, 0
+        LDS     R16, (IR_reception + 7)
+        ADD     R24, R16
+//  881 						if(IR_reception.pipe[8] == 0)				//Low 256 par number
+        LDS     R16, (IR_reception + 8)
+        TST     R16
+        BREQ    $+2+2
+        RJMP    ??decode_IR_16
+//  882 						{
+//  883 							if(par_num <= PARAMETER_NUMBER && par_num != 0x05)
+        CPI     R24, 36
+        CPC     R25, R8
+        BRCS    $+2+2
+        RJMP    ??decode_IR_16
+        CPI     R24, 5
+        CPC     R25, R8
+        BRNE    $+2+2
+        RJMP    ??decode_IR_16
+//  884 							{
+//  885                 //if(par_num == 26 && IR_reception.pipe[9] == 0)
+//  886                 //{
+//  887                 //  write_KO(IR_reception.pipe[7],0xFF);
+//  888                 //}
+//  889 								if(par_num == 27)
+        CPI     R24, 27
+        CPC     R25, R8
+        BREQ    $+2+2
+        RJMP    ??decode_IR_86
+//  890 								{
+//  891 									//reyno 0602
+//  892 									unsigned int temp0;				// add by alan
+//  893 									volatile float f_temp;
+//  894 									temp0 = IR_reception.pipe[9];																// temp0 = lux/5
+        LDS     R26, (IR_reception + 9)
+        LDI     R27, 0
+//  895 									temp0 += (IR_reception.pipe[10]<<8);
+        LDS     R17, (IR_reception + 10)
+        ADD     R26, R8
+        ADC     R27, R17
+//  896 									if(Sensor_mode.power_on_flag)
+        MOVW    R17:R16, R27:R26
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    ?UL2F_L04
+        LDI     R20, 0
+        LDI     R21, 0
+        LDI     R22, 32
+        LDI     R23, 65
+        CALL    ?F_MUL_L04
+        LDI     R20, 0
+        LDI     R21, 0
+        LDI     R22, 160
+        LDI     R23, 64
+        CALL    ?F_MUL_L04
+        MOVW    R5:R4, R17:R16
+        MOVW    R7:R6, R19:R18
+        LDI     R20, 50
+        LDI     R21, 0
+        MOVW    R17:R16, R27:R26
+        CALL    ?S_EC_MUL_L02
+        LDI     R26, LOW(KO_conf)
+        LDI     R27, (KO_conf) >> 8
+        LDI     R30, LOW(Sensor_mode)
+        LDI     R31, (Sensor_mode) >> 8
+        LDD     R18, Z+7
+        LDS     R20, (DLL + 18)
+        LDS     R21, (DLL + 19)
+        CALL    ?US_DIVMOD_L02
+        SBRS    R18, 5
+        RJMP    ??decode_IR_87
+//  897 									{
+//  898 										KO_conf.DF = temp0*10*5/ DLL.calc_level;			//0526
+        STS     (KO_conf + 22), R16
+//  899 										f_temp = (float)temp0*10*5/ (float)DLL.calc_level;
+        LDS     R16, (DLL + 18)
+        LDS     R17, (DLL + 19)
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    ?UL2F_L04
+        MOVW    R21:R20, R17:R16
+        MOVW    R23:R22, R19:R18
+        MOVW    R17:R16, R5:R4
+        MOVW    R19:R18, R7:R6
+        CALL    ?F_DIV_L04
+        STD     Y+3, R16
+        STD     Y+4, R17
+        STD     Y+5, R18
+        STD     Y+6, R19
+//  900 										if((f_temp - KO_conf.DF >= 0.5) && (KO_conf.DF != 255))
+        LDS     R16, (KO_conf + 22)
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    ?UL2F_L04
+        MOVW    R21:R20, R17:R16
+        MOVW    R23:R22, R19:R18
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        CALL    ?F_SUB_L04
+        LDI     R20, 0
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 63
+        CALL    ?F_CMP_GE_L04
+        BRCC    ??decode_IR_88
+        LDS     R16, (KO_conf + 22)
+        CPI     R16, 255
+        BREQ    ??decode_IR_88
+//  901 											KO_conf.DF++;
+        MOVW    R31:R30, R27:R26
+        LDD     R16, Z+22
+        INC     R16
+        STD     Z+22, R16
+//  902 										write_KO(22,KO_conf.DF); //reyno 0602
+??decode_IR_88:
+        LDS     R17, (KO_conf + 22)
+        LDI     R16, 22
+        CALL    write_KO
+//  903 										write_ee_KO(22,KO_conf.DF);										// 0529 write_ee_KO(unsigned char index,unsigned char data);
+        LDS     R17, (KO_conf + 22)
+        LDI     R16, 22
+        RJMP    ??decode_IR_89
+//  904 									}
+//  905 									else
+//  906 									{
+//  907 										KO_conf.NF = temp0*10*5/ DLL.calc_level;			//0526
+??decode_IR_87:
+        STS     (KO_conf + 24), R16
+//  908 										f_temp = (float)temp0*10*5/ (float)DLL.calc_level;
+        LDS     R16, (DLL + 18)
+        LDS     R17, (DLL + 19)
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    ?UL2F_L04
+        MOVW    R21:R20, R17:R16
+        MOVW    R23:R22, R19:R18
+        MOVW    R17:R16, R5:R4
+        MOVW    R19:R18, R7:R6
+        CALL    ?F_DIV_L04
+        STD     Y+3, R16
+        STD     Y+4, R17
+        STD     Y+5, R18
+        STD     Y+6, R19
+//  909 										if((f_temp - KO_conf.NF >= 0.5) && (KO_conf.NF != 255))
+        LDS     R16, (KO_conf + 24)
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    ?UL2F_L04
+        MOVW    R21:R20, R17:R16
+        MOVW    R23:R22, R19:R18
+        LDD     R16, Y+3
+        LDD     R17, Y+4
+        LDD     R18, Y+5
+        LDD     R19, Y+6
+        CALL    ?F_SUB_L04
+        LDI     R20, 0
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 63
+        CALL    ?F_CMP_GE_L04
+        BRCC    ??decode_IR_90
+        LDS     R16, (KO_conf + 24)
+        CPI     R16, 255
+        BREQ    ??decode_IR_90
+//  910 											KO_conf.NF++;
+        MOVW    R31:R30, R27:R26
+        LDD     R16, Z+24
+        INC     R16
+        STD     Z+24, R16
+//  911 										write_KO(24,KO_conf.NF); //reyno 0602
+??decode_IR_90:
+        LDS     R17, (KO_conf + 24)
+        LDI     R16, 24
+        CALL    write_KO
+//  912 										write_ee_KO(24,KO_conf.NF);										// 0529 write_ee_KO(unsigned char index,unsigned char data);
+        LDS     R17, (KO_conf + 24)
+        LDI     R16, 24
+        RJMP    ??decode_IR_89
+//  913 									}
+//  914 								}
+//  915 								else
+//  916 								{
+//  917                 	//write_result = write_KO(IR_reception.pipe[7],IR_reception.pipe[9]);
+//  918                 	//if(write_result != PAR_OUT_OF_RANGE && write_result != PAR_NOT_IMPLEMENTED)
+//  919                 	//{
+//  920                   	//ee_KO_conf = KO_conf;
+//  921                 	//}
+//  922 									write_KO(IR_reception.pipe[7],IR_reception.pipe[9]);
+??decode_IR_86:
+        LDS     R17, (IR_reception + 9)
+        LDS     R16, (IR_reception + 7)
+        CALL    write_KO
+//  923 									write_ee_KO(IR_reception.pipe[7],IR_reception.pipe[9]);
+        LDS     R17, (IR_reception + 9)
+        LDS     R16, (IR_reception + 7)
+??decode_IR_89:
+        CALL    write_ee_KO
+//  924 								}
+//  925 								if((par_num == 10)||(par_num == 11)||(par_num == 12))		// add by alan
+        CPI     R24, 10
+        CPC     R25, R8
+        BREQ    ??decode_IR_91
+        CPI     R24, 11
+        CPC     R25, R8
+        BREQ    ??decode_IR_91
+        CPI     R24, 12
+        CPC     R25, R8
+        BRNE    ??decode_IR_92
+//  926 								{
+//  927 										unsigned long int hour_count = KO_conf.Hours;
+??decode_IR_91:
+        LDS     R4, (KO_conf + 10)
+        CLR     R5
+        CLR     R6
+        CLR     R7
+//  928 								  	Delay_Time_set = KO_conf.Seconds + KO_conf.Minutes*60 + hour_count*3600;	//calculate the time set by user
+        LDS     R8, (KO_conf + 12)
+        CLR     R9
+        LDS     R20, (KO_conf + 11)
+        LDI     R21, 0
+        LDI     R16, 60
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        ADD     R8, R16
+        ADC     R9, R17
+        MOV     R10, R9
+        LSL     R10
+        SBC     R10, R10
+        MOV     R11, R10
+        LDI     R16, 16
+        LDI     R17, 14
+        LDI     R18, 0
+        LDI     R19, 0
+        MOVW    R21:R20, R5:R4
+        MOVW    R23:R22, R7:R6
+        CALL    ?L_EC_MUL_L03
+        ADD     R8, R16
+        ADC     R9, R17
+        ADC     R10, R18
+        ADC     R11, R19
+        LDI     R30, LOW(Delay_Time_set)
+        LDI     R31, (Delay_Time_set) >> 8
+        ST      Z, R8
+        STD     Z+1, R9
+        STD     Z+2, R10
+        STD     Z+3, R11
+//  929 								}
+//  930 								if(par_num == 23)	// alan when the type loop changed, the D.F should clear and re_set the D.F again
+//  931 								{
+//  932 										//KO_conf.DF = 0;
+//  933 										//DLL.DF = 0;		
+//  934 								}
+//  935 								if(par_num == 25)	// alan when the type loop changed, the D.F should clear and re_set the D.F again
+??decode_IR_92:
+        CPI     R24, 25
+        LDI     R16, 0
+        CPC     R25, R16
+        BRNE    ??decode_IR_16
+//  936 								{
+//  937 									set_point = KO_conf.DaylightSetp*5;
+        LDS     R20, (KO_conf + 25)
+        LDI     R21, 0
+        LDI     R16, 5
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        STS     set_point, R16
+        STS     (set_point + 1), R17
+//  938 								}
+//  939 							}
+//  940 							else
+//  941 								ERROR;	
+//  942 						}
+//  943 					}
+//  944 				}
+//  945 				break;
+//  946 			default: break;			
+//  947 		}
+//  948 
+//  949 		//IR_reception.finished = 0;
+//  950 		//IR_reception.CRC_OK = 0;
+//  951 		//put_s1(buffer_test,13);
+//  952 		
+//  953 		if(flags.ir_buzzer == 0)
+??decode_IR_16:
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        MOV     R16, R17
+        SBRC    R16, 4
+        RJMP    ??decode_IR_4
+//  954 			buzzer_ms(50);       //2009-3-20
+        LDI     R16, 50
+        LDI     R17, 0
+        CALL    buzzer_ms
+//  955 		//send_frame_pp_ext("D200014281040000",1000);
+//  956 		//send_frame_pp_ext("B300120000000000",1000); //test SCS interface frame
+//  957 	}
+//  958 	
+//  959 	if(Time_delay.dimmer.time_out == 1 && flags.dimmer_started == 1)
+??decode_IR_4:
+        LDS     R16, (Time_delay + 267)
+        CPI     R16, 1
+        BRNE    ??decode_IR_93
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+12
+        LDD     R17, Z+13
+        SBRS    R16, 0
+        RJMP    ??decode_IR_93
+//  960 	{
+//  961 		Time_delay.dimmer.time_out = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 267), R16
+//  962 		flags.dimmer_started = 0;
+        LDD     R16, Z+12
+        LDD     R17, Z+13
+        ANDI    R16, 0xFE
+        STD     Z+13, R17
+        STD     Z+12, R16
+//  963 		send_aux_frame(DIMMER_STOP,ns_400ms,current_scenario);
+        MOV     R18, R12
+        LDS     R17, ??ns_400ms
+        LDI     R16, 9
+        CALL    send_aux_frame
+//  964 	}
+//  965 }
+??decode_IR_93:
+        ADIW    R29:R28, 53
+        CFI CFA_Y Y+13
+        LDI     R30, 13
+        JMP     ?EPILOGUE_B13_L09
+        CFI EndBlock cfiBlock10
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+??ns_400ms:
+        DS8 1
+//  966 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  967 void ir_buffer_clear(void)
+ir_buffer_clear:
+        CFI Block cfiBlock11 Using cfiCommon1
+        CFI Function ir_buffer_clear
+//  968 {
+        MOV     R17, R27
+        MOV     R20, R26
+//  969 	unsigned char i;
+//  970 	if( IR_reception.CRC_OK == 1 )
+        LDI     R30, LOW(IR_reception)
+        LDI     R31, (IR_reception) >> 8
+        LDD     R16, Z+17
+        CPI     R16, 1
+        BRNE    ??ir_buffer_clear_0
+//  971 	{
+//  972 		for(i=0;i<13;i++)
+        LDI     R16, 0
+        RJMP    ??ir_buffer_clear_1
+//  973 		{
+//  974 			IR_reception.pipe[i] = 0;
+??ir_buffer_clear_2:
+        LDI     R18, 0
+        MOVW    R27:R26, R31:R30
+        ADD     R26, R16
+        ADC     R27, R18
+        ST      X, R18
+//  975 		}
+        INC     R16
+??ir_buffer_clear_1:
+        CPI     R16, 13
+        BRCS    ??ir_buffer_clear_2
+//  976 		IR_reception.finished = 0;
+        LDI     R16, 0
+        STD     Z+16, R16
+//  977 		IR_reception.CRC_OK = 0;
+        STD     Z+17, R16
+//  978 	}
+//  979 }
+??ir_buffer_clear_0:
+        MOV     R26, R20
+        MOV     R27, R17
+        RET
+        CFI EndBlock cfiBlock11
+//  980 
+//  981 volatile unsigned char temp_ns;
+
+        RSEG CODE:CODE:NOROOT(1)
+//  982 unsigned char ir_pnl(void)
+ir_pnl:
+        CFI Block cfiBlock12 Using cfiCommon1
+        CFI Function ir_pnl
+//  983 {
+        FUNCALL ir_pnl, is_scenario_full
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, timer_flex_initial
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking_disable
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, timer_flex_initial
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking_disable
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, strncpy
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, CharToStr
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, send_frame_pp_broad
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, send_frame_pp_broad
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, timer_flex_initial
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, is_scenario_full
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, strncpy
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, CharToStr
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, send_frame_pp_broad
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, send_frame_pp_broad
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking_disable
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking_disable
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL ir_pnl, led_blinking_disable
+        LOCFRAME CSTACK, 20, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        SBIW    R29:R28, 20
+        CFI CFA_Y Y+20
+        LDS     R16, (g_asc_reception_buffer + 7)
+//  984 	unsigned char buffer_tx[17];
+//  985 	unsigned char buffer[3];
+//  986 	static unsigned char id_compare_flag;
+//  987 	unsigned char i;
+//  988 	
+//  989 	if(g_asc_reception_buffer[7] == 0x09)
+//  990 	{
+//  991 	}
+//  992 
+//  993 	if(state.main_state == PNL_IR_SCENARIO_STEP2)
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 19
+        LDI     R18, 144
+        CPC     R17, R18
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_0
+//  994 	{
+//  995 		if(is_scenario_full() == 0)
+        RCALL   is_scenario_full
+        TST     R16
+        LDS     R16, (Time_delay + 157)
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_1
+//  996 		{
+//  997 			if( Time_delay.timer_flex.time_out == 1 )
+        CPI     R16, 1
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_2
+        LDI     R16, 0
+        STS     (temp_ns + 1), R16
+//  998 			{
+//  999     	  //not assigned NS by RC
+// 1000 				
+// 1001 					id_compare_flag = 0;
+// 1002 					for(i=0;i<16;i++)
+        LDI     R18, 0
+        RJMP    ??ir_pnl_3
+??ir_pnl_4:
+        INC     R18
+??ir_pnl_3:
+        CPI     R18, 16
+        BRCS    $+2+2
+        RJMP    ??ir_pnl_5
+// 1003 					{
+// 1004 						if( (g_ir_reception[2] == ee_scenario[i].id[0]) && (g_ir_reception[3] == ee_scenario[i].id[1]) && (g_ir_reception[4] == ee_scenario[i].id[2]))
+        MOV     R20, R18
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R22, LOW(ee_scenario)
+        LDI     R23, (ee_scenario) >> 8
+        ADD     R22, R16
+        ADC     R23, R17
+        LDS     R17, (g_ir_reception + 2)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_4
+        LDS     R17, (g_ir_reception + 3)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_4
+        LDS     R17, (g_ir_reception + 4)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_4
+// 1005 						{
+// 1006 							ee_scenario[i].id[0] = g_ir_reception[2];
+        LDS     R16, (g_ir_reception + 2)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1007 							ee_scenario[i].id[1] = g_ir_reception[3];
+        LDS     R16, (g_ir_reception + 3)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1008 							ee_scenario[i].id[2] = g_ir_reception[4];
+        LDS     R16, (g_ir_reception + 4)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1009 							//ee_scenario[i].ns_number = g_asc_reception_buffer[5];
+// 1010 							ee_scenario[i].key_number = g_ir_reception[4] & 0x0F;
+        LDS     R16, (g_ir_reception + 4)
+        ANDI    R16, 0x0F
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1011 							ee_scenario[i].confed = 0x01;
+        LDI     R16, 1
+        SUBI    R22, 250
+        SBCI    R23, 255
+        MOVW    R21:R20, R23:R22
+        CALL    __eeput8_16
+// 1012 							id_compare_flag = 1;
+        STS     (temp_ns + 1), R16
+// 1013 							g_ns_index = i;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        MOV     R16, R18
+        CALL    __eeput8_16
+// 1014 							break;
+// 1015 						}
+// 1016 					}
+// 1017     	
+// 1018 					if(id_compare_flag == 0)
+??ir_pnl_5:
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_6
+// 1019 					{
+// 1020 						for(i=0;i<16;i++)
+        LDI     R18, 0
+        RJMP    ??ir_pnl_7
+??ir_pnl_8:
+        INC     R18
+??ir_pnl_7:
+        CPI     R18, 16
+        BRCC    ??ir_pnl_9
+// 1021 						{
+// 1022 							if(ee_scenario[i].confed == 0)
+        LDI     R22, LOW((ee_scenario + 6))
+        LDI     R23, HIGH((ee_scenario + 6))
+        MOV     R20, R18
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        ADD     R22, R16
+        ADC     R23, R17
+        MOVW    R21:R20, R23:R22
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??ir_pnl_8
+// 1023 							{
+// 1024 								g_ns_index = i;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        MOV     R16, R18
+        CALL    __eeput8_16
+// 1025 								break;
+// 1026 							}
+// 1027 						}
+// 1028 					
+// 1029 						ee_scenario[g_ns_index].id[0] = g_ir_reception[2];
+??ir_pnl_9:
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        MOV     R20, R16
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R18, LOW(ee_scenario)
+        LDI     R19, (ee_scenario) >> 8
+        ADD     R18, R16
+        ADC     R19, R17
+        LDS     R16, (g_ir_reception + 2)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1030 						ee_scenario[g_ns_index].id[1] = g_ir_reception[3];
+        LDS     R16, (g_ir_reception + 3)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1031 						ee_scenario[g_ns_index].id[2] = g_ir_reception[4];
+        LDS     R16, (g_ir_reception + 4)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1032 						//ee_scenario[g_ns_index].ns_number = g_asc_reception_buffer[5];
+// 1033 						ee_scenario[g_ns_index].key_number = g_ir_reception[4] & 0x0F;
+        LDS     R16, (g_ir_reception + 4)
+        ANDI    R16, 0x0F
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1034 						ee_scenario[g_ns_index].confed = 0x01;
+        LDI     R16, 1
+        SUBI    R18, 250
+        SBCI    R19, 255
+        MOVW    R21:R20, R19:R18
+        CALL    __eeput8_16
+// 1035 						g_ns_index++;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        INC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1036 						flags.scenario_last_assigned = 1;
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ORI     R17, 0x80
+        STD     Z+3, R17
+        STD     Z+2, R16
+// 1037 					}
+// 1038     	
+// 1039     	  	led_blinking(250,250);
+??ir_pnl_6:
+        LDI     R20, 250
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 0
+        LDI     R16, 250
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    led_blinking
+// 1040 					state.main_state = PNL_IR_SCENARIO_STEP3;
+        LDI     R16, 21
+        LDI     R17, 144
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+// 1041 			}
+// 1042     	
+// 1043 			if( (g_asc_reception_buffer[6] == 0x0A) && (g_asc_reception_buffer[7] == 0x08))
+??ir_pnl_2:
+        LDS     R16, (g_asc_reception_buffer + 6)
+        CPI     R16, 10
+        BRNE    ??ir_pnl_10
+        LDS     R16, (g_asc_reception_buffer + 7)
+        CPI     R16, 8
+        BRNE    ??ir_pnl_10
+// 1044 			{
+// 1045 				led_blinking(120,120);
+        LDI     R20, 120
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 0
+        LDI     R16, 120
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    led_blinking
+// 1046     	  timer_flex_initial(5000);
+        LDI     R16, 136
+        LDI     R17, 19
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    timer_flex_initial
+// 1047 				state.main_state = PNL_IR_SCENARIO_STEP21;
+        LDI     R16, 20
+        LDI     R17, 144
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+// 1048 			}
+// 1049     	
+// 1050 			if( (g_asc_reception_buffer[6] == 0x0A) && (g_asc_reception_buffer[7] == 0x06))
+??ir_pnl_10:
+        LDS     R16, (g_asc_reception_buffer + 6)
+        CPI     R16, 10
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_0
+        LDS     R16, (g_asc_reception_buffer + 7)
+        CPI     R16, 6
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_0
+        LDI     R16, 0
+        STS     (temp_ns + 1), R16
+// 1051 			{
+// 1052 				id_compare_flag = 0;
+// 1053 				for(i=0;i<16;i++)
+        LDI     R18, 0
+        RJMP    ??ir_pnl_11
+??ir_pnl_12:
+        INC     R18
+??ir_pnl_11:
+        CPI     R18, 16
+        BRCS    $+2+2
+        RJMP    ??ir_pnl_13
+// 1054 				{
+// 1055 					if( (g_ir_reception[2] == ee_scenario[i].id[0]) && (g_ir_reception[3] == ee_scenario[i].id[1]) && (g_ir_reception[4] == ee_scenario[i].id[2]))
+        MOV     R20, R18
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R22, LOW(ee_scenario)
+        LDI     R23, (ee_scenario) >> 8
+        ADD     R22, R16
+        ADC     R23, R17
+        LDS     R17, (g_ir_reception + 2)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_12
+        LDS     R17, (g_ir_reception + 3)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_12
+        LDS     R17, (g_ir_reception + 4)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??ir_pnl_12
+// 1056 					{
+// 1057 						ee_scenario[i].id[0] = g_ir_reception[2];
+        LDS     R16, (g_ir_reception + 2)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1058 						ee_scenario[i].id[1] = g_ir_reception[3];
+        LDS     R16, (g_ir_reception + 3)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1059 						ee_scenario[i].id[2] = g_ir_reception[4];
+        LDS     R16, (g_ir_reception + 4)
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1060 						ee_scenario[i].ns_number = g_asc_reception_buffer[5];
+        LDS     R16, (g_asc_reception_buffer + 5)
+        MOVW    R21:R20, R23:R22
+        CALL    __eeput8_16
+// 1061     	      ee_scenario[i].key_number = g_ir_reception[4] & 0x0F;
+        LDS     R16, (g_ir_reception + 4)
+        ANDI    R16, 0x0F
+        MOVW    R21:R20, R23:R22
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1062 						ee_scenario[i].confed = 0x01;
+        LDI     R16, 1
+        SUBI    R22, 250
+        SBCI    R23, 255
+        MOVW    R21:R20, R23:R22
+        CALL    __eeput8_16
+// 1063 						id_compare_flag = 1;
+        STS     (temp_ns + 1), R16
+// 1064 						g_ns_index = i;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        MOV     R16, R18
+        CALL    __eeput8_16
+// 1065 						break;
+// 1066 					}
+// 1067 				}
+// 1068     	
+// 1069 				if(id_compare_flag == 0)
+??ir_pnl_13:
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_14
+// 1070 				{
+// 1071 					for(i=0;i<16;i++)
+        LDI     R18, 0
+        RJMP    ??ir_pnl_15
+??ir_pnl_16:
+        INC     R18
+??ir_pnl_15:
+        CPI     R18, 16
+        BRCC    ??ir_pnl_17
+// 1072 					{
+// 1073 						if(ee_scenario[i].confed == 0)
+        LDI     R22, LOW((ee_scenario + 6))
+        LDI     R23, HIGH((ee_scenario + 6))
+        MOV     R20, R18
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        ADD     R22, R16
+        ADC     R23, R17
+        MOVW    R21:R20, R23:R22
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??ir_pnl_16
+// 1074 						{
+// 1075 							g_ns_index = i;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        MOV     R16, R18
+        CALL    __eeput8_16
+// 1076 							break;
+// 1077 						}
+// 1078 					}
+// 1079 					
+// 1080 					ee_scenario[g_ns_index].id[0] = g_ir_reception[2];
+??ir_pnl_17:
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        MOV     R20, R16
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R18, LOW(ee_scenario)
+        LDI     R19, (ee_scenario) >> 8
+        ADD     R18, R16
+        ADC     R19, R17
+        LDS     R16, (g_ir_reception + 2)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1081 					ee_scenario[g_ns_index].id[1] = g_ir_reception[3];
+        LDS     R16, (g_ir_reception + 3)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1082 					ee_scenario[g_ns_index].id[2] = g_ir_reception[4];
+        LDS     R16, (g_ir_reception + 4)
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 252
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1083 					ee_scenario[g_ns_index].ns_number = g_asc_reception_buffer[5];
+        LDS     R16, (g_asc_reception_buffer + 5)
+        MOVW    R21:R20, R19:R18
+        CALL    __eeput8_16
+// 1084     	    ee_scenario[g_ns_index].key_number = g_ir_reception[4] & 0x0F;
+        LDS     R16, (g_ir_reception + 4)
+        ANDI    R16, 0x0F
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 251
+        SBCI    R21, 255
+        CALL    __eeput8_16
+// 1085 					ee_scenario[g_ns_index].confed = 0x01;
+        LDI     R16, 1
+        SUBI    R18, 250
+        SBCI    R19, 255
+        MOVW    R21:R20, R19:R18
+        CALL    __eeput8_16
+// 1086 					g_ns_index++;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        INC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1087 					flags.scenario_last_assigned = 1;
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ORI     R17, 0x80
+        STD     Z+3, R17
+        STD     Z+2, R16
+// 1088 				}
+// 1089     	
+// 1090     	  led_blinking(250,250);
+??ir_pnl_14:
+        LDI     R20, 250
+        LDI     R21, 0
+        LDI     R22, 0
+        LDI     R23, 0
+        LDI     R16, 250
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    led_blinking
+// 1091 				state.main_state = PNL_IR_SCENARIO_STEP3;
+        LDI     R16, 21
+        RJMP    ??ir_pnl_18
+// 1092 			}
+// 1093 		}
+// 1094 		else
+// 1095 		{
+// 1096 			if( Time_delay.timer_flex.time_out == 1 )
+??ir_pnl_1:
+        CPI     R16, 1
+        BRNE    ??ir_pnl_0
+// 1097 			{
+// 1098 				led_blinking_disable(0);
+        LDI     R16, 0
+        CALL    led_blinking_disable
+// 1099 				timer_flex_initial(600000);
+        LDI     R16, 192
+        LDI     R17, 39
+        LDI     R18, 9
+        LDI     R19, 0
+        CALL    timer_flex_initial
+// 1100 				state.main_state = PNL_IR_SCENARIO_STEP4;
+        LDI     R16, 22
+??ir_pnl_18:
+        LDI     R17, 144
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+// 1101 			}
+// 1102 		}
+// 1103 	}
+// 1104 
+// 1105 	if(state.main_state == PNL_IR_SCENARIO_STEP21)
+??ir_pnl_0:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 20
+        LDI     R18, 144
+        CPC     R17, R18
+        BRNE    ??ir_pnl_19
+// 1106 	{
+// 1107 		if( Time_delay.timer_flex.time_out == 1 )
+        LDS     R16, (Time_delay + 157)
+        CPI     R16, 1
+        BRNE    ??ir_pnl_19
+// 1108 		{
+// 1109 			led_blinking_disable(0);
+        LDI     R16, 0
+        CALL    led_blinking_disable
+// 1110 			state.main_state = PNL_IR_SCENARIO_STEP7;
+        LDI     R16, 23
+        LDI     R17, 144
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+// 1111 		}
+// 1112 	}
+// 1113 
+// 1114 	if(state.main_state == PNL_IR_SCENARIO_STEP3)
+??ir_pnl_19:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 21
+        LDI     R18, 144
+        CPC     R17, R18
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_20
+// 1115 	{
+// 1116 		strncpy(buffer_tx,"B1009300",9);
+        LDI     R20, 9
+        LDI     R21, 0
+        LDI     R18, LOW(`?<Constant "B1009300">`)
+        LDI     R19, (`?<Constant "B1009300">`) >> 8
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 253
+        SBCI    R17, 255
+        CALL    strncpy
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BRNE    ??ir_pnl_21
+// 1117 		
+// 1118 		if(id_compare_flag == 0)
+// 1119 		{
+// 1120 			g_ns_index--;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        DEC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1121 			if(g_ns_index == 0xFF)
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        CPI     R16, 255
+        BRNE    ??ir_pnl_21
+// 1122 				g_ns_index = 15;
+        LDI     R16, 15
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1123 		}
+// 1124 		
+// 1125     temp_ns = ee_scenario[g_ns_index].ns_number;
+??ir_pnl_21:
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        MOV     R20, R16
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R20, LOW(ee_scenario)
+        LDI     R21, (ee_scenario) >> 8
+        ADD     R20, R16
+        ADC     R21, R17
+        CALL    __eeget8_16
+        STS     temp_ns, R16
+// 1126 		CharToStr(ee_scenario[g_ns_index].ns_number,buffer);
+        MOVW    R19:R18, R29:R28
+        CALL    CharToStr
+// 1127 
+// 1128 		if(id_compare_flag == 0)
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BRNE    ??ir_pnl_22
+// 1129 		{
+// 1130 			g_ns_index++;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        INC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1131 			//if(g_ns_index >= 16)
+// 1132 				//g_ns_index = 0;
+// 1133 		}
+// 1134 
+// 1135 		buffer_tx[2] = buffer[0];
+??ir_pnl_22:
+        LD      R16, Y
+        STD     Y+5, R16
+// 1136 		buffer_tx[3] = buffer[1];
+        LDD     R16, Y+1
+        STD     Y+6, R16
+// 1137 		send_frame_pp_broad(buffer_tx,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 253
+        SBCI    R17, 255
+        CALL    send_frame_pp_broad
+// 1138 
+// 1139 		buffer_tx[5] = '0';
+        LDI     R16, 48
+        STD     Y+8, R16
+// 1140 		send_frame_pp_broad(buffer_tx,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 253
+        SBCI    R17, 255
+        CALL    send_frame_pp_broad
+// 1141 
+// 1142 		timer_flex_initial(600000);
+        LDI     R16, 192
+        LDI     R17, 39
+        LDI     R18, 9
+        LDI     R19, 0
+        CALL    timer_flex_initial
+// 1143 
+// 1144 		state.main_state = PNL_IR_SCENARIO_STEP4;
+        LDI     R16, 22
+        LDI     R17, 144
+        STS     (state + 2), R16
+        STS     (state + 3), R17
+// 1145 	}
+// 1146 
+// 1147 	if(state.main_state == PNL_IR_SCENARIO_STEP4)
+??ir_pnl_20:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 22
+        LDI     R18, 144
+        CPC     R17, R18
+        BRNE    ??ir_pnl_23
+// 1148 	{
+// 1149 		if( Time_delay.timer_flex.time_out == 1 )
+        LDS     R16, (Time_delay + 157)
+        CPI     R16, 1
+        BRNE    ??ir_pnl_23
+// 1150 		{
+// 1151 			state.main_state = PNL_IR_SCENARIO_STEP7;
+        LDI     R16, 23
+        STS     (state + 2), R16
+        STS     (state + 3), R18
+// 1152 		}
+// 1153 	}
+// 1154 
+// 1155 	if(state.main_state == PNL_IR_SCENARIO_STEP7)
+??ir_pnl_23:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 23
+        CPC     R17, R18
+        BREQ    $+2+2
+        RJMP    ??ir_pnl_24
+// 1156 	{
+// 1157 		if(is_scenario_full()==0 || flags.scenario_last_assigned)
+        RCALL   is_scenario_full
+        TST     R16
+        BREQ    ??ir_pnl_25
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        MOV     R16, R17
+        SBRS    R16, 7
+        RJMP    ??ir_pnl_26
+// 1158 		{
+// 1159 			flags.scenario_last_assigned = 0;
+??ir_pnl_25:
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ANDI    R17, 0x7F
+        STD     Z+3, R17
+        STD     Z+2, R16
+// 1160 			strncpy(buffer_tx,"B1009100",9);
+        LDI     R20, 9
+        LDI     R21, 0
+        LDI     R18, LOW((`?<Constant "B1009300">` + 222))
+        LDI     R19, HIGH((`?<Constant "B1009300">` + 222))
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 253
+        SBCI    R17, 255
+        CALL    strncpy
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BRNE    ??ir_pnl_27
+// 1161 		
+// 1162 			if(id_compare_flag == 0)
+// 1163 			{
+// 1164 				g_ns_index--;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        DEC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1165 				if(g_ns_index == 0xFF)
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        CPI     R16, 255
+        BRNE    ??ir_pnl_27
+// 1166 					g_ns_index = 15;
+        LDI     R16, 15
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1167 			}
+// 1168 
+// 1169 			CharToStr(ee_scenario[g_ns_index].ns_number,buffer);
+??ir_pnl_27:
+        MOVW    R19:R18, R29:R28
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        MOV     R20, R16
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R20, LOW(ee_scenario)
+        LDI     R21, (ee_scenario) >> 8
+        ADD     R20, R16
+        ADC     R21, R17
+        CALL    __eeget8_16
+        CALL    CharToStr
+// 1170 		
+// 1171 			if(id_compare_flag == 0)
+        LDS     R16, (temp_ns + 1)
+        TST     R16
+        BRNE    ??ir_pnl_28
+// 1172 			{
+// 1173 				g_ns_index++;
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeget8_16
+        INC     R16
+        LDI     R20, LOW(g_ns_index)
+        LDI     R21, (g_ns_index) >> 8
+        CALL    __eeput8_16
+// 1174 				//if(g_ns_index >= 16)
+// 1175 					//g_ns_index = 0;
+// 1176 			}
+// 1177 
+// 1178 			buffer_tx[2] = buffer[0];
+??ir_pnl_28:
+        LD      R16, Y
+        STD     Y+5, R16
+// 1179 			buffer_tx[3] = buffer[1];
+        LDD     R16, Y+1
+        STD     Y+6, R16
+// 1180 			send_frame_pp_broad(buffer_tx,TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        MOVW    R17:R16, R29:R28
+        SUBI    R16, 253
+        SBCI    R17, 255
+        CALL    send_frame_pp_broad
+// 1181 			send_frame_pp_broad("B000990F",TRANS_DELAY);
+        LDI     R18, 50
+        LDI     R19, 0
+        LDI     R16, LOW((`?<Constant "B1009300">` + 231))
+        LDI     R17, HIGH((`?<Constant "B1009300">` + 231))
+        CALL    send_frame_pp_broad
+// 1182 			led_blinking_disable(0);
+// 1183 			state.main_state = STATE_NORMAL;
+// 1184 		}
+// 1185 		else
+// 1186 		{
+// 1187 			//send_frame_pp_broad("B000990F",TRANS_DELAY);
+// 1188 			led_blinking_disable(0);
+??ir_pnl_26:
+        LDI     R16, 0
+        CALL    led_blinking_disable
+// 1189 			state.main_state = STATE_NORMAL;
+        LDI     R16, 0
+        STS     (state + 2), R16
+        STS     (state + 3), R16
+// 1190 		}
+// 1191 	}
+// 1192 
+// 1193 	if(state.main_state == PNL_IR_SCENARIO_STEP8)
+??ir_pnl_24:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 24
+        LDI     R18, 144
+        CPC     R17, R18
+        BRNE    ??ir_pnl_29
+// 1194 	{
+// 1195 		if( Time_delay.timer_flex.time_out == 1 )
+        LDS     R16, (Time_delay + 157)
+        CPI     R16, 1
+        BRNE    ??ir_pnl_29
+// 1196 		{
+// 1197 			led_blinking_disable(0);
+        LDI     R16, 0
+        CALL    led_blinking_disable
+// 1198 			state.main_state = STATE_NORMAL;
+        LDI     R16, 0
+        STS     (state + 2), R16
+        STS     (state + 3), R16
+// 1199 		}
+// 1200 	}
+// 1201 	
+// 1202 	return 0;
+??ir_pnl_29:
+        LDI     R16, 0
+        ADIW    R29:R28, 20
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock12
+// 1203 }
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+temp_ns:
+        DS8 1
+        DS8 1
+// 1204 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1205 void setting_diagnostic_ir(unsigned char *data)
+setting_diagnostic_ir:
+        CFI Block cfiBlock13 Using cfiCommon1
+        CFI Function setting_diagnostic_ir
+// 1206 {
+// 1207 	if( flags.dimmer_mode == 0)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        SBRC    R18, 1
+        RJMP    ??setting_diagnostic_ir_0
+// 1208 	{
+// 1209 		if(flags.load_status == 0)
+        LD      R18, Z
+        LDD     R19, Z+1
+        SBRC    R18, 7
+        RJMP    ??setting_diagnostic_ir_1
+// 1210 			*data = 0x00;
+        LDI     R18, 0
+        RJMP    ??setting_diagnostic_ir_2
+// 1211 		else
+// 1212 			*data = 0x64;
+??setting_diagnostic_ir_1:
+        LDI     R18, 100
+        RJMP    ??setting_diagnostic_ir_2
+// 1213 	}
+// 1214 	else
+// 1215 	{
+// 1216 		*data = parameters.dimmer_value;
+??setting_diagnostic_ir_0:
+        LDS     R18, parameters
+??setting_diagnostic_ir_2:
+        MOVW    R31:R30, R17:R16
+        ST      Z, R18
+// 1217 	}
+// 1218 
+// 1219 	if(flags.detection)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        SBRS    R18, 2
+        RJMP    ??setting_diagnostic_ir_3
+// 1220 		SetBit(*(data+1),3);
+        LDD     R18, Z+1
+        ORI     R18, 0x08
+        RJMP    ??setting_diagnostic_ir_4
+// 1221 	else
+// 1222 		ClrBit(*(data+1),3);
+??setting_diagnostic_ir_3:
+        LDD     R18, Z+1
+        ANDI    R18, 0xF7
+??setting_diagnostic_ir_4:
+        STD     Z+1, R18
+// 1223 
+// 1224 	if(flags.time_delay_during)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        SBRS    R18, 3
+        RJMP    ??setting_diagnostic_ir_5
+// 1225 		SetBit(*(data+1),2);
+        LDD     R18, Z+1
+        ORI     R18, 0x04
+        RJMP    ??setting_diagnostic_ir_6
+// 1226 	else
+// 1227 		ClrBit(*(data+1),2);
+??setting_diagnostic_ir_5:
+        LDD     R18, Z+1
+        ANDI    R18, 0xFB
+??setting_diagnostic_ir_6:
+        STD     Z+1, R18
+// 1228 
+// 1229 	if(flags.walk_through_en)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        SBRS    R18, 4
+        RJMP    ??setting_diagnostic_ir_7
+// 1230 		SetBit(*(data+1),1);
+        LDD     R18, Z+1
+        ORI     R18, 0x02
+        RJMP    ??setting_diagnostic_ir_8
+// 1231 	else
+// 1232 		ClrBit(*(data+1),1);
+??setting_diagnostic_ir_7:
+        LDD     R18, Z+1
+        ANDI    R18, 0xFD
+??setting_diagnostic_ir_8:
+        STD     Z+1, R18
+// 1233 
+// 1234 	if(flags.re_triger_en)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        SBRS    R18, 5
+        RJMP    ??setting_diagnostic_ir_9
+// 1235 		SetBit(*(data+1),0);
+        LDD     R18, Z+1
+        ORI     R18, 0x01
+        RJMP    ??setting_diagnostic_ir_10
+// 1236 	else
+// 1237 		ClrBit(*(data+1),0);
+??setting_diagnostic_ir_9:
+        LDD     R18, Z+1
+        ANDI    R18, 0xFE
+??setting_diagnostic_ir_10:
+        STD     Z+1, R18
+// 1238 
+// 1239 	if(flags.exemption_en)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        SBRS    R18, 6
+        RJMP    ??setting_diagnostic_ir_11
+// 1240 		SetBit(*(data+1),4);
+        LDD     R18, Z+1
+        ORI     R18, 0x10
+        RJMP    ??setting_diagnostic_ir_12
+// 1241 	else
+// 1242 		ClrBit(*(data+1),4);
+??setting_diagnostic_ir_11:
+        LDD     R18, Z+1
+        ANDI    R18, 0xEF
+??setting_diagnostic_ir_12:
+        STD     Z+1, R18
+// 1243 
+// 1244 	if(flags.regulation_en)
+        LDI     R30, LOW(flags)
+        LDI     R31, (flags) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        MOV     R18, R19
+        MOVW    R31:R30, R17:R16
+        LDD     R16, Z+1
+        SBRS    R18, 7
+        RJMP    ??setting_diagnostic_ir_13
+// 1245 		SetBit(*(data+1),5);
+        ORI     R16, 0x20
+        RJMP    ??setting_diagnostic_ir_14
+// 1246 	else
+// 1247 		ClrBit(*(data+1),5);
+??setting_diagnostic_ir_13:
+        ANDI    R16, 0xDF
+??setting_diagnostic_ir_14:
+        STD     Z+1, R16
+// 1248 }
+        RET
+        CFI EndBlock cfiBlock13
+// 1249 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1250 unsigned char get_current_scenario_number(void)
+get_current_scenario_number:
+        CFI Block cfiBlock14 Using cfiCommon1
+        CFI Function get_current_scenario_number
+// 1251 {
+// 1252   unsigned char i = 16;
+// 1253 
+// 1254 	for(i=0;i<16;i++)
+        LDI     R22, 0
+        RJMP    ??get_current_scenario_number_0
+??get_current_scenario_number_1:
+        INC     R22
+??get_current_scenario_number_0:
+        CPI     R22, 16
+        BRCC    ??get_current_scenario_number_2
+// 1255 	{
+// 1256 		if( (g_ir_reception[2] == ee_scenario[i].id[0]) && (g_ir_reception[3] == ee_scenario[i].id[1]) && (g_ir_reception[4] == ee_scenario[i].id[2]))
+        MOV     R20, R22
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        LDI     R18, LOW(ee_scenario)
+        LDI     R19, (ee_scenario) >> 8
+        ADD     R18, R16
+        ADC     R19, R17
+        LDI     R30, LOW(g_ir_reception)
+        LDI     R31, (g_ir_reception) >> 8
+        LDD     R17, Z+2
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 254
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??get_current_scenario_number_1
+        LDD     R17, Z+3
+        MOVW    R21:R20, R19:R18
+        SUBI    R20, 253
+        SBCI    R21, 255
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??get_current_scenario_number_1
+        LDD     R17, Z+4
+        SUBI    R18, 252
+        SBCI    R19, 255
+        MOVW    R21:R20, R19:R18
+        CALL    __eeget8_16
+        CP      R17, R16
+        BRNE    ??get_current_scenario_number_1
+// 1257 		{
+// 1258 			return i;
+??get_current_scenario_number_3:
+        MOV     R16, R22
+        RET
+// 1259 		}
+// 1260 	}
+// 1261 
+// 1262   if(i == 16)
+??get_current_scenario_number_2:
+        BRNE    ??get_current_scenario_number_3
+// 1263     i = 0;
+        LDI     R22, 0
+        RJMP    ??get_current_scenario_number_3
+        CFI EndBlock cfiBlock14
+// 1264 
+// 1265   return i;
+// 1266 }
+// 1267 
+
+        RSEG CODE:CODE:NOROOT(1)
+// 1268 unsigned char is_scenario_full(void)
+is_scenario_full:
+        CFI Block cfiBlock15 Using cfiCommon1
+        CFI Function is_scenario_full
+// 1269 {
+// 1270 	for(unsigned char i=0;i<16;i++)
+        LDI     R22, 0
+        RJMP    ??is_scenario_full_0
+??is_scenario_full_1:
+        INC     R22
+??is_scenario_full_0:
+        CPI     R22, 16
+        BRCC    ??is_scenario_full_2
+// 1271 	{
+// 1272 		if(ee_scenario[i].confed == 0)
+        LDI     R18, LOW((ee_scenario + 6))
+        LDI     R19, HIGH((ee_scenario + 6))
+        MOV     R20, R22
+        LDI     R21, 0
+        LDI     R16, 7
+        LDI     R17, 0
+        CALL    ?S_EC_MUL_L02
+        ADD     R18, R16
+        ADC     R19, R17
+        MOVW    R21:R20, R19:R18
+        CALL    __eeget8_16
+        TST     R16
+        BRNE    ??is_scenario_full_1
+// 1273 		{
+// 1274 			return 0;
+        LDI     R16, 0
+        RET
+// 1275 		}
+// 1276 	}
+// 1277 	
+// 1278 	return 1;
+??is_scenario_full_2:
+        LDI     R16, 1
+        RET
+        CFI EndBlock cfiBlock15
+// 1279 }
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 112
+`??usart1_rx_ser??INTVEC 112`:
+        JMP     usart1_rx_ser
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 120
+`??usart_tx_ser??INTVEC 120`:
+        JMP     usart_tx_ser
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for <Constant "B1009300">>`:
+        DC8 "B1009300"
+`?<Initializer for <Constant "D200090811000066"`:
+        DC8 "D200090811000066"
+`?<Initializer for <Constant "D20001428C000B01"`:
+        DC8 "D20001428C000B01"
+`?<Initializer for <Constant "D20001428C000B02"`:
+        DC8 "D20001428C000B02"
+`?<Initializer for <Constant "D20001428C000B03"`:
+        DC8 "D20001428C000B03"
+`?<Initializer for <Constant "D20001428C000B04"`:
+        DC8 "D20001428C000B04"
+`?<Initializer for <Constant "D20001428C000B05"`:
+        DC8 "D20001428C000B05"
+`?<Initializer for <Constant "D20001428C000B06"`:
+        DC8 "D20001428C000B06"
+`?<Initializer for <Constant "D20001428C000B07"`:
+        DC8 "D20001428C000B07"
+`?<Initializer for <Constant "D20001428C000802"`:
+        DC8 "D20001428C000802"
+`?<Initializer for <Constant "D20001428C000947"`:
+        DC8 "D20001428C000947"
+`?<Initializer for <Constant "D20001428C0008F0"`:
+        DC8 "D20001428C0008F0"
+`?<Initializer for <Constant "B0009900">>`:
+        DC8 "B0009900"
+`?<Initializer for <Constant "D20001428C000A05"`:
+        DC8 "D20001428C000A05"
+`?<Initializer for <Constant "B1009100">>`:
+        DC8 "B1009100"
+`?<Initializer for <Constant "B000990F">>`:
+        DC8 "B000990F"
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        RSEG SWITCH:CODE:NOROOT(1)
+`?<Jumptable for decode_IR>_0`:
+        DB      7
+        DB      1
+        DW      (??decode_IR_16) /2
+        DW      (??decode_IR_41) /2
+        DB      0x7
+        DW      (??decode_IR_26) /2
+        DB      0x1e
+        DW      (??decode_IR_42) /2
+        DB      0x1
+        DW      (??decode_IR_46) /2
+        DB      0x1
+        DW      (??decode_IR_48) /2
+        DB      0x1
+        DW      (??decode_IR_49) /2
+        DB      0x1
+        DW      (??decode_IR_50) /2
+        DB      0x1
+        DW      (??decode_IR_51) /2
+        DB      0x1
+        DW      (??decode_IR_52) /2
+        DB      0x1
+        DW      (??decode_IR_53) /2
+        DB      0x1
+        DW      (??decode_IR_54) /2
+        DB      0x1
+        DW      (??decode_IR_56) /2
+        DB      0x1
+        DW      (??decode_IR_61) /2
+        DB      0x1
+        DW      (??decode_IR_62) /2
+        DB      0x1
+        DW      (??decode_IR_64) /2
+        DB      251
+        DB      0
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+`?<Constant "B1009300">`:
+        DS8 9
+        REQUIRE `?<Initializer for <Constant "B1009300">>`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D200090811000066"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B01"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B02"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B03"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B04"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B05"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B06"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000B07"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000802"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000947"`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C0008F0"`
+        DS8 9
+        REQUIRE `?<Initializer for <Constant "B0009900">>`
+        DS8 17
+        REQUIRE `?<Initializer for <Constant "D20001428C000A05"`
+        DS8 9
+        REQUIRE `?<Initializer for <Constant "B1009100">>`
+        DS8 9
+        REQUIRE `?<Initializer for <Constant "B000990F">>`
+
+        END
+// 
+//    14 bytes in segment ABSOLUTE
+// 5 708 bytes in segment CODE
+//    12 bytes in segment INITTAB
+//     8 bytes in segment INTVEC
+//   240 bytes in segment NEAR_I
+//   240 bytes in segment NEAR_ID
+//     3 bytes in segment NEAR_Z
+//    50 bytes in segment SWITCH
+// 
+// 5 998 bytes of CODE memory (+ 20 bytes shared)
+//   243 bytes of DATA memory (+ 14 bytes shared)
+//
+//Errors: none
+//Warnings: none

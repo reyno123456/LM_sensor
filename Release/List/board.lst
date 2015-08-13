@@ -1,0 +1,2357 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR    11/Dec/2009  23:21:17 #
+# Copyright 1996-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  D:\avr\LM_Finial_Test\board.c                            #
+#    Command line =  D:\avr\LM_Finial_Test\board.c --cpu=m644p -ms -o         #
+#                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018    #
+#                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Lis #
+#                    t\ -lA D:\avr\LM_Finial_Test\Release\List\               #
+#                    --diag_suppress Pa082,Pe167,Pe186                        #
+#                    --initializers_in_flash -z6 --no_inline --no_cross_call  #
+#                    --no_tbaa -DENABLE_BIT_DEFINITIONS -e -I "C:\Program     #
+#                    Files\IAR Systems\Embedded Workbench 5.3\avr\INC\" -I    #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.3\avr\INC\CLIB\" --eeprom_size 2048                    #
+#    List file    =  D:\avr\LM_Finial_Test\Release\List\board.lst             #
+#    Object file  =  D:\avr\LM_Finial_Test\Release\Obj\board.r90              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\avr\LM_Finial_Test\board.c
+      1          #include <ioavr.h>
+
+   \                                 In  segment ABSOLUTE, at 0xb2
+   \   <__C55> volatile __io _A_TCNT2
+   \                     _A_TCNT2:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x8a
+   \   <__C65> volatile __io _A_OCR1B
+   \                     _A_OCR1B:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0x88
+   \   <__C69> volatile __io _A_OCR1A
+   \                     _A_OCR1A:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0x86
+   \   <__C73> volatile __io _A_ICR1
+   \                     _A_ICR1:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0x84
+   \   <__C77> volatile __io _A_TCNT1
+   \                     _A_TCNT1:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0x81
+   \   <__C83> volatile __io _A_TCCR1B
+   \                     _A_TCCR1B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x80
+   \   <__C86> volatile __io _A_TCCR1A
+   \                     _A_TCCR1A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x7e
+   \   <__C92> volatile __io _A_DIDR0
+   \                     _A_DIDR0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x7c
+   \   <__C95> volatile __io _A_ADMUX
+   \                     _A_ADMUX:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x7a
+   \   <__C101> volatile __io _A_ADCSRA
+   \                     _A_ADCSRA:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x78
+   \   <__C105> volatile __io _A_ADC
+   \                     _A_ADC:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0x64
+   \   <__C137> volatile __io _A_PRR
+   \                     _A_PRR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x60
+   \   <__C143> volatile __io _A_WDTCSR
+   \                     _A_WDTCSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x54
+   \   <__C161> volatile __io _A_MCUSR
+   \                     _A_MCUSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x46
+   \   <__C187> volatile __io _A_TCNT0
+   \                     _A_TCNT0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2b
+   \   <__C228> volatile __io _A_PORTD
+   \                     _A_PORTD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2a
+   \   <__C231> volatile __io _A_DDRD
+   \                     _A_DDRD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x28
+   \   <__C237> volatile __io _A_PORTC
+   \                     _A_PORTC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x27
+   \   <__C240> volatile __io _A_DDRC
+   \                     _A_DDRC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   <__C246> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x24
+   \   <__C249> volatile __io _A_DDRB
+   \                     _A_DDRB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x23
+   \   <__C252> volatile __io _A_PINB
+   \                     _A_PINB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x22
+   \   <__C255> volatile __io _A_PORTA
+   \                     _A_PORTA:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x21
+   \   <__C258> volatile __io _A_DDRA
+   \                     _A_DDRA:
+   \   00000000                      DS8 1
+      2          #include "board.h"
+      3          #include <inavr.h>
+      4          #include "global_variable.h"
+      5          #include "moudle_SCS.h"
+      6          #include "application.h"
+      7          
+      8          #pragma vector=TIMER0_OVF_vect
+
+   \                                 In  segment CODE, align 2, keep-with-next
+      9          __interrupt void timer0_ovf_ser(void)       			// 100us alan
+   \                     timer0_ovf_ser:
+     10          {
+   \   00000000   924A               ST      -Y, R4
+   \   00000002   93BA               ST      -Y, R27
+   \   00000004   93AA               ST      -Y, R26
+   \   00000006   939A               ST      -Y, R25
+   \   00000008   938A               ST      -Y, R24
+   \   0000000A   93FA               ST      -Y, R31
+   \   0000000C   93EA               ST      -Y, R30
+   \   0000000E   923A               ST      -Y, R3
+   \   00000010   922A               ST      -Y, R2
+   \   00000012   921A               ST      -Y, R1
+   \   00000014   920A               ST      -Y, R0
+   \   00000016   937A               ST      -Y, R23
+   \   00000018   936A               ST      -Y, R22
+   \   0000001A   935A               ST      -Y, R21
+   \   0000001C   934A               ST      -Y, R20
+   \   0000001E   933A               ST      -Y, R19
+   \   00000020   932A               ST      -Y, R18
+   \   00000022   931A               ST      -Y, R17
+   \   00000024   930A               ST      -Y, R16
+   \   00000026   B64F               IN      R4, 0x3F
+   \   00000028                      REQUIRE ?Register_R4_is_cg_reg
+     11          	TCNT0 = 0x8D;			//1ms
+   \   00000028   E80D               LDI     R16, 141
+   \   0000002A   BD06               OUT     0x26, R16
+     12          
+     13          	if(Time_delay.timer_20s.enabled == 1)
+   \   0000002C   ....               LDI     R26, LOW(Time_delay)
+   \   0000002E   ....               LDI     R27, (Time_delay) >> 8
+   \   00000030   9100....           LDS     R16, (Time_delay + 92)
+   \   00000034   3001               CPI     R16, 1
+   \   00000036   F4E1               BRNE    ??timer0_ovf_ser_0
+     14          	{
+     15          		if(++Time_delay.timer_20s.count >= SEC_20)
+   \   00000038   01FD               MOVW    R31:R30, R27:R26
+   \   0000003A   96FD               ADIW    R31:R30, 61
+   \   0000003C   8906               LDD     R16, Z+22
+   \   0000003E   8917               LDD     R17, Z+23
+   \   00000040   8D20               LDD     R18, Z+24
+   \   00000042   8D31               LDD     R19, Z+25
+   \   00000044   5F0F               SUBI    R16, 255
+   \   00000046   4F1F               SBCI    R17, 255
+   \   00000048   4F2F               SBCI    R18, 255
+   \   0000004A   4F3F               SBCI    R19, 255
+   \   0000004C   01FD               MOVW    R31:R30, R27:R26
+   \   0000004E   96FD               ADIW    R31:R30, 61
+   \   00000050   8B06               STD     Z+22, R16
+   \   00000052   8B17               STD     Z+23, R17
+   \   00000054   8F20               STD     Z+24, R18
+   \   00000056   8F31               STD     Z+25, R19
+   \   00000058   3D00               CPI     R16, 208
+   \   0000005A   E047               LDI     R20, 7
+   \   0000005C   0714               CPC     R17, R20
+   \   0000005E   E040               LDI     R20, 0
+   \   00000060   0724               CPC     R18, R20
+   \   00000062   0734               CPC     R19, R20
+   \   00000064   F028               BRCS    ??timer0_ovf_ser_0
+     16          		{
+     17          			Time_delay.timer_20s.time_out = 1;
+   \   00000066   E001               LDI     R16, 1
+   \   00000068   9300....           STS     (Time_delay + 91), R16
+     18          			Time_delay.timer_20s.enabled = 0;
+   \   0000006C   9340....           STS     (Time_delay + 92), R20
+     19          		}
+     20          	}
+     21          
+     22          	if(Time_delay.modality0.enabled == 1)
+   \                     ??timer0_ovf_ser_0:
+   \   00000070   9100....           LDS     R16, (Time_delay + 103)
+   \   00000074   3001               CPI     R16, 1
+   \   00000076   F509               BRNE    ??timer0_ovf_ser_1
+     23          	{
+     24          		if(++Time_delay.modality0.count >= modality0_delay_ms)
+   \   00000078   01FD               MOVW    R31:R30, R27:R26
+   \   0000007A   96FD               ADIW    R31:R30, 61
+   \   0000007C   A101               LDD     R16, Z+33
+   \   0000007E   A112               LDD     R17, Z+34
+   \   00000080   A123               LDD     R18, Z+35
+   \   00000082   A134               LDD     R19, Z+36
+   \   00000084   5F0F               SUBI    R16, 255
+   \   00000086   4F1F               SBCI    R17, 255
+   \   00000088   4F2F               SBCI    R18, 255
+   \   0000008A   4F3F               SBCI    R19, 255
+   \   0000008C   01FD               MOVW    R31:R30, R27:R26
+   \   0000008E   96FD               ADIW    R31:R30, 61
+   \   00000090   A301               STD     Z+33, R16
+   \   00000092   A312               STD     Z+34, R17
+   \   00000094   A323               STD     Z+35, R18
+   \   00000096   A334               STD     Z+36, R19
+   \   00000098   ....               LDI     R30, LOW(modality0_delay_ms)
+   \   0000009A   ....               LDI     R31, (modality0_delay_ms) >> 8
+   \   0000009C   8140               LD      R20, Z
+   \   0000009E   8151               LDD     R21, Z+1
+   \   000000A0   8162               LDD     R22, Z+2
+   \   000000A2   8173               LDD     R23, Z+3
+   \   000000A4   1704               CP      R16, R20
+   \   000000A6   0715               CPC     R17, R21
+   \   000000A8   0726               CPC     R18, R22
+   \   000000AA   0737               CPC     R19, R23
+   \   000000AC   F030               BRCS    ??timer0_ovf_ser_1
+     25          		{
+     26          			Time_delay.modality0.time_out = 1;
+   \   000000AE   E001               LDI     R16, 1
+   \   000000B0   9300....           STS     (Time_delay + 102), R16
+     27          			Time_delay.modality0.enabled = 0;
+   \   000000B4   E000               LDI     R16, 0
+   \   000000B6   9300....           STS     (Time_delay + 103), R16
+     28          		}
+     29          	}
+     30          
+     31          	if(Time_delay.motion.enabled == 1)
+   \                     ??timer0_ovf_ser_1:
+   \   000000BA   9100....           LDS     R16, (Time_delay + 70)
+   \   000000BE   3001               CPI     R16, 1
+   \   000000C0   F521               BRNE    ??timer0_ovf_ser_2
+     32          	{
+     33          		if(++Time_delay.motion.count >= 400)
+   \   000000C2   01FD               MOVW    R31:R30, R27:R26
+   \   000000C4   96FD               ADIW    R31:R30, 61
+   \   000000C6   8100               LD      R16, Z
+   \   000000C8   8111               LDD     R17, Z+1
+   \   000000CA   8122               LDD     R18, Z+2
+   \   000000CC   8133               LDD     R19, Z+3
+   \   000000CE   5F0F               SUBI    R16, 255
+   \   000000D0   4F1F               SBCI    R17, 255
+   \   000000D2   4F2F               SBCI    R18, 255
+   \   000000D4   4F3F               SBCI    R19, 255
+   \   000000D6   01FD               MOVW    R31:R30, R27:R26
+   \   000000D8   96FD               ADIW    R31:R30, 61
+   \   000000DA   8300               ST      Z, R16
+   \   000000DC   8311               STD     Z+1, R17
+   \   000000DE   8322               STD     Z+2, R18
+   \   000000E0   8333               STD     Z+3, R19
+   \   000000E2   3900               CPI     R16, 144
+   \   000000E4   E041               LDI     R20, 1
+   \   000000E6   0714               CPC     R17, R20
+   \   000000E8   E040               LDI     R20, 0
+   \   000000EA   0724               CPC     R18, R20
+   \   000000EC   0734               CPC     R19, R20
+   \   000000EE   F068               BRCS    ??timer0_ovf_ser_2
+     34          		{
+     35          			//US_detection_en = 0;
+     36          			//PIR_detection_en = 0;     // add by alan 20090413
+     37          			// 以上针对PIR&US情况，在1s内US和PIR有探测才认为是有效，超过1S，不认为是同时探测到信号
+     38          			 //DLED_OFF;
+     39          			motion_total = 0;
+   \   000000F0   9340....           STS     motion_total, R20
+   \   000000F4   9340....           STS     (motion_total + 1), R20
+     40                //motion_resutl = 0;
+     41          			Time_delay.motion.time_out = 1;
+   \   000000F8   E001               LDI     R16, 1
+   \   000000FA   9300....           STS     (Time_delay + 69), R16
+     42          			Time_delay.motion.count = 0;
+   \   000000FE   01FD               MOVW    R31:R30, R27:R26
+   \   00000100   96FD               ADIW    R31:R30, 61
+   \   00000102   8340               ST      Z, R20
+   \   00000104   8341               STD     Z+1, R20
+   \   00000106   8342               STD     Z+2, R20
+   \   00000108   8343               STD     Z+3, R20
+     43          			//Time_delay.timer_1s.enabled = 0;
+     44          		}
+     45          	}
+     46          
+     47          	if(Time_delay.LPB.enabled == 1)
+   \                     ??timer0_ovf_ser_2:
+   \   0000010A   9100....           LDS     R16, (Time_delay + 125)
+   \   0000010E   3001               CPI     R16, 1
+   \   00000110   F471               BRNE    ??timer0_ovf_ser_3
+     48          	{
+     49          		Time_delay.LPB.count++;
+   \   00000112   ....               LDI     R30, ((Time_delay + 116) & 0xff) & 0xFF
+   \   00000114   ....               LDI     R31, (((Time_delay + 116) >> 8) & 0xff) & 0xFF
+   \   00000116   8100               LD      R16, Z
+   \   00000118   8111               LDD     R17, Z+1
+   \   0000011A   8122               LDD     R18, Z+2
+   \   0000011C   8133               LDD     R19, Z+3
+   \   0000011E   5F0F               SUBI    R16, 255
+   \   00000120   4F1F               SBCI    R17, 255
+   \   00000122   4F2F               SBCI    R18, 255
+   \   00000124   4F3F               SBCI    R19, 255
+   \   00000126   8300               ST      Z, R16
+   \   00000128   8311               STD     Z+1, R17
+   \   0000012A   8322               STD     Z+2, R18
+   \   0000012C   8333               STD     Z+3, R19
+     50          	}
+     51            /*
+     52          	if(Time_delay.led_double_on.enabled)
+     53          	{
+     54          		if((++Time_delay.led_double_on.count >= Time_delay.led_double_on.stack_top + Time_delay.led_double_off.stack_top) && (flags.led_on_double == 0))
+     55          		{
+     56          		  LLED_ON;
+     57          			DLED_ON;
+     58          			Time_delay.led_double_on.count = 0;
+     59          			flags.led_on_double = 1;
+     60          		}
+     61          		else if(++Time_delay.led_double_on.count >= Time_delay.led_double_on.stack_top)
+     62          		{
+     63          			LLED_OFF;
+     64          			DLED_OFF;
+     65          			flags.led_on_double = 0;
+     66          		}
+     67          	}
+     68          	*/
+     69          	
+     70          	if(Time_delay.led_on.enabled == 1)
+   \                     ??timer0_ovf_ser_3:
+   \   0000012E   9100....           LDS     R16, (Time_delay + 136)
+   \   00000132   3001               CPI     R16, 1
+   \   00000134   F561               BRNE    ??timer0_ovf_ser_4
+     71          	{
+     72          		LLED_ON;
+   \   00000136   985E               CBI     0x0B, 0x06
+     73          		Time_delay.led_on.count++;
+   \   00000138   ....               LDI     R30, ((Time_delay + 127) & 0xff) & 0xFF
+   \   0000013A   ....               LDI     R31, (((Time_delay + 127) >> 8) & 0xff) & 0xFF
+   \   0000013C   8100               LD      R16, Z
+   \   0000013E   8111               LDD     R17, Z+1
+   \   00000140   8122               LDD     R18, Z+2
+   \   00000142   8133               LDD     R19, Z+3
+   \   00000144   5F0F               SUBI    R16, 255
+   \   00000146   4F1F               SBCI    R17, 255
+   \   00000148   4F2F               SBCI    R18, 255
+   \   0000014A   4F3F               SBCI    R19, 255
+   \   0000014C   8300               ST      Z, R16
+   \   0000014E   8311               STD     Z+1, R17
+   \   00000150   8322               STD     Z+2, R18
+   \   00000152   8333               STD     Z+3, R19
+     74          		if(Time_delay.led_on.count >= Time_delay.led_on.stack_top)
+   \   00000154   ....               LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+   \   00000156   ....               LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+   \   00000158   8102               LDD     R16, Z+2
+   \   0000015A   8113               LDD     R17, Z+3
+   \   0000015C   8124               LDD     R18, Z+4
+   \   0000015E   8135               LDD     R19, Z+5
+   \   00000160   8146               LDD     R20, Z+6
+   \   00000162   8157               LDD     R21, Z+7
+   \   00000164   8560               LDD     R22, Z+8
+   \   00000166   8571               LDD     R23, Z+9
+   \   00000168   1704               CP      R16, R20
+   \   0000016A   0715               CPC     R17, R21
+   \   0000016C   0726               CPC     R18, R22
+   \   0000016E   0737               CPC     R19, R23
+   \   00000170   F070               BRCS    ??timer0_ovf_ser_4
+     75          		{
+     76          			Time_delay.led_on.time_out = 1;
+   \   00000172   E001               LDI     R16, 1
+   \   00000174   9300....           STS     (Time_delay + 135), R16
+     77          			Time_delay.led_on.enabled = 0;
+   \   00000178   E000               LDI     R16, 0
+   \   0000017A   9300....           STS     (Time_delay + 136), R16
+     78          			Time_delay.led_off.enabled = 1;
+   \   0000017E   E001               LDI     R16, 1
+   \   00000180   9300....           STS     (Time_delay + 147), R16
+     79          			Time_delay.led_off.count = 0;
+   \   00000184   E000               LDI     R16, 0
+   \   00000186   8705               STD     Z+13, R16
+   \   00000188   8706               STD     Z+14, R16
+   \   0000018A   8707               STD     Z+15, R16
+   \   0000018C   8B00               STD     Z+16, R16
+     80          		}
+     81          	}
+     82          	
+     83          	if(Time_delay.led_off.enabled == 1)
+   \                     ??timer0_ovf_ser_4:
+   \   0000018E   9100....           LDS     R16, (Time_delay + 147)
+   \   00000192   3001               CPI     R16, 1
+   \   00000194   F561               BRNE    ??timer0_ovf_ser_5
+     84          	{
+     85          		LLED_OFF;
+   \   00000196   9A5E               SBI     0x0B, 0x06
+     86          		Time_delay.led_off.count++;
+   \   00000198   ....               LDI     R30, ((Time_delay + 138) & 0xff) & 0xFF
+   \   0000019A   ....               LDI     R31, (((Time_delay + 138) >> 8) & 0xff) & 0xFF
+   \   0000019C   8100               LD      R16, Z
+   \   0000019E   8111               LDD     R17, Z+1
+   \   000001A0   8122               LDD     R18, Z+2
+   \   000001A2   8133               LDD     R19, Z+3
+   \   000001A4   5F0F               SUBI    R16, 255
+   \   000001A6   4F1F               SBCI    R17, 255
+   \   000001A8   4F2F               SBCI    R18, 255
+   \   000001AA   4F3F               SBCI    R19, 255
+   \   000001AC   8300               ST      Z, R16
+   \   000001AE   8311               STD     Z+1, R17
+   \   000001B0   8322               STD     Z+2, R18
+   \   000001B2   8333               STD     Z+3, R19
+     87          		if(Time_delay.led_off.count >= Time_delay.led_off.stack_top)
+   \   000001B4   ....               LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+   \   000001B6   ....               LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+   \   000001B8   8505               LDD     R16, Z+13
+   \   000001BA   8516               LDD     R17, Z+14
+   \   000001BC   8527               LDD     R18, Z+15
+   \   000001BE   8930               LDD     R19, Z+16
+   \   000001C0   8941               LDD     R20, Z+17
+   \   000001C2   8952               LDD     R21, Z+18
+   \   000001C4   8963               LDD     R22, Z+19
+   \   000001C6   8974               LDD     R23, Z+20
+   \   000001C8   1704               CP      R16, R20
+   \   000001CA   0715               CPC     R17, R21
+   \   000001CC   0726               CPC     R18, R22
+   \   000001CE   0737               CPC     R19, R23
+   \   000001D0   F070               BRCS    ??timer0_ovf_ser_5
+     88          		{
+     89          			Time_delay.led_off.time_out = 1;
+   \   000001D2   E001               LDI     R16, 1
+   \   000001D4   9300....           STS     (Time_delay + 146), R16
+     90          			Time_delay.led_off.enabled = 0;
+   \   000001D8   E000               LDI     R16, 0
+   \   000001DA   9300....           STS     (Time_delay + 147), R16
+     91          			Time_delay.led_on.enabled = 1;
+   \   000001DE   E001               LDI     R16, 1
+   \   000001E0   9300....           STS     (Time_delay + 136), R16
+     92          			Time_delay.led_on.count = 0;
+   \   000001E4   E000               LDI     R16, 0
+   \   000001E6   8302               STD     Z+2, R16
+   \   000001E8   8303               STD     Z+3, R16
+   \   000001EA   8304               STD     Z+4, R16
+   \   000001EC   8305               STD     Z+5, R16
+     93          		}
+     94          	}
+     95          
+     96          	if(Time_delay.blinking_count.enabled == 1)
+   \                     ??timer0_ovf_ser_5:
+   \   000001EE   9100....           LDS     R16, (Time_delay + 191)
+   \   000001F2   3001               CPI     R16, 1
+   \   000001F4   F539               BRNE    ??timer0_ovf_ser_6
+     97          	{
+     98          		Time_delay.blinking_count.count++;
+   \   000001F6   ....               LDI     R30, ((Time_delay + 182) & 0xff) & 0xFF
+   \   000001F8   ....               LDI     R31, (((Time_delay + 182) >> 8) & 0xff) & 0xFF
+   \   000001FA   8100               LD      R16, Z
+   \   000001FC   8111               LDD     R17, Z+1
+   \   000001FE   8122               LDD     R18, Z+2
+   \   00000200   8133               LDD     R19, Z+3
+   \   00000202   5F0F               SUBI    R16, 255
+   \   00000204   4F1F               SBCI    R17, 255
+   \   00000206   4F2F               SBCI    R18, 255
+   \   00000208   4F3F               SBCI    R19, 255
+   \   0000020A   8300               ST      Z, R16
+   \   0000020C   8311               STD     Z+1, R17
+   \   0000020E   8322               STD     Z+2, R18
+   \   00000210   8333               STD     Z+3, R19
+     99          		if(Time_delay.blinking_count.count >= Time_delay.blinking_count.stack_top)
+   \   00000212   ....               LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+   \   00000214   ....               LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+   \   00000216   AD01               LDD     R16, Z+57
+   \   00000218   AD12               LDD     R17, Z+58
+   \   0000021A   AD23               LDD     R18, Z+59
+   \   0000021C   AD34               LDD     R19, Z+60
+   \   0000021E   ....               LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+   \   00000220   ....               LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+   \   00000222   8140               LD      R20, Z
+   \   00000224   8151               LDD     R21, Z+1
+   \   00000226   8162               LDD     R22, Z+2
+   \   00000228   8173               LDD     R23, Z+3
+   \   0000022A   1704               CP      R16, R20
+   \   0000022C   0715               CPC     R17, R21
+   \   0000022E   0726               CPC     R18, R22
+   \   00000230   0737               CPC     R19, R23
+   \   00000232   F040               BRCS    ??timer0_ovf_ser_6
+    100          		{
+    101          			Time_delay.blinking_count.time_out = 1;
+   \   00000234   E001               LDI     R16, 1
+   \   00000236   9300....           STS     (Time_delay + 190), R16
+    102          			Time_delay.blinking_count.enabled = 0;
+   \   0000023A   E000               LDI     R16, 0
+   \   0000023C   9300....           STS     (Time_delay + 191), R16
+    103          			led_blinking_disable(0);
+   \   00000240   ........           CALL    led_blinking_disable
+    104          		}
+    105          	}
+    106          	
+    107          	if(Time_delay.Dled.enabled == 1)
+   \                     ??timer0_ovf_ser_6:
+   \   00000244   9100....           LDS     R16, (Time_delay + 224)
+   \   00000248   3001               CPI     R16, 1
+   \   0000024A   F521               BRNE    ??timer0_ovf_ser_7
+    108          	{
+    109          		Time_delay.Dled.count++;
+   \   0000024C   ....               LDI     R30, ((Time_delay + 215) & 0xff) & 0xFF
+   \   0000024E   ....               LDI     R31, (((Time_delay + 215) >> 8) & 0xff) & 0xFF
+   \   00000250   8100               LD      R16, Z
+   \   00000252   8111               LDD     R17, Z+1
+   \   00000254   8122               LDD     R18, Z+2
+   \   00000256   8133               LDD     R19, Z+3
+   \   00000258   5F0F               SUBI    R16, 255
+   \   0000025A   4F1F               SBCI    R17, 255
+   \   0000025C   4F2F               SBCI    R18, 255
+   \   0000025E   4F3F               SBCI    R19, 255
+   \   00000260   8300               ST      Z, R16
+   \   00000262   8311               STD     Z+1, R17
+   \   00000264   8322               STD     Z+2, R18
+   \   00000266   8333               STD     Z+3, R19
+    110          		if(Time_delay.Dled.count >= Time_delay.Dled.stack_top)
+   \   00000268   ....               LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+   \   0000026A   ....               LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+   \   0000026C   8D05               LDD     R16, Z+29
+   \   0000026E   8D16               LDD     R17, Z+30
+   \   00000270   8D27               LDD     R18, Z+31
+   \   00000272   A130               LDD     R19, Z+32
+   \   00000274   A141               LDD     R20, Z+33
+   \   00000276   A152               LDD     R21, Z+34
+   \   00000278   A163               LDD     R22, Z+35
+   \   0000027A   A174               LDD     R23, Z+36
+   \   0000027C   1704               CP      R16, R20
+   \   0000027E   0715               CPC     R17, R21
+   \   00000280   0726               CPC     R18, R22
+   \   00000282   0737               CPC     R19, R23
+   \   00000284   F038               BRCS    ??timer0_ovf_ser_7
+    111          		{
+    112          			Time_delay.Dled.time_out = 1;
+   \   00000286   E001               LDI     R16, 1
+   \   00000288   9300....           STS     (Time_delay + 223), R16
+    113          			Time_delay.Dled.enabled = 0;
+   \   0000028C   E000               LDI     R16, 0
+   \   0000028E   9300....           STS     (Time_delay + 224), R16
+    114          			DLED_OFF;
+   \   00000292   9A46               SBI     0x08, 0x06
+    115          		}
+    116          	}
+    117          	
+    118          	if(Time_delay.IR.enabled == 1)
+   \                     ??timer0_ovf_ser_7:
+   \   00000294   9100....           LDS     R16, (Time_delay + 235)
+   \   00000298   3001               CPI     R16, 1
+   \   0000029A   F4E9               BRNE    ??timer0_ovf_ser_8
+    119          	{
+    120          		if(++Time_delay.IR.count >= Time_delay.IR.stack_top)
+   \   0000029C   ....               LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+   \   0000029E   ....               LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+   \   000002A0   A500               LDD     R16, Z+40
+   \   000002A2   A511               LDD     R17, Z+41
+   \   000002A4   A522               LDD     R18, Z+42
+   \   000002A6   A533               LDD     R19, Z+43
+   \   000002A8   5F0F               SUBI    R16, 255
+   \   000002AA   4F1F               SBCI    R17, 255
+   \   000002AC   4F2F               SBCI    R18, 255
+   \   000002AE   4F3F               SBCI    R19, 255
+   \   000002B0   A700               STD     Z+40, R16
+   \   000002B2   A711               STD     Z+41, R17
+   \   000002B4   A722               STD     Z+42, R18
+   \   000002B6   A733               STD     Z+43, R19
+   \   000002B8   A544               LDD     R20, Z+44
+   \   000002BA   A555               LDD     R21, Z+45
+   \   000002BC   A566               LDD     R22, Z+46
+   \   000002BE   A577               LDD     R23, Z+47
+   \   000002C0   1704               CP      R16, R20
+   \   000002C2   0715               CPC     R17, R21
+   \   000002C4   0726               CPC     R18, R22
+   \   000002C6   0737               CPC     R19, R23
+   \   000002C8   F030               BRCS    ??timer0_ovf_ser_8
+    121          		{
+    122          			Time_delay.IR.time_out = 1;
+   \   000002CA   E001               LDI     R16, 1
+   \   000002CC   9300....           STS     (Time_delay + 234), R16
+    123          			Time_delay.IR.enabled = 0;
+   \   000002D0   E000               LDI     R16, 0
+   \   000002D2   9300....           STS     (Time_delay + 235), R16
+    124          		}
+    125          	}
+    126          	
+    127          	if(Time_delay.timer_flex.enabled == 1)
+   \                     ??timer0_ovf_ser_8:
+   \   000002D6   9100....           LDS     R16, (Time_delay + 158)
+   \   000002DA   3001               CPI     R16, 1
+   \   000002DC   F4E9               BRNE    ??timer0_ovf_ser_9
+    128          	{
+    129          		if(++Time_delay.timer_flex.count >= Time_delay.timer_flex.stack_top)
+   \   000002DE   ....               LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+   \   000002E0   ....               LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+   \   000002E2   8D00               LDD     R16, Z+24
+   \   000002E4   8D11               LDD     R17, Z+25
+   \   000002E6   8D22               LDD     R18, Z+26
+   \   000002E8   8D33               LDD     R19, Z+27
+   \   000002EA   5F0F               SUBI    R16, 255
+   \   000002EC   4F1F               SBCI    R17, 255
+   \   000002EE   4F2F               SBCI    R18, 255
+   \   000002F0   4F3F               SBCI    R19, 255
+   \   000002F2   8F00               STD     Z+24, R16
+   \   000002F4   8F11               STD     Z+25, R17
+   \   000002F6   8F22               STD     Z+26, R18
+   \   000002F8   8F33               STD     Z+27, R19
+   \   000002FA   8D44               LDD     R20, Z+28
+   \   000002FC   8D55               LDD     R21, Z+29
+   \   000002FE   8D66               LDD     R22, Z+30
+   \   00000300   8D77               LDD     R23, Z+31
+   \   00000302   1704               CP      R16, R20
+   \   00000304   0715               CPC     R17, R21
+   \   00000306   0726               CPC     R18, R22
+   \   00000308   0737               CPC     R19, R23
+   \   0000030A   F030               BRCS    ??timer0_ovf_ser_9
+    130          		{
+    131          			Time_delay.timer_flex.time_out = 1;
+   \   0000030C   E001               LDI     R16, 1
+   \   0000030E   9300....           STS     (Time_delay + 157), R16
+    132          			Time_delay.timer_flex.enabled = 0;
+   \   00000312   E000               LDI     R16, 0
+   \   00000314   9300....           STS     (Time_delay + 158), R16
+    133          		}
+    134          	}
+    135          
+    136          	if(Time_delay.timer_flex2.enabled == 1)
+   \                     ??timer0_ovf_ser_9:
+   \   00000318   9100....           LDS     R16, (Time_delay + 213)
+   \   0000031C   3001               CPI     R16, 1
+   \   0000031E   F4E9               BRNE    ??timer0_ovf_ser_10
+    137          	{
+    138          		if(++Time_delay.timer_flex2.count >= Time_delay.timer_flex2.stack_top)
+   \   00000320   ....               LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+   \   00000322   ....               LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+   \   00000324   8902               LDD     R16, Z+18
+   \   00000326   8913               LDD     R17, Z+19
+   \   00000328   8924               LDD     R18, Z+20
+   \   0000032A   8935               LDD     R19, Z+21
+   \   0000032C   5F0F               SUBI    R16, 255
+   \   0000032E   4F1F               SBCI    R17, 255
+   \   00000330   4F2F               SBCI    R18, 255
+   \   00000332   4F3F               SBCI    R19, 255
+   \   00000334   8B02               STD     Z+18, R16
+   \   00000336   8B13               STD     Z+19, R17
+   \   00000338   8B24               STD     Z+20, R18
+   \   0000033A   8B35               STD     Z+21, R19
+   \   0000033C   8946               LDD     R20, Z+22
+   \   0000033E   8957               LDD     R21, Z+23
+   \   00000340   8D60               LDD     R22, Z+24
+   \   00000342   8D71               LDD     R23, Z+25
+   \   00000344   1704               CP      R16, R20
+   \   00000346   0715               CPC     R17, R21
+   \   00000348   0726               CPC     R18, R22
+   \   0000034A   0737               CPC     R19, R23
+   \   0000034C   F030               BRCS    ??timer0_ovf_ser_10
+    139          		{
+    140          			Time_delay.timer_flex2.time_out = 1;
+   \   0000034E   E001               LDI     R16, 1
+   \   00000350   9300....           STS     (Time_delay + 212), R16
+    141          			Time_delay.timer_flex2.enabled = 0;
+   \   00000354   E000               LDI     R16, 0
+   \   00000356   9300....           STS     (Time_delay + 213), R16
+    142          		}
+    143          	}
+    144          	
+    145          	if(Time_delay.dimmer.enabled == 1)
+   \                     ??timer0_ovf_ser_10:
+   \   0000035A   9100....           LDS     R16, (Time_delay + 268)
+   \   0000035E   3001               CPI     R16, 1
+   \   00000360   F4E9               BRNE    ??timer0_ovf_ser_11
+    146          	{
+    147          		if(++Time_delay.dimmer.count >= Time_delay.dimmer.stack_top)
+   \   00000362   ....               LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+   \   00000364   ....               LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+   \   00000366   8100               LD      R16, Z
+   \   00000368   8111               LDD     R17, Z+1
+   \   0000036A   8122               LDD     R18, Z+2
+   \   0000036C   8133               LDD     R19, Z+3
+   \   0000036E   5F0F               SUBI    R16, 255
+   \   00000370   4F1F               SBCI    R17, 255
+   \   00000372   4F2F               SBCI    R18, 255
+   \   00000374   4F3F               SBCI    R19, 255
+   \   00000376   8300               ST      Z, R16
+   \   00000378   8311               STD     Z+1, R17
+   \   0000037A   8322               STD     Z+2, R18
+   \   0000037C   8333               STD     Z+3, R19
+   \   0000037E   8144               LDD     R20, Z+4
+   \   00000380   8155               LDD     R21, Z+5
+   \   00000382   8166               LDD     R22, Z+6
+   \   00000384   8177               LDD     R23, Z+7
+   \   00000386   1704               CP      R16, R20
+   \   00000388   0715               CPC     R17, R21
+   \   0000038A   0726               CPC     R18, R22
+   \   0000038C   0737               CPC     R19, R23
+   \   0000038E   F030               BRCS    ??timer0_ovf_ser_11
+    148          		{
+    149          			Time_delay.dimmer.time_out = 1;
+   \   00000390   E001               LDI     R16, 1
+   \   00000392   9300....           STS     (Time_delay + 267), R16
+    150          			Time_delay.dimmer.enabled = 0;
+   \   00000396   E000               LDI     R16, 0
+   \   00000398   9300....           STS     (Time_delay + 268), R16
+    151          		}
+    152          	}
+    153          	
+    154          	if(Time_delay.relay.enabled == 1)
+   \                     ??timer0_ovf_ser_11:
+   \   0000039C   9100....           LDS     R16, (Time_delay + 301)
+   \   000003A0   3001               CPI     R16, 1
+   \   000003A2   F4E9               BRNE    ??timer0_ovf_ser_12
+    155          	{
+    156          		if(++Time_delay.relay.count >= Time_delay.relay.stack_top)
+   \   000003A4   ....               LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+   \   000003A6   ....               LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+   \   000003A8   A101               LDD     R16, Z+33
+   \   000003AA   A112               LDD     R17, Z+34
+   \   000003AC   A123               LDD     R18, Z+35
+   \   000003AE   A134               LDD     R19, Z+36
+   \   000003B0   5F0F               SUBI    R16, 255
+   \   000003B2   4F1F               SBCI    R17, 255
+   \   000003B4   4F2F               SBCI    R18, 255
+   \   000003B6   4F3F               SBCI    R19, 255
+   \   000003B8   A301               STD     Z+33, R16
+   \   000003BA   A312               STD     Z+34, R17
+   \   000003BC   A323               STD     Z+35, R18
+   \   000003BE   A334               STD     Z+36, R19
+   \   000003C0   A145               LDD     R20, Z+37
+   \   000003C2   A156               LDD     R21, Z+38
+   \   000003C4   A167               LDD     R22, Z+39
+   \   000003C6   A570               LDD     R23, Z+40
+   \   000003C8   1704               CP      R16, R20
+   \   000003CA   0715               CPC     R17, R21
+   \   000003CC   0726               CPC     R18, R22
+   \   000003CE   0737               CPC     R19, R23
+   \   000003D0   F030               BRCS    ??timer0_ovf_ser_12
+    157          		{
+    158          			Time_delay.relay.time_out = 1;
+   \   000003D2   E001               LDI     R16, 1
+   \   000003D4   9300....           STS     (Time_delay + 300), R16
+    159          			Time_delay.relay.enabled = 0;
+   \   000003D8   E000               LDI     R16, 0
+   \   000003DA   9300....           STS     (Time_delay + 301), R16
+    160          		}
+    161          	}
+    162          	
+    163          	if(Time_delay.pnl_stage2.enabled == 1)
+   \                     ??timer0_ovf_ser_12:
+   \   000003DE   9100....           LDS     R16, (Time_delay + 202)
+   \   000003E2   3001               CPI     R16, 1
+   \   000003E4   F5F9               BRNE    ??timer0_ovf_ser_13
+    164          	{
+    165          		if(++Time_delay.pnl_stage2.count >= Time_delay.pnl_stage2.stack_top)
+   \   000003E6   ....               LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+   \   000003E8   ....               LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+   \   000003EA   8107               LDD     R16, Z+7
+   \   000003EC   8510               LDD     R17, Z+8
+   \   000003EE   8521               LDD     R18, Z+9
+   \   000003F0   8532               LDD     R19, Z+10
+   \   000003F2   5F0F               SUBI    R16, 255
+   \   000003F4   4F1F               SBCI    R17, 255
+   \   000003F6   4F2F               SBCI    R18, 255
+   \   000003F8   4F3F               SBCI    R19, 255
+   \   000003FA   8307               STD     Z+7, R16
+   \   000003FC   8710               STD     Z+8, R17
+   \   000003FE   8721               STD     Z+9, R18
+   \   00000400   8732               STD     Z+10, R19
+   \   00000402   8543               LDD     R20, Z+11
+   \   00000404   8554               LDD     R21, Z+12
+   \   00000406   8565               LDD     R22, Z+13
+   \   00000408   8576               LDD     R23, Z+14
+   \   0000040A   1704               CP      R16, R20
+   \   0000040C   0715               CPC     R17, R21
+   \   0000040E   0726               CPC     R18, R22
+   \   00000410   0737               CPC     R19, R23
+   \   00000412   F140               BRCS    ??timer0_ovf_ser_13
+    166          		{
+    167          			Time_delay.pnl_stage2.time_out = 1;
+   \   00000414   E001               LDI     R16, 1
+   \   00000416   9300....           STS     (Time_delay + 201), R16
+    168          			Time_delay.pnl_stage2.enabled = 0;
+   \   0000041A   E000               LDI     R16, 0
+   \   0000041C   9300....           STS     (Time_delay + 202), R16
+    169          			if(state.main_state >= PNL_AD_CONFED_STEP2 && state.main_state <= PNL_AD_CONFED_STEP90)
+   \   00000420   9100....           LDS     R16, (state + 2)
+   \   00000424   9110....           LDS     R17, (state + 3)
+   \   00000428   3008               CPI     R16, 8
+   \   0000042A   E920               LDI     R18, 144
+   \   0000042C   0712               CPC     R17, R18
+   \   0000042E   F050               BRCS    ??timer0_ovf_ser_14
+   \   00000430   9100....           LDS     R16, (state + 2)
+   \   00000434   9110....           LDS     R17, (state + 3)
+   \   00000438   3102               CPI     R16, 18
+   \   0000043A   0712               CPC     R17, R18
+   \   0000043C   F418               BRCC    ??timer0_ovf_ser_14
+    170          			{
+    171          				PnL_ad_end();
+   \   0000043E   ........           CALL    PnL_ad_end
+   \   00000442   C010               RJMP    ??timer0_ovf_ser_13
+    172          			}
+    173          			else if(state.main_state > PNL_NONE_CONFED_STEP2 && state.main_state <= PNL_NONE_CONFED_STEP6)
+   \                     ??timer0_ovf_ser_14:
+   \   00000444   9100....           LDS     R16, (state + 2)
+   \   00000448   9110....           LDS     R17, (state + 3)
+   \   0000044C   3003               CPI     R16, 3
+   \   0000044E   0712               CPC     R17, R18
+   \   00000450   F048               BRCS    ??timer0_ovf_ser_13
+   \   00000452   9100....           LDS     R16, (state + 2)
+   \   00000456   9110....           LDS     R17, (state + 3)
+   \   0000045A   3007               CPI     R16, 7
+   \   0000045C   0712               CPC     R17, R18
+   \   0000045E   F410               BRCC    ??timer0_ovf_ser_13
+    174          			{
+    175          				PnL_NONE_end();
+   \   00000460   ........           CALL    PnL_NONE_end
+    176          			}
+    177          		}
+    178          	}
+    179          		
+    180            if(Time_delay.buzzer.enabled == 1)
+   \                     ??timer0_ovf_ser_13:
+   \   00000464   9100....           LDS     R16, (Time_delay + 180)
+   \   00000468   3001               CPI     R16, 1
+   \   0000046A   F4E9               BRNE    ??timer0_ovf_ser_15
+    181          	{
+    182          		//not_bit(&PORTD,7);
+    183          		if(++Time_delay.buzzer.count >= Time_delay.buzzer.stack_top)
+   \   0000046C   ....               LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+   \   0000046E   ....               LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+   \   00000470   A506               LDD     R16, Z+46
+   \   00000472   A517               LDD     R17, Z+47
+   \   00000474   A920               LDD     R18, Z+48
+   \   00000476   A931               LDD     R19, Z+49
+   \   00000478   5F0F               SUBI    R16, 255
+   \   0000047A   4F1F               SBCI    R17, 255
+   \   0000047C   4F2F               SBCI    R18, 255
+   \   0000047E   4F3F               SBCI    R19, 255
+   \   00000480   A706               STD     Z+46, R16
+   \   00000482   A717               STD     Z+47, R17
+   \   00000484   AB20               STD     Z+48, R18
+   \   00000486   AB31               STD     Z+49, R19
+   \   00000488   A942               LDD     R20, Z+50
+   \   0000048A   A953               LDD     R21, Z+51
+   \   0000048C   A964               LDD     R22, Z+52
+   \   0000048E   A975               LDD     R23, Z+53
+   \   00000490   1704               CP      R16, R20
+   \   00000492   0715               CPC     R17, R21
+   \   00000494   0726               CPC     R18, R22
+   \   00000496   0737               CPC     R19, R23
+   \   00000498   F030               BRCS    ??timer0_ovf_ser_15
+    184          		{
+    185                //TCCR1B = (0<<CS12)|(0<<CS11)|(0<<CS10);	// CLOCK = 0	
+    186          		  //OCR1B = 0;
+    187          			Time_delay.buzzer.time_out = 1;
+   \   0000049A   E001               LDI     R16, 1
+   \   0000049C   9300....           STS     (Time_delay + 179), R16
+    188          			Time_delay.buzzer.enabled = 0;
+   \   000004A0   E000               LDI     R16, 0
+   \   000004A2   9300....           STS     (Time_delay + 180), R16
+    189          			//SetBit(PORTD,7);
+    190          		}
+    191          	}
+    192          
+    193          	//Reyno 20091125
+    194          	/*
+    195            if(Time_delay.led_blink.enabled == 1)
+    196          	{
+    197          		if(++Time_delay.led_blink.count >= Time_delay.led_blink.stack_top)
+    198          		{
+    199          			Time_delay.led_blink.count = 0;
+    200          			if((state.main_state == STATE_NORMAL || state.main_state ==STATE_PRE_PROGRAMMING) && state.pnl_slave == NORMAL)
+    201          			{
+    202                	if(product_information.conf_type == NONE_CONFED)
+    203                	{
+    204                    flags.confed = 0;
+    205                    for(unsigned char i = 0;i<16;i++)
+    206                    {
+    207                      if(ee_scenario[i].confed)
+    208                      {
+    209                        flags.confed = 1;
+    210                        break;
+    211                      }
+    212                    }
+    213          
+    214                    if(flags.confed == 0)
+    215                      led_blinking(120,120);
+    216          					else
+    217          						led_blinking_disable(0);
+    218                	}
+    219          				else
+    220          				{
+    221          					led_blinking_disable(0);
+    222          				}
+    223          			}
+    224          		}
+    225          	}
+    226          	*/ 
+    227          
+    228          	//reyno 0622
+    229          	if(Time_delay.regulation.enabled == 1)
+   \                     ??timer0_ovf_ser_15:
+   \   000004A6   9100....           LDS     R16, (Time_delay + 279)
+   \   000004AA   3001               CPI     R16, 1
+   \   000004AC   F4E9               BRNE    ??timer0_ovf_ser_16
+    230          	{
+    231          		if(++Time_delay.regulation.count >= Time_delay.regulation.stack_top)
+   \   000004AE   ....               LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+   \   000004B0   ....               LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+   \   000004B2   8503               LDD     R16, Z+11
+   \   000004B4   8514               LDD     R17, Z+12
+   \   000004B6   8525               LDD     R18, Z+13
+   \   000004B8   8536               LDD     R19, Z+14
+   \   000004BA   5F0F               SUBI    R16, 255
+   \   000004BC   4F1F               SBCI    R17, 255
+   \   000004BE   4F2F               SBCI    R18, 255
+   \   000004C0   4F3F               SBCI    R19, 255
+   \   000004C2   8703               STD     Z+11, R16
+   \   000004C4   8714               STD     Z+12, R17
+   \   000004C6   8725               STD     Z+13, R18
+   \   000004C8   8736               STD     Z+14, R19
+   \   000004CA   8547               LDD     R20, Z+15
+   \   000004CC   8950               LDD     R21, Z+16
+   \   000004CE   8961               LDD     R22, Z+17
+   \   000004D0   8972               LDD     R23, Z+18
+   \   000004D2   1704               CP      R16, R20
+   \   000004D4   0715               CPC     R17, R21
+   \   000004D6   0726               CPC     R18, R22
+   \   000004D8   0737               CPC     R19, R23
+   \   000004DA   F030               BRCS    ??timer0_ovf_ser_16
+    232          		{
+    233          			Time_delay.regulation.time_out = 1;
+   \   000004DC   E001               LDI     R16, 1
+   \   000004DE   9300....           STS     (Time_delay + 278), R16
+    234          			Time_delay.regulation.enabled = 0;
+   \   000004E2   E000               LDI     R16, 0
+   \   000004E4   9300....           STS     (Time_delay + 279), R16
+    235          		}
+    236          	}
+    237          	
+    238          	if(Time_delay.sample_interval.enabled == 1)
+   \                     ??timer0_ovf_ser_16:
+   \   000004E8   9100....           LDS     R16, (Time_delay + 312)
+   \   000004EC   3001               CPI     R16, 1
+   \   000004EE   F4E9               BRNE    ??timer0_ovf_ser_17
+    239          	{
+    240          		if(++Time_delay.sample_interval.count >= Time_delay.sample_interval.stack_top)
+   \   000004F0   ....               LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+   \   000004F2   ....               LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+   \   000004F4   A504               LDD     R16, Z+44
+   \   000004F6   A515               LDD     R17, Z+45
+   \   000004F8   A526               LDD     R18, Z+46
+   \   000004FA   A537               LDD     R19, Z+47
+   \   000004FC   5F0F               SUBI    R16, 255
+   \   000004FE   4F1F               SBCI    R17, 255
+   \   00000500   4F2F               SBCI    R18, 255
+   \   00000502   4F3F               SBCI    R19, 255
+   \   00000504   A704               STD     Z+44, R16
+   \   00000506   A715               STD     Z+45, R17
+   \   00000508   A726               STD     Z+46, R18
+   \   0000050A   A737               STD     Z+47, R19
+   \   0000050C   A940               LDD     R20, Z+48
+   \   0000050E   A951               LDD     R21, Z+49
+   \   00000510   A962               LDD     R22, Z+50
+   \   00000512   A973               LDD     R23, Z+51
+   \   00000514   1704               CP      R16, R20
+   \   00000516   0715               CPC     R17, R21
+   \   00000518   0726               CPC     R18, R22
+   \   0000051A   0737               CPC     R19, R23
+   \   0000051C   F030               BRCS    ??timer0_ovf_ser_17
+    241          		{
+    242          			Time_delay.sample_interval.time_out = 1;
+   \   0000051E   E001               LDI     R16, 1
+   \   00000520   9300....           STS     (Time_delay + 311), R16
+    243          			Time_delay.sample_interval.enabled = 0;
+   \   00000524   E000               LDI     R16, 0
+   \   00000526   9300....           STS     (Time_delay + 312), R16
+    244          		}
+    245          	}
+    246          	
+    247          	if(Time_delay.timer_5m.enabled == 1)
+   \                     ??timer0_ovf_ser_17:
+   \   0000052A   9100....           LDS     R16, (Time_delay + 81)
+   \   0000052E   3001               CPI     R16, 1
+   \   00000530   F509               BRNE    ??timer0_ovf_ser_18
+    248          	{
+    249          		if(++Time_delay.timer_5m.count >= Time_delay.timer_5m.stack_top)
+   \   00000532   01FD               MOVW    R31:R30, R27:R26
+   \   00000534   96FD               ADIW    R31:R30, 61
+   \   00000536   8503               LDD     R16, Z+11
+   \   00000538   8514               LDD     R17, Z+12
+   \   0000053A   8525               LDD     R18, Z+13
+   \   0000053C   8536               LDD     R19, Z+14
+   \   0000053E   5F0F               SUBI    R16, 255
+   \   00000540   4F1F               SBCI    R17, 255
+   \   00000542   4F2F               SBCI    R18, 255
+   \   00000544   4F3F               SBCI    R19, 255
+   \   00000546   01FD               MOVW    R31:R30, R27:R26
+   \   00000548   96FD               ADIW    R31:R30, 61
+   \   0000054A   8703               STD     Z+11, R16
+   \   0000054C   8714               STD     Z+12, R17
+   \   0000054E   8725               STD     Z+13, R18
+   \   00000550   8736               STD     Z+14, R19
+   \   00000552   01FD               MOVW    R31:R30, R27:R26
+   \   00000554   96FD               ADIW    R31:R30, 61
+   \   00000556   8547               LDD     R20, Z+15
+   \   00000558   8950               LDD     R21, Z+16
+   \   0000055A   8961               LDD     R22, Z+17
+   \   0000055C   8972               LDD     R23, Z+18
+   \   0000055E   1704               CP      R16, R20
+   \   00000560   0715               CPC     R17, R21
+   \   00000562   0726               CPC     R18, R22
+   \   00000564   0737               CPC     R19, R23
+   \   00000566   F030               BRCS    ??timer0_ovf_ser_18
+    250          		{
+    251          			Time_delay.timer_5m.time_out = 1;
+   \   00000568   E001               LDI     R16, 1
+   \   0000056A   9300....           STS     (Time_delay + 80), R16
+    252          			Time_delay.timer_5m.enabled = 0;
+   \   0000056E   E000               LDI     R16, 0
+   \   00000570   9300....           STS     (Time_delay + 81), R16
+    253          		}
+    254          	}
+    255          		// *******************add by alan begin*************************************************************
+    256          /******************	count the timer level Lower or Higher than the setpoint	***************/
+    257          	
+    258          	if(Time_delay.Dim_inc_enable == 1)			Time_delay.Dim_inc_count++;
+   \                     ??timer0_ovf_ser_18:
+   \   00000574   01FD               MOVW    R31:R30, R27:R26
+   \   00000576   8106               LDD     R16, Z+6
+   \   00000578   FF04               SBRS    R16, 4
+   \   0000057A   C006               RJMP    ??timer0_ovf_ser_19
+   \   0000057C   8505               LDD     R16, Z+13
+   \   0000057E   8516               LDD     R17, Z+14
+   \   00000580   5F0F               SUBI    R16, 255
+   \   00000582   4F1F               SBCI    R17, 255
+   \   00000584   8705               STD     Z+13, R16
+   \   00000586   8716               STD     Z+14, R17
+    259          	
+    260          	if(Time_delay.Dim_dec_enable == 1)			Time_delay.Dim_dec_count++;
+   \                     ??timer0_ovf_ser_19:
+   \   00000588   8106               LDD     R16, Z+6
+   \   0000058A   FF05               SBRS    R16, 5
+   \   0000058C   C006               RJMP    ??timer0_ovf_ser_20
+   \   0000058E   8507               LDD     R16, Z+15
+   \   00000590   8910               LDD     R17, Z+16
+   \   00000592   5F0F               SUBI    R16, 255
+   \   00000594   4F1F               SBCI    R17, 255
+   \   00000596   8707               STD     Z+15, R16
+   \   00000598   8B10               STD     Z+16, R17
+    261          	
+    262          	if(Time_delay.detect_waitting > 0)							// disable the motion detection 2s after send "OFF" 	0527
+   \                     ??timer0_ovf_ser_20:
+   \   0000059A   8503               LDD     R16, Z+11
+   \   0000059C   8514               LDD     R17, Z+12
+   \   0000059E   2B01               OR      R16, R17
+   \   000005A0   F0A1               BREQ    ??timer0_ovf_ser_21
+    263          	{
+    264          			Time_delay.detect_waitting--;
+   \   000005A2   8503               LDD     R16, Z+11
+   \   000005A4   8514               LDD     R17, Z+12
+   \   000005A6   5001               SUBI    R16, 1
+   \   000005A8   4010               SBCI    R17, 0
+   \   000005AA   8703               STD     Z+11, R16
+   \   000005AC   8714               STD     Z+12, R17
+    265          			motion_total = 0;
+   \   000005AE   E000               LDI     R16, 0
+   \   000005B0   9300....           STS     motion_total, R16
+   \   000005B4   9300....           STS     (motion_total + 1), R16
+    266                US_detection_en = 0;
+   \   000005B8   9300....           STS     US_detection_en, R16
+    267                PIR_detection_en = 0;
+   \   000005BC   9300....           STS     PIR_detection_en, R16
+    268                SCS_received.motion_detect = 0;
+   \   000005C0   ....               LDI     R30, LOW(SCS_received)
+   \   000005C2   ....               LDI     R31, (SCS_received) >> 8
+   \   000005C4   8102               LDD     R16, Z+2
+   \   000005C6   7B0F               ANDI    R16, 0xBF
+   \   000005C8   8302               STD     Z+2, R16
+    269          	}
+    270          	
+    271          /*********************		delay 5s for end detection		************************/
+    272             if(DLL.Dim_T06s > 0)            		DLL.Dim_T06s--;         		//  send frame DIM--
+   \                     ??timer0_ovf_ser_21:
+   \   000005CA   9100....           LDS     R16, (DLL + 42)
+   \   000005CE   9110....           LDS     R17, (DLL + 43)
+   \   000005D2   2B01               OR      R16, R17
+   \   000005D4   F041               BREQ    ??timer0_ovf_ser_22
+   \   000005D6   ....               LDI     R30, LOW(DLL)
+   \   000005D8   ....               LDI     R31, (DLL) >> 8
+   \   000005DA   A502               LDD     R16, Z+42
+   \   000005DC   A513               LDD     R17, Z+43
+   \   000005DE   5001               SUBI    R16, 1
+   \   000005E0   4010               SBCI    R17, 0
+   \   000005E2   A702               STD     Z+42, R16
+   \   000005E4   A713               STD     Z+43, R17
+    273             if(DLL.Dim_T200ms > 0)         		DLL.Dim_T200ms--;       		//  send frame DIM++
+   \                     ??timer0_ovf_ser_22:
+   \   000005E6   9100....           LDS     R16, (DLL + 41)
+   \   000005EA   2300               TST     R16
+   \   000005EC   F029               BREQ    ??timer0_ovf_ser_23
+   \   000005EE   9100....           LDS     R16, (DLL + 41)
+   \   000005F2   950A               DEC     R16
+   \   000005F4   9300....           STS     (DLL + 41), R16
+    274          /**********************	delay 200ms for frame presence and ON	*************************/	
+    275          	if(Time_delay.frame_200ms.enabled == 1)							// 用于计算两个帧之间的间隔是否小于200ms
+   \                     ??timer0_ovf_ser_23:
+   \   000005F8   9100....           LDS     R16, (Time_delay + 57)
+   \   000005FC   3001               CPI     R16, 1
+   \   000005FE   F501               BRNE    ??timer0_ovf_ser_24
+    276          	{	
+    277          		if(++Time_delay.frame_200ms.count >= 300)
+   \   00000600   01FD               MOVW    R31:R30, R27:R26
+   \   00000602   A900               LDD     R16, Z+48
+   \   00000604   A911               LDD     R17, Z+49
+   \   00000606   A922               LDD     R18, Z+50
+   \   00000608   A933               LDD     R19, Z+51
+   \   0000060A   5F0F               SUBI    R16, 255
+   \   0000060C   4F1F               SBCI    R17, 255
+   \   0000060E   4F2F               SBCI    R18, 255
+   \   00000610   4F3F               SBCI    R19, 255
+   \   00000612   AB00               STD     Z+48, R16
+   \   00000614   AB11               STD     Z+49, R17
+   \   00000616   AB22               STD     Z+50, R18
+   \   00000618   AB33               STD     Z+51, R19
+   \   0000061A   320C               CPI     R16, 44
+   \   0000061C   E041               LDI     R20, 1
+   \   0000061E   0714               CPC     R17, R20
+   \   00000620   E040               LDI     R20, 0
+   \   00000622   0724               CPC     R18, R20
+   \   00000624   0734               CPC     R19, R20
+   \   00000626   F060               BRCS    ??timer0_ovf_ser_24
+    278          		{
+    279          			Time_delay.frame_200ms.time_out = 1;
+   \   00000628   E001               LDI     R16, 1
+   \   0000062A   9300....           STS     (Time_delay + 56), R16
+    280          			Time_delay.frame_200ms.enabled = 0;
+   \   0000062E   9340....           STS     (Time_delay + 57), R20
+    281          			Time_delay.frame_200ms.started = 0;
+   \   00000632   9340....           STS     (Time_delay + 58), R20
+    282          			SCS_received.presence_2_ON = 0;									// 时间间隔超过200ms认为收到单个的ON帧	
+   \   00000636   ....               LDI     R30, LOW(SCS_received)
+   \   00000638   ....               LDI     R31, (SCS_received) >> 8
+   \   0000063A   8101               LDD     R16, Z+1
+   \   0000063C   7B0F               ANDI    R16, 0xBF
+   \   0000063E   8301               STD     Z+1, R16
+    283          		}	
+    284          	}	
+    285          /*********************	delay for frame send taking line		************************/
+    286          	if(Time_delay.timer_takeline.enabled == 1)
+   \                     ??timer0_ovf_ser_24:
+   \   00000640   9100....           LDS     R16, (Time_delay + 46)
+   \   00000644   3001               CPI     R16, 1
+   \   00000646   F4D1               BRNE    ??timer0_ovf_ser_25
+    287          	{
+    288          		if(++Time_delay.timer_takeline.count >= Time_delay.random_time)
+   \   00000648   01FD               MOVW    R31:R30, R27:R26
+   \   0000064A   A105               LDD     R16, Z+37
+   \   0000064C   A116               LDD     R17, Z+38
+   \   0000064E   A127               LDD     R18, Z+39
+   \   00000650   A530               LDD     R19, Z+40
+   \   00000652   5F0F               SUBI    R16, 255
+   \   00000654   4F1F               SBCI    R17, 255
+   \   00000656   4F2F               SBCI    R18, 255
+   \   00000658   4F3F               SBCI    R19, 255
+   \   0000065A   A305               STD     Z+37, R16
+   \   0000065C   A316               STD     Z+38, R17
+   \   0000065E   A327               STD     Z+39, R18
+   \   00000660   A730               STD     Z+40, R19
+   \   00000662   8144               LDD     R20, Z+4
+   \   00000664   8155               LDD     R21, Z+5
+   \   00000666   E060               LDI     R22, 0
+   \   00000668   1704               CP      R16, R20
+   \   0000066A   0715               CPC     R17, R21
+   \   0000066C   0726               CPC     R18, R22
+   \   0000066E   0736               CPC     R19, R22
+   \   00000670   F028               BRCS    ??timer0_ovf_ser_25
+    289          		{
+    290          			Time_delay.timer_takeline.time_out = 1;
+   \   00000672   E001               LDI     R16, 1
+   \   00000674   9300....           STS     (Time_delay + 45), R16
+    291          			Time_delay.timer_takeline.enabled = 0;
+   \   00000678   9360....           STS     (Time_delay + 46), R22
+    292          		//	Time_delay.timer_takeline.started = 0;
+    293          		}
+    294          	}
+    295          
+    296          	if(Time_delay.GS_200ms.enabled == 1)
+   \                     ??timer0_ovf_ser_25:
+   \   0000067C   9100....           LDS     R16, (Time_delay + 290)
+   \   00000680   3001               CPI     R16, 1
+   \   00000682   F4E9               BRNE    ??timer0_ovf_ser_26
+    297          	{
+    298          		if(++Time_delay.GS_200ms.count >= Time_delay.GS_200ms.stack_top)
+   \   00000684   ....               LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+   \   00000686   ....               LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+   \   00000688   8906               LDD     R16, Z+22
+   \   0000068A   8917               LDD     R17, Z+23
+   \   0000068C   8D20               LDD     R18, Z+24
+   \   0000068E   8D31               LDD     R19, Z+25
+   \   00000690   5F0F               SUBI    R16, 255
+   \   00000692   4F1F               SBCI    R17, 255
+   \   00000694   4F2F               SBCI    R18, 255
+   \   00000696   4F3F               SBCI    R19, 255
+   \   00000698   8B06               STD     Z+22, R16
+   \   0000069A   8B17               STD     Z+23, R17
+   \   0000069C   8F20               STD     Z+24, R18
+   \   0000069E   8F31               STD     Z+25, R19
+   \   000006A0   8D42               LDD     R20, Z+26
+   \   000006A2   8D53               LDD     R21, Z+27
+   \   000006A4   8D64               LDD     R22, Z+28
+   \   000006A6   8D75               LDD     R23, Z+29
+   \   000006A8   1704               CP      R16, R20
+   \   000006AA   0715               CPC     R17, R21
+   \   000006AC   0726               CPC     R18, R22
+   \   000006AE   0737               CPC     R19, R23
+   \   000006B0   F030               BRCS    ??timer0_ovf_ser_26
+    299          		{
+    300          			Time_delay.GS_200ms.time_out = 1;
+   \   000006B2   E001               LDI     R16, 1
+   \   000006B4   9300....           STS     (Time_delay + 289), R16
+    301          			Time_delay.GS_200ms.enabled = 0;
+   \   000006B8   E000               LDI     R16, 0
+   \   000006BA   9300....           STS     (Time_delay + 290), R16
+    302          		}
+    303          	}
+    304          	
+    305          	if((Sensor_mode.presence_send ==1)&&(Sensor_mode.presence_20sinterval > 0))
+   \                     ??timer0_ovf_ser_26:
+   \   000006BE   ....               LDI     R30, LOW(Sensor_mode)
+   \   000006C0   ....               LDI     R31, (Sensor_mode) >> 8
+   \   000006C2   8105               LDD     R16, Z+5
+   \   000006C4   FF02               SBRS    R16, 2
+   \   000006C6   C01B               RJMP    ??timer0_ovf_ser_27
+   \   000006C8   9100....           LDS     R16, (Sensor_mode + 3)
+   \   000006CC   9110....           LDS     R17, (Sensor_mode + 4)
+   \   000006D0   2B01               OR      R16, R17
+   \   000006D2   F0A9               BREQ    ??timer0_ovf_ser_27
+    306          	{
+    307          		Sensor_mode.presen_timeout = 0;
+   \   000006D4   8105               LDD     R16, Z+5
+   \   000006D6   7F07               ANDI    R16, 0xF7
+   \   000006D8   8305               STD     Z+5, R16
+    308          		if(--Sensor_mode.presence_20sinterval == 0)
+   \   000006DA   8103               LDD     R16, Z+3
+   \   000006DC   8114               LDD     R17, Z+4
+   \   000006DE   5001               SUBI    R16, 1
+   \   000006E0   4010               SBCI    R17, 0
+   \   000006E2   8303               STD     Z+3, R16
+   \   000006E4   8314               STD     Z+4, R17
+   \   000006E6   9100....           LDS     R16, (Sensor_mode + 3)
+   \   000006EA   9110....           LDS     R17, (Sensor_mode + 4)
+   \   000006EE   2B01               OR      R16, R17
+   \   000006F0   F431               BRNE    ??timer0_ovf_ser_27
+    309          		{
+    310          			Sensor_mode.presence_send = 0;
+    311          			Sensor_mode.presen_timeout = 1;
+   \   000006F2   9100....           LDS     R16, (Sensor_mode + 5)
+   \   000006F6   7F0B               ANDI    R16, 0xFB
+   \   000006F8   6008               ORI     R16, 0x08
+   \   000006FA   9300....           STS     (Sensor_mode + 5), R16
+    312          		}
+    313          	}
+    314          	
+    315          /**********************	delay for the load_timeout set by user Seconds	******************/	
+    316          	if(++Time_delay.second_OK >= 1000 )	// 1 second
+   \                     ??timer0_ovf_ser_27:
+   \   000006FE   01FD               MOVW    R31:R30, R27:R26
+   \   00000700   AD83               LDD     R24, Z+59
+   \   00000702   AD94               LDD     R25, Z+60
+   \   00000704   9601               ADIW    R25:R24, 1
+   \   00000706   AF83               STD     Z+59, R24
+   \   00000708   AF94               STD     Z+60, R25
+   \   0000070A   3E88               CPI     R24, 232
+   \   0000070C   E003               LDI     R16, 3
+   \   0000070E   0790               CPC     R25, R16
+   \   00000710   F408               BRCC    $+2+2
+   \   00000712   C080               RJMP    ??timer0_ovf_ser_28
+    317          	{
+    318          		Time_delay.second_OK = 0;
+   \   00000714   E000               LDI     R16, 0
+   \   00000716   E010               LDI     R17, 0
+   \   00000718   AF03               STD     Z+59, R16
+   \   0000071A   AF04               STD     Z+60, R16
+    319          		if(Time_delay.GS_wait_22s > 0)		Time_delay.GS_wait_22s--;		//  0716
+   \   0000071C   9100....           LDS     R16, (Time_delay + 10)
+   \   00000720   2300               TST     R16
+   \   00000722   F019               BREQ    ??timer0_ovf_ser_29
+   \   00000724   8502               LDD     R16, Z+10
+   \   00000726   950A               DEC     R16
+   \   00000728   8702               STD     Z+10, R16
+    320          
+    321          		if(Time_delay.pir_warmup_ok == 0)
+   \                     ??timer0_ovf_ser_29:
+   \   0000072A   8107               LDD     R16, Z+7
+   \   0000072C   FD00               SBRC    R16, 0
+   \   0000072E   C00B               RJMP    ??timer0_ovf_ser_30
+    322          		{
+    323          	  		if(++Time_delay.pir_wait_40s >= 5)		// 10s should change to 40s
+   \   00000730   8580               LDD     R24, Z+8
+   \   00000732   8591               LDD     R25, Z+9
+   \   00000734   9601               ADIW    R25:R24, 1
+   \   00000736   8780               STD     Z+8, R24
+   \   00000738   8791               STD     Z+9, R25
+   \   0000073A   3085               CPI     R24, 5
+   \   0000073C   0791               CPC     R25, R17
+   \   0000073E   F018               BRCS    ??timer0_ovf_ser_30
+    324          				{
+    325          					Time_delay.pir_warmup_ok = 1;
+   \   00000740   8107               LDD     R16, Z+7
+   \   00000742   6001               ORI     R16, 0x01
+   \   00000744   8307               STD     Z+7, R16
+    326          				}
+    327          		}
+    328          		
+    329          		if(Time_delay.timer_delay_set.enabled == 1)
+   \                     ??timer0_ovf_ser_30:
+   \   00000746   9100....           LDS     R16, (Time_delay + 35)
+   \   0000074A   3001               CPI     R16, 1
+   \   0000074C   F4B1               BRNE    ??timer0_ovf_ser_31
+    330          		{
+    331          			if(--Time_delay.timer_delay_set.count == 0)
+   \   0000074E   8D02               LDD     R16, Z+26
+   \   00000750   8D13               LDD     R17, Z+27
+   \   00000752   8D24               LDD     R18, Z+28
+   \   00000754   8D35               LDD     R19, Z+29
+   \   00000756   5001               SUBI    R16, 1
+   \   00000758   4010               SBCI    R17, 0
+   \   0000075A   4020               SBCI    R18, 0
+   \   0000075C   4030               SBCI    R19, 0
+   \   0000075E   8F02               STD     Z+26, R16
+   \   00000760   8F13               STD     Z+27, R17
+   \   00000762   8F24               STD     Z+28, R18
+   \   00000764   8F35               STD     Z+29, R19
+   \   00000766   2B01               OR      R16, R17
+   \   00000768   2B02               OR      R16, R18
+   \   0000076A   2B03               OR      R16, R19
+   \   0000076C   F431               BRNE    ??timer0_ovf_ser_31
+    332          			{
+    333          				Time_delay.timer_delay_set.time_out = 1;
+   \   0000076E   E001               LDI     R16, 1
+   \   00000770   9300....           STS     (Time_delay + 34), R16
+    334          				Time_delay.timer_delay_set.enabled = 0;
+   \   00000774   E000               LDI     R16, 0
+   \   00000776   9300....           STS     (Time_delay + 35), R16
+    335          			}
+    336          		}
+    337          			
+    338          		if(Time_delay.Re_Trigger_senconds > 0)      Time_delay.Re_Trigger_senconds--;
+   \                     ??timer0_ovf_ser_31:
+   \   0000077A   9100....           LDS     R16, Time_delay
+   \   0000077E   2300               TST     R16
+   \   00000780   F019               BREQ    ??timer0_ovf_ser_32
+   \   00000782   910C               LD      R16, X
+   \   00000784   950A               DEC     R16
+   \   00000786   930C               ST      X, R16
+    339          	
+    340          		if(Time_delay.Walk_Through_Timeout > 0)     Time_delay.Walk_Through_Timeout--;
+   \                     ??timer0_ovf_ser_32:
+   \   00000788   8101               LDD     R16, Z+1
+   \   0000078A   8112               LDD     R17, Z+2
+   \   0000078C   2B01               OR      R16, R17
+   \   0000078E   F031               BREQ    ??timer0_ovf_ser_33
+   \   00000790   8101               LDD     R16, Z+1
+   \   00000792   8112               LDD     R17, Z+2
+   \   00000794   5001               SUBI    R16, 1
+   \   00000796   4010               SBCI    R17, 0
+   \   00000798   8301               STD     Z+1, R16
+   \   0000079A   8312               STD     Z+2, R17
+    341          	
+    342          		if(Time_delay.DLL_low_20s_enable ==1)				Time_delay.DLL_low_20s_count++;
+   \                     ??timer0_ovf_ser_33:
+   \   0000079C   8106               LDD     R16, Z+6
+   \   0000079E   FF06               SBRS    R16, 6
+   \   000007A0   C006               RJMP    ??timer0_ovf_ser_34
+   \   000007A2   8901               LDD     R16, Z+17
+   \   000007A4   8912               LDD     R17, Z+18
+   \   000007A6   5F0F               SUBI    R16, 255
+   \   000007A8   4F1F               SBCI    R17, 255
+   \   000007AA   8B01               STD     Z+17, R16
+   \   000007AC   8B12               STD     Z+18, R17
+    343          	
+    344          		if(Time_delay.DLL_high_10min_enable ==1)		Time_delay.DLL_high_10min_count++;	
+   \                     ??timer0_ovf_ser_34:
+   \   000007AE   8106               LDD     R16, Z+6
+   \   000007B0   FF07               SBRS    R16, 7
+   \   000007B2   C00C               RJMP    ??timer0_ovf_ser_35
+   \   000007B4   8903               LDD     R16, Z+19
+   \   000007B6   8914               LDD     R17, Z+20
+   \   000007B8   8925               LDD     R18, Z+21
+   \   000007BA   8936               LDD     R19, Z+22
+   \   000007BC   5F0F               SUBI    R16, 255
+   \   000007BE   4F1F               SBCI    R17, 255
+   \   000007C0   4F2F               SBCI    R18, 255
+   \   000007C2   4F3F               SBCI    R19, 255
+   \   000007C4   8B03               STD     Z+19, R16
+   \   000007C6   8B14               STD     Z+20, R17
+   \   000007C8   8B25               STD     Z+21, R18
+   \   000007CA   8B36               STD     Z+22, R19
+    345          	
+    346          		if(M2_timer_count > 0)          		M2_timer_count--;       				//  for modality 2
+   \                     ??timer0_ovf_ser_35:
+   \   000007CC   ....               LDI     R30, LOW(M2_timer_count)
+   \   000007CE   ....               LDI     R31, (M2_timer_count) >> 8
+   \   000007D0   8100               LD      R16, Z
+   \   000007D2   8111               LDD     R17, Z+1
+   \   000007D4   8122               LDD     R18, Z+2
+   \   000007D6   8133               LDD     R19, Z+3
+   \   000007D8   2B01               OR      R16, R17
+   \   000007DA   2B02               OR      R16, R18
+   \   000007DC   2B03               OR      R16, R19
+   \   000007DE   F061               BREQ    ??timer0_ovf_ser_36
+   \   000007E0   8100               LD      R16, Z
+   \   000007E2   8111               LDD     R17, Z+1
+   \   000007E4   8122               LDD     R18, Z+2
+   \   000007E6   8133               LDD     R19, Z+3
+   \   000007E8   5001               SUBI    R16, 1
+   \   000007EA   4010               SBCI    R17, 0
+   \   000007EC   4020               SBCI    R18, 0
+   \   000007EE   4030               SBCI    R19, 0
+   \   000007F0   8300               ST      Z, R16
+   \   000007F2   8311               STD     Z+1, R17
+   \   000007F4   8322               STD     Z+2, R18
+   \   000007F6   8333               STD     Z+3, R19
+    347          
+    348              if(DLL.lightness_load > 0)      		DLL.lightness_load--;					//  to calibrate the load provision
+   \                     ??timer0_ovf_ser_36:
+   \   000007F8   9100....           LDS     R16, (DLL + 44)
+   \   000007FC   9110....           LDS     R17, (DLL + 45)
+   \   00000800   2B01               OR      R16, R17
+   \   00000802   F041               BREQ    ??timer0_ovf_ser_28
+   \   00000804   ....               LDI     R30, LOW(DLL)
+   \   00000806   ....               LDI     R31, (DLL) >> 8
+   \   00000808   A504               LDD     R16, Z+44
+   \   0000080A   A515               LDD     R17, Z+45
+   \   0000080C   5001               SUBI    R16, 1
+   \   0000080E   4010               SBCI    R17, 0
+   \   00000810   A704               STD     Z+44, R16
+   \   00000812   A715               STD     Z+45, R17
+    349          	
+    350          		//if(Sensor_mode.presence_5sinterval > 0)
+    351          		//{
+    352          		  	//Sensor_mode.presence_5sinterval--;	// presence frame interval 5s(now 20s)
+    353          		//}
+    354          	}
+    355          // **************************add by alan end**********************************************	
+    356          }
+   \                     ??timer0_ovf_ser_28:
+   \   00000814   BE4F               OUT     0x3F, R4
+   \   00000816   9109               LD      R16, Y+
+   \   00000818   9119               LD      R17, Y+
+   \   0000081A   9129               LD      R18, Y+
+   \   0000081C   9139               LD      R19, Y+
+   \   0000081E   9149               LD      R20, Y+
+   \   00000820   9159               LD      R21, Y+
+   \   00000822   9169               LD      R22, Y+
+   \   00000824   9179               LD      R23, Y+
+   \   00000826   9009               LD      R0, Y+
+   \   00000828   9019               LD      R1, Y+
+   \   0000082A   9029               LD      R2, Y+
+   \   0000082C   9039               LD      R3, Y+
+   \   0000082E   91E9               LD      R30, Y+
+   \   00000830   91F9               LD      R31, Y+
+   \   00000832   9189               LD      R24, Y+
+   \   00000834   9199               LD      R25, Y+
+   \   00000836   91A9               LD      R26, Y+
+   \   00000838   91B9               LD      R27, Y+
+   \   0000083A   9049               LD      R4, Y+
+   \   0000083C   9518               RETI
+   \   0000083E                      REQUIRE _A_TCNT0
+   \   0000083E                      REQUIRE _A_PORTD
+   \   0000083E                      REQUIRE _A_PORTC
+    357          
+    358          #pragma vector=TIMER2_OVF_vect
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    359          __interrupt void timer2_ovf_ser(void)
+   \                     timer2_ovf_ser:
+    360          {
+   \   00000000   931A               ST      -Y, R17
+   \   00000002   930A               ST      -Y, R16
+   \   00000004   B71F               IN      R17, 0x3F
+    361          	//Time_delay.timer0_compa_flag = 1;
+    362          	
+    363          	g_timer2_flag =~ g_timer2_flag;
+   \   00000006   9100....           LDS     R16, g_timer2_flag
+   \   0000000A   9500               COM     R16
+   \   0000000C   9300....           STS     g_timer2_flag, R16
+    364          	if(g_timer2_flag)
+   \   00000010   9100....           LDS     R16, g_timer2_flag
+   \   00000014   2300               TST     R16
+   \   00000016   F011               BREQ    ??timer2_ovf_ser_0
+    365          		SetBit(PORTB,3);
+   \   00000018   9A2B               SBI     0x05, 0x03
+   \   0000001A   C001               RJMP    ??timer2_ovf_ser_1
+    366          	else
+    367          		ClrBit(PORTB,3);
+   \                     ??timer2_ovf_ser_0:
+   \   0000001C   982B               CBI     0x05, 0x03
+    368          	
+    369          	//not_bit(&PORTB,0);
+    370          	TCNT2 = 0xBF;
+   \                     ??timer2_ovf_ser_1:
+   \   0000001E   EB0F               LDI     R16, 191
+   \   00000020   9300....           STS     _A_TCNT2, R16
+    371          }
+   \   00000024   BF1F               OUT     0x3F, R17
+   \   00000026   9109               LD      R16, Y+
+   \   00000028   9119               LD      R17, Y+
+   \   0000002A   9518               RETI
+   \   0000002C                      REQUIRE _A_TCNT2
+   \   0000002C                      REQUIRE _A_PORTB
+    372          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    373          void IO_Initial()
+   \                     IO_Initial:
+    374          {
+    375          	DDRA = 0xFF;
+   \   00000000   EF0F               LDI     R16, 255
+   \   00000002   B901               OUT     0x01, R16
+    376          	DDRB = 0xFF;
+   \   00000004   B904               OUT     0x04, R16
+    377          	DDRC = 0xFF;
+   \   00000006   B907               OUT     0x07, R16
+    378          	DDRD = 0xFF;
+   \   00000008   B90A               OUT     0x0A, R16
+    379          	PORTA = 0;
+   \   0000000A   E000               LDI     R16, 0
+   \   0000000C   B902               OUT     0x02, R16
+    380          	PORTB = 0;
+   \   0000000E   B905               OUT     0x05, R16
+    381          	PORTC = 0;
+   \   00000010   B908               OUT     0x08, R16
+    382          	PORTD = 0;
+   \   00000012   B90B               OUT     0x0B, R16
+    383          
+    384          	//ClrBit(PORTB,0);
+    385          	//SetBit(PORTB,0);
+    386          
+    387          	ClrBit(DDRB,4);			//push button
+   \   00000014   9824               CBI     0x04, 0x04
+    388          	SetBit(PORTB,4);
+   \   00000016   9A2C               SBI     0x05, 0x04
+    389          
+    390          	//ClrBit(DDRB,0);
+    391          	//SetBit(PORTB,0);
+    392          
+    393          	//SCS port
+    394          	//RX set high
+    395          	ClrBit(DDRD,0);
+   \   00000018   9850               CBI     0x0A, 0x00
+    396          	SetBit(PORTD,0);
+   \   0000001A   9A58               SBI     0x0B, 0x00
+    397          	ClrBit(DDRD,1);
+   \   0000001C   9851               CBI     0x0A, 0x01
+    398          	SetBit(PORTD,1);
+   \   0000001E   9A59               SBI     0x0B, 0x01
+    399          	
+    400          	ClrBit(DDRB,6); //Get Value from Touch
+   \   00000020   9826               CBI     0x04, 0x06
+    401          	ClrBit(DDRD,5); //interrupt of Touch
+   \   00000022   9855               CBI     0x0A, 0x05
+    402          	ClrBit(DDRD,4); //Busy
+   \   00000024   9854               CBI     0x0A, 0x04
+    403          	SetBit(PORTB,6);
+   \   00000026   9A2E               SBI     0x05, 0x06
+    404          	SetBit(PORTD,5);
+   \   00000028   9A5D               SBI     0x0B, 0x05
+    405          	SetBit(PORTD,4);
+   \   0000002A   9A5C               SBI     0x0B, 0x04
+    406          	
+    407          	SetBit(PORTC,1);
+   \   0000002C   9A41               SBI     0x08, 0x01
+    408          }
+   \   0000002E   9508               RET
+   \   00000030                      REQUIRE _A_PORTD
+   \   00000030                      REQUIRE _A_DDRD
+   \   00000030                      REQUIRE _A_PORTC
+   \   00000030                      REQUIRE _A_DDRC
+   \   00000030                      REQUIRE _A_PORTB
+   \   00000030                      REQUIRE _A_DDRB
+   \   00000030                      REQUIRE _A_PORTA
+   \   00000030                      REQUIRE _A_DDRA
+    409          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    410          void delay_ms(unsigned int ms)
+   \                     delay_ms:
+    411          {
+   \   00000000   01AC               MOVW    R21:R20, R25:R24
+    412            unsigned int i;
+    413            for(i=0;i<ms;i++)
+   \   00000002   E080               LDI     R24, 0
+   \   00000004   E090               LDI     R25, 0
+   \   00000006   C008               RJMP    ??delay_ms_0
+    414          	  __delay_cycles(7372);
+   \                     ??delay_ms_1:
+   \   00000008   E322               LDI     R18, 50
+   \   0000000A   E037               LDI     R19, 7
+   \   0000000C   5021               SUBI    R18, 1
+   \   0000000E   4030               SBCI    R19, 0
+   \   00000010   F7E9               BRNE    $-4
+   \   00000012   C000               RJMP    $+2
+   \   00000014   0000               NOP
+   \   00000016   9601               ADIW    R25:R24, 1
+   \                     ??delay_ms_0:
+   \   00000018   1780               CP      R24, R16
+   \   0000001A   0791               CPC     R25, R17
+   \   0000001C   F3A8               BRCS    ??delay_ms_1
+    415          }
+   \   0000001E   01CA               MOVW    R25:R24, R21:R20
+   \   00000020   9508               RET
+    416          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    417          void delay_us(unsigned int us)
+   \                     delay_us:
+    418          {
+   \   00000000   2F39               MOV     R19, R25
+   \   00000002   2F48               MOV     R20, R24
+    419            unsigned int i;
+    420            for(i=0;i<us;i++)
+   \   00000004   E080               LDI     R24, 0
+   \   00000006   E090               LDI     R25, 0
+   \   00000008   C005               RJMP    ??delay_us_0
+    421              __delay_cycles(73);
+   \                     ??delay_us_1:
+   \   0000000A   E128               LDI     R18, 24
+   \   0000000C   952A               DEC     R18
+   \   0000000E   F7F1               BRNE    $-2
+   \   00000010   0000               NOP
+   \   00000012   9601               ADIW    R25:R24, 1
+   \                     ??delay_us_0:
+   \   00000014   1780               CP      R24, R16
+   \   00000016   0791               CPC     R25, R17
+   \   00000018   F3C0               BRCS    ??delay_us_1
+    422          }
+   \   0000001A   2F84               MOV     R24, R20
+   \   0000001C   2F93               MOV     R25, R19
+   \   0000001E   9508               RET
+    423          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    424          void delay_ms_1(void)
+   \                     delay_ms_1:
+    425          {
+    426            unsigned char i;
+    427            for(i=0;i<10;i++)
+   \   00000000   E000               LDI     R16, 0
+   \   00000002   C008               RJMP    ??delay_ms_1_0
+    428              __delay_cycles(7372);
+   \                     ??delay_ms_1_1:
+   \   00000004   E322               LDI     R18, 50
+   \   00000006   E037               LDI     R19, 7
+   \   00000008   5021               SUBI    R18, 1
+   \   0000000A   4030               SBCI    R19, 0
+   \   0000000C   F7E9               BRNE    $-4
+   \   0000000E   C000               RJMP    $+2
+   \   00000010   0000               NOP
+   \   00000012   9503               INC     R16
+   \                     ??delay_ms_1_0:
+   \   00000014   300A               CPI     R16, 10
+   \   00000016   F3B0               BRCS    ??delay_ms_1_1
+    429          }
+   \   00000018   9508               RET
+    430          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    431          void buzzer(unsigned int data)
+   \                     buzzer:
+    432          {
+    433          /*
+    434          	unsigned int i;
+    435          	for(i=0;i<data;i++)
+    436          	{
+    437          		SET_BUZZER;
+    438          		delay_ms(1);
+    439          		CLR_BUZZER;
+    440          		delay_ms(1);
+    441          	}
+    442          */
+    443          }
+   \   00000000   9508               RET
+    444          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    445          void not_bit(unsigned char *data, unsigned bit)
+   \                     not_bit:
+    446          {
+   \   00000000   01F8               MOVW    R31:R30, R17:R16
+    447          	if(GetBit(*data,bit))
+   \   00000002   2F42               MOV     R20, R18
+   \   00000004   E001               LDI     R16, 1
+   \   00000006   E010               LDI     R17, 0
+   \   00000008   ........           CALL    ?S_SHL_L02
+   \   0000000C   8110               LD      R17, Z
+   \   0000000E   2310               AND     R17, R16
+   \   00000010   F021               BREQ    ??not_bit_0
+    448          		ClrBit(*data,bit);
+   \   00000012   9500               COM     R16
+   \   00000014   8110               LD      R17, Z
+   \   00000016   2310               AND     R17, R16
+   \   00000018   C002               RJMP    ??not_bit_1
+    449          	else
+    450          		SetBit(*data,bit);
+   \                     ??not_bit_0:
+   \   0000001A   8110               LD      R17, Z
+   \   0000001C   2B10               OR      R17, R16
+   \                     ??not_bit_1:
+   \   0000001E   8310               ST      Z, R17
+    451          }
+   \   00000020   9508               RET
+    452          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    453          unsigned char StrToChar(unsigned char *data)
+   \                     StrToChar:
+    454          {
+   \   00000000   01F8               MOVW    R31:R30, R17:R16
+    455          	unsigned char temp;
+    456          	if((*data >= 'A') && (*data <= 'F'))
+   \   00000002   8110               LD      R17, Z
+   \   00000004   3411               CPI     R17, 65
+   \   00000006   F030               BRCS    ??StrToChar_0
+   \   00000008   8110               LD      R17, Z
+   \   0000000A   3417               CPI     R17, 71
+   \   0000000C   F418               BRCC    ??StrToChar_0
+    457          	{
+    458          		temp = (*data - 'A' + 10) * 16;
+   \   0000000E   8100               LD      R16, Z
+   \   00000010   5307               SUBI    R16, 55
+   \   00000012   C007               RJMP    ??StrToChar_1
+    459          	}
+    460          	else if((*data >= '0') && (*data <= '9'))
+   \                     ??StrToChar_0:
+   \   00000014   8110               LD      R17, Z
+   \   00000016   3310               CPI     R17, 48
+   \   00000018   F030               BRCS    ??StrToChar_2
+   \   0000001A   8110               LD      R17, Z
+   \   0000001C   331A               CPI     R17, 58
+   \   0000001E   F418               BRCC    ??StrToChar_2
+    461          	{
+    462          		temp = (*data - '0') * 16;
+   \   00000020   8100               LD      R16, Z
+   \                     ??StrToChar_1:
+   \   00000022   9502               SWAP    R16
+   \   00000024   7F00               ANDI    R16, 0xF0
+    463          	}
+    464          
+    465          	if((*(data+1) >= 'A') && (*(data+1) <= 'F'))
+   \                     ??StrToChar_2:
+   \   00000026   8111               LDD     R17, Z+1
+   \   00000028   3411               CPI     R17, 65
+   \   0000002A   F038               BRCS    ??StrToChar_3
+   \   0000002C   8111               LDD     R17, Z+1
+   \   0000002E   3417               CPI     R17, 71
+   \   00000030   F420               BRCC    ??StrToChar_3
+    466          	{
+    467          		temp = temp + *(data+1) - 'A' + 10;
+   \   00000032   8111               LDD     R17, Z+1
+   \   00000034   5317               SUBI    R17, 55
+   \   00000036   0F01               ADD     R16, R17
+   \   00000038   9508               RET
+    468          	}
+    469          	else if((*(data+1) >= '0') && (*(data+1) <= '9'))
+   \                     ??StrToChar_3:
+   \   0000003A   8111               LDD     R17, Z+1
+   \   0000003C   3310               CPI     R17, 48
+   \   0000003E   F030               BRCS    ??StrToChar_4
+   \   00000040   8111               LDD     R17, Z+1
+   \   00000042   331A               CPI     R17, 58
+   \   00000044   F418               BRCC    ??StrToChar_4
+    470          	{
+    471          		temp = temp + *(data+1) - '0';
+   \   00000046   8111               LDD     R17, Z+1
+   \   00000048   5310               SUBI    R17, 48
+   \   0000004A   0F01               ADD     R16, R17
+    472          	}
+    473          
+    474          	return temp;
+   \                     ??StrToChar_4:
+   \   0000004C   9508               RET
+    475          }
+    476          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    477          unsigned char *CharToStr(unsigned char data,unsigned char *buffer)
+   \                     CharToStr:
+    478          {
+   \   00000000   9722               SBIW    R29:R28, 2
+    479          
+    480          	unsigned char buffer_temp[2];
+    481          	//itoa(data,buffer_temp,16);
+    482            buffer_temp[0] = (data & 0xF0) >> 4;
+   \   00000002   2F10               MOV     R17, R16
+   \   00000004   9512               SWAP    R17
+   \   00000006   701F               ANDI    R17, 0x0F
+   \   00000008   8318               ST      Y, R17
+    483            if(buffer_temp[0] <= 9)
+   \   0000000A   8118               LD      R17, Y
+   \   0000000C   301A               CPI     R17, 10
+   \   0000000E   8118               LD      R17, Y
+   \   00000010   F410               BRCC    ??CharToStr_0
+    484            {
+    485              buffer_temp[0] += 0x30;
+   \   00000012   5D10               SUBI    R17, 208
+   \   00000014   C001               RJMP    ??CharToStr_1
+    486            }
+    487            else
+    488            {
+    489              buffer_temp[0] += 0x41 - 10;
+   \                     ??CharToStr_0:
+   \   00000016   5C19               SUBI    R17, 201
+   \                     ??CharToStr_1:
+   \   00000018   8318               ST      Y, R17
+    490            }
+    491          
+    492            buffer_temp[1] = data & 0x0F;
+   \   0000001A   700F               ANDI    R16, 0x0F
+   \   0000001C   8309               STD     Y+1, R16
+    493            if(buffer_temp[1] <= 9)
+   \   0000001E   8109               LDD     R16, Y+1
+   \   00000020   300A               CPI     R16, 10
+   \   00000022   8109               LDD     R16, Y+1
+   \   00000024   F410               BRCC    ??CharToStr_2
+    494            {
+    495              buffer_temp[1] += 0x30;
+   \   00000026   5D00               SUBI    R16, 208
+   \   00000028   C001               RJMP    ??CharToStr_3
+    496            }
+    497            else
+    498            {
+    499              buffer_temp[1] += 0x41 - 10;
+   \                     ??CharToStr_2:
+   \   0000002A   5C09               SUBI    R16, 201
+   \                     ??CharToStr_3:
+   \   0000002C   8309               STD     Y+1, R16
+    500            }
+    501          
+    502            *buffer = buffer_temp[0];
+   \   0000002E   8108               LD      R16, Y
+   \   00000030   01F9               MOVW    R31:R30, R19:R18
+   \   00000032   8300               ST      Z, R16
+    503          	buffer++;
+    504          	*buffer = buffer_temp[1];
+   \   00000034   8109               LDD     R16, Y+1
+   \   00000036   5F2F               SUBI    R18, 255
+   \   00000038   4F3F               SBCI    R19, 255
+   \   0000003A   01F9               MOVW    R31:R30, R19:R18
+   \   0000003C   8300               ST      Z, R16
+    505          
+    506            return 0;
+   \   0000003E   E000               LDI     R16, 0
+   \   00000040   E010               LDI     R17, 0
+   \   00000042   9622               ADIW    R29:R28, 2
+   \   00000044   9508               RET
+    507            /*
+    508          	if(buffer_temp[1] == 0)
+    509          	{
+    510          		buffer_temp[1] = buffer_temp[0];
+    511          		buffer_temp[0] = '0';
+    512          	}
+    513          	if((buffer_temp[0] >= 'a') && (buffer_temp[0] <= 'z'))
+    514          		buffer_temp[0] -= 32;
+    515          	if((buffer_temp[1] >= 'a') && (buffer_temp[1] <= 'z'))
+    516          		buffer_temp[1] -= 32;
+    517          
+    518          	*buffer = buffer_temp[0];
+    519          	buffer++;
+    520          	*buffer = buffer_temp[1];
+    521            */
+    522          
+    523            /*
+    524            unsigned char temp[3];
+    525          
+    526            temp[0] = (temp[0] & 0xF0) >> 4;
+    527            if((temp[0] >= 0) && (temp[0] <= 9))
+    528            {
+    529              temp[0] += 0x30;
+    530            }
+    531            else
+    532            {
+    533              temp[0] += 0x41;
+    534            }
+    535          
+    536            temp[1] = temp[1] & 0x0F;
+    537            if((temp[1] >= 0) && (temp[1] <= 9))
+    538            {
+    539              temp[1] += 0x30;
+    540            }
+    541            else
+    542            {
+    543              temp[1] += 0x41;
+    544            }
+    545          
+    546            temp[2] = 0;
+    547          
+    548            *buffer = buffer_temp[0];
+    549          	buffer++;
+    550          	*buffer = buffer_temp[1];
+    551            */
+    552          }
+    553          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    554          void buzzer_ms(unsigned int ms)
+   \                     buzzer_ms:
+    555          {
+    556          	/*
+    557            Time_delay.buzzer.stack_top = ms;
+    558          	Time_delay.buzzer.count = 0;
+    559          	Time_delay.buzzer.time_out = 0;
+    560          	Time_delay.buzzer.started = 1;
+    561          	Time_delay.buzzer.enabled = 1;
+    562          	*/
+    563          }
+   \   00000000   9508               RET
+    564          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    565          unsigned char get_key()
+   \                     get_key:
+    566          {
+    567          	if(GetBit(PINB,4) == 0)
+   \   00000000   991C               SBIC    0x03, 0x04
+   \   00000002   C002               RJMP    ??get_key_0
+    568          		return 1;
+   \   00000004   E001               LDI     R16, 1
+   \   00000006   9508               RET
+    569          	else
+    570          		return 0;
+   \                     ??get_key_0:
+   \   00000008   E000               LDI     R16, 0
+   \   0000000A   9508               RET
+   \   0000000C                      REQUIRE _A_PINB
+    571          }
+    572          
+    573          #pragma vector=TIMER1_OVF_vect
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    574          __interrupt void timer1_ovf_ser(void)
+   \                     timer1_ovf_ser:
+    575          {
+    576          	//TCNT1H = 228;				// 1s
+    577          	//TCNT1L = 224;					// 1s
+    578          }
+   \   00000000   9518               RETI
+    579          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    580          unsigned char get_PIR_trigger(unsigned char level)
+   \                     get_PIR_trigger:
+    581          {
+    582          	switch(level)
+   \   00000000   5300               SUBI    R16, 48
+   \   00000002   5004               SUBI    R16, 4
+   \   00000004   F410               BRCC    ??get_PIR_trigger_0
+    583          	{
+    584          		case '0':
+    585          			// add your code here
+    586          			return 0;
+   \   00000006   E000               LDI     R16, 0
+   \   00000008   9508               RET
+    587          		case '1':
+    588          			// add your code here
+    589          			// return your get level
+    590          			return 0;
+    591          		case '2':
+    592          			// add your code here
+    593          			// return your get level
+    594          			return 0;
+    595          		case '3':
+    596          			// add your code here
+    597          			// return your get level
+    598          			return 0;
+    599          		default:
+    600          			break;
+    601          	}
+    602          	return 1;
+   \                     ??get_PIR_trigger_0:
+   \   0000000A   E001               LDI     R16, 1
+   \   0000000C   9508               RET
+    603          }
+    604          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    605          unsigned char get_US_trigger(unsigned char level)
+   \                     get_US_trigger:
+    606          {
+    607          	switch(level)
+   \   00000000   5300               SUBI    R16, 48
+   \   00000002   5004               SUBI    R16, 4
+   \   00000004   F410               BRCC    ??get_US_trigger_0
+    608          	{
+    609          		case '0':
+    610          			// add your code here
+    611          			return 0;
+   \   00000006   E000               LDI     R16, 0
+   \   00000008   9508               RET
+    612          		case '1':
+    613          			// add your code here
+    614          			// return your get level
+    615          			return 0;
+    616          		case '2':
+    617          			// add your code here
+    618          			// return your get level
+    619          			return 0;
+    620          		case '3':
+    621          			// add your code here
+    622          			// return your get level
+    623          			return 0;
+    624          		default:
+    625          			break;
+    626          	}
+    627          	return 1;
+   \                     ??get_US_trigger_0:
+   \   0000000A   E001               LDI     R16, 1
+   \   0000000C   9508               RET
+    628          }
+    629          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    630          void timer1_initial(void)
+   \                     timer1_initial:
+    631          {
+    632          // Timer/Counter 1 initialization
+    633          // Clock source: System Clock
+    634          // Clock value: 7.200 kHz
+    635          // Mode: Normal top=FFFFh
+    636          // OC1A output: Discon.
+    637          // OC1B output: Discon.
+    638          // Noise Canceler: Off
+    639          // Input Capture on Falling Edge
+    640          // Timer 1 Overflow Interrupt: Off
+    641          // Input Capture Interrupt: Off
+    642          // Compare A Match Interrupt: Off
+    643          // Compare B Match Interrupt: Off
+    644          TCCR1A=0x00;
+   \   00000000   E000               LDI     R16, 0
+   \   00000002   9300....           STS     _A_TCCR1A, R16
+    645          TCCR1B=0x05;
+   \   00000006   E005               LDI     R16, 5
+   \   00000008   9300....           STS     _A_TCCR1B, R16
+    646          TCNT1H=228;					// 1s
+   \   0000000C   EE04               LDI     R16, 228
+   \   0000000E   93000085           STS     133, R16
+    647          TCNT1L=224;					// 1s
+   \   00000012   EE00               LDI     R16, 224
+   \   00000014   9300....           STS     _A_TCNT1, R16
+    648          ICR1H=0x00;					
+   \   00000018   E000               LDI     R16, 0
+   \   0000001A   93000087           STS     135, R16
+    649          ICR1L=0x00;
+   \   0000001E   9300....           STS     _A_ICR1, R16
+    650          OCR1AH=0x00;
+   \   00000022   93000089           STS     137, R16
+    651          OCR1AL=0x00;
+   \   00000026   9300....           STS     _A_OCR1A, R16
+    652          OCR1BH=0x00;
+   \   0000002A   9300008B           STS     139, R16
+    653          OCR1BL=0x00;
+   \   0000002E   9300....           STS     _A_OCR1B, R16
+    654          
+    655          ClrBit(PRR,PRTIM1);
+   \   00000032   91000064           LDS     R16, 100
+   \   00000036   7F07               ANDI    R16, 0xF7
+   \   00000038   93000064           STS     100, R16
+    656          }
+   \   0000003C   9508               RET
+   \   0000003E                      REQUIRE _A_OCR1B
+   \   0000003E                      REQUIRE _A_OCR1A
+   \   0000003E                      REQUIRE _A_ICR1
+   \   0000003E                      REQUIRE _A_TCNT1
+   \   0000003E                      REQUIRE _A_TCCR1B
+   \   0000003E                      REQUIRE _A_TCCR1A
+   \   0000003E                      REQUIRE _A_PRR
+    657          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    658          void adc_initial()
+   \                     adc_initial:
+    659          {
+    660          // ADC initialization
+    661          // ADC Clock frequency: 921.600 kHz
+    662          // ADC Voltage Reference: AREF pin
+    663          // ADC Auto Trigger Source: None
+    664          // Digital input buffers on ADC0: Off, ADC1: Off, ADC2: On, ADC3: Off
+    665          // ADC4: Off, ADC5: Off, ADC6: Off, ADC7: Off
+    666          DIDR0=0xFB;
+   \   00000000   EF0B               LDI     R16, 251
+   \   00000002   9300....           STS     _A_DIDR0, R16
+    667          ADMUX=ADC_VREF_TYPE;
+   \   00000006   E400               LDI     R16, 64
+   \   00000008   9300....           STS     _A_ADMUX, R16
+    668          ADCSRA=0x80;
+   \   0000000C   E800               LDI     R16, 128
+   \   0000000E   9300....           STS     _A_ADCSRA, R16
+    669          ADCSRA |= 0x05;
+   \   00000012   9100....           LDS     R16, _A_ADCSRA
+   \   00000016   6005               ORI     R16, 0x05
+   \   00000018   9300....           STS     _A_ADCSRA, R16
+    670          }
+   \   0000001C   9508               RET
+   \   0000001E                      REQUIRE _A_DIDR0
+   \   0000001E                      REQUIRE _A_ADMUX
+   \   0000001E                      REQUIRE _A_ADCSRA
+    671          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    672          unsigned int read_adc10bit(unsigned char adc_input)
+   \                     read_adc10bit:
+    673          {
+    674          	ADMUX = adc_input | ADC_VREF_TYPE;
+   \   00000000   6400               ORI     R16, 0x40
+   \   00000002   9300....           STS     _A_ADMUX, R16
+    675          	g_temp = ADMUX;
+   \   00000006   9100....           LDS     R16, _A_ADMUX
+   \   0000000A   9300....           STS     g_temp, R16
+    676          	// Delay needed for the stabilization of the ADC input voltage
+    677          	delay_us(10);
+   \   0000000E   E00A               LDI     R16, 10
+   \   00000010   E010               LDI     R17, 0
+   \   00000012   ....               RCALL   delay_us
+    678          	// Start the AD conversion
+    679          	ADCSRA|=0x40;
+   \   00000014   9100007A           LDS     R16, 122
+   \   00000018   6400               ORI     R16, 0x40
+   \   0000001A   9300007A           STS     122, R16
+    680          	// Wait for the AD conversion to complete
+    681          	while ((ADCSRA & 0x10)==0);
+   \                     ??read_adc10bit_0:
+   \   0000001E   9100....           LDS     R16, _A_ADCSRA
+   \   00000022   2F10               MOV     R17, R16
+   \   00000024   FF14               SBRS    R17, 4
+   \   00000026   CFFB               RJMP    ??read_adc10bit_0
+    682          	ADCSRA|=0x10;
+   \   00000028   9100007A           LDS     R16, 122
+   \   0000002C   6100               ORI     R16, 0x10
+   \   0000002E   9300007A           STS     122, R16
+    683          	return ADC;
+   \   00000032   9100....           LDS     R16, _A_ADC
+   \   00000036   9110....           LDS     R17, (_A_ADC + 1)
+   \   0000003A   9508               RET
+   \   0000003C                      REQUIRE _A_ADMUX
+   \   0000003C                      REQUIRE _A_ADCSRA
+   \   0000003C                      REQUIRE _A_ADC
+    684          }
+    685          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    686          unsigned char read_adc8bit(unsigned char adc_input)
+   \                     read_adc8bit:
+    687          {
+    688            ADMUX = adc_input | ADC_VREF_TYPE | 0x20;
+   \   00000000   6600               ORI     R16, 0x60
+   \   00000002   9300....           STS     _A_ADMUX, R16
+    689            // Delay needed for the stabilization of the ADC input voltage
+    690            delay_us(10);
+   \   00000006   E00A               LDI     R16, 10
+   \   00000008   E010               LDI     R17, 0
+   \   0000000A   ....               RCALL   delay_us
+    691            // Start the AD conversion
+    692            ADCSRA|=0x40;
+   \   0000000C   9100007A           LDS     R16, 122
+   \   00000010   6400               ORI     R16, 0x40
+   \   00000012   9300007A           STS     122, R16
+    693            // Wait for the AD conversion to complete
+    694            while ((ADCSRA & 0x10)==0);
+   \                     ??read_adc8bit_0:
+   \   00000016   9100....           LDS     R16, _A_ADCSRA
+   \   0000001A   2F10               MOV     R17, R16
+   \   0000001C   FF14               SBRS    R17, 4
+   \   0000001E   CFFB               RJMP    ??read_adc8bit_0
+    695            ADCSRA|=0x10;
+   \   00000020   9100007A           LDS     R16, 122
+   \   00000024   6100               ORI     R16, 0x10
+   \   00000026   9300007A           STS     122, R16
+    696            return ADCH;
+   \   0000002A   91000079           LDS     R16, 121
+   \   0000002E   9508               RET
+   \   00000030                      REQUIRE _A_ADMUX
+   \   00000030                      REQUIRE _A_ADCSRA
+   \   00000030                      REQUIRE _A_ADC
+    697          }
+    698          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    699          void system_reset(void)
+   \                     system_reset:
+    700          {
+    701          	WDTCSR = 0x18;
+   \   00000000   E108               LDI     R16, 24
+   \   00000002   9300....           STS     _A_WDTCSR, R16
+    702          	WDTCSR = 0x08;
+   \   00000006   E008               LDI     R16, 8
+   \   00000008   9300....           STS     _A_WDTCSR, R16
+    703          }
+   \   0000000C   9508               RET
+   \   0000000E                      REQUIRE _A_WDTCSR
+    704          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    705          void WDT_off(void)
+   \                     WDT_off:
+    706          {
+    707          	MCUSR &= ~(1<<WDRF);
+   \   00000000   B704               IN      R16, 0x34
+   \   00000002   7F07               ANDI    R16, 0xF7
+   \   00000004   BF04               OUT     0x34, R16
+    708          	WDTCSR |= (1<<WDCE) | (1<<WDE);
+   \   00000006   9100....           LDS     R16, _A_WDTCSR
+   \   0000000A   6108               ORI     R16, 0x18
+   \   0000000C   9300....           STS     _A_WDTCSR, R16
+    709          	WDTCSR = 0x00;
+   \   00000010   E000               LDI     R16, 0
+   \   00000012   9300....           STS     _A_WDTCSR, R16
+    710          }
+   \   00000016   9508               RET
+   \   00000018                      REQUIRE _A_WDTCSR
+   \   00000018                      REQUIRE _A_MCUSR
+
+   \                                 In  segment INTVEC, offset 0x2c, root
+   \                     `??timer2_ovf_ser??INTVEC 44`:
+   \   0000002C   ........           JMP     timer2_ovf_ser
+
+   \                                 In  segment INTVEC, offset 0x3c, root
+   \                     `??timer1_ovf_ser??INTVEC 60`:
+   \   0000003C   ........           JMP     timer1_ovf_ser
+
+   \                                 In  segment INTVEC, offset 0x48, root
+   \                     `??timer0_ovf_ser??INTVEC 72`:
+   \   00000048   ........           JMP     timer0_ovf_ser
+
+   Maximum stack usage in bytes:
+
+     Function                  CSTACK RSTACK
+     --------                  ------ ------
+     CharToStr                     2      2
+     IO_Initial                    0      2
+     StrToChar                     0      2
+     WDT_off                       0      2
+     adc_initial                   0      2
+     buzzer                        0      2
+     buzzer_ms                     0      2
+     delay_ms                      0      2
+     delay_ms_1                    0      2
+     delay_us                      0      2
+     get_PIR_trigger               0      2
+     get_US_trigger                0      2
+     get_key                       0      2
+     not_bit                       0      4
+     read_adc10bit                 0      2
+       -> delay_us                 0      2
+     read_adc8bit                  0      2
+       -> delay_us                 0      2
+     system_reset                  0      2
+     timer0_ovf_ser               19      2
+       -> led_blinking_disable    19      2
+       -> PnL_ad_end              19      2
+       -> PnL_NONE_end            19      2
+     timer1_initial                0      2
+     timer1_ovf_ser                1      2
+     timer2_ovf_ser                2      2
+
+
+   Segment part sizes:
+
+     Function/Label              Bytes
+     --------------              -----
+     _A_TCNT2                       1
+     _A_OCR1B                       2
+     _A_OCR1A                       2
+     _A_ICR1                        2
+     _A_TCNT1                       2
+     _A_TCCR1B                      1
+     _A_TCCR1A                      1
+     _A_DIDR0                       1
+     _A_ADMUX                       1
+     _A_ADCSRA                      1
+     _A_ADC                         2
+     _A_PRR                         1
+     _A_WDTCSR                      1
+     _A_MCUSR                       1
+     _A_TCNT0                       1
+     _A_PORTD                       1
+     _A_DDRD                        1
+     _A_PORTC                       1
+     _A_DDRC                        1
+     _A_PORTB                       1
+     _A_DDRB                        1
+     _A_PINB                        1
+     _A_PORTA                       1
+     _A_DDRA                        1
+     timer0_ovf_ser              2110
+     timer2_ovf_ser                44
+     IO_Initial                    48
+     delay_ms                      34
+     delay_us                      32
+     delay_ms_1                    26
+     buzzer                         2
+     not_bit                       34
+     StrToChar                     78
+     CharToStr                     70
+     buzzer_ms                      2
+     get_key                       12
+     timer1_ovf_ser                 2
+     get_PIR_trigger               14
+     get_US_trigger                14
+     timer1_initial                62
+     adc_initial                   30
+     read_adc10bit                 60
+     read_adc8bit                  48
+     system_reset                  14
+     WDT_off                       24
+     ??timer2_ovf_ser??INTVEC 44    4
+     ??timer1_ovf_ser??INTVEC 60    4
+     ??timer0_ovf_ser??INTVEC 72    4
+
+ 
+    29 bytes in segment ABSOLUTE
+ 2 760 bytes in segment CODE
+    12 bytes in segment INTVEC
+ 
+ 2 760 bytes of CODE memory (+ 12 bytes shared)
+     0 bytes of DATA memory (+ 29 bytes shared)
+
+Errors: none
+Warnings: none

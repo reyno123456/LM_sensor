@@ -1,0 +1,571 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR    11/Dec/2009  23:20:53 #
+# Copyright 1996-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  D:\avr\LM_Finial_Test\main.c                             #
+#    Command line =  D:\avr\LM_Finial_Test\main.c --cpu=m644p -ms -o          #
+#                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018    #
+#                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Lis #
+#                    t\ -lA D:\avr\LM_Finial_Test\Release\List\               #
+#                    --diag_suppress Pa082,Pe167,Pe186                        #
+#                    --initializers_in_flash -z6 --no_inline --no_cross_call  #
+#                    --no_tbaa -DENABLE_BIT_DEFINITIONS -e -I "C:\Program     #
+#                    Files\IAR Systems\Embedded Workbench 5.3\avr\INC\" -I    #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.3\avr\INC\CLIB\" --eeprom_size 2048                    #
+#    List file    =  D:\avr\LM_Finial_Test\Release\List\main.lst              #
+#    Object file  =  D:\avr\LM_Finial_Test\Release\Obj\main.r90               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\avr\LM_Finial_Test\main.c
+      1          //2008 12 12 finish buzzer function
+      2          //add IR setting parameter
+      3          //2008 12 31 finish modality0 test
+      4          //2008 12 31 add extended frame for turn on/off acturator
+      5          //2008 12 31 add first time Provision of Light detect
+      6          //2009 1 2 add IR Communication Tool communication
+      7          //2009 1 2 save the KO parameter into eeprom
+      8          //2009 1 2 complete PIR sensitivity test
+      9          //2009 1 3 finish IR frame, need test
+     10          //2009 1 4 test the IR P&L, forward to SCS bus
+     11          //2009 1 4 go on test the PIR & US functions
+     12          //2009 1 4 add push button diagnostic frame
+     13          //2009 1 5 add LM018
+     14          //2009 1 7 find an conflict in software of acturator with the document "ID request the 4 byte parameter must set to zero"
+     15          //2009 1 7 update IR ID request frame
+     16          //2009 1 7 add room controler ID request frame
+     17          //2009 1 8 add ID confirm, setting frame
+     18          //2009 1 8 research the master slave setting for acturator
+     19          //2009 1 8 could not find the RC's handshake frame
+     20          //2009 1 8 dont know ID 07 arguments means
+     21          //2009 1 8 improoved the dianostic frame change 00~0F to 80~8F
+     22          //2009 1 9 remove the ID 07 dianostic frame
+     23          //2009 1 9 test D|x x|x x|Sys x|2 8|C 0|0 0|8 F|0
+     24          //2009 1 9 change back ID 07 dianostic frame answer
+     25          //2009 1 12 want to solve the timing sequence problem with the RC
+     26          //2009 1 12 first send D2 00 01 42 8B 01 90 02
+     27          //										 D2 00 01 42 8D 09 00 02
+     28          //										 D2 00 01 42 8D 02 01 02
+     29          //										 D2 00 01 42 8D 02 02 02
+     30          //2009 1 12 add product moudle select
+     31          //2009 1 12 find there have error at 8B answer frame
+     32          //2009 1 13 updated the RC's fireware
+     33          //2009 1 13 achieve P&G function with the RC use SCS monitor
+     34          //2009 1 13 solve the trafic in load status update function
+     35          //2009 1 13 add KO erease frame
+     36          //2009 1 13 complete using point to setting the key object number, passed the test
+     37          //2009 1 14 modified the configurators setting sequance
+     38          //2009 1 14 it have only way send D0 get into programming state
+     39          //2009 1 14 sample of LM056 default A PL 00 00, user can use basic virtual configuration to change it's address
+     40          //2009 1 16 write the development progress about the SCS sensor
+     41          //2009 1 20 improve the SCS reception buffer
+     42          //2009 1 20 improve RC communication frame
+     43          //2009 1 23 test the ethernet scs gateway
+     44          //2009 1 23 study the scenarios command, most in feasibility book
+     45          //2009 2 1 sensor detection LED change delay ON during 1s
+     46          //         If sensor received a new detection during this 1s delay, LED stayed in state ON for another 1s.
+     47          //2009 2 1 first send D0 0B frame, then device could answer, add 0A 0B frame
+     48          //2009 2 1 LEV == 1 do nothing
+     49          //2009 2 1 read the PVL document
+     50          //2009 2 2 tested pass the group creation
+     51          //2009 2 4 add the short or long pressed button function
+     52          //2009 2 4 add LED blinking status function
+     53          //2009 2 4 add push and learn break
+     54          //2009 2 5 complete P&L sensor transmission group creation
+     55          //2009 2 6 change step 2 time out value from 10s to 60s
+     56          //2009 2 6 test OK the group add remove
+     57          //2009 2 6 find 2 conflicts in the Push and Learn sensor_22.doc
+     58          //2009 2 9 finish point-to-point sensor actuator(without LPB)
+     59          //2009 2 10 finish all the SCS push and learn function, need test
+     60          //2009 2 12 complete Plug and Go function
+     61          //2009 2 12 finish push and learn IR scenario remove independently
+     62          
+     63          //2009 2 17 find a bug when use IR scenario remove, tha actuator remove all the scenario
+     64          //2009 2 17 finish push and learn IR remove all
+     65          //2009 2 19 improve diagnostic frame
+     66          
+     67          //2009 2 22 finish basic virtual configuration
+     68          //2009 2 22 add system reset
+     69          
+     70          //2009 3 3 configurator reading need a interface reset
+     71          
+     72          ////////////////////////////////////////////////////////////////////////////////////////////////////
+     73          //                      Bug about the Actuator on Room Controler
+     74          //1. the LED can't indicator the load at the same time
+     75          //
+     76          ////////////////////////////////////////////////////////////////////////////////////////////////////
+     77          
+     78          
+     79          
+     80          
+     81          ////////////////////////////////////////////////////////////////////////////////////////////////////
+     82          //                        Room Controler Power On Frame                                           //
+     83          //1.	D0 00 01 0B 00 00 00 00               ID enable requeset
+     84          //2.  D0 00 01 08 00 00 00 00               ID request to not configured device
+     85          //3.  D0 00 01 04 00 03 00 28								ID transmission
+     86          //4.  D0 00 01 0B 00 00 00 00               ID enable requeset
+     87          //5.  D0 00 01 09 00 00 00 00               ID to configured device
+     88          //6.  D0 01 01 04 98 76 54 32								ID transmission     from acturator
+     89          //7.  D0 00 01 07 00 03 00 28               Start test configuration
+     90          //8.  D2 00 01 34 00 00 00 00					
+     91          
+     92          //                        Push and Learn group frame
+     93          //D | x	d1 | d0	d2 | 1	42 / 34	8 | C	GG	0 | 9	Dev|Cmd
+     94          //
+     95          //Dev is the device type:
+     96          //-	0: Light command
+     97          //-	1: Shutter command
+     98          //-	2: Light actuator
+     99          //-	3: Shutter actuator
+    100          //-	4: Sensor
+    101          //-	F: Generic command device
+    102          //Cmd is the command:
+    103          //-	0: Start PnL
+    104          //-	1: Group confirmation
+    105          //-	2: Group refusing
+    106          //-	3: Referent transmission
+    107          //-	4: Group erasing
+    108          //-	5: Group request
+    109          //-	6: Group assignation
+    110          //-	7: Group release
+    111          //-	8: No group available
+    112          //-	9: "Group used" request
+    113          //-	F: End PnL
+    114          //GG is the number of group.
+    115          
+    116          //                        Push and Learn scenario frame
+    117          //D | x	d1 | d0	d2 | 1	42 / 34	8 | C	NS	0 | A	Cmd
+    118          
+    119          //Cmd is the command:
+    120          //-	0x00: Start PnL scenario
+    121          //-	0x05: Scenario request
+    122          //-	0x06: Scenario assignation
+    123          //-	0x07: Scenario release
+    124          //-	0x08: No scenario available
+    125          //-	0x09: "Scenario used" request (only for command devices)
+    126          //-	0x0F: End PnL scenario
+    127          //NS is the number of the scenario
+    128          
+    129          //                     Push and Learn frame for IR tool
+    130          //D | 2	d1 | d0	d2 | 1	42	8 | C	00	0B	Cmd
+    131          //Cmd is the command:
+    132          //-	0x01: Next actuator
+    133          //-	0x02: Include
+    134          //-	0x03: Exclude
+    135          //-	0x04: Set ON
+    136          //-	0x05: Set OFF
+    137          //-	0x06: Set DIMMING UP
+    138          //-	0x07: SET DIMMING DOWN
+    139          //-	0x08: RESET GROUP
+    140          
+    141          //仅能设置一个Actuator
+    142          //LM028 only send PP frame
+    143          
+    144          //NSS | MyHome SubSystem
+    145          //----|--------------------------------
+    146          //  1 | Lighting-Automation
+    147          //  2 | Electrical system supervision
+    148          //  3 | Thermo-regulation
+    149          //  4 | Anti-intrusion
+    150          //  5 | Luminous signaling
+    151          //  6 | Videodoorentrysystem
+    152          //  7 | Access control
+    153          //  8 | Multimedia
+    154          //  9 | Auxiliary
+    155          //  F | Integration devices
+    156          
+    157          
+    158          //|------------------------------------+------------------------------------|
+    159          //| Product State                    | LLED state |
+    160          //|------------------------------------+------------------------------------|
+    161          //| No configured                    | 120ms ON , 120ms OFF |
+    162          //|------------------------------------+------------------------------------|
+    163          //| Auto configuration               | 60ms ON, 1s OFF |
+    164          //|------------------------------------+------------------------------------|
+    165          //| Distant Configuration in process | 1s ON, 1s OFF |
+    166          //|------------------------------------+------------------------------------|
+    167          //| Preselection Leader or Actor     | 1s ON, 1s OFF |
+    168          //|------------------------------------+------------------------------------|
+    169          //| Leader or actor learning         | 250ms ON , 250ms OFF |
+    170          //|------------------------------------+------------------------------------|
+    171          //| Erasing                          | 60ms ON , 200ms OFF during 5s |
+    172          //|------------------------------------+------------------------------------|
+    173          //| Error                            (memory full or | ON during 5s | incompatibility ) | |
+    174          //|------------------------------------+------------------------------------|
+    175          
+    176          
+    177          //how to handling the "not allowed" frame
+    178          
+    179          //2009 03 23 updated all PnL group functions
+    180          
+    181          //test modified test90
+    182          //device doesn't implement the current key object
+    183          
+    184          //announce ID66
+    185          //open learning
+    186          //stop learning
+    187          
+    188          //their have two conflit with NiToo 70 36 command, one said set_dimmer_up, another factory default
+    189          
+    190          //updated 2009 04 07
+    191          //for PnL scenario Blinking(250,250)
+    192          
+    193          //2009 4 20 updated PnL for group sensor
+    194          //2009 4 20 updated IR scenario
+    195          //2009 4 20 fixed the problem about parameter lost after PnG
+    196          //2009 4 20 improve KO_temp
+    197          
+    198          //2009 4 21 fixed scenario full indicator
+    199          
+    200          //2009 4 27 updated PnL Group sensors
+    201          //2009 4 28 great updated for gateway settting
+    202          
+    203          //2009 5 4 updating key object setting and error response frame
+    204          //start advance 008 92B test
+    205          //2009 5 6 updated PnL Group remove, keep the reference if after PnG
+    206          //2009 5 8 finished self test for advance configuration
+    207          //2009 5 29 fix daylight level calibration and D.F via IR in close loop
+    208          //2009 6 1 detection is disabled in maintain, retrigger and standby for 20s if received "OFF" (derogation)
+    209          
+    210          //2009 6 4 updated different device moudle for initial parameter
+    211          
+    212          // updated version1 software for Limoges test
+    213          // updated version2 software for local test
+    214          // prepare software for label printer
+    215          // discuss the daylight parts with French
+    216          
+    217          // improve the software
+    218          // finish the point to point test
+    219          // go on with the group function test
+    220          // prepare samples for Limoges
+    221          // define the lable for every product
+    222          
+    223          // start to make a production equipment for final production
+    224          // updated software to version 1.1
+    225          // finished certralized system
+    226          // make some test for new test document from French
+    227          // define the new schematic for new modification
+    228          
+    229          // pass all the latest test document
+    230          // prepare a equipment for final production
+    231          // check the initial parameter for modality 2
+    232          // read document used on final production
+    233          
+    234          // add timer interval check for modality2
+    235          // check the final test schematic and PCB board
+    236          // prepare software for final delivery test
+    237          
+    238          // the font is 6x10 pix
+    239          
+    240          #include <ioavr.h>
+
+   \                                 In  segment ABSOLUTE, at 0x29
+   \   <__C234> volatile __io _A_PIND
+   \                     _A_PIND:
+   \   00000000                      DS8 1
+    241          #include <inavr.h>
+    242          #include "board.h"
+    243          #include "usart.h"
+    244          #include "decode_scs.h"
+    245          #include "stdlib.h"
+    246          #include "moudle_SCS.h"
+    247          #include "PIR.h"
+    248          #include "configuration.h"
+    249          #include "global_variable.h"
+    250          #include "IR.h"
+    251          #include "application.h"
+    252          #include "decode_scs_next.h"
+    253          #include "moudle_scs.h"
+    254          #include "string.h"
+    255          #include <intrinsics.h>
+    256          #include "function_service.h"
+    257          #include "font.h"
+    258          #include "DRI_TOUCH.h"
+    259          #include "printer.h"
+    260          #include "DRI_LCD.H"
+    261          #include "dataflash.h"
+    262          
+    263          //unsigned char buffer_test[3];
+    264          enum e_state{sun,mon,tue,wed,thu,fri,sat};
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+    265          enum e_state state2;
+   \                     state2:
+   \   00000000                      DS8 1
+    266          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    267          void main(void)
+   \                     main:
+    268          {
+    269          	state2 = mon;
+   \   00000000   E001               LDI     R16, 1
+   \   00000002   9300....           STS     state2, R16
+    270          	//unsigned char (*pStateFunc)(char);
+    271          	
+    272            __watchdog_reset();
+   \   00000006   95A8               WDR
+    273          	WDT_off();
+   \   00000008   ........           CALL    WDT_off
+    274          	IO_Initial();
+   \   0000000C   ........           CALL    IO_Initial
+    275          
+    276          	led_blinking_disable(0);
+   \   00000010   E000               LDI     R16, 0
+   \   00000012   ........           CALL    led_blinking_disable
+    277          	
+    278          	global_variable_initial();
+   \   00000016   ........           CALL    global_variable_initial
+    279          	init_USART0();
+   \   0000001A   ........           CALL    init_USART0
+    280          	//init_USART1();
+    281          	print_initial();
+   \   0000001E   ........           CALL    print_initial
+    282          	timer0_enable();
+   \   00000022   ........           CALL    timer0_enable
+    283          	timer2_enable();
+   \   00000026   ........           CALL    timer2_enable
+    284          	//DF_SPI_init();
+    285          	//IR_36kHz();
+    286          	external_interrupt_initial();
+   \   0000002A   ........           CALL    external_interrupt_initial
+    287          
+    288            test_ID_assigned();
+   \   0000002E   ........           CALL    test_ID_assigned
+    289          
+    290          	start_conf();
+   \   00000032   ........           CALL    start_conf
+    291          	load_parameter();
+   \   00000036   ........           CALL    load_parameter
+    292            __enable_interrupt();
+   \   0000003A   9478               SEI
+    293          
+    294          	LCD_init();
+   \   0000003C   ........           CALL    LCD_init
+    295          
+    296          	key_parameter_initial();
+   \   00000040   ........           CALL    key_parameter_initial
+    297          	
+    298          	menu_00();			
+   \   00000044   ........           CALL    menu_00
+    299          	
+    300          	DF_SPI_init();
+   \   00000048   ........           CALL    DF_SPI_init
+    301          	write_flash(0,stru_sensor);
+   \   0000004C   ....               LDI     R30, LOW(stru_sensor)
+   \   0000004E   ....               LDI     R31, (stru_sensor) >> 8
+   \   00000050   E206               LDI     R16, 38
+   \   00000052   E010               LDI     R17, 0
+   \   00000054   ........           CALL    ?LONG_FARG_16_L07
+   \   00000058   E000               LDI     R16, 0
+   \   0000005A   ........           CALL    write_flash
+    302          	DF_SPI_disable();
+   \   0000005E   ........           CALL    DF_SPI_disable
+   \   00000062   C008               RJMP    ??main_0
+    303          	//dataflash_test();
+    304          	//while(1)
+    305          	//{
+    306          		//write_flash(0,stru_sensor);
+    307          	//}
+    308          	
+    309          	while(1)
+    310          	{
+    311          		if(IS_PEN == 0)
+    312          		{
+    313          			TOUCH_getdata();		//获取当前触摸屏按键的坐标(0,0)~(160,160)
+    314          			
+    315          			switch(get_touch_menu_00())
+    316          			{
+    317          				case 0:
+    318          					LCD_Clr();
+    319          					menu_01();		// set Lux
+    320          				break;
+    321          				
+    322          				case 1:
+    323          					input_screen("product model",g_model,INPUT_MODEL);
+    324          					input_screen("release year",g_year,INPUT_YEAR);
+    325          					input_screen("release week", g_week,INPUT_WEEK);
+    326          					input_screen("software version",g_soft,INPUT_SOFTWARE_VERSION);
+    327          					input_screen("hardware version",g_hard,INPUT_HARDWARE_VERSION);
+    328          					menu_02();			// set ID
+    329          				break;
+    330          				
+    331          				case 2:
+    332          					test_screen("functionality test",g_model);
+   \                     ??main_1:
+   \   00000064   ....               LDI     R18, LOW(g_model)
+   \   00000066   ....               LDI     R19, (g_model) >> 8
+   \   00000068   ....               LDI     R16, LOW((`?<Constant "product model">` + 74))
+   \   0000006A   ....               LDI     R17, HIGH((`?<Constant "product model">` + 74))
+   \   0000006C   ........           CALL    test_screen
+    333          				break;
+    334          				
+    335          			default:break;
+    336          			}
+    337          		}
+    338          		
+    339          		light_adj();
+   \                     ??main_2:
+   \   00000070   ........           CALL    light_adj
+   \                     ??main_0:
+   \   00000074   994D               SBIC    0x09, 0x05
+   \   00000076   CFFC               RJMP    ??main_2
+   \   00000078   ........           CALL    TOUCH_getdata
+   \   0000007C   ........           CALL    get_touch_menu_00
+   \   00000080   5000               SUBI    R16, 0
+   \   00000082   F029               BREQ    ??main_3
+   \   00000084   950A               DEC     R16
+   \   00000086   F041               BREQ    ??main_4
+   \   00000088   950A               DEC     R16
+   \   0000008A   F361               BREQ    ??main_1
+   \   0000008C   CFF1               RJMP    ??main_2
+   \                     ??main_3:
+   \   0000008E   ........           CALL    LCD_Clr
+   \   00000092   ........           CALL    menu_01
+   \   00000096   CFEC               RJMP    ??main_2
+   \                     ??main_4:
+   \   00000098   E040               LDI     R20, 0
+   \   0000009A   ....               LDI     R18, LOW(g_model)
+   \   0000009C   ....               LDI     R19, (g_model) >> 8
+   \   0000009E   ....               LDI     R16, LOW(`?<Constant "product model">`)
+   \   000000A0   ....               LDI     R17, (`?<Constant "product model">`) >> 8
+   \   000000A2   ........           CALL    input_screen
+   \   000000A6   E041               LDI     R20, 1
+   \   000000A8   ....               LDI     R18, LOW(g_year)
+   \   000000AA   ....               LDI     R19, (g_year) >> 8
+   \   000000AC   ....               LDI     R16, LOW((`?<Constant "product model">` + 14))
+   \   000000AE   ....               LDI     R17, HIGH((`?<Constant "product model">` + 14))
+   \   000000B0   ........           CALL    input_screen
+   \   000000B4   E042               LDI     R20, 2
+   \   000000B6   ....               LDI     R18, LOW(g_week)
+   \   000000B8   ....               LDI     R19, (g_week) >> 8
+   \   000000BA   ....               LDI     R16, LOW((`?<Constant "product model">` + 27))
+   \   000000BC   ....               LDI     R17, HIGH((`?<Constant "product model">` + 27))
+   \   000000BE   ........           CALL    input_screen
+   \   000000C2   E043               LDI     R20, 3
+   \   000000C4   ....               LDI     R18, LOW(g_soft)
+   \   000000C6   ....               LDI     R19, (g_soft) >> 8
+   \   000000C8   ....               LDI     R16, LOW((`?<Constant "product model">` + 40))
+   \   000000CA   ....               LDI     R17, HIGH((`?<Constant "product model">` + 40))
+   \   000000CC   ........           CALL    input_screen
+   \   000000D0   E044               LDI     R20, 4
+   \   000000D2   ....               LDI     R18, LOW(g_hard)
+   \   000000D4   ....               LDI     R19, (g_hard) >> 8
+   \   000000D6   ....               LDI     R16, LOW((`?<Constant "product model">` + 57))
+   \   000000D8   ....               LDI     R17, HIGH((`?<Constant "product model">` + 57))
+   \   000000DA   ........           CALL    input_screen
+   \   000000DE   ........           CALL    menu_02
+   \   000000E2   CFC6               RJMP    ??main_2
+   \   000000E4                      REQUIRE _A_PIND
+    340          	}
+    341          }
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for <Constant "product model">>`:
+   \   00000000   7270646F6375       DC8 "product model"
+   \              20746F6D6564
+   \              006C        
+   \                     `?<Initializer for <Constant "release year">>`:
+   \   0000000E   6572656C7361       DC8 "release year"
+   \              206565797261
+   \              00          
+   \                     `?<Initializer for <Constant "release week">>`:
+   \   0000001B   6572656C7361       DC8 "release week"
+   \              206565776B65
+   \              00          
+   \                     `?<Initializer for <Constant "software version"`:
+   \   00000028   6F7374666177       DC8 "software version"
+   \              657276207265
+   \              69736E6F00  
+   \                     `?<Initializer for <Constant "hardware version"`:
+   \   00000039   616864726177       DC8 "hardware version"
+   \              657276207265
+   \              69736E6F00  
+   \                     `?<Initializer for <Constant "functionality tes`:
+   \   0000004A   7566636E6974       DC8 "functionality test"
+   \              6E6F6C617469
+   \              207965747473
+   \              00          
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+   \                     `?<Constant "product model">`:
+   \   00000000                      DS8 14
+   \   0000000E                      REQUIRE `?<Initializer for <Constant "product model">>`
+   \   0000000E                      DS8 13
+   \   0000001B                      REQUIRE `?<Initializer for <Constant "release year">>`
+   \   0000001B                      DS8 13
+   \   00000028                      REQUIRE `?<Initializer for <Constant "release week">>`
+   \   00000028                      DS8 17
+   \   00000039                      REQUIRE `?<Initializer for <Constant "software version"`
+   \   00000039                      DS8 17
+   \   0000004A                      REQUIRE `?<Initializer for <Constant "hardware version"`
+   \   0000004A                      DS8 19
+   \   0000005D                      REQUIRE `?<Initializer for <Constant "functionality tes`
+
+   Maximum stack usage in bytes:
+
+     Function                       CSTACK RSTACK
+     --------                       ------ ------
+     main                              38      4
+       -> WDT_off                       0      2
+       -> IO_Initial                    0      2
+       -> led_blinking_disable          0      2
+       -> global_variable_initial       0      2
+       -> init_USART0                   0      2
+       -> print_initial                 0      2
+       -> timer0_enable                 0      2
+       -> timer2_enable                 0      2
+       -> external_interrupt_initial
+                                        0      2
+       -> test_ID_assigned              0      2
+       -> start_conf                    0      2
+       -> load_parameter                0      2
+       -> LCD_init                      0      2
+       -> key_parameter_initial         0      2
+       -> menu_00                       0      2
+       -> DF_SPI_init                   0      2
+       -> write_flash                  38      2
+       -> DF_SPI_disable                0      2
+       -> test_screen                   0      2
+       -> light_adj                     0      2
+       -> TOUCH_getdata                 0      2
+       -> get_touch_menu_00             0      2
+       -> LCD_Clr                       0      2
+       -> menu_01                       0      2
+       -> input_screen                  0      2
+       -> input_screen                  0      2
+       -> input_screen                  0      2
+       -> input_screen                  0      2
+       -> input_screen                  0      2
+       -> menu_02                       0      2
+
+
+   Segment part sizes:
+
+     Function/Label                                Bytes
+     --------------                                -----
+     _A_PIND                                          1
+     state2                                           1
+     main                                           228
+     ?<Initializer for <Constant "product model">>   93
+     ?<Constant "product model">                     93
+      Others                                         12
+
+ 
+   1 byte  in segment ABSOLUTE
+ 228 bytes in segment CODE
+  12 bytes in segment INITTAB
+  93 bytes in segment NEAR_I
+  93 bytes in segment NEAR_ID
+   1 byte  in segment NEAR_Z
+ 
+ 321 bytes of CODE memory (+ 12 bytes shared)
+  94 bytes of DATA memory (+  1 byte  shared)
+
+Errors: none
+Warnings: none

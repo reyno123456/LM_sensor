@@ -1,0 +1,886 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:21:18 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\DRI_TOUCH.C                       /
+//    Command line =  D:\avr\LM_Finial_Test\DRI_TOUCH.C --cpu=m644p -ms -o    /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\DRI_TOUCH.s90        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME DRI_TOUCH
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?EPILOGUE_B6_L09
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?PROLOGUE6_L09
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?US_SHR_L02
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC TOUCH_CAIJI1
+        FUNCTION TOUCH_CAIJI1,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TOUCH_READ1
+        FUNCTION TOUCH_READ1,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TOUCH_WRITE1
+        FUNCTION TOUCH_WRITE1,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TOUCH_getdata
+        FUNCTION TOUCH_getdata,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_PINB
+        PUBWEAK _A_PIND
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTC
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC average1
+        FUNCTION average1,0a1201H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 46, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC caijicomp
+        FUNCTION caijicomp,021201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC delay
+        FUNCTION delay,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC error
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        EXTERN timer_flex_initial
+        FUNCTION timer_flex_initial,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN delay_us
+        FUNCTION delay_us,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN Time_delay
+        EXTERN avg_x
+        EXTERN avg_y
+        EXTERN vx
+        EXTERN vy
+
+// D:\avr\LM_Finial_Test\DRI_TOUCH.C
+//    1 /*****************************
+//    2    TEST TO 1N4249-TP
+//    3    CONTROLLER:  UC1698
+//    4    INTERFACE: 8bit/B\W FSTN
+//    5    SIZE: 160*160  DOTS
+//    6    PROGRAMMED: ANDY_Q
+//    7    DATE: 
+//    8  更改扫描方向
+//    9 *****************************/
+//   10 #ifndef ENABLE_BIT_DEFINITIONS
+//   11 #define ENABLE_BIT_DEFINITIONS
+//   12 #endif
+//   13 
+//   14 #include <ioavr.h>
+
+        ASEGN ABSOLUTE:DATA:NOROOT,029H
+// <__C234> volatile __io _A_PIND
+_A_PIND:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// <__C237> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// <__C246> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,023H
+// <__C252> volatile __io _A_PINB
+_A_PINB:
+        DS8 1
+//   15 #include <inavr.h>
+//   16 #include "DRI_LCD.H"
+//   17 #include "DRI_TOUCH.H"
+//   18 #include "global_variable.h"
+//   19 #include "application.h"
+//   20 
+//   21 //***********************************FUNCTION***************************************************
+//   22 //#define uchar unsigned char
+//   23 /*
+//   24 #pragma vector = INT4_vect
+//   25 __interrupt void TOUCH_INT(void)
+//   26 {
+//   27 CLI();
+//   28 if((eventflag2_g&0xe0)==0)
+//   29 	{
+//   30 	BIT_SET(eventflag2_g,7);
+//   31 	}
+//   32 
+//   33 SEI();
+//   34 }
+//   35 */
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   36 unsigned char  error;
+error:
+        DS8 1
+//   37 /*********MAIN**********/
+//   38 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   39 void delay(unsigned int t)
+delay:
+??delay_0:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function delay
+//   40 {
+//   41 unsigned char i;
+//   42   while(--t)
+        SUBI    R16, 1
+        SBCI    R17, 0
+        MOV     R18, R16
+        OR      R18, R17
+        BREQ    ??delay_1
+//   43   for(i=0;i<100;i++);
+        LDI     R18, 0
+??delay_2:
+        CPI     R18, 100
+        BRCC    ??delay_0
+        INC     R18
+        RJMP    ??delay_2
+//   44 } 
+??delay_1:
+        RET
+        CFI EndBlock cfiBlock0
+//   45 
+//   46 
+//   47 //获取当前触摸屏按键的坐标(0,0)~(160,160)
+
+        RSEG CODE:CODE:NOROOT(1)
+//   48 void TOUCH_getdata()
+TOUCH_getdata:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function TOUCH_getdata
+//   49 {
+//   50 	average1();
+        FUNCALL TOUCH_getdata, average1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        RCALL   average1
+//   51 	/*
+//   52 	if ((avg_x<xmin)||(avg_x>xmax)||(avg_y<ymin)||(avg_y>ymax))
+//   53 	{
+//   54 		avg_x=255;
+//   55 		avg_y=255;
+//   56 	}
+//   57 	else
+//   58 	{
+//   59 		avg_x=160-(unsigned int)((avg_x-xmin)/x_para);
+//   60 		avg_y=160-(unsigned int)((avg_y-ymin)/y_para);	
+//   61 	}
+//   62 	*/
+//   63 }
+        RET
+        CFI EndBlock cfiBlock1
+//   64 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   65 void average1()
+average1:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function average1
+//   66 {
+        FUNCALL average1, timer_flex_initial
+        LOCFRAME CSTACK, 46, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL average1, TOUCH_CAIJI1
+        LOCFRAME CSTACK, 46, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL average1, delay_us
+        LOCFRAME CSTACK, 46, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE6_L09
+        CFI R5 Frame(CFA_Y, -1)
+        CFI R4 Frame(CFA_Y, -2)
+        CFI R27 Frame(CFA_Y, -3)
+        CFI R26 Frame(CFA_Y, -4)
+        CFI R25 Frame(CFA_Y, -5)
+        CFI R24 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        SBIW    R29:R28, 40
+        CFI CFA_Y Y+46
+//   67 	unsigned int sum_x=0,sum_y=0;
+        CLR     R4
+        CLR     R5
+        LDI     R26, 0
+        LDI     R27, 0
+//   68 	unsigned int position[SAMPLE_NUM][2];
+//   69 	unsigned int temp;
+//   70 	
+//   71 	unsigned char i = 0;
+        LDI     R24, 0
+//   72 	
+//   73 	vx=vy=0;error=0;
+        STS     vy, R4
+        STS     (vy + 1), R4
+        STS     vx, R4
+        STS     (vx + 1), R4
+        STS     error, R4
+//   74 	timer_flex_initial(500);
+        LDI     R16, 244
+        LDI     R17, 1
+        LDI     R18, 0
+        LDI     R19, 0
+        CALL    timer_flex_initial
+//   75 	
+//   76 	while(Time_delay.timer_flex.time_out == 0)
+??average1_0:
+        LDS     R16, (Time_delay + 157)
+        TST     R16
+        BRNE    ??average1_1
+//   77 	{
+//   78 		if(IS_PEN == 0)
+        SBIC    0x09, 0x05
+        RJMP    ??average1_2
+//   79 		{
+//   80 			TOUCH_CAIJI1();
+        RCALL   TOUCH_CAIJI1
+//   81 			delay_us(20);
+        LDI     R16, 20
+        LDI     R17, 0
+        CALL    delay_us
+//   82 		}
+//   83 		
+//   84 		position[i][0] = vx;
+??average1_2:
+        LDI     R16, 4
+        MUL     R24, R16
+        LDS     R16, vx
+        LDS     R17, (vx + 1)
+        MOVW    R31:R30, R29:R28
+        ADD     R30, R0
+        ADC     R31, R1
+        ST      Z, R16
+        STD     Z+1, R17
+//   85 		position[i][1] = vy;
+        LDS     R16, vy
+        LDS     R17, (vy + 1)
+        MOVW    R31:R30, R29:R28
+        ADD     R30, R0
+        ADC     R31, R1
+        STD     Z+2, R16
+        STD     Z+3, R17
+//   86 		
+//   87 		if(++i >= SAMPLE_NUM) break;
+        INC     R24
+        CPI     R24, 10
+        BRCS    ??average1_0
+//   88 	}
+//   89 	 
+//   90 	asm("nop");
+??average1_1:
+        nop
+//   91 	
+//   92 	if( i == SAMPLE_NUM )
+        CPI     R24, 10
+        BREQ    $+2+2
+        RJMP    ??average1_3
+//   93 	{
+//   94 		for(i=0;i<SAMPLE_NUM - 1;i++)
+        LDI     R24, 0
+        RJMP    ??average1_4
+//   95 		{
+//   96 			if(position[i][0] < position[i+1][0])
+??average1_5:
+        MOVW    R31:R30, R29:R28
+        LDI     R16, 4
+        MUL     R24, R16
+        ADD     R30, R0
+        ADC     R31, R1
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+4
+        LDD     R19, Z+5
+        CP      R16, R18
+        CPC     R17, R19
+        BRCC    ??average1_6
+//   97 			{
+//   98 				temp = position[i][0];
+        LD      R20, Z
+        LDD     R21, Z+1
+//   99 				position[i][0] = position[i+1][0];
+        LDD     R16, Z+4
+        LDD     R17, Z+5
+        ST      Z, R16
+        STD     Z+1, R17
+//  100 				position[i+1][0] = temp;
+        STD     Z+4, R20
+        STD     Z+5, R21
+//  101 				
+//  102 				temp = position[i][1];
+        LDD     R20, Z+2
+        LDD     R21, Z+3
+//  103 				position[i][1] = position[i+1][1];
+        LDD     R16, Z+6
+        LDD     R17, Z+7
+        STD     Z+2, R16
+        STD     Z+3, R17
+//  104 				position[i+1][1] = temp;
+        STD     Z+6, R20
+        STD     Z+7, R21
+//  105 			}
+//  106 		}
+??average1_6:
+        INC     R24
+??average1_4:
+        CPI     R24, 9
+        BRCS    ??average1_5
+//  107 		
+//  108 		asm("nop");
+        nop
+//  109 		
+//  110 		for(i=SAMPLE_NUM - 1;i > 0;i--)
+        LDI     R24, 9
+        RJMP    ??average1_7
+//  111 		{
+//  112 			if(position[i][0] > position[i-1][0])
+??average1_8:
+        MOVW    R19:R18, R29:R28
+        LDI     R16, 4
+        MUL     R24, R16
+        ADD     R18, R0
+        ADC     R19, R1
+        MOVW    R31:R30, R19:R18
+        LD      R22, Z
+        LDD     R23, Z+1
+        MOVW    R17:R16, R19:R18
+        SUBI    R16, 4
+        SBCI    R17, 0
+        MOVW    R31:R30, R17:R16
+        LD      R20, Z
+        LDD     R21, Z+1
+        CP      R20, R22
+        CPC     R21, R23
+        BRCC    ??average1_9
+//  113 			{
+//  114 				temp = position[i][0];
+        MOVW    R21:R20, R23:R22
+//  115 				position[i][0] = position[i-1][0];
+        LD      R22, Z
+        LDD     R23, Z+1
+        MOVW    R31:R30, R19:R18
+        ST      Z, R22
+        STD     Z+1, R23
+//  116 				position[i-1][0] = temp;
+        MOVW    R31:R30, R17:R16
+        ST      Z, R20
+        STD     Z+1, R21
+//  117 				
+//  118 				temp = position[i][1];
+        MOVW    R31:R30, R19:R18
+        LDD     R20, Z+2
+        LDD     R21, Z+3
+//  119 				position[i][1] = position[i-1][1];
+        MOVW    R31:R30, R17:R16
+        LDD     R22, Z+2
+        LDD     R23, Z+3
+        MOVW    R31:R30, R19:R18
+        STD     Z+2, R22
+        STD     Z+3, R23
+//  120 				position[i-1][1] = temp;
+        MOVW    R31:R30, R17:R16
+        STD     Z+2, R20
+        STD     Z+3, R21
+//  121 			}
+//  122 		}
+??average1_9:
+        DEC     R24
+??average1_7:
+        TST     R24
+        BRNE    ??average1_8
+//  123 		
+//  124 		asm("nop");
+        nop
+//  125 		
+//  126 		for(i=1;i < SAMPLE_NUM - 1;i++)
+        LDI     R24, 1
+        RJMP    ??average1_10
+//  127 		{
+//  128 			sum_x += position[i][0];
+??average1_11:
+        MOVW    R31:R30, R29:R28
+        LDI     R16, 4
+        MUL     R24, R16
+        ADD     R30, R0
+        ADC     R31, R1
+        LD      R16, Z
+        LDD     R17, Z+1
+        ADD     R4, R16
+        ADC     R5, R17
+//  129 			sum_y += position[i][1];
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        ADD     R26, R16
+        ADC     R27, R17
+//  130 		}
+        INC     R24
+??average1_10:
+        CPI     R24, 9
+        BRCS    ??average1_11
+//  131 		
+//  132 		avg_x = sum_x/(SAMPLE_NUM - 2);
+        LDI     R20, 3
+        MOVW    R17:R16, R5:R4
+        CALL    ?US_SHR_L02
+        STS     avg_x, R16
+        STS     (avg_x + 1), R17
+//  133 		avg_y = sum_y/(SAMPLE_NUM - 2);
+        LDI     R20, 3
+        MOVW    R17:R16, R27:R26
+        CALL    ?US_SHR_L02
+        STS     avg_y, R16
+        STS     (avg_y + 1), R17
+        RJMP    ??average1_12
+//  134 	}
+//  135 	else
+//  136 	{
+//  137 		avg_x = 0;
+??average1_3:
+        STS     avg_x, R4
+        STS     (avg_x + 1), R4
+//  138 		avg_y = 0;
+        STS     avg_y, R4
+        STS     (avg_y + 1), R4
+//  139 	}
+//  140 }
+??average1_12:
+        ADIW    R29:R28, 40
+        CFI CFA_Y Y+6
+        LDI     R30, 6
+        JMP     ?EPILOGUE_B6_L09
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_PIND
+//  141 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  142 void caijicomp()
+caijicomp:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function caijicomp
+//  143 {
+//  144 	
+//  145 	vx=vy=0;error=0;
+        FUNCALL caijicomp, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL caijicomp, TOUCH_CAIJI1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R17, 0
+        STS     vy, R17
+        STS     (vy + 1), R17
+        STS     vx, R17
+        STS     (vx + 1), R17
+        STS     error, R17
+//  146 	if(IS_PEN == 0)
+        SBIC    0x09, 0x05
+        RJMP    ??caijicomp_0
+//  147 	{
+//  148 		delay_us(20);
+        LDI     R16, 20
+        CALL    delay_us
+//  149 		TOUCH_CAIJI1();  
+        RCALL   TOUCH_CAIJI1
+//  150 	}
+//  151 }
+??caijicomp_0:
+        RET
+        CFI EndBlock cfiBlock3
+        REQUIRE _A_PIND
+//  152 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  153 void TOUCH_CAIJI1(void)    
+TOUCH_CAIJI1:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function TOUCH_CAIJI1
+//  154 {
+//  155 	LCD_DCLK_0;   
+        FUNCALL TOUCH_CAIJI1, TOUCH_WRITE1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL TOUCH_CAIJI1, TOUCH_READ1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL TOUCH_CAIJI1, TOUCH_WRITE1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL TOUCH_CAIJI1, TOUCH_READ1
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CBI     0x05, 0x07
+//  156 	LCD_DCST_0; 
+        CBI     0x08, 0x06
+//  157 	TOUCH_WRITE1(0Xd0);         
+        LDI     R16, 208
+        RCALL   TOUCH_WRITE1
+//  158 	vx = ((TOUCH_READ1()) & 0x0fff);    
+        RCALL   TOUCH_READ1
+        ANDI    R17, 0x0F
+        STS     vx, R16
+        STS     (vx + 1), R17
+//  159 	LCD_DCST_1;
+        SBI     0x08, 0x06
+//  160 	LCD_DCST_0;
+        CBI     0x08, 0x06
+//  161 	TOUCH_WRITE1(0X90);         
+        LDI     R16, 144
+        RCALL   TOUCH_WRITE1
+//  162 	vy = ((TOUCH_READ1()) & 0x0fff);  
+        RCALL   TOUCH_READ1
+        ANDI    R17, 0x0F
+        STS     vy, R16
+        STS     (vy + 1), R17
+//  163 	LCD_DCST_1;
+        SBI     0x08, 0x06
+//  164 }
+        RET
+        CFI EndBlock cfiBlock4
+        REQUIRE _A_PORTC
+        REQUIRE _A_PORTB
+//  165 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  166 void TOUCH_WRITE1(unsigned char command)
+TOUCH_WRITE1:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function TOUCH_WRITE1
+//  167  { 
+        FUNCALL TOUCH_WRITE1, delay_us
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        MOV     R25, R16
+//  168    unsigned char count;
+//  169    LCD_DCLK_0;
+        CBI     0x05, 0x07
+//  170    for (count=0;count<8;count++)
+        LDI     R24, 0
+        RJMP    ??TOUCH_WRITE1_0
+//  171       { 
+//  172         if (command&0x80)
+//  173 		{LCD_DIN_1;}
+//  174 	else
+//  175 		{LCD_DIN_0;}
+??TOUCH_WRITE1_1:
+        CBI     0x05, 0x05
+//  176         command<<=1;   
+??TOUCH_WRITE1_2:
+        LSL     R25
+//  177         LCD_DCLK_1;// _nop_();
+        SBI     0x05, 0x07
+//  178         delay_us(10);
+        LDI     R16, 10
+        LDI     R17, 0
+        CALL    delay_us
+//  179         LCD_DCLK_0;// _nop_();
+        CBI     0x05, 0x07
+        INC     R24
+??TOUCH_WRITE1_0:
+        CPI     R24, 8
+        BRCC    ??TOUCH_WRITE1_3
+        BST     R25, 7
+        BRTC    ??TOUCH_WRITE1_1
+        SBI     0x05, 0x05
+        RJMP    ??TOUCH_WRITE1_2
+//  180       }
+//  181  }
+??TOUCH_WRITE1_3:
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+1
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock5
+        REQUIRE _A_PORTB
+//  182 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  183 unsigned int TOUCH_READ1(void)
+TOUCH_READ1:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function TOUCH_READ1
+//  184  {
+        FUNCALL TOUCH_READ1, delay_us
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE4_L09
+        CFI R27 Frame(CFA_Y, -1)
+        CFI R26 Frame(CFA_Y, -2)
+        CFI R25 Frame(CFA_Y, -3)
+        CFI R24 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+//  185   unsigned int  xy=0x0000;
+        LDI     R26, 0
+        LDI     R27, 0
+//  186   unsigned char i;            
+//  187 	LCD_DCLK_0;
+        CBI     0x05, 0x07
+//  188 	for (i=0;i<12;i++)
+        LDI     R24, 0
+        RJMP    ??TOUCH_READ1_0
+//  189 	{    
+//  190  		xy<<=1;
+??TOUCH_READ1_1:
+        LSL     R26
+        ROL     R27
+//  191 		
+//  192 		if (IS_DOUT) xy++;
+        SBIC    0x03, 0x06
+        ADIW    R27:R26, 1
+//  193 			LCD_DCLK_1; 
+??TOUCH_READ1_2:
+        SBI     0x05, 0x07
+//  194 			
+//  195 		delay_us(1);
+        LDI     R16, 1
+        LDI     R17, 0
+        CALL    delay_us
+//  196 		LCD_DCLK_0;               
+        CBI     0x05, 0x07
+//  197 	}
+        INC     R24
+??TOUCH_READ1_0:
+        CPI     R24, 12
+        BRCS    ??TOUCH_READ1_1
+//  198 	return  xy;    
+        MOVW    R17:R16, R27:R26
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+        CFI EndBlock cfiBlock6
+        REQUIRE _A_PORTB
+        REQUIRE _A_PINB
+//  199  }
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+//  200 //校准触摸屏，并将校准值存入EEPROM
+//  201 /*
+//  202 unsigned char TOUCH_adj()
+//  203 {
+//  204 	float tempx, tempy;
+//  205 	LCD_touchadj1();
+//  206 	LCD_dischar1616(ICON1616[11], 48, 144);
+//  207 	while(BIT_NCHK(eventflag2_g,5)) //flag in interrupt
+//  208 		{NOP();}
+//  209 	BIT_CLR(eventflag2_g,5);
+//  210 	BIT_CLR(EIMSK, INT4);
+//  211 	average1();
+//  212 	delay_us(10);
+//  213 	BIT_SET(EIFR,4);
+//  214 	BIT_SET(EIMSK, INT4);
+//  215 	BEEPON;
+//  216 	xmin=avg_x;
+//  217 	ymin=avg_y;
+//  218 	LCD_touchadj2();
+//  219 	LCD_dischar1616(ICON1616[9], 0, 0);
+//  220 	
+//  221 	while(BIT_NCHK(eventflag2_g,5))
+//  222 		{NOP();}
+//  223 	BIT_CLR(eventflag2_g,5);
+//  224 	BIT_CLR(EIMSK, INT4);
+//  225 	average1();
+//  226 	delay_us(10);
+//  227 	BIT_SET(EIFR,4);
+//  228 	BIT_SET(EIMSK, INT4);
+//  229 	BEEPON;
+//  230 	xmax=avg_x;
+//  231 	ymax=avg_y;
+//  232 	cell_W=xmax-xmin;
+//  233 	cell_H=ymax-ymin;
+//  234 	LCD_Clr();
+//  235 	if ((cell_W<1600)||(cell_W>1800)||(cell_H<1600)||(cell_H>1800))
+//  236 		return 1;
+//  237 	x_para = (float) (xmax-xmin);
+//  238 	y_para = (float) (ymax-ymin);
+//  239 	x_para = x_para/160.0;
+//  240 	y_para = y_para/160.0;
+//  241 	tempx=x_para*1000.0;
+//  242 	tempy=y_para*1000.0;
+//  243 	
+//  244 	cell_W=(unsigned int)tempx;   //X坐标
+//  245 	cell_H=(unsigned int)tempy;   //Y坐标
+//  246 	
+//  247 	LCD_Clr();
+//  248 
+//  249 	__EEPUT(EEPROM_TOUCHADR,xmin/256);
+//  250 	__EEPUT(EEPROM_TOUCHADR+1,xmin%256);
+//  251 	__EEPUT(EEPROM_TOUCHADR+2,xmax/256);
+//  252 	__EEPUT(EEPROM_TOUCHADR+3,xmax%256);
+//  253 	__EEPUT(EEPROM_TOUCHADR+4,ymin/256);
+//  254 	__EEPUT(EEPROM_TOUCHADR+5,ymin%256);
+//  255 	__EEPUT(EEPROM_TOUCHADR+6,ymax/256);
+//  256 	__EEPUT(EEPROM_TOUCHADR+7,ymax%256);
+//  257 
+//  258 return 0;
+//  259 }
+//  260 */
+//  261 //获取触摸屏的按键值
+//  262 /*
+//  263 unsigned char TOUCH_getkeynumber()
+//  264 {
+//  265 unsigned int i;
+//  266 TOUCH_getdata();
+//  267 	for(i=PageList[screen_number_g].startkey;i<=PageList[screen_number_g].endkey;i++)
+//  268 	{
+//  269 	if ((avg_x>=KeyList[i].start_x)&&(avg_x<=KeyList[i].end_x)&&(avg_y>=KeyList[i].start_y)&&(avg_y<=KeyList[i].end_y))
+//  270 		return KeyList[i].key_number;
+//  271 	}
+//  272 return 255;
+//  273 }
+//  274 */
+// 
+//   4 bytes in segment ABSOLUTE
+// 576 bytes in segment CODE
+//   6 bytes in segment INITTAB
+//   1 byte  in segment NEAR_Z
+// 
+// 576 bytes of CODE memory (+ 6 bytes shared)
+//   1 byte  of DATA memory (+ 4 bytes shared)
+//
+//Errors: none
+//Warnings: none

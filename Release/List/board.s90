@@ -1,0 +1,2731 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.30.0.50166/W32 for Atmel AVR   11/Dec/2009  23:21:17 /
+// Copyright 1996-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  D:\avr\LM_Finial_Test\board.c                           /
+//    Command line =  D:\avr\LM_Finial_Test\board.c --cpu=m644p -ms -o        /
+//                    D:\avr\LM_Finial_Test\Release\Obj\ -D NDEBUG -D LM018   /
+//                    -D FINAL_VERSION2 -lCN D:\avr\LM_Finial_Test\Release\Li /
+//                    st\ -lA D:\avr\LM_Finial_Test\Release\List\             /
+//                    --diag_suppress Pa082,Pe167,Pe186                       /
+//                    --initializers_in_flash -z6 --no_inline                 /
+//                    --no_cross_call --no_tbaa -DENABLE_BIT_DEFINITIONS -e   /
+//                    -I "C:\Program Files\IAR Systems\Embedded Workbench     /
+//                    5.3\avr\INC\" -I "C:\Program Files\IAR                  /
+//                    Systems\Embedded Workbench 5.3\avr\INC\CLIB\"           /
+//                    --eeprom_size 2048                                      /
+//    List file    =  D:\avr\LM_Finial_Test\Release\List\board.s90            /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME board
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega644P"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?S_SHL_L02
+
+        PUBWEAK `??timer0_ovf_ser??INTVEC 72`
+        PUBWEAK `??timer1_ovf_ser??INTVEC 60`
+        PUBWEAK `??timer2_ovf_ser??INTVEC 44`
+        PUBLIC CharToStr
+        FUNCTION CharToStr,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC IO_Initial
+        FUNCTION IO_Initial,0201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC StrToChar
+        FUNCTION StrToChar,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC WDT_off
+        FUNCTION WDT_off,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_ADC
+        PUBWEAK _A_ADCSRA
+        PUBWEAK _A_ADMUX
+        PUBWEAK _A_DDRA
+        PUBWEAK _A_DDRB
+        PUBWEAK _A_DDRC
+        PUBWEAK _A_DDRD
+        PUBWEAK _A_DIDR0
+        PUBWEAK _A_ICR1
+        PUBWEAK _A_MCUSR
+        PUBWEAK _A_OCR1A
+        PUBWEAK _A_OCR1B
+        PUBWEAK _A_PINB
+        PUBWEAK _A_PORTA
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTC
+        PUBWEAK _A_PORTD
+        PUBWEAK _A_PRR
+        PUBWEAK _A_TCCR1A
+        PUBWEAK _A_TCCR1B
+        PUBWEAK _A_TCNT0
+        PUBWEAK _A_TCNT1
+        PUBWEAK _A_TCNT2
+        PUBWEAK _A_WDTCSR
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC adc_initial
+        FUNCTION adc_initial,0201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC buzzer
+        FUNCTION buzzer,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC buzzer_ms
+        FUNCTION buzzer_ms,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC delay_ms
+        FUNCTION delay_ms,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC delay_ms_1
+        FUNCTION delay_ms_1,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC delay_us
+        FUNCTION delay_us,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC get_PIR_trigger
+        FUNCTION get_PIR_trigger,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC get_US_trigger
+        FUNCTION get_US_trigger,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC get_key
+        FUNCTION get_key,0201H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC not_bit
+        FUNCTION not_bit,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC read_adc10bit
+        FUNCTION read_adc10bit,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC read_adc8bit
+        FUNCTION read_adc8bit,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC system_reset
+        FUNCTION system_reset,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC timer0_ovf_ser
+        FUNCTION timer0_ovf_ser,021233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 19, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC timer1_initial
+        FUNCTION timer1_initial,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC timer1_ovf_ser
+        FUNCTION timer1_ovf_ser,0233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC timer2_ovf_ser
+        FUNCTION timer2_ovf_ser,0233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_Y Y DATA
+        CFI StackFrame CFA_SP SP DATA
+        CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+        CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+        CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+        CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+        CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+        CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+        CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+        CFI ResourceParts SP SPH, SPL
+        CFI ResourceParts Y R29, R28
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 SameValue
+        CFI R17 SameValue
+        CFI R18 SameValue
+        CFI R19 SameValue
+        CFI R20 SameValue
+        CFI R21 SameValue
+        CFI R22 SameValue
+        CFI R23 SameValue
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 SameValue
+        CFI R31 SameValue
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign 1
+        CFI ReturnAddress ?Ret CODE
+        CFI CFA_Y Y+0
+        CFI CFA_SP SP+2
+        CFI ?RetPad 0
+        CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+        CFI ?RetLow Frame(CFA_SP, 0)
+        CFI ?Ret Concat
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 SameValue
+        CFI R13 SameValue
+        CFI R14 SameValue
+        CFI R15 SameValue
+        CFI R16 Undefined
+        CFI R17 Undefined
+        CFI R18 Undefined
+        CFI R19 Undefined
+        CFI R20 Undefined
+        CFI R21 Undefined
+        CFI R22 Undefined
+        CFI R23 Undefined
+        CFI R24 SameValue
+        CFI R25 SameValue
+        CFI R26 SameValue
+        CFI R27 SameValue
+        CFI R28 Undefined
+        CFI R29 Undefined
+        CFI R30 Undefined
+        CFI R31 Undefined
+        CFI ?RetHighByteMask SameValue
+        CFI SPH Undefined
+        CFI SPL Undefined
+        CFI EndCommon cfiCommon1
+        
+timer0_ovf_ser      SYMBOL "timer0_ovf_ser"
+`??timer0_ovf_ser??INTVEC 72` SYMBOL "??INTVEC 72", timer0_ovf_ser
+timer1_ovf_ser      SYMBOL "timer1_ovf_ser"
+`??timer1_ovf_ser??INTVEC 60` SYMBOL "??INTVEC 60", timer1_ovf_ser
+timer2_ovf_ser      SYMBOL "timer2_ovf_ser"
+`??timer2_ovf_ser??INTVEC 44` SYMBOL "??INTVEC 44", timer2_ovf_ser
+
+        EXTERN led_blinking_disable
+        FUNCTION led_blinking_disable,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN PnL_ad_end
+        FUNCTION PnL_ad_end,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN PnL_NONE_end
+        FUNCTION PnL_NONE_end,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN DLL
+        EXTERN M2_timer_count
+        EXTERN PIR_detection_en
+        EXTERN SCS_received
+        EXTERN Sensor_mode
+        EXTERN Time_delay
+        EXTERN US_detection_en
+        EXTERN g_temp
+        EXTERN g_timer2_flag
+        EXTERN modality0_delay_ms
+        EXTERN motion_total
+        EXTERN state
+
+// D:\avr\LM_Finial_Test\board.c
+//    1 #include <ioavr.h>
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0b2H
+// <__C55> volatile __io _A_TCNT2
+_A_TCNT2:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,08aH
+// <__C65> volatile __io _A_OCR1B
+_A_OCR1B:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,088H
+// <__C69> volatile __io _A_OCR1A
+_A_OCR1A:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,086H
+// <__C73> volatile __io _A_ICR1
+_A_ICR1:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,084H
+// <__C77> volatile __io _A_TCNT1
+_A_TCNT1:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,081H
+// <__C83> volatile __io _A_TCCR1B
+_A_TCCR1B:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,080H
+// <__C86> volatile __io _A_TCCR1A
+_A_TCCR1A:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,07eH
+// <__C92> volatile __io _A_DIDR0
+_A_DIDR0:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,07cH
+// <__C95> volatile __io _A_ADMUX
+_A_ADMUX:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,07aH
+// <__C101> volatile __io _A_ADCSRA
+_A_ADCSRA:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,078H
+// <__C105> volatile __io _A_ADC
+_A_ADC:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,064H
+// <__C137> volatile __io _A_PRR
+_A_PRR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,060H
+// <__C143> volatile __io _A_WDTCSR
+_A_WDTCSR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,054H
+// <__C161> volatile __io _A_MCUSR
+_A_MCUSR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,046H
+// <__C187> volatile __io _A_TCNT0
+_A_TCNT0:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,02bH
+// <__C228> volatile __io _A_PORTD
+_A_PORTD:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,02aH
+// <__C231> volatile __io _A_DDRD
+_A_DDRD:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// <__C237> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,027H
+// <__C240> volatile __io _A_DDRC
+_A_DDRC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// <__C246> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,024H
+// <__C249> volatile __io _A_DDRB
+_A_DDRB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,023H
+// <__C252> volatile __io _A_PINB
+_A_PINB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+// <__C255> volatile __io _A_PORTA
+_A_PORTA:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+// <__C258> volatile __io _A_DDRA
+_A_DDRA:
+        DS8 1
+//    2 #include "board.h"
+//    3 #include <inavr.h>
+//    4 #include "global_variable.h"
+//    5 #include "moudle_SCS.h"
+//    6 #include "application.h"
+//    7 
+//    8 #pragma vector=TIMER0_OVF_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+//    9 __interrupt void timer0_ovf_ser(void)       			// 100us alan
+timer0_ovf_ser:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function timer0_ovf_ser
+//   10 {
+        FUNCALL timer0_ovf_ser, led_blinking_disable
+        LOCFRAME CSTACK, 19, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL timer0_ovf_ser, PnL_ad_end
+        LOCFRAME CSTACK, 19, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL timer0_ovf_ser, PnL_NONE_end
+        LOCFRAME CSTACK, 19, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R4
+        CFI R4 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R27
+        CFI R27 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        ST      -Y, R26
+        CFI R26 Frame(CFA_Y, -3)
+        CFI CFA_Y Y+3
+        ST      -Y, R25
+        CFI R25 Frame(CFA_Y, -4)
+        CFI CFA_Y Y+4
+        ST      -Y, R24
+        CFI R24 Frame(CFA_Y, -5)
+        CFI CFA_Y Y+5
+        ST      -Y, R31
+        CFI R31 Frame(CFA_Y, -6)
+        CFI CFA_Y Y+6
+        ST      -Y, R30
+        CFI R30 Frame(CFA_Y, -7)
+        CFI CFA_Y Y+7
+        ST      -Y, R3
+        CFI R3 Frame(CFA_Y, -8)
+        CFI CFA_Y Y+8
+        ST      -Y, R2
+        CFI R2 Frame(CFA_Y, -9)
+        CFI CFA_Y Y+9
+        ST      -Y, R1
+        CFI R1 Frame(CFA_Y, -10)
+        CFI CFA_Y Y+10
+        ST      -Y, R0
+        CFI R0 Frame(CFA_Y, -11)
+        CFI CFA_Y Y+11
+        ST      -Y, R23
+        CFI R23 Frame(CFA_Y, -12)
+        CFI CFA_Y Y+12
+        ST      -Y, R22
+        CFI R22 Frame(CFA_Y, -13)
+        CFI CFA_Y Y+13
+        ST      -Y, R21
+        CFI R21 Frame(CFA_Y, -14)
+        CFI CFA_Y Y+14
+        ST      -Y, R20
+        CFI R20 Frame(CFA_Y, -15)
+        CFI CFA_Y Y+15
+        ST      -Y, R19
+        CFI R19 Frame(CFA_Y, -16)
+        CFI CFA_Y Y+16
+        ST      -Y, R18
+        CFI R18 Frame(CFA_Y, -17)
+        CFI CFA_Y Y+17
+        ST      -Y, R17
+        CFI R17 Frame(CFA_Y, -18)
+        CFI CFA_Y Y+18
+        ST      -Y, R16
+        CFI R16 Frame(CFA_Y, -19)
+        CFI CFA_Y Y+19
+        IN      R4, 0x3F
+        REQUIRE ?Register_R4_is_cg_reg
+//   11 	TCNT0 = 0x8D;			//1ms
+        LDI     R16, 141
+        OUT     0x26, R16
+//   12 
+//   13 	if(Time_delay.timer_20s.enabled == 1)
+        LDI     R26, LOW(Time_delay)
+        LDI     R27, (Time_delay) >> 8
+        LDS     R16, (Time_delay + 92)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_0
+//   14 	{
+//   15 		if(++Time_delay.timer_20s.count >= SEC_20)
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        LDD     R16, Z+22
+        LDD     R17, Z+23
+        LDD     R18, Z+24
+        LDD     R19, Z+25
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        STD     Z+22, R16
+        STD     Z+23, R17
+        STD     Z+24, R18
+        STD     Z+25, R19
+        CPI     R16, 208
+        LDI     R20, 7
+        CPC     R17, R20
+        LDI     R20, 0
+        CPC     R18, R20
+        CPC     R19, R20
+        BRCS    ??timer0_ovf_ser_0
+//   16 		{
+//   17 			Time_delay.timer_20s.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 91), R16
+//   18 			Time_delay.timer_20s.enabled = 0;
+        STS     (Time_delay + 92), R20
+//   19 		}
+//   20 	}
+//   21 
+//   22 	if(Time_delay.modality0.enabled == 1)
+??timer0_ovf_ser_0:
+        LDS     R16, (Time_delay + 103)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_1
+//   23 	{
+//   24 		if(++Time_delay.modality0.count >= modality0_delay_ms)
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        LDD     R16, Z+33
+        LDD     R17, Z+34
+        LDD     R18, Z+35
+        LDD     R19, Z+36
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        STD     Z+33, R16
+        STD     Z+34, R17
+        STD     Z+35, R18
+        STD     Z+36, R19
+        LDI     R30, LOW(modality0_delay_ms)
+        LDI     R31, (modality0_delay_ms) >> 8
+        LD      R20, Z
+        LDD     R21, Z+1
+        LDD     R22, Z+2
+        LDD     R23, Z+3
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_1
+//   25 		{
+//   26 			Time_delay.modality0.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 102), R16
+//   27 			Time_delay.modality0.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 103), R16
+//   28 		}
+//   29 	}
+//   30 
+//   31 	if(Time_delay.motion.enabled == 1)
+??timer0_ovf_ser_1:
+        LDS     R16, (Time_delay + 70)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_2
+//   32 	{
+//   33 		if(++Time_delay.motion.count >= 400)
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+        CPI     R16, 144
+        LDI     R20, 1
+        CPC     R17, R20
+        LDI     R20, 0
+        CPC     R18, R20
+        CPC     R19, R20
+        BRCS    ??timer0_ovf_ser_2
+//   34 		{
+//   35 			//US_detection_en = 0;
+//   36 			//PIR_detection_en = 0;     // add by alan 20090413
+//   37 			// 以上针对PIR&US情况，在1s内US和PIR有探测才认为是有效，超过1S，不认为是同时探测到信号
+//   38 			 //DLED_OFF;
+//   39 			motion_total = 0;
+        STS     motion_total, R20
+        STS     (motion_total + 1), R20
+//   40       //motion_resutl = 0;
+//   41 			Time_delay.motion.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 69), R16
+//   42 			Time_delay.motion.count = 0;
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        ST      Z, R20
+        STD     Z+1, R20
+        STD     Z+2, R20
+        STD     Z+3, R20
+//   43 			//Time_delay.timer_1s.enabled = 0;
+//   44 		}
+//   45 	}
+//   46 
+//   47 	if(Time_delay.LPB.enabled == 1)
+??timer0_ovf_ser_2:
+        LDS     R16, (Time_delay + 125)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_3
+//   48 	{
+//   49 		Time_delay.LPB.count++;
+        LDI     R30, ((Time_delay + 116) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 116) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   50 	}
+//   51   /*
+//   52 	if(Time_delay.led_double_on.enabled)
+//   53 	{
+//   54 		if((++Time_delay.led_double_on.count >= Time_delay.led_double_on.stack_top + Time_delay.led_double_off.stack_top) && (flags.led_on_double == 0))
+//   55 		{
+//   56 		  LLED_ON;
+//   57 			DLED_ON;
+//   58 			Time_delay.led_double_on.count = 0;
+//   59 			flags.led_on_double = 1;
+//   60 		}
+//   61 		else if(++Time_delay.led_double_on.count >= Time_delay.led_double_on.stack_top)
+//   62 		{
+//   63 			LLED_OFF;
+//   64 			DLED_OFF;
+//   65 			flags.led_on_double = 0;
+//   66 		}
+//   67 	}
+//   68 	*/
+//   69 	
+//   70 	if(Time_delay.led_on.enabled == 1)
+??timer0_ovf_ser_3:
+        LDS     R16, (Time_delay + 136)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_4
+//   71 	{
+//   72 		LLED_ON;
+        CBI     0x0B, 0x06
+//   73 		Time_delay.led_on.count++;
+        LDI     R30, ((Time_delay + 127) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 127) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   74 		if(Time_delay.led_on.count >= Time_delay.led_on.stack_top)
+        LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+2
+        LDD     R17, Z+3
+        LDD     R18, Z+4
+        LDD     R19, Z+5
+        LDD     R20, Z+6
+        LDD     R21, Z+7
+        LDD     R22, Z+8
+        LDD     R23, Z+9
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_4
+//   75 		{
+//   76 			Time_delay.led_on.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 135), R16
+//   77 			Time_delay.led_on.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 136), R16
+//   78 			Time_delay.led_off.enabled = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 147), R16
+//   79 			Time_delay.led_off.count = 0;
+        LDI     R16, 0
+        STD     Z+13, R16
+        STD     Z+14, R16
+        STD     Z+15, R16
+        STD     Z+16, R16
+//   80 		}
+//   81 	}
+//   82 	
+//   83 	if(Time_delay.led_off.enabled == 1)
+??timer0_ovf_ser_4:
+        LDS     R16, (Time_delay + 147)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_5
+//   84 	{
+//   85 		LLED_OFF;
+        SBI     0x0B, 0x06
+//   86 		Time_delay.led_off.count++;
+        LDI     R30, ((Time_delay + 138) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 138) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   87 		if(Time_delay.led_off.count >= Time_delay.led_off.stack_top)
+        LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+13
+        LDD     R17, Z+14
+        LDD     R18, Z+15
+        LDD     R19, Z+16
+        LDD     R20, Z+17
+        LDD     R21, Z+18
+        LDD     R22, Z+19
+        LDD     R23, Z+20
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_5
+//   88 		{
+//   89 			Time_delay.led_off.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 146), R16
+//   90 			Time_delay.led_off.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 147), R16
+//   91 			Time_delay.led_on.enabled = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 136), R16
+//   92 			Time_delay.led_on.count = 0;
+        LDI     R16, 0
+        STD     Z+2, R16
+        STD     Z+3, R16
+        STD     Z+4, R16
+        STD     Z+5, R16
+//   93 		}
+//   94 	}
+//   95 
+//   96 	if(Time_delay.blinking_count.enabled == 1)
+??timer0_ovf_ser_5:
+        LDS     R16, (Time_delay + 191)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_6
+//   97 	{
+//   98 		Time_delay.blinking_count.count++;
+        LDI     R30, ((Time_delay + 182) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 182) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   99 		if(Time_delay.blinking_count.count >= Time_delay.blinking_count.stack_top)
+        LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+57
+        LDD     R17, Z+58
+        LDD     R18, Z+59
+        LDD     R19, Z+60
+        LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+        LD      R20, Z
+        LDD     R21, Z+1
+        LDD     R22, Z+2
+        LDD     R23, Z+3
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_6
+//  100 		{
+//  101 			Time_delay.blinking_count.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 190), R16
+//  102 			Time_delay.blinking_count.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 191), R16
+//  103 			led_blinking_disable(0);
+        CALL    led_blinking_disable
+//  104 		}
+//  105 	}
+//  106 	
+//  107 	if(Time_delay.Dled.enabled == 1)
+??timer0_ovf_ser_6:
+        LDS     R16, (Time_delay + 224)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_7
+//  108 	{
+//  109 		Time_delay.Dled.count++;
+        LDI     R30, ((Time_delay + 215) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 215) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  110 		if(Time_delay.Dled.count >= Time_delay.Dled.stack_top)
+        LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+29
+        LDD     R17, Z+30
+        LDD     R18, Z+31
+        LDD     R19, Z+32
+        LDD     R20, Z+33
+        LDD     R21, Z+34
+        LDD     R22, Z+35
+        LDD     R23, Z+36
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_7
+//  111 		{
+//  112 			Time_delay.Dled.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 223), R16
+//  113 			Time_delay.Dled.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 224), R16
+//  114 			DLED_OFF;
+        SBI     0x08, 0x06
+//  115 		}
+//  116 	}
+//  117 	
+//  118 	if(Time_delay.IR.enabled == 1)
+??timer0_ovf_ser_7:
+        LDS     R16, (Time_delay + 235)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_8
+//  119 	{
+//  120 		if(++Time_delay.IR.count >= Time_delay.IR.stack_top)
+        LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+40
+        LDD     R17, Z+41
+        LDD     R18, Z+42
+        LDD     R19, Z+43
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+40, R16
+        STD     Z+41, R17
+        STD     Z+42, R18
+        STD     Z+43, R19
+        LDD     R20, Z+44
+        LDD     R21, Z+45
+        LDD     R22, Z+46
+        LDD     R23, Z+47
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_8
+//  121 		{
+//  122 			Time_delay.IR.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 234), R16
+//  123 			Time_delay.IR.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 235), R16
+//  124 		}
+//  125 	}
+//  126 	
+//  127 	if(Time_delay.timer_flex.enabled == 1)
+??timer0_ovf_ser_8:
+        LDS     R16, (Time_delay + 158)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_9
+//  128 	{
+//  129 		if(++Time_delay.timer_flex.count >= Time_delay.timer_flex.stack_top)
+        LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+24
+        LDD     R17, Z+25
+        LDD     R18, Z+26
+        LDD     R19, Z+27
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+24, R16
+        STD     Z+25, R17
+        STD     Z+26, R18
+        STD     Z+27, R19
+        LDD     R20, Z+28
+        LDD     R21, Z+29
+        LDD     R22, Z+30
+        LDD     R23, Z+31
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_9
+//  130 		{
+//  131 			Time_delay.timer_flex.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 157), R16
+//  132 			Time_delay.timer_flex.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 158), R16
+//  133 		}
+//  134 	}
+//  135 
+//  136 	if(Time_delay.timer_flex2.enabled == 1)
+??timer0_ovf_ser_9:
+        LDS     R16, (Time_delay + 213)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_10
+//  137 	{
+//  138 		if(++Time_delay.timer_flex2.count >= Time_delay.timer_flex2.stack_top)
+        LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+18
+        LDD     R17, Z+19
+        LDD     R18, Z+20
+        LDD     R19, Z+21
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+18, R16
+        STD     Z+19, R17
+        STD     Z+20, R18
+        STD     Z+21, R19
+        LDD     R20, Z+22
+        LDD     R21, Z+23
+        LDD     R22, Z+24
+        LDD     R23, Z+25
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_10
+//  139 		{
+//  140 			Time_delay.timer_flex2.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 212), R16
+//  141 			Time_delay.timer_flex2.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 213), R16
+//  142 		}
+//  143 	}
+//  144 	
+//  145 	if(Time_delay.dimmer.enabled == 1)
+??timer0_ovf_ser_10:
+        LDS     R16, (Time_delay + 268)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_11
+//  146 	{
+//  147 		if(++Time_delay.dimmer.count >= Time_delay.dimmer.stack_top)
+        LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+        LDD     R20, Z+4
+        LDD     R21, Z+5
+        LDD     R22, Z+6
+        LDD     R23, Z+7
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_11
+//  148 		{
+//  149 			Time_delay.dimmer.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 267), R16
+//  150 			Time_delay.dimmer.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 268), R16
+//  151 		}
+//  152 	}
+//  153 	
+//  154 	if(Time_delay.relay.enabled == 1)
+??timer0_ovf_ser_11:
+        LDS     R16, (Time_delay + 301)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_12
+//  155 	{
+//  156 		if(++Time_delay.relay.count >= Time_delay.relay.stack_top)
+        LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+33
+        LDD     R17, Z+34
+        LDD     R18, Z+35
+        LDD     R19, Z+36
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+33, R16
+        STD     Z+34, R17
+        STD     Z+35, R18
+        STD     Z+36, R19
+        LDD     R20, Z+37
+        LDD     R21, Z+38
+        LDD     R22, Z+39
+        LDD     R23, Z+40
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_12
+//  157 		{
+//  158 			Time_delay.relay.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 300), R16
+//  159 			Time_delay.relay.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 301), R16
+//  160 		}
+//  161 	}
+//  162 	
+//  163 	if(Time_delay.pnl_stage2.enabled == 1)
+??timer0_ovf_ser_12:
+        LDS     R16, (Time_delay + 202)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_13
+//  164 	{
+//  165 		if(++Time_delay.pnl_stage2.count >= Time_delay.pnl_stage2.stack_top)
+        LDI     R30, ((Time_delay + 186) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 186) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+7
+        LDD     R17, Z+8
+        LDD     R18, Z+9
+        LDD     R19, Z+10
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+7, R16
+        STD     Z+8, R17
+        STD     Z+9, R18
+        STD     Z+10, R19
+        LDD     R20, Z+11
+        LDD     R21, Z+12
+        LDD     R22, Z+13
+        LDD     R23, Z+14
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_13
+//  166 		{
+//  167 			Time_delay.pnl_stage2.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 201), R16
+//  168 			Time_delay.pnl_stage2.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 202), R16
+//  169 			if(state.main_state >= PNL_AD_CONFED_STEP2 && state.main_state <= PNL_AD_CONFED_STEP90)
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 8
+        LDI     R18, 144
+        CPC     R17, R18
+        BRCS    ??timer0_ovf_ser_14
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 18
+        CPC     R17, R18
+        BRCC    ??timer0_ovf_ser_14
+//  170 			{
+//  171 				PnL_ad_end();
+        CALL    PnL_ad_end
+        RJMP    ??timer0_ovf_ser_13
+//  172 			}
+//  173 			else if(state.main_state > PNL_NONE_CONFED_STEP2 && state.main_state <= PNL_NONE_CONFED_STEP6)
+??timer0_ovf_ser_14:
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 3
+        CPC     R17, R18
+        BRCS    ??timer0_ovf_ser_13
+        LDS     R16, (state + 2)
+        LDS     R17, (state + 3)
+        CPI     R16, 7
+        CPC     R17, R18
+        BRCC    ??timer0_ovf_ser_13
+//  174 			{
+//  175 				PnL_NONE_end();
+        CALL    PnL_NONE_end
+//  176 			}
+//  177 		}
+//  178 	}
+//  179 		
+//  180   if(Time_delay.buzzer.enabled == 1)
+??timer0_ovf_ser_13:
+        LDS     R16, (Time_delay + 180)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_15
+//  181 	{
+//  182 		//not_bit(&PORTD,7);
+//  183 		if(++Time_delay.buzzer.count >= Time_delay.buzzer.stack_top)
+        LDI     R30, ((Time_delay + 125) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 125) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+46
+        LDD     R17, Z+47
+        LDD     R18, Z+48
+        LDD     R19, Z+49
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+46, R16
+        STD     Z+47, R17
+        STD     Z+48, R18
+        STD     Z+49, R19
+        LDD     R20, Z+50
+        LDD     R21, Z+51
+        LDD     R22, Z+52
+        LDD     R23, Z+53
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_15
+//  184 		{
+//  185       //TCCR1B = (0<<CS12)|(0<<CS11)|(0<<CS10);	// CLOCK = 0	
+//  186 		  //OCR1B = 0;
+//  187 			Time_delay.buzzer.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 179), R16
+//  188 			Time_delay.buzzer.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 180), R16
+//  189 			//SetBit(PORTD,7);
+//  190 		}
+//  191 	}
+//  192 
+//  193 	//Reyno 20091125
+//  194 	/*
+//  195   if(Time_delay.led_blink.enabled == 1)
+//  196 	{
+//  197 		if(++Time_delay.led_blink.count >= Time_delay.led_blink.stack_top)
+//  198 		{
+//  199 			Time_delay.led_blink.count = 0;
+//  200 			if((state.main_state == STATE_NORMAL || state.main_state ==STATE_PRE_PROGRAMMING) && state.pnl_slave == NORMAL)
+//  201 			{
+//  202       	if(product_information.conf_type == NONE_CONFED)
+//  203       	{
+//  204           flags.confed = 0;
+//  205           for(unsigned char i = 0;i<16;i++)
+//  206           {
+//  207             if(ee_scenario[i].confed)
+//  208             {
+//  209               flags.confed = 1;
+//  210               break;
+//  211             }
+//  212           }
+//  213 
+//  214           if(flags.confed == 0)
+//  215             led_blinking(120,120);
+//  216 					else
+//  217 						led_blinking_disable(0);
+//  218       	}
+//  219 				else
+//  220 				{
+//  221 					led_blinking_disable(0);
+//  222 				}
+//  223 			}
+//  224 		}
+//  225 	}
+//  226 	*/ 
+//  227 
+//  228 	//reyno 0622
+//  229 	if(Time_delay.regulation.enabled == 1)
+??timer0_ovf_ser_15:
+        LDS     R16, (Time_delay + 279)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_16
+//  230 	{
+//  231 		if(++Time_delay.regulation.count >= Time_delay.regulation.stack_top)
+        LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+11
+        LDD     R17, Z+12
+        LDD     R18, Z+13
+        LDD     R19, Z+14
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+11, R16
+        STD     Z+12, R17
+        STD     Z+13, R18
+        STD     Z+14, R19
+        LDD     R20, Z+15
+        LDD     R21, Z+16
+        LDD     R22, Z+17
+        LDD     R23, Z+18
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_16
+//  232 		{
+//  233 			Time_delay.regulation.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 278), R16
+//  234 			Time_delay.regulation.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 279), R16
+//  235 		}
+//  236 	}
+//  237 	
+//  238 	if(Time_delay.sample_interval.enabled == 1)
+??timer0_ovf_ser_16:
+        LDS     R16, (Time_delay + 312)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_17
+//  239 	{
+//  240 		if(++Time_delay.sample_interval.count >= Time_delay.sample_interval.stack_top)
+        LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+44
+        LDD     R17, Z+45
+        LDD     R18, Z+46
+        LDD     R19, Z+47
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+44, R16
+        STD     Z+45, R17
+        STD     Z+46, R18
+        STD     Z+47, R19
+        LDD     R20, Z+48
+        LDD     R21, Z+49
+        LDD     R22, Z+50
+        LDD     R23, Z+51
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_17
+//  241 		{
+//  242 			Time_delay.sample_interval.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 311), R16
+//  243 			Time_delay.sample_interval.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 312), R16
+//  244 		}
+//  245 	}
+//  246 	
+//  247 	if(Time_delay.timer_5m.enabled == 1)
+??timer0_ovf_ser_17:
+        LDS     R16, (Time_delay + 81)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_18
+//  248 	{
+//  249 		if(++Time_delay.timer_5m.count >= Time_delay.timer_5m.stack_top)
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        LDD     R16, Z+11
+        LDD     R17, Z+12
+        LDD     R18, Z+13
+        LDD     R19, Z+14
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        STD     Z+11, R16
+        STD     Z+12, R17
+        STD     Z+13, R18
+        STD     Z+14, R19
+        MOVW    R31:R30, R27:R26
+        ADIW    R31:R30, 61
+        LDD     R20, Z+15
+        LDD     R21, Z+16
+        LDD     R22, Z+17
+        LDD     R23, Z+18
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_18
+//  250 		{
+//  251 			Time_delay.timer_5m.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 80), R16
+//  252 			Time_delay.timer_5m.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 81), R16
+//  253 		}
+//  254 	}
+//  255 		// *******************add by alan begin*************************************************************
+//  256 /******************	count the timer level Lower or Higher than the setpoint	***************/
+//  257 	
+//  258 	if(Time_delay.Dim_inc_enable == 1)			Time_delay.Dim_inc_count++;
+??timer0_ovf_ser_18:
+        MOVW    R31:R30, R27:R26
+        LDD     R16, Z+6
+        SBRS    R16, 4
+        RJMP    ??timer0_ovf_ser_19
+        LDD     R16, Z+13
+        LDD     R17, Z+14
+        SUBI    R16, 255
+        SBCI    R17, 255
+        STD     Z+13, R16
+        STD     Z+14, R17
+//  259 	
+//  260 	if(Time_delay.Dim_dec_enable == 1)			Time_delay.Dim_dec_count++;
+??timer0_ovf_ser_19:
+        LDD     R16, Z+6
+        SBRS    R16, 5
+        RJMP    ??timer0_ovf_ser_20
+        LDD     R16, Z+15
+        LDD     R17, Z+16
+        SUBI    R16, 255
+        SBCI    R17, 255
+        STD     Z+15, R16
+        STD     Z+16, R17
+//  261 	
+//  262 	if(Time_delay.detect_waitting > 0)							// disable the motion detection 2s after send "OFF" 	0527
+??timer0_ovf_ser_20:
+        LDD     R16, Z+11
+        LDD     R17, Z+12
+        OR      R16, R17
+        BREQ    ??timer0_ovf_ser_21
+//  263 	{
+//  264 			Time_delay.detect_waitting--;
+        LDD     R16, Z+11
+        LDD     R17, Z+12
+        SUBI    R16, 1
+        SBCI    R17, 0
+        STD     Z+11, R16
+        STD     Z+12, R17
+//  265 			motion_total = 0;
+        LDI     R16, 0
+        STS     motion_total, R16
+        STS     (motion_total + 1), R16
+//  266       US_detection_en = 0;
+        STS     US_detection_en, R16
+//  267       PIR_detection_en = 0;
+        STS     PIR_detection_en, R16
+//  268       SCS_received.motion_detect = 0;
+        LDI     R30, LOW(SCS_received)
+        LDI     R31, (SCS_received) >> 8
+        LDD     R16, Z+2
+        ANDI    R16, 0xBF
+        STD     Z+2, R16
+//  269 	}
+//  270 	
+//  271 /*********************		delay 5s for end detection		************************/
+//  272    if(DLL.Dim_T06s > 0)            		DLL.Dim_T06s--;         		//  send frame DIM--
+??timer0_ovf_ser_21:
+        LDS     R16, (DLL + 42)
+        LDS     R17, (DLL + 43)
+        OR      R16, R17
+        BREQ    ??timer0_ovf_ser_22
+        LDI     R30, LOW(DLL)
+        LDI     R31, (DLL) >> 8
+        LDD     R16, Z+42
+        LDD     R17, Z+43
+        SUBI    R16, 1
+        SBCI    R17, 0
+        STD     Z+42, R16
+        STD     Z+43, R17
+//  273    if(DLL.Dim_T200ms > 0)         		DLL.Dim_T200ms--;       		//  send frame DIM++
+??timer0_ovf_ser_22:
+        LDS     R16, (DLL + 41)
+        TST     R16
+        BREQ    ??timer0_ovf_ser_23
+        LDS     R16, (DLL + 41)
+        DEC     R16
+        STS     (DLL + 41), R16
+//  274 /**********************	delay 200ms for frame presence and ON	*************************/	
+//  275 	if(Time_delay.frame_200ms.enabled == 1)							// 用于计算两个帧之间的间隔是否小于200ms
+??timer0_ovf_ser_23:
+        LDS     R16, (Time_delay + 57)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_24
+//  276 	{	
+//  277 		if(++Time_delay.frame_200ms.count >= 300)
+        MOVW    R31:R30, R27:R26
+        LDD     R16, Z+48
+        LDD     R17, Z+49
+        LDD     R18, Z+50
+        LDD     R19, Z+51
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+48, R16
+        STD     Z+49, R17
+        STD     Z+50, R18
+        STD     Z+51, R19
+        CPI     R16, 44
+        LDI     R20, 1
+        CPC     R17, R20
+        LDI     R20, 0
+        CPC     R18, R20
+        CPC     R19, R20
+        BRCS    ??timer0_ovf_ser_24
+//  278 		{
+//  279 			Time_delay.frame_200ms.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 56), R16
+//  280 			Time_delay.frame_200ms.enabled = 0;
+        STS     (Time_delay + 57), R20
+//  281 			Time_delay.frame_200ms.started = 0;
+        STS     (Time_delay + 58), R20
+//  282 			SCS_received.presence_2_ON = 0;									// 时间间隔超过200ms认为收到单个的ON帧	
+        LDI     R30, LOW(SCS_received)
+        LDI     R31, (SCS_received) >> 8
+        LDD     R16, Z+1
+        ANDI    R16, 0xBF
+        STD     Z+1, R16
+//  283 		}	
+//  284 	}	
+//  285 /*********************	delay for frame send taking line		************************/
+//  286 	if(Time_delay.timer_takeline.enabled == 1)
+??timer0_ovf_ser_24:
+        LDS     R16, (Time_delay + 46)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_25
+//  287 	{
+//  288 		if(++Time_delay.timer_takeline.count >= Time_delay.random_time)
+        MOVW    R31:R30, R27:R26
+        LDD     R16, Z+37
+        LDD     R17, Z+38
+        LDD     R18, Z+39
+        LDD     R19, Z+40
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+37, R16
+        STD     Z+38, R17
+        STD     Z+39, R18
+        STD     Z+40, R19
+        LDD     R20, Z+4
+        LDD     R21, Z+5
+        LDI     R22, 0
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R22
+        BRCS    ??timer0_ovf_ser_25
+//  289 		{
+//  290 			Time_delay.timer_takeline.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 45), R16
+//  291 			Time_delay.timer_takeline.enabled = 0;
+        STS     (Time_delay + 46), R22
+//  292 		//	Time_delay.timer_takeline.started = 0;
+//  293 		}
+//  294 	}
+//  295 
+//  296 	if(Time_delay.GS_200ms.enabled == 1)
+??timer0_ovf_ser_25:
+        LDS     R16, (Time_delay + 290)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_26
+//  297 	{
+//  298 		if(++Time_delay.GS_200ms.count >= Time_delay.GS_200ms.stack_top)
+        LDI     R30, ((Time_delay + 3) & 0xff) & 0xFF
+        LDI     R31, (((Time_delay + 259) >> 8) & 0xff) & 0xFF
+        LDD     R16, Z+22
+        LDD     R17, Z+23
+        LDD     R18, Z+24
+        LDD     R19, Z+25
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+22, R16
+        STD     Z+23, R17
+        STD     Z+24, R18
+        STD     Z+25, R19
+        LDD     R20, Z+26
+        LDD     R21, Z+27
+        LDD     R22, Z+28
+        LDD     R23, Z+29
+        CP      R16, R20
+        CPC     R17, R21
+        CPC     R18, R22
+        CPC     R19, R23
+        BRCS    ??timer0_ovf_ser_26
+//  299 		{
+//  300 			Time_delay.GS_200ms.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 289), R16
+//  301 			Time_delay.GS_200ms.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 290), R16
+//  302 		}
+//  303 	}
+//  304 	
+//  305 	if((Sensor_mode.presence_send ==1)&&(Sensor_mode.presence_20sinterval > 0))
+??timer0_ovf_ser_26:
+        LDI     R30, LOW(Sensor_mode)
+        LDI     R31, (Sensor_mode) >> 8
+        LDD     R16, Z+5
+        SBRS    R16, 2
+        RJMP    ??timer0_ovf_ser_27
+        LDS     R16, (Sensor_mode + 3)
+        LDS     R17, (Sensor_mode + 4)
+        OR      R16, R17
+        BREQ    ??timer0_ovf_ser_27
+//  306 	{
+//  307 		Sensor_mode.presen_timeout = 0;
+        LDD     R16, Z+5
+        ANDI    R16, 0xF7
+        STD     Z+5, R16
+//  308 		if(--Sensor_mode.presence_20sinterval == 0)
+        LDD     R16, Z+3
+        LDD     R17, Z+4
+        SUBI    R16, 1
+        SBCI    R17, 0
+        STD     Z+3, R16
+        STD     Z+4, R17
+        LDS     R16, (Sensor_mode + 3)
+        LDS     R17, (Sensor_mode + 4)
+        OR      R16, R17
+        BRNE    ??timer0_ovf_ser_27
+//  309 		{
+//  310 			Sensor_mode.presence_send = 0;
+//  311 			Sensor_mode.presen_timeout = 1;
+        LDS     R16, (Sensor_mode + 5)
+        ANDI    R16, 0xFB
+        ORI     R16, 0x08
+        STS     (Sensor_mode + 5), R16
+//  312 		}
+//  313 	}
+//  314 	
+//  315 /**********************	delay for the load_timeout set by user Seconds	******************/	
+//  316 	if(++Time_delay.second_OK >= 1000 )	// 1 second
+??timer0_ovf_ser_27:
+        MOVW    R31:R30, R27:R26
+        LDD     R24, Z+59
+        LDD     R25, Z+60
+        ADIW    R25:R24, 1
+        STD     Z+59, R24
+        STD     Z+60, R25
+        CPI     R24, 232
+        LDI     R16, 3
+        CPC     R25, R16
+        BRCC    $+2+2
+        RJMP    ??timer0_ovf_ser_28
+//  317 	{
+//  318 		Time_delay.second_OK = 0;
+        LDI     R16, 0
+        LDI     R17, 0
+        STD     Z+59, R16
+        STD     Z+60, R16
+//  319 		if(Time_delay.GS_wait_22s > 0)		Time_delay.GS_wait_22s--;		//  0716
+        LDS     R16, (Time_delay + 10)
+        TST     R16
+        BREQ    ??timer0_ovf_ser_29
+        LDD     R16, Z+10
+        DEC     R16
+        STD     Z+10, R16
+//  320 
+//  321 		if(Time_delay.pir_warmup_ok == 0)
+??timer0_ovf_ser_29:
+        LDD     R16, Z+7
+        SBRC    R16, 0
+        RJMP    ??timer0_ovf_ser_30
+//  322 		{
+//  323 	  		if(++Time_delay.pir_wait_40s >= 5)		// 10s should change to 40s
+        LDD     R24, Z+8
+        LDD     R25, Z+9
+        ADIW    R25:R24, 1
+        STD     Z+8, R24
+        STD     Z+9, R25
+        CPI     R24, 5
+        CPC     R25, R17
+        BRCS    ??timer0_ovf_ser_30
+//  324 				{
+//  325 					Time_delay.pir_warmup_ok = 1;
+        LDD     R16, Z+7
+        ORI     R16, 0x01
+        STD     Z+7, R16
+//  326 				}
+//  327 		}
+//  328 		
+//  329 		if(Time_delay.timer_delay_set.enabled == 1)
+??timer0_ovf_ser_30:
+        LDS     R16, (Time_delay + 35)
+        CPI     R16, 1
+        BRNE    ??timer0_ovf_ser_31
+//  330 		{
+//  331 			if(--Time_delay.timer_delay_set.count == 0)
+        LDD     R16, Z+26
+        LDD     R17, Z+27
+        LDD     R18, Z+28
+        LDD     R19, Z+29
+        SUBI    R16, 1
+        SBCI    R17, 0
+        SBCI    R18, 0
+        SBCI    R19, 0
+        STD     Z+26, R16
+        STD     Z+27, R17
+        STD     Z+28, R18
+        STD     Z+29, R19
+        OR      R16, R17
+        OR      R16, R18
+        OR      R16, R19
+        BRNE    ??timer0_ovf_ser_31
+//  332 			{
+//  333 				Time_delay.timer_delay_set.time_out = 1;
+        LDI     R16, 1
+        STS     (Time_delay + 34), R16
+//  334 				Time_delay.timer_delay_set.enabled = 0;
+        LDI     R16, 0
+        STS     (Time_delay + 35), R16
+//  335 			}
+//  336 		}
+//  337 			
+//  338 		if(Time_delay.Re_Trigger_senconds > 0)      Time_delay.Re_Trigger_senconds--;
+??timer0_ovf_ser_31:
+        LDS     R16, Time_delay
+        TST     R16
+        BREQ    ??timer0_ovf_ser_32
+        LD      R16, X
+        DEC     R16
+        ST      X, R16
+//  339 	
+//  340 		if(Time_delay.Walk_Through_Timeout > 0)     Time_delay.Walk_Through_Timeout--;
+??timer0_ovf_ser_32:
+        LDD     R16, Z+1
+        LDD     R17, Z+2
+        OR      R16, R17
+        BREQ    ??timer0_ovf_ser_33
+        LDD     R16, Z+1
+        LDD     R17, Z+2
+        SUBI    R16, 1
+        SBCI    R17, 0
+        STD     Z+1, R16
+        STD     Z+2, R17
+//  341 	
+//  342 		if(Time_delay.DLL_low_20s_enable ==1)				Time_delay.DLL_low_20s_count++;
+??timer0_ovf_ser_33:
+        LDD     R16, Z+6
+        SBRS    R16, 6
+        RJMP    ??timer0_ovf_ser_34
+        LDD     R16, Z+17
+        LDD     R17, Z+18
+        SUBI    R16, 255
+        SBCI    R17, 255
+        STD     Z+17, R16
+        STD     Z+18, R17
+//  343 	
+//  344 		if(Time_delay.DLL_high_10min_enable ==1)		Time_delay.DLL_high_10min_count++;	
+??timer0_ovf_ser_34:
+        LDD     R16, Z+6
+        SBRS    R16, 7
+        RJMP    ??timer0_ovf_ser_35
+        LDD     R16, Z+19
+        LDD     R17, Z+20
+        LDD     R18, Z+21
+        LDD     R19, Z+22
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        STD     Z+19, R16
+        STD     Z+20, R17
+        STD     Z+21, R18
+        STD     Z+22, R19
+//  345 	
+//  346 		if(M2_timer_count > 0)          		M2_timer_count--;       				//  for modality 2
+??timer0_ovf_ser_35:
+        LDI     R30, LOW(M2_timer_count)
+        LDI     R31, (M2_timer_count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        OR      R16, R17
+        OR      R16, R18
+        OR      R16, R19
+        BREQ    ??timer0_ovf_ser_36
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 1
+        SBCI    R17, 0
+        SBCI    R18, 0
+        SBCI    R19, 0
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  347 
+//  348     if(DLL.lightness_load > 0)      		DLL.lightness_load--;					//  to calibrate the load provision
+??timer0_ovf_ser_36:
+        LDS     R16, (DLL + 44)
+        LDS     R17, (DLL + 45)
+        OR      R16, R17
+        BREQ    ??timer0_ovf_ser_28
+        LDI     R30, LOW(DLL)
+        LDI     R31, (DLL) >> 8
+        LDD     R16, Z+44
+        LDD     R17, Z+45
+        SUBI    R16, 1
+        SBCI    R17, 0
+        STD     Z+44, R16
+        STD     Z+45, R17
+//  349 	
+//  350 		//if(Sensor_mode.presence_5sinterval > 0)
+//  351 		//{
+//  352 		  	//Sensor_mode.presence_5sinterval--;	// presence frame interval 5s(now 20s)
+//  353 		//}
+//  354 	}
+//  355 // **************************add by alan end**********************************************	
+//  356 }
+??timer0_ovf_ser_28:
+        OUT     0x3F, R4
+        LD      R16, Y+
+        CFI R16 SameValue
+        CFI CFA_Y Y+18
+        LD      R17, Y+
+        CFI R17 SameValue
+        CFI CFA_Y Y+17
+        LD      R18, Y+
+        CFI R18 SameValue
+        CFI CFA_Y Y+16
+        LD      R19, Y+
+        CFI R19 SameValue
+        CFI CFA_Y Y+15
+        LD      R20, Y+
+        CFI R20 SameValue
+        CFI CFA_Y Y+14
+        LD      R21, Y+
+        CFI R21 SameValue
+        CFI CFA_Y Y+13
+        LD      R22, Y+
+        CFI R22 SameValue
+        CFI CFA_Y Y+12
+        LD      R23, Y+
+        CFI R23 SameValue
+        CFI CFA_Y Y+11
+        LD      R0, Y+
+        CFI R0 SameValue
+        CFI CFA_Y Y+10
+        LD      R1, Y+
+        CFI R1 SameValue
+        CFI CFA_Y Y+9
+        LD      R2, Y+
+        CFI R2 SameValue
+        CFI CFA_Y Y+8
+        LD      R3, Y+
+        CFI R3 SameValue
+        CFI CFA_Y Y+7
+        LD      R30, Y+
+        CFI R30 SameValue
+        CFI CFA_Y Y+6
+        LD      R31, Y+
+        CFI R31 SameValue
+        CFI CFA_Y Y+5
+        LD      R24, Y+
+        CFI R24 SameValue
+        CFI CFA_Y Y+4
+        LD      R25, Y+
+        CFI R25 SameValue
+        CFI CFA_Y Y+3
+        LD      R26, Y+
+        CFI R26 SameValue
+        CFI CFA_Y Y+2
+        LD      R27, Y+
+        CFI R27 SameValue
+        CFI CFA_Y Y+1
+        LD      R4, Y+
+        CFI R4 SameValue
+        CFI CFA_Y Y+0
+        RETI
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_TCNT0
+        REQUIRE _A_PORTD
+        REQUIRE _A_PORTC
+//  357 
+//  358 #pragma vector=TIMER2_OVF_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+//  359 __interrupt void timer2_ovf_ser(void)
+timer2_ovf_ser:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function timer2_ovf_ser
+//  360 {
+        ST      -Y, R17
+        CFI R17 Frame(CFA_Y, -1)
+        CFI CFA_Y Y+1
+        ST      -Y, R16
+        CFI R16 Frame(CFA_Y, -2)
+        CFI CFA_Y Y+2
+        IN      R17, 0x3F
+//  361 	//Time_delay.timer0_compa_flag = 1;
+//  362 	
+//  363 	g_timer2_flag =~ g_timer2_flag;
+        LDS     R16, g_timer2_flag
+        COM     R16
+        STS     g_timer2_flag, R16
+//  364 	if(g_timer2_flag)
+        LDS     R16, g_timer2_flag
+        TST     R16
+        BREQ    ??timer2_ovf_ser_0
+//  365 		SetBit(PORTB,3);
+        SBI     0x05, 0x03
+        RJMP    ??timer2_ovf_ser_1
+//  366 	else
+//  367 		ClrBit(PORTB,3);
+??timer2_ovf_ser_0:
+        CBI     0x05, 0x03
+//  368 	
+//  369 	//not_bit(&PORTB,0);
+//  370 	TCNT2 = 0xBF;
+??timer2_ovf_ser_1:
+        LDI     R16, 191
+        STS     _A_TCNT2, R16
+//  371 }
+        OUT     0x3F, R17
+        LD      R16, Y+
+        CFI R16 SameValue
+        CFI CFA_Y Y+1
+        LD      R17, Y+
+        CFI R17 SameValue
+        CFI CFA_Y Y+0
+        RETI
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_TCNT2
+        REQUIRE _A_PORTB
+//  372 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  373 void IO_Initial()
+IO_Initial:
+        CFI Block cfiBlock2 Using cfiCommon1
+        CFI Function IO_Initial
+//  374 {
+//  375 	DDRA = 0xFF;
+        LDI     R16, 255
+        OUT     0x01, R16
+//  376 	DDRB = 0xFF;
+        OUT     0x04, R16
+//  377 	DDRC = 0xFF;
+        OUT     0x07, R16
+//  378 	DDRD = 0xFF;
+        OUT     0x0A, R16
+//  379 	PORTA = 0;
+        LDI     R16, 0
+        OUT     0x02, R16
+//  380 	PORTB = 0;
+        OUT     0x05, R16
+//  381 	PORTC = 0;
+        OUT     0x08, R16
+//  382 	PORTD = 0;
+        OUT     0x0B, R16
+//  383 
+//  384 	//ClrBit(PORTB,0);
+//  385 	//SetBit(PORTB,0);
+//  386 
+//  387 	ClrBit(DDRB,4);			//push button
+        CBI     0x04, 0x04
+//  388 	SetBit(PORTB,4);
+        SBI     0x05, 0x04
+//  389 
+//  390 	//ClrBit(DDRB,0);
+//  391 	//SetBit(PORTB,0);
+//  392 
+//  393 	//SCS port
+//  394 	//RX set high
+//  395 	ClrBit(DDRD,0);
+        CBI     0x0A, 0x00
+//  396 	SetBit(PORTD,0);
+        SBI     0x0B, 0x00
+//  397 	ClrBit(DDRD,1);
+        CBI     0x0A, 0x01
+//  398 	SetBit(PORTD,1);
+        SBI     0x0B, 0x01
+//  399 	
+//  400 	ClrBit(DDRB,6); //Get Value from Touch
+        CBI     0x04, 0x06
+//  401 	ClrBit(DDRD,5); //interrupt of Touch
+        CBI     0x0A, 0x05
+//  402 	ClrBit(DDRD,4); //Busy
+        CBI     0x0A, 0x04
+//  403 	SetBit(PORTB,6);
+        SBI     0x05, 0x06
+//  404 	SetBit(PORTD,5);
+        SBI     0x0B, 0x05
+//  405 	SetBit(PORTD,4);
+        SBI     0x0B, 0x04
+//  406 	
+//  407 	SetBit(PORTC,1);
+        SBI     0x08, 0x01
+//  408 }
+        RET
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_PORTD
+        REQUIRE _A_DDRD
+        REQUIRE _A_PORTC
+        REQUIRE _A_DDRC
+        REQUIRE _A_PORTB
+        REQUIRE _A_DDRB
+        REQUIRE _A_PORTA
+        REQUIRE _A_DDRA
+//  409 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  410 void delay_ms(unsigned int ms)
+delay_ms:
+        CFI Block cfiBlock3 Using cfiCommon1
+        CFI Function delay_ms
+//  411 {
+        MOVW    R21:R20, R25:R24
+//  412   unsigned int i;
+//  413   for(i=0;i<ms;i++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??delay_ms_0
+//  414 	  __delay_cycles(7372);
+??delay_ms_1:
+        LDI     R18, 50
+        LDI     R19, 7
+        SUBI    R18, 1
+        SBCI    R19, 0
+        BRNE    $-4
+        RJMP    $+2
+        NOP
+        ADIW    R25:R24, 1
+??delay_ms_0:
+        CP      R24, R16
+        CPC     R25, R17
+        BRCS    ??delay_ms_1
+//  415 }
+        MOVW    R25:R24, R21:R20
+        RET
+        CFI EndBlock cfiBlock3
+//  416 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  417 void delay_us(unsigned int us)
+delay_us:
+        CFI Block cfiBlock4 Using cfiCommon1
+        CFI Function delay_us
+//  418 {
+        MOV     R19, R25
+        MOV     R20, R24
+//  419   unsigned int i;
+//  420   for(i=0;i<us;i++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??delay_us_0
+//  421     __delay_cycles(73);
+??delay_us_1:
+        LDI     R18, 24
+        DEC     R18
+        BRNE    $-2
+        NOP
+        ADIW    R25:R24, 1
+??delay_us_0:
+        CP      R24, R16
+        CPC     R25, R17
+        BRCS    ??delay_us_1
+//  422 }
+        MOV     R24, R20
+        MOV     R25, R19
+        RET
+        CFI EndBlock cfiBlock4
+//  423 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  424 void delay_ms_1(void)
+delay_ms_1:
+        CFI Block cfiBlock5 Using cfiCommon1
+        CFI Function delay_ms_1
+//  425 {
+//  426   unsigned char i;
+//  427   for(i=0;i<10;i++)
+        LDI     R16, 0
+        RJMP    ??delay_ms_1_0
+//  428     __delay_cycles(7372);
+??delay_ms_1_1:
+        LDI     R18, 50
+        LDI     R19, 7
+        SUBI    R18, 1
+        SBCI    R19, 0
+        BRNE    $-4
+        RJMP    $+2
+        NOP
+        INC     R16
+??delay_ms_1_0:
+        CPI     R16, 10
+        BRCS    ??delay_ms_1_1
+//  429 }
+        RET
+        CFI EndBlock cfiBlock5
+//  430 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  431 void buzzer(unsigned int data)
+buzzer:
+        CFI Block cfiBlock6 Using cfiCommon1
+        CFI Function buzzer
+//  432 {
+//  433 /*
+//  434 	unsigned int i;
+//  435 	for(i=0;i<data;i++)
+//  436 	{
+//  437 		SET_BUZZER;
+//  438 		delay_ms(1);
+//  439 		CLR_BUZZER;
+//  440 		delay_ms(1);
+//  441 	}
+//  442 */
+//  443 }
+        RET
+        CFI EndBlock cfiBlock6
+//  444 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  445 void not_bit(unsigned char *data, unsigned bit)
+not_bit:
+        CFI Block cfiBlock7 Using cfiCommon1
+        CFI Function not_bit
+//  446 {
+        MOVW    R31:R30, R17:R16
+//  447 	if(GetBit(*data,bit))
+        MOV     R20, R18
+        LDI     R16, 1
+        LDI     R17, 0
+        CALL    ?S_SHL_L02
+        LD      R17, Z
+        AND     R17, R16
+        BREQ    ??not_bit_0
+//  448 		ClrBit(*data,bit);
+        COM     R16
+        LD      R17, Z
+        AND     R17, R16
+        RJMP    ??not_bit_1
+//  449 	else
+//  450 		SetBit(*data,bit);
+??not_bit_0:
+        LD      R17, Z
+        OR      R17, R16
+??not_bit_1:
+        ST      Z, R17
+//  451 }
+        RET
+        CFI EndBlock cfiBlock7
+//  452 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  453 unsigned char StrToChar(unsigned char *data)
+StrToChar:
+        CFI Block cfiBlock8 Using cfiCommon1
+        CFI Function StrToChar
+//  454 {
+        MOVW    R31:R30, R17:R16
+//  455 	unsigned char temp;
+//  456 	if((*data >= 'A') && (*data <= 'F'))
+        LD      R17, Z
+        CPI     R17, 65
+        BRCS    ??StrToChar_0
+        LD      R17, Z
+        CPI     R17, 71
+        BRCC    ??StrToChar_0
+//  457 	{
+//  458 		temp = (*data - 'A' + 10) * 16;
+        LD      R16, Z
+        SUBI    R16, 55
+        RJMP    ??StrToChar_1
+//  459 	}
+//  460 	else if((*data >= '0') && (*data <= '9'))
+??StrToChar_0:
+        LD      R17, Z
+        CPI     R17, 48
+        BRCS    ??StrToChar_2
+        LD      R17, Z
+        CPI     R17, 58
+        BRCC    ??StrToChar_2
+//  461 	{
+//  462 		temp = (*data - '0') * 16;
+        LD      R16, Z
+??StrToChar_1:
+        SWAP    R16
+        ANDI    R16, 0xF0
+//  463 	}
+//  464 
+//  465 	if((*(data+1) >= 'A') && (*(data+1) <= 'F'))
+??StrToChar_2:
+        LDD     R17, Z+1
+        CPI     R17, 65
+        BRCS    ??StrToChar_3
+        LDD     R17, Z+1
+        CPI     R17, 71
+        BRCC    ??StrToChar_3
+//  466 	{
+//  467 		temp = temp + *(data+1) - 'A' + 10;
+        LDD     R17, Z+1
+        SUBI    R17, 55
+        ADD     R16, R17
+        RET
+//  468 	}
+//  469 	else if((*(data+1) >= '0') && (*(data+1) <= '9'))
+??StrToChar_3:
+        LDD     R17, Z+1
+        CPI     R17, 48
+        BRCS    ??StrToChar_4
+        LDD     R17, Z+1
+        CPI     R17, 58
+        BRCC    ??StrToChar_4
+//  470 	{
+//  471 		temp = temp + *(data+1) - '0';
+        LDD     R17, Z+1
+        SUBI    R17, 48
+        ADD     R16, R17
+//  472 	}
+//  473 
+//  474 	return temp;
+??StrToChar_4:
+        RET
+        CFI EndBlock cfiBlock8
+//  475 }
+//  476 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  477 unsigned char *CharToStr(unsigned char data,unsigned char *buffer)
+CharToStr:
+        CFI Block cfiBlock9 Using cfiCommon1
+        CFI Function CharToStr
+//  478 {
+        SBIW    R29:R28, 2
+        CFI CFA_Y Y+2
+//  479 
+//  480 	unsigned char buffer_temp[2];
+//  481 	//itoa(data,buffer_temp,16);
+//  482   buffer_temp[0] = (data & 0xF0) >> 4;
+        MOV     R17, R16
+        SWAP    R17
+        ANDI    R17, 0x0F
+        ST      Y, R17
+//  483   if(buffer_temp[0] <= 9)
+        LD      R17, Y
+        CPI     R17, 10
+        LD      R17, Y
+        BRCC    ??CharToStr_0
+//  484   {
+//  485     buffer_temp[0] += 0x30;
+        SUBI    R17, 208
+        RJMP    ??CharToStr_1
+//  486   }
+//  487   else
+//  488   {
+//  489     buffer_temp[0] += 0x41 - 10;
+??CharToStr_0:
+        SUBI    R17, 201
+??CharToStr_1:
+        ST      Y, R17
+//  490   }
+//  491 
+//  492   buffer_temp[1] = data & 0x0F;
+        ANDI    R16, 0x0F
+        STD     Y+1, R16
+//  493   if(buffer_temp[1] <= 9)
+        LDD     R16, Y+1
+        CPI     R16, 10
+        LDD     R16, Y+1
+        BRCC    ??CharToStr_2
+//  494   {
+//  495     buffer_temp[1] += 0x30;
+        SUBI    R16, 208
+        RJMP    ??CharToStr_3
+//  496   }
+//  497   else
+//  498   {
+//  499     buffer_temp[1] += 0x41 - 10;
+??CharToStr_2:
+        SUBI    R16, 201
+??CharToStr_3:
+        STD     Y+1, R16
+//  500   }
+//  501 
+//  502   *buffer = buffer_temp[0];
+        LD      R16, Y
+        MOVW    R31:R30, R19:R18
+        ST      Z, R16
+//  503 	buffer++;
+//  504 	*buffer = buffer_temp[1];
+        LDD     R16, Y+1
+        SUBI    R18, 255
+        SBCI    R19, 255
+        MOVW    R31:R30, R19:R18
+        ST      Z, R16
+//  505 
+//  506   return 0;
+        LDI     R16, 0
+        LDI     R17, 0
+        ADIW    R29:R28, 2
+        CFI CFA_Y Y+0
+        RET
+        CFI EndBlock cfiBlock9
+//  507   /*
+//  508 	if(buffer_temp[1] == 0)
+//  509 	{
+//  510 		buffer_temp[1] = buffer_temp[0];
+//  511 		buffer_temp[0] = '0';
+//  512 	}
+//  513 	if((buffer_temp[0] >= 'a') && (buffer_temp[0] <= 'z'))
+//  514 		buffer_temp[0] -= 32;
+//  515 	if((buffer_temp[1] >= 'a') && (buffer_temp[1] <= 'z'))
+//  516 		buffer_temp[1] -= 32;
+//  517 
+//  518 	*buffer = buffer_temp[0];
+//  519 	buffer++;
+//  520 	*buffer = buffer_temp[1];
+//  521   */
+//  522 
+//  523   /*
+//  524   unsigned char temp[3];
+//  525 
+//  526   temp[0] = (temp[0] & 0xF0) >> 4;
+//  527   if((temp[0] >= 0) && (temp[0] <= 9))
+//  528   {
+//  529     temp[0] += 0x30;
+//  530   }
+//  531   else
+//  532   {
+//  533     temp[0] += 0x41;
+//  534   }
+//  535 
+//  536   temp[1] = temp[1] & 0x0F;
+//  537   if((temp[1] >= 0) && (temp[1] <= 9))
+//  538   {
+//  539     temp[1] += 0x30;
+//  540   }
+//  541   else
+//  542   {
+//  543     temp[1] += 0x41;
+//  544   }
+//  545 
+//  546   temp[2] = 0;
+//  547 
+//  548   *buffer = buffer_temp[0];
+//  549 	buffer++;
+//  550 	*buffer = buffer_temp[1];
+//  551   */
+//  552 }
+//  553 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  554 void buzzer_ms(unsigned int ms)
+buzzer_ms:
+        CFI Block cfiBlock10 Using cfiCommon1
+        CFI Function buzzer_ms
+//  555 {
+//  556 	/*
+//  557   Time_delay.buzzer.stack_top = ms;
+//  558 	Time_delay.buzzer.count = 0;
+//  559 	Time_delay.buzzer.time_out = 0;
+//  560 	Time_delay.buzzer.started = 1;
+//  561 	Time_delay.buzzer.enabled = 1;
+//  562 	*/
+//  563 }
+        RET
+        CFI EndBlock cfiBlock10
+//  564 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  565 unsigned char get_key()
+get_key:
+        CFI Block cfiBlock11 Using cfiCommon1
+        CFI Function get_key
+//  566 {
+//  567 	if(GetBit(PINB,4) == 0)
+        SBIC    0x03, 0x04
+        RJMP    ??get_key_0
+//  568 		return 1;
+        LDI     R16, 1
+        RET
+//  569 	else
+//  570 		return 0;
+??get_key_0:
+        LDI     R16, 0
+        RET
+        CFI EndBlock cfiBlock11
+        REQUIRE _A_PINB
+//  571 }
+//  572 
+//  573 #pragma vector=TIMER1_OVF_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+//  574 __interrupt void timer1_ovf_ser(void)
+timer1_ovf_ser:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function timer1_ovf_ser
+//  575 {
+//  576 	//TCNT1H = 228;				// 1s
+//  577 	//TCNT1L = 224;					// 1s
+//  578 }
+        RETI
+        CFI EndBlock cfiBlock12
+//  579 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  580 unsigned char get_PIR_trigger(unsigned char level)
+get_PIR_trigger:
+        CFI Block cfiBlock13 Using cfiCommon1
+        CFI Function get_PIR_trigger
+//  581 {
+//  582 	switch(level)
+        SUBI    R16, 48
+        SUBI    R16, 4
+        BRCC    ??get_PIR_trigger_0
+//  583 	{
+//  584 		case '0':
+//  585 			// add your code here
+//  586 			return 0;
+        LDI     R16, 0
+        RET
+//  587 		case '1':
+//  588 			// add your code here
+//  589 			// return your get level
+//  590 			return 0;
+//  591 		case '2':
+//  592 			// add your code here
+//  593 			// return your get level
+//  594 			return 0;
+//  595 		case '3':
+//  596 			// add your code here
+//  597 			// return your get level
+//  598 			return 0;
+//  599 		default:
+//  600 			break;
+//  601 	}
+//  602 	return 1;
+??get_PIR_trigger_0:
+        LDI     R16, 1
+        RET
+        CFI EndBlock cfiBlock13
+//  603 }
+//  604 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  605 unsigned char get_US_trigger(unsigned char level)
+get_US_trigger:
+        CFI Block cfiBlock14 Using cfiCommon1
+        CFI Function get_US_trigger
+//  606 {
+//  607 	switch(level)
+        SUBI    R16, 48
+        SUBI    R16, 4
+        BRCC    ??get_US_trigger_0
+//  608 	{
+//  609 		case '0':
+//  610 			// add your code here
+//  611 			return 0;
+        LDI     R16, 0
+        RET
+//  612 		case '1':
+//  613 			// add your code here
+//  614 			// return your get level
+//  615 			return 0;
+//  616 		case '2':
+//  617 			// add your code here
+//  618 			// return your get level
+//  619 			return 0;
+//  620 		case '3':
+//  621 			// add your code here
+//  622 			// return your get level
+//  623 			return 0;
+//  624 		default:
+//  625 			break;
+//  626 	}
+//  627 	return 1;
+??get_US_trigger_0:
+        LDI     R16, 1
+        RET
+        CFI EndBlock cfiBlock14
+//  628 }
+//  629 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  630 void timer1_initial(void)
+timer1_initial:
+        CFI Block cfiBlock15 Using cfiCommon1
+        CFI Function timer1_initial
+//  631 {
+//  632 // Timer/Counter 1 initialization
+//  633 // Clock source: System Clock
+//  634 // Clock value: 7.200 kHz
+//  635 // Mode: Normal top=FFFFh
+//  636 // OC1A output: Discon.
+//  637 // OC1B output: Discon.
+//  638 // Noise Canceler: Off
+//  639 // Input Capture on Falling Edge
+//  640 // Timer 1 Overflow Interrupt: Off
+//  641 // Input Capture Interrupt: Off
+//  642 // Compare A Match Interrupt: Off
+//  643 // Compare B Match Interrupt: Off
+//  644 TCCR1A=0x00;
+        LDI     R16, 0
+        STS     _A_TCCR1A, R16
+//  645 TCCR1B=0x05;
+        LDI     R16, 5
+        STS     _A_TCCR1B, R16
+//  646 TCNT1H=228;					// 1s
+        LDI     R16, 228
+        STS     133, R16
+//  647 TCNT1L=224;					// 1s
+        LDI     R16, 224
+        STS     _A_TCNT1, R16
+//  648 ICR1H=0x00;					
+        LDI     R16, 0
+        STS     135, R16
+//  649 ICR1L=0x00;
+        STS     _A_ICR1, R16
+//  650 OCR1AH=0x00;
+        STS     137, R16
+//  651 OCR1AL=0x00;
+        STS     _A_OCR1A, R16
+//  652 OCR1BH=0x00;
+        STS     139, R16
+//  653 OCR1BL=0x00;
+        STS     _A_OCR1B, R16
+//  654 
+//  655 ClrBit(PRR,PRTIM1);
+        LDS     R16, 100
+        ANDI    R16, 0xF7
+        STS     100, R16
+//  656 }
+        RET
+        CFI EndBlock cfiBlock15
+        REQUIRE _A_OCR1B
+        REQUIRE _A_OCR1A
+        REQUIRE _A_ICR1
+        REQUIRE _A_TCNT1
+        REQUIRE _A_TCCR1B
+        REQUIRE _A_TCCR1A
+        REQUIRE _A_PRR
+//  657 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  658 void adc_initial()
+adc_initial:
+        CFI Block cfiBlock16 Using cfiCommon1
+        CFI Function adc_initial
+//  659 {
+//  660 // ADC initialization
+//  661 // ADC Clock frequency: 921.600 kHz
+//  662 // ADC Voltage Reference: AREF pin
+//  663 // ADC Auto Trigger Source: None
+//  664 // Digital input buffers on ADC0: Off, ADC1: Off, ADC2: On, ADC3: Off
+//  665 // ADC4: Off, ADC5: Off, ADC6: Off, ADC7: Off
+//  666 DIDR0=0xFB;
+        LDI     R16, 251
+        STS     _A_DIDR0, R16
+//  667 ADMUX=ADC_VREF_TYPE;
+        LDI     R16, 64
+        STS     _A_ADMUX, R16
+//  668 ADCSRA=0x80;
+        LDI     R16, 128
+        STS     _A_ADCSRA, R16
+//  669 ADCSRA |= 0x05;
+        LDS     R16, _A_ADCSRA
+        ORI     R16, 0x05
+        STS     _A_ADCSRA, R16
+//  670 }
+        RET
+        CFI EndBlock cfiBlock16
+        REQUIRE _A_DIDR0
+        REQUIRE _A_ADMUX
+        REQUIRE _A_ADCSRA
+//  671 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  672 unsigned int read_adc10bit(unsigned char adc_input)
+read_adc10bit:
+        CFI Block cfiBlock17 Using cfiCommon1
+        CFI Function read_adc10bit
+//  673 {
+//  674 	ADMUX = adc_input | ADC_VREF_TYPE;
+        FUNCALL read_adc10bit, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ORI     R16, 0x40
+        STS     _A_ADMUX, R16
+//  675 	g_temp = ADMUX;
+        LDS     R16, _A_ADMUX
+        STS     g_temp, R16
+//  676 	// Delay needed for the stabilization of the ADC input voltage
+//  677 	delay_us(10);
+        LDI     R16, 10
+        LDI     R17, 0
+        RCALL   delay_us
+//  678 	// Start the AD conversion
+//  679 	ADCSRA|=0x40;
+        LDS     R16, 122
+        ORI     R16, 0x40
+        STS     122, R16
+//  680 	// Wait for the AD conversion to complete
+//  681 	while ((ADCSRA & 0x10)==0);
+??read_adc10bit_0:
+        LDS     R16, _A_ADCSRA
+        MOV     R17, R16
+        SBRS    R17, 4
+        RJMP    ??read_adc10bit_0
+//  682 	ADCSRA|=0x10;
+        LDS     R16, 122
+        ORI     R16, 0x10
+        STS     122, R16
+//  683 	return ADC;
+        LDS     R16, _A_ADC
+        LDS     R17, (_A_ADC + 1)
+        RET
+        CFI EndBlock cfiBlock17
+        REQUIRE _A_ADMUX
+        REQUIRE _A_ADCSRA
+        REQUIRE _A_ADC
+//  684 }
+//  685 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  686 unsigned char read_adc8bit(unsigned char adc_input)
+read_adc8bit:
+        CFI Block cfiBlock18 Using cfiCommon1
+        CFI Function read_adc8bit
+//  687 {
+//  688   ADMUX = adc_input | ADC_VREF_TYPE | 0x20;
+        FUNCALL read_adc8bit, delay_us
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ORI     R16, 0x60
+        STS     _A_ADMUX, R16
+//  689   // Delay needed for the stabilization of the ADC input voltage
+//  690   delay_us(10);
+        LDI     R16, 10
+        LDI     R17, 0
+        RCALL   delay_us
+//  691   // Start the AD conversion
+//  692   ADCSRA|=0x40;
+        LDS     R16, 122
+        ORI     R16, 0x40
+        STS     122, R16
+//  693   // Wait for the AD conversion to complete
+//  694   while ((ADCSRA & 0x10)==0);
+??read_adc8bit_0:
+        LDS     R16, _A_ADCSRA
+        MOV     R17, R16
+        SBRS    R17, 4
+        RJMP    ??read_adc8bit_0
+//  695   ADCSRA|=0x10;
+        LDS     R16, 122
+        ORI     R16, 0x10
+        STS     122, R16
+//  696   return ADCH;
+        LDS     R16, 121
+        RET
+        CFI EndBlock cfiBlock18
+        REQUIRE _A_ADMUX
+        REQUIRE _A_ADCSRA
+        REQUIRE _A_ADC
+//  697 }
+//  698 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  699 void system_reset(void)
+system_reset:
+        CFI Block cfiBlock19 Using cfiCommon1
+        CFI Function system_reset
+//  700 {
+//  701 	WDTCSR = 0x18;
+        LDI     R16, 24
+        STS     _A_WDTCSR, R16
+//  702 	WDTCSR = 0x08;
+        LDI     R16, 8
+        STS     _A_WDTCSR, R16
+//  703 }
+        RET
+        CFI EndBlock cfiBlock19
+        REQUIRE _A_WDTCSR
+//  704 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  705 void WDT_off(void)
+WDT_off:
+        CFI Block cfiBlock20 Using cfiCommon1
+        CFI Function WDT_off
+//  706 {
+//  707 	MCUSR &= ~(1<<WDRF);
+        IN      R16, 0x34
+        ANDI    R16, 0xF7
+        OUT     0x34, R16
+//  708 	WDTCSR |= (1<<WDCE) | (1<<WDE);
+        LDS     R16, _A_WDTCSR
+        ORI     R16, 0x18
+        STS     _A_WDTCSR, R16
+//  709 	WDTCSR = 0x00;
+        LDI     R16, 0
+        STS     _A_WDTCSR, R16
+//  710 }
+        RET
+        CFI EndBlock cfiBlock20
+        REQUIRE _A_WDTCSR
+        REQUIRE _A_MCUSR
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 44
+`??timer2_ovf_ser??INTVEC 44`:
+        JMP     timer2_ovf_ser
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 60
+`??timer1_ovf_ser??INTVEC 60`:
+        JMP     timer1_ovf_ser
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 72
+`??timer0_ovf_ser??INTVEC 72`:
+        JMP     timer0_ovf_ser
+
+        END
+// 
+//    29 bytes in segment ABSOLUTE
+// 2 760 bytes in segment CODE
+//    12 bytes in segment INTVEC
+// 
+// 2 760 bytes of CODE memory (+ 12 bytes shared)
+//     0 bytes of DATA memory (+ 29 bytes shared)
+//
+//Errors: none
+//Warnings: none

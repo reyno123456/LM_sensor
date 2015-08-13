@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>LM_IAR_5.0/Release</Project><Project>Backup of relais 2 sorties/Debug</Project></CurrentConfigs><CurrentProj>LM_IAR_5.0</CurrentProj><OverviewSelected>0</OverviewSelected></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>251</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1215</ColumnWidth1><ColumnWidth2>324</ColumnWidth2><ColumnWidth3>81</ColumnWidth3></Build>
+    <TerminalIO/><Debug-Log/><Find-in-Files><ColumnWidth0>580</ColumnWidth0><ColumnWidth1>82</ColumnWidth1><ColumnWidth2>994</ColumnWidth2></Find-in-Files></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-10920-17284</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>Backup of relais 2 sorties</ExpandedNode><ExpandedNode>Backup of relais 2 sorties/Common sources</ExpandedNode><ExpandedNode>Backup of relais 2 sorties/SCS</ExpandedNode><ExpandedNode>LM_IAR_5.0</ExpandedNode><ExpandedNode>LM_IAR_5.0/Output</ExpandedNode><ExpandedNode>LM_IAR_5.0/Output/LM_IAR_5.0.d90</ExpandedNode><ExpandedNode>LM_IAR_5.0/Output/LM_IAR_5.0.hex</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          
+        <Tab><Identity>TabID-18114-21448</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-16588-25161</Identity><TabName>Breakpoints</TabName><Factory>Breakpoints</Factory></Tab><Tab><Identity>TabID-11340-28534</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>2</SelectedTab></Wnd1><Wnd2><Tabs><Tab>
+            <Identity>TabID-10983-17692</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab></Tabs><SelectedTab>0</SelectedTab></Wnd2></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\INC\ioavr.h</Filename><XPos>0</XPos><YPos>237</YPos><SelStart>6410</SelStart><SelEnd>6410</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Debug\List\LM_IAR_5.0.map</Filename><XPos>0</XPos><YPos>863</YPos><SelStart>128</SelStart><SelEnd>128</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\decode_scs_next.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>285</SelStart><SelEnd>285</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\decode_scs.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\IR.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>657</SelStart><SelEnd>657</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\configuration.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>230</SelStart><SelEnd>230</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\List\US.s90</Filename><XPos>0</XPos><YPos>591</YPos><SelStart>20342</SelStart><SelEnd>20342</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\List\global_variable.s90</Filename><XPos>0</XPos><YPos>431</YPos><SelStart>13692</SelStart><SelEnd>13692</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\List\application.s90</Filename><XPos>0</XPos><YPos>549</YPos><SelStart>18126</SelStart><SelEnd>18126</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\US.h</Filename><XPos>0</XPos><YPos>69</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\US.c</Filename><XPos>0</XPos><YPos>362</YPos><SelStart>10431</SelStart><SelEnd>10431</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\board.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>67</SelStart><SelEnd>67</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\board.c</Filename><XPos>0</XPos><YPos>174</YPos><SelStart>3336</SelStart><SelEnd>3336</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Legrand\Nouveau dossier_20070721\variateurs\variateurs\Backup of relais 2 sorties.ewp</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Legrand\Nouveau dossier_20070721\variateurs\variateurs\Main.c</Filename><XPos>0</XPos><YPos>60</YPos><SelStart>2369</SelStart><SelEnd>2369</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Legrand\Nouveau dossier_20070721\variateurs\variateurs\Init.c</Filename><XPos>0</XPos><YPos>23</YPos><SelStart>2376</SelStart><SelEnd>2376</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Legrand\Nouveau dossier_20070721\variateurs\variateurs\Clavier.c</Filename><XPos>0</XPos><YPos>12</YPos><SelStart>1934</SelStart><SelEnd>1934</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\inc\intrinsics.h</Filename><XPos>0</XPos><YPos>183</YPos><SelStart>5861</SelStart><SelEnd>5861</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\global_variable.h</Filename><XPos>0</XPos><YPos>1</YPos><SelStart>157</SelStart><SelEnd>157</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\inc\iomacro.h</Filename><XPos>0</XPos><YPos>228</YPos><SelStart>9762</SelStart><SelEnd>9762</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\IR.c</Filename><XPos>0</XPos><YPos>506</YPos><SelStart>13618</SelStart><SelEnd>13618</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\PIR.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>230</SelStart><SelEnd>230</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\PIR.h</Filename><XPos>0</XPos><YPos>20</YPos><SelStart>786</SelStart><SelEnd>786</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\List\IR.s90</Filename><XPos>0</XPos><YPos>296</YPos><SelStart>11721</SelStart><SelEnd>11721</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\application.h</Filename><XPos>0</XPos><YPos>85</YPos><SelStart>2895</SelStart><SelEnd>2895</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\configuration.c</Filename><XPos>0</XPos><YPos>396</YPos><SelStart>10449</SelStart><SelEnd>10449</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\decode_scs_next.c</Filename><XPos>0</XPos><YPos>84</YPos><SelStart>1382</SelStart><SelEnd>1382</SelEnd></Tab><ActiveTab>26</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\moudle_SCS.h</Filename><XPos>0</XPos><YPos>251</YPos><SelStart>6064</SelStart><SelEnd>6064</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\usart.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>746</SelStart><SelEnd>746</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\usart.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>594</SelStart><SelEnd>594</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\main.c</Filename><XPos>0</XPos><YPos>213</YPos><SelStart>8600</SelStart><SelEnd>8600</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\decode_scs.c</Filename><XPos>0</XPos><YPos>49</YPos><SelStart>767</SelStart><SelEnd>767</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\application.c</Filename><XPos>0</XPos><YPos>977</YPos><SelStart>22016</SelStart><SelEnd>22016</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\global_variable.c</Filename><XPos>0</XPos><YPos>128</YPos><SelStart>1781</SelStart><SelEnd>1781</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\List\LM_IAR_5.0.map</Filename><XPos>0</XPos><YPos>1792</YPos><SelStart>98137</SelStart><SelEnd>98137</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-01488518><key>iaridepm.enu1</key></Toolbar-01488518></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>433</Bottom><Right>342</Right><x>-2</x><y>-2</y><xscreen>152</xscreen><yscreen>138</yscreen><sizeHorzCX>118750</sizeHorzCX><sizeHorzCY>198847</sizeHorzCY><sizeVertCX>268750</sizeVertCX><sizeVertCY>626801</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>216</Bottom><Right>535</Right><x>-2</x><y>-2</y><xscreen>537</xscreen><yscreen>218</yscreen><sizeHorzCX>419531</sizeHorzCX><sizeHorzCY>314121</sizeHorzCY><sizeVertCX>118750</sizeVertCX><sizeVertCY>198847</sizeVertCY></Rect></Wnd2><Wnd1><Rect><Top>0</Top><Left>0</Left><Bottom>0</Bottom><Right>0</Right><x>533</x><y>-2</y><xscreen>749</xscreen><yscreen>218</yscreen><sizeHorzCX>585156</sizeHorzCX><sizeHorzCY>314121</sizeHorzCY><sizeVertCX>118750</sizeVertCX><sizeVertCY>198847</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

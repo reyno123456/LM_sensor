@@ -1,0 +1,716 @@
+#include <ioavr.h>
+#include <stdio.h>
+#include "usart.h"
+#include "board.h"
+#include "moudle_SCS.h"
+#include "decode_scs.h"
+#include "stdlib.h"
+#include "global_variable.h"
+#include "application.h"
+#include "decode_scs_next.h"
+#include "moudle_scs.h"
+#include "application.h"
+#include "string.h"
+
+void reception_buffer_clear(unsigned char temp)
+{
+#ifndef DEBUG
+
+	unsigned char i;
+		
+	for(i=0;i<8;i++)
+	{
+		g_short_buffer[i] = 0;
+	}
+
+	for(i=0;i<4;i++)
+	{
+		g_asc_short_buffer[i] = 0;
+	}
+
+	for(i=0;i<8;i++)
+	{
+		g_asc_reception_buffer[i] = 0;
+	}
+
+	for(i=0;i<17;i++)
+	{
+		g_reception_buffer[i] = 0;
+	}
+	
+#else
+	extern unsigned char g_RxBuffer[];
+	extern unsigned char RxNumber;
+		
+	for(i=0;i<RX_BUFFER_SIZE;i++)
+	{
+		g_RxBuffer[i] = 0;
+	}
+	RxNumber = 0;
+
+#endif
+}
+
+unsigned char decode_id(void)
+{
+	unsigned char i;
+	unsigned char buffer[3];
+
+	//static unsigned char ID_buffer[8];
+	volatile unsigned char current = 0xFF;
+
+	for(i=0;i<DEEP;i++)
+	{
+		if(scs_frame[i].finished)
+		{
+			current = i;
+			break;
+		}
+	}
+
+	if(scs_frame[current].finished && current != 0xFF)
+	{
+		switch(StrToChar(&scs_frame[current].byte[1]))
+		{
+			case 0x18:
+				for(i=0;i<16;i++)
+				{
+					g_reception_buffer[i] = scs_frame[current].byte[i+3];
+				}
+				for(i=0;i<8;i++)
+				{
+					buffer[0] = g_reception_buffer[i * 2];
+					buffer[1] = g_reception_buffer[i * 2 + 1];
+					buffer[2] = 0;
+					g_asc_reception_buffer[i] = StrToChar(buffer);
+				}
+
+				switch(g_asc_reception_buffer[0])
+				{
+					case 0xD0:
+            if(g_reception_buffer[6] == '0' || g_reception_buffer[6] == 'F')
+						  id_frame();
+					break;
+
+					default:break;
+				}
+			break;
+
+			default:
+				scs_frame[current].finished = 0;	
+        if(state.id_setting == 1)
+	      {
+		      if( Time_delay.timer_flex.time_out == 1 )
+		      {
+			      state.id_setting = 0;
+			      send_frame_pp_ext_broad("D000010E00000000",TRANS_DELAY);
+			      asm("nop");
+		      }
+	      }
+			return 1;
+		}
+	}
+	scs_frame[current].finished = 0;
+	return 0;
+}
+
+unsigned char decode_SCS(void)
+{
+	volatile unsigned char current = 0xFF;
+	unsigned char i;
+	unsigned char buffer[3];
+	char buffer_tx[17];			// 20090216
+	//unsigned char current;
+
+	for(i=0;i<DEEP;i++)
+	{
+		if(scs_frame[i].finished)
+		{
+			current = i;
+			break;
+		}
+	}
+
+	if(scs_frame[current].finished && current != 0xFF)
+	{
+		switch(StrToChar(&scs_frame[current].byte[1]))
+		{
+    	case 0x00:
+      break;
+      
+    	case 0x01:
+      break;
+      
+    	case 0x07:
+      break;
+      
+			case 0x17:
+				for(i=0;i<8;i++)
+				{
+					g_short_buffer[i] = scs_frame[current].byte[i+3];
+				}
+				
+				for(i=0;i<4;i++)
+				{	
+					buffer[0] = g_short_buffer[i * 2];
+					buffer[1] = g_short_buffer[i * 2 + 1];
+					buffer[2] = 0;
+					g_asc_short_buffer[i] = StrToChar(buffer);
+				}
+        
+				sensor_GR_decode();         //add by alan 20090412
+				switch(g_asc_short_buffer[0])
+				{
+					case 0xB0:
+						if(g_short_buffer[4] == '9')
+						{
+							if(g_short_buffer[7] == '0')
+							{
+								flags.app_disable = 1;
+							}
+							else if(g_short_buffer[7] == 'F')
+							{
+								flags.app_disable = 0;
+							}
+						}
+					break;
+					
+					case 0xB1:
+						if(g_short_buffer[4] == '9')
+						{
+							if(g_asc_short_buffer[1] != 0)
+							{
+								state.main_state = NORMAL;
+							}
+						}
+					break;
+					
+					case 0xB2:
+					break;
+					
+					case 0xB4:
+					break;
+					
+					default:break;
+				}
+				
+        if(g_short_buffer[4] == '9')  //Auxiliary system
+        {
+          if(g_short_buffer[0] == 'B')
+          {
+            switch(g_short_buffer[5])
+            {
+              case '0':  //start of programming
+              break;
+              
+              case '1':  //end of proframming
+              break;
+              
+              case '2':  //begin scenario modification
+              break;
+              
+            case '3':  //activation of a scenario
+              break;
+              
+            case '4':  // turn off all managing scenario
+              break;
+              
+            case '5':  //increase
+              break;
+              
+            case '6':  //decrease
+              break;
+              
+            case '7':  //stop increase/decrease
+              break;
+              
+            default:break;
+            }
+          }
+        }
+			break;
+
+			case 0x18:
+				for(i=0;i<16;i++)
+				{
+					g_reception_buffer[i] = scs_frame[current].byte[i+3];
+				}
+
+				for(i=0;i<8;i++)
+				{
+					buffer[0] = g_reception_buffer[i * 2];
+					buffer[1] = g_reception_buffer[i * 2 + 1];
+					buffer[2] = 0;
+					g_asc_reception_buffer[i] = StrToChar(buffer);
+				}
+				
+				if(g_reception_buffer[SYS] == '1')
+				{
+					switch(g_asc_reception_buffer[0])
+					{
+						case 0xD0:
+        	    			if(g_reception_buffer[LEV] == '0' || g_reception_buffer[LEV] == 'F')
+							{
+							  	id_frame();
+							}
+						break;
+        	
+						case 0xD1:
+							calibration_decode();
+							if((KO_conf.AddressType != 0) || (KO_conf.DesAdd != g_asc_reception_buffer[1]))
+							{
+								//asm("nop");							
+								//reception_buffer_clear(0);
+							}
+							else
+							{
+								switch (g_reception_buffer[7])
+								{
+									case '2':
+										configuration_setting_frame(g_asc_reception_buffer[4]);
+									break;
+        	
+									case '3':
+										configuration_answer_frame(g_asc_reception_buffer[4]);
+									break;
+        	
+									default:break;
+								}
+							}
+						break;
+        	
+						case 0xD2:
+							
+							// add by alan 0415 begin
+							if(g_reception_buffer[7] == '4')		//answer	D2 A|Pl 0|1 3|4 0|D 0|X 0|0 0|0 
+							{
+								if(g_asc_reception_buffer[4] == 0x0D)
+								{
+									if(((KO_conf.AddressType ==2)&&(KO_conf.Reference == g_asc_reception_buffer[1]))
+										 	||((KO_conf.AddressType ==0)&&(KO_conf.DesAdd == g_asc_reception_buffer[1])))
+									{
+									  if((g_asc_reception_buffer[5] ==0x00)||(g_asc_reception_buffer[5] ==0x01))	
+										{
+										  	SCS_received.P2P_actuator_flag = 1;
+												SCS_received.P2P_dimmer_flag = 0;
+										}
+										if(g_asc_reception_buffer[5] == 0x0D)							
+										{
+										  SCS_received.P2P_dimmer_flag = 1;
+											SCS_received.P2P_actuator_flag = 0;
+											if(g_asc_reception_buffer[6] == 0x01)	
+													SCS_received.P2P_dimmer_zero = 1;	// dimmer value is zero
+											if(g_asc_reception_buffer[6] == 0x64)	
+													SCS_received.P2P_dimmer_full = 1;	// dimmer value is full
+										}
+									}
+								}
+							}
+							// add by alan 0415 end	
+							
+							switch (g_reception_buffer[7])
+							{
+							  case '2':
+									calibration_decode();
+								  configuration_setting_frame(g_asc_reception_buffer[4]);
+							  break;
+        	
+							  case '3':
+								  configuration_answer_frame(g_asc_reception_buffer[4]);
+							  break;
+							
+							  case '4':
+								  configuration_receive_answer_frame();
+							  break;
+        	
+							  default:break;
+							}
+						break;
+        	
+						case 0xD5:
+							switch(g_reception_buffer[4])
+							{
+								case '0':			//group
+									if((KO_conf.GR != g_asc_reception_buffer[1]) || ((KO_conf.AddressType != 2)))
+									{
+										//reception_buffer_clear(0);
+									}
+									else
+									{
+										switch (g_reception_buffer[7])
+										{
+											case '2':
+												configuration_setting_frame(g_asc_reception_buffer[4]);
+											break;
+        	
+											case '3':
+												configuration_answer_frame(g_asc_reception_buffer[4]);
+											break;
+        							
+											case '4':
+												// add by alan begin
+												if((g_asc_reception_buffer[4] ==0x10)&&(KO_conf.TypeLoop ==1))      // in OPEN loop       // D5 GR 01 34 10 0X XX XX		
+												{																																		// lux answer send by GS daylight sensor
+													if(g_asc_reception_buffer[1] == KO_conf.GR)
+													{
+														DLL.open_lightlux =  g_asc_reception_buffer[5]&0x0F;
+														DLL.open_lightlux = DLL.open_lightlux<<8;
+														DLL.open_lightlux +=  g_asc_reception_buffer[6];
+														DLL.open_lightlux = DLL.open_lightlux<<8;
+														DLL.open_lightlux +=  g_asc_reception_buffer[7];
+														SCS_received.Daylight_lux = 1;
+													}
+												}
+												// add by alan end
+											break;
+											
+											default:break;
+										}
+									}
+									
+									// Add by alan begin used for modality setting
+                  if((g_reception_buffer[7] == '2')||((g_reception_buffer[7] == '3')))    //  set or request
+									{
+										if(g_asc_reception_buffer[4] == 0x10)       	// D5 LOC 01 43 10 0X XX XX
+								 		{
+								 			M2_type = '0';								//used in modality for sending frame to answer the daylight level
+											frame_M2_answer('0');
+                      if((g_asc_reception_buffer[1] ==0x00)&&(g_asc_reception_buffer[2] ==0xEE))	// in frame request, A|PL != 0x00	这个帧用于校验光亮度 debug for calibration 20090408
+											{
+                          if((g_asc_reception_buffer[6] ==0x22)&&(g_asc_reception_buffer[7] ==0x22))   SCS_received.setpoint_low    = 1;    	// D1 00 EE x3 10 0x 22 22
+                          if((g_asc_reception_buffer[6] ==0x33)&&(g_asc_reception_buffer[7] ==0x33))   SCS_received.setpoint_medium = 1; 		// D1 00 EE x3 10 0x 33 33
+                          if((g_asc_reception_buffer[6] ==0x44)&&(g_asc_reception_buffer[7] ==0x44))   SCS_received.setpoint_high   = 1;   	// D1 00 EE x3 10 0x 44 44
+											}
+								 		}
+								 		if(g_asc_reception_buffer[4] == 0x15)       	// D5 LOC 01 43 15 XX XX XX
+								 		{
+								  			eep_M2_sens = g_asc_reception_buffer[7];
+											M2_type = '5';//frame_M2_answer('5');		//to answer the senstivity setting
+								 		}
+								 		if(g_asc_reception_buffer[4] == 0x16)       	// D5 LOC 01 43 16 XX XX XX
+								 		{
+								 			if((g_asc_reception_buffer[6] <=0x3C)&&(g_asc_reception_buffer[7] <=0x3C)&&(g_reception_buffer[7] == '2'))
+                      {
+                        unsigned long int hour_count = g_asc_reception_buffer[5];
+							 					M2_timer = ( hour_count*3600 + g_asc_reception_buffer[6]*60 + g_asc_reception_buffer[7] );
+                        eep_M2_hour = g_asc_reception_buffer[5];
+                        eep_M2_min  = g_asc_reception_buffer[6];
+                        eep_M2_sec  = g_asc_reception_buffer[7];
+                       }             
+                       M2_type = '6';//frame_M2_answer('6');		//to answer the timer setting
+								 		}
+									} 
+									// Add by alan end //should replaced by reyno
+								break;
+        	
+								case '1':			//area
+									if((g_reception_buffer[2] != 0) || (KO_conf.DesAdd != g_asc_reception_buffer[1]) || ((KO_conf.AddressType != 1)))
+									{
+										//reception_buffer_clear(0);
+									}
+									else
+									{
+										switch (g_reception_buffer[7])
+										{
+											case '2':
+												configuration_setting_frame(g_asc_reception_buffer[4]);
+											break;
+        	
+											case '3':
+												configuration_answer_frame(g_asc_reception_buffer[4]);
+											break;
+        	
+											default:break;
+										}
+									}
+								break;
+        	
+								case '2':
+									if(g_asc_reception_buffer[1] == 0x00)
+									{
+										switch (g_reception_buffer[7])
+										{
+											case '2':
+												configuration_setting_frame(g_asc_reception_buffer[4]);
+											break;
+        	
+											case '3':
+												configuration_answer_frame(g_asc_reception_buffer[4]);
+											break;
+        	
+											default:break;
+										}
+									}
+								break;
+        	
+								case '3':
+									if(g_reception_buffer[2] == '0')
+									{
+										if(KO_conf.DesAdd == g_asc_reception_buffer[1])
+										{
+											switch (g_reception_buffer[7])
+											{
+												case '2':
+													configuration_setting_frame(g_asc_reception_buffer[4]);
+												break;
+        	
+												case '3':
+													configuration_answer_frame(g_asc_reception_buffer[4]);
+												break;
+        	
+												default:break;
+											}
+										}
+									}
+								break;
+							}
+						break;
+        	
+						default:break;
+					}
+				}
+				else if(g_reception_buffer[SYS] == '9')
+				{
+					if( g_asc_reception_buffer[0] == 0xD2 )
+						aux_procedure();
+					else if( g_asc_reception_buffer[0] == 0xD0 )
+					{
+						if(g_reception_buffer[LEV] == '0' || g_reception_buffer[LEV] == 'F')
+						{
+							 id_frame();
+						}
+					}
+				}
+			break;
+				
+			case 0x25:
+				strncpy(buffer_tx,"D200013485000000",17);
+				strncpy(&buffer_tx[10],&scs_frame[current].byte[3],7);
+				buffer_tx[16] = 0;
+				send_frame_pp_ext_broad(buffer_tx,TRANS_DELAY);
+			break;
+
+			case 0x26:
+				if(flags.request_83)
+				{
+					flags.request_83 = 0;
+					strncpy(buffer_tx,"D200013483000000",17);
+					buffer_tx[16] = 0;
+					strncpy(&buffer_tx[10],&scs_frame[current].byte[4],6);
+					buffer_tx[15] = '0';
+					send_frame_pp_ext_broad(buffer_tx,TRANS_DELAY);
+				}
+			break;
+
+			default:
+				scs_frame[current].finished = 0;		
+				return 1;
+		}
+	}
+	scs_frame[current].finished = 0;
+	return 0;
+}
+
+unsigned char is_gateway_busy(void)
+{
+	unsigned char i;
+	//unsigned char current;
+
+	for(i=0;i<DEEP;i++)
+	{
+		if(scs_frame[i].finished)
+		{
+      scs_frame[i].finished = 0;
+      switch(StrToChar(&scs_frame[i].byte[1]))
+		  {
+        case 0x00:
+          //scs_frame[current].finished = 0;
+          return 0x02;
+      
+        case 0x01:
+         return 0x01;
+      
+        case 0x07:
+          return 0x07;
+        
+        case 0x08:
+          if(StrToChar(&scs_frame[i].byte[3]) == 2 || StrToChar(&scs_frame[i].byte[3]) == 3)
+            return 1;
+        break;
+        
+				case 0x13:
+					return 0x13;
+				
+        case 0x22:
+          return 1;      
+        
+			  default: break;
+		  }
+		}
+	}
+  return 0;
+}
+
+void sensor_GR_decode(void)
+{
+/********************************add by alan  begin**********************/		
+	if(g_short_buffer[0] == 'B')					// add by alan
+	{
+		if(g_short_buffer[1] == '5')				// frame B5
+		{
+			if(g_asc_short_buffer[1] == KO_conf.GR)		// the frame is sent by other sensor in the same GR	
+			{
+				if((g_short_buffer[4] == '1')&&(g_short_buffer[5] == 'D'))
+				{
+					if((g_short_buffer[6] == '0')&&(g_short_buffer[7] == '0'))	 SCS_received.presence = 1;	// B|5 G|G 1|D 0|0  "presence"
+					if((g_short_buffer[6] == '0')&&(g_short_buffer[7] == '1'))	SCS_received.no_presence = 1;	// B|5 G|G 1|D 0|1 "no presence"
+				}
+				if((g_short_buffer[4] == '1')&&(g_short_buffer[5] == '2'))
+				{
+					if((g_short_buffer[6] == '0')&&(g_short_buffer[7] == '0'))	SCS_received.GR_ON = 1;		//B|5 G|G 1|2 0|0   "Group frame ON"
+					if((g_short_buffer[6] == '0')&&(g_short_buffer[7] == '1'))	SCS_received.GR_OFF = 1;	// B|5 G|G 1|2 0|1  "group frame OFF"
+					if(g_short_buffer[7] == 'D')			// dimmer	0526
+					{
+							if(g_short_buffer[6] == '0')
+								SCS_received.GR_OFF = 1;	
+							else if(g_short_buffer[6] < 'A')
+								SCS_received.GR_ON = 1;
+					}
+				}							
+			}
+			if(((KO_conf.GS1 != 0)||(KO_conf.GS2 != 0))&&(g_asc_short_buffer[1] !=0))
+			{
+				if((g_asc_short_buffer[1] == KO_conf.GS1)||(g_asc_short_buffer[1] == KO_conf.GS2))				
+				{
+					if((g_short_buffer[4] == '1')&&(g_short_buffer[5] == 'D'))
+					{
+						if((g_short_buffer[6] == '0')&&(g_short_buffer[7] == '0'))	 SCS_received.GS_presence = 1;									
+					  // B|5 G|S 1|D 0|0  "presence" send by GS
+				  }
+				}		
+			}
+		}
+				
+		if(g_short_buffer[1] == '8')	// frame B8						// B|8 G|G 1|2 0|1
+		{
+			//if((g_short_buffer[4] == '9')&&(g_short_buffer[5] == '9'))	SCS_received.setpoint_high = 1;		// debug for test
+			//if((g_short_buffer[4] == '8')&&(g_short_buffer[5] == '8'))	SCS_received.setpoint_low = 1;		// debug for test
+			if((g_short_buffer[4] == '1')&&(g_short_buffer[5] == '2'))
+			{	
+				
+			  		if(((KO_conf.AddressType == 2)&&(KO_conf.Reference == g_asc_short_buffer[1]))||((KO_conf.AddressType ==0)&&(KO_conf.DesAdd == g_asc_short_buffer[1])))
+						//if(KO_conf.GR == g_asc_short_buffer[1])		// debug 0519
+						{
+						// if (addressing type==GR) && (A|PL == reference)  or  (addressing type==P2P) && (A|PL == destination address)
+					  	// we consider this actuator is controled by this sensor
+					  	switch(g_short_buffer[7])
+							{
+								case '0':
+							  	SCS_received.update_state_ON = 1;
+									SCS_received.P2P_actuator_flag = 1;			// actuator,used for regulation
+									SCS_received.P2P_dimmer_flag = 0;
+						  		break;
+								case '1':
+							  	SCS_received.update_state_OFF = 1;
+							  	SCS_received.P2P_actuator_flag = 1;			// actuator,used for regulation
+									SCS_received.P2P_dimmer_flag = 0;
+						  		break;
+								case 'D':			
+							  	SCS_received.update_state_LEVEL = 1;
+									SCS_received.P2P_dimmer_flag = 1;			// dimmer,used for regulation
+									SCS_received.P2P_actuator_flag = 0;
+						  		break;
+								default:	break;	
+			
+							}
+					}
+			}					
+		}				
+	}	
+/*******************************add by alan  end **********************/	
+}
+
+void calibration_decode(void)
+{
+							// add 0519
+							// Enter calibration waiting mode	D1 01 01 42 14 00 00 00
+							// Exit calibration waiting mode	D1 01 01 42 14 00 00 FF
+							// Sent calibration lux				D1 01 01 42 10 0X XX XX
+							// change by reyno May30
+							  if(g_asc_reception_buffer[3] == 0x42)       	// D5 LOC 01 42 14 XX XX XX 0519
+								{
+									if(g_asc_reception_buffer[4] == 0x14 )
+									{
+										if(g_asc_reception_buffer[7] ==0x00)
+										{
+											SCS_received.calib_wait = 1;    	// D1 LOC 01 42 14 XX XX 00
+									  	led_blinking(250,250);
+											state.main_state = CALIBRATION;
+										}
+										else if(g_asc_reception_buffer[7] == 0xFF)
+										{
+											SCS_received.calib_wait = 0; 		//SCS_received.calib_exit = 1; 		// D1 LOC 01 42 14 XX XX FF
+									 		led_blinking_disable(0); 
+											state.main_state = NORMAL;
+										}
+									}
+									
+									if(g_asc_reception_buffer[4] == 0x10)
+									{
+										if(SCS_received.calib_wait == 1)
+										{
+											unsigned long int temp_lux;
+											temp_lux = g_asc_reception_buffer[5]&0x0F;
+											temp_lux <<= 8;
+											temp_lux += g_asc_reception_buffer[6];
+											temp_lux <<= 8;
+											temp_lux += g_asc_reception_buffer[7];
+										
+											DLL.setpoint_M = temp_lux*10/DLL.day_level;
+											eep_setpoint[2] = DLL.setpoint_M;
+											daylight_set_init();
+											buzzer_ms(500);	
+										}
+									}
+								}
+}
+
+void scs_calibration(void)
+{
+								if(g_asc_reception_buffer[3] == 0x42)       	// D5 LOC 01 42 14 XX XX XX 0519
+								{
+									if(g_asc_reception_buffer[4] == 0x14 )
+									{
+										if(g_asc_reception_buffer[7] ==0x00)
+										{
+											SCS_received.calib_wait = 1;    	// D1 LOC 01 42 14 XX XX 00
+									  	led_blinking(250,250);
+											state.main_state = CALIBRATION;
+										}
+										else if(g_asc_reception_buffer[7] == 0xFF)
+										{
+											SCS_received.calib_wait = 0; 		//SCS_received.calib_exit = 1; 		// D1 LOC 01 42 14 XX XX FF
+									 		led_blinking_disable(0); 
+											state.main_state = NORMAL;
+										}
+									}
+									
+									if(g_asc_reception_buffer[4] == 0x10)
+									{
+										if(SCS_received.calib_wait == 1)
+										{
+											unsigned long int temp_lux;
+											temp_lux = g_asc_reception_buffer[5]&0x0F;
+											temp_lux <<= 8;
+											temp_lux += g_asc_reception_buffer[6];
+											temp_lux <<= 8;
+											temp_lux += g_asc_reception_buffer[7];
+										
+											DLL.setpoint_M = temp_lux*10/DLL.day_level;
+											eep_setpoint[2] = DLL.setpoint_M;
+											daylight_set_init();
+											buzzer_ms(500);	
+										}
+									}
+								}
+}

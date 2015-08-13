@@ -1,0 +1,2735 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V4.61B/386                                         #
+#                                                                              #
+#           Link time     =  03/Apr/2009  22:40:01                             #
+#           Target CPU    =  A90                                               #
+#           List file     =  D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\List\LM_IAR_5.0.map                         #
+#           Output file 1 =  D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Exe\LM_IAR_5.0.hex                          #
+#                            Format: intel-extended, variant: -y(CODE)         #
+#           Output file 2 =  D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Exe\LMVersion1.dat                          #
+#                            Format: intel-extended, variant: -y(DATA)         #
+#           Output file 3 =  D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Exe\LMVersion1.eep                          #
+#                            Format: intel-extended, variant: -y(XDATA)        #
+#           Command line  =  -y(CODE)                                          #
+#                            -Ointel-extended,(DATA)=D:\avr\Uart_Interrupt\LM_ #
+#                            Universal\LM_IAR_V5.0\Release\Exe\LMVersion1.dat  #
+#                            -Ointel-extended,(XDATA)=D:\avr\Uart_Interrupt\LM #
+#                            _Universal\LM_IAR_V5.0\Release\Exe\LMVersion1.eep #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\IR.r90                                  #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\PIR.r90                                 #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\US.r90                                  #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\application.r90                         #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\board.r90                               #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\configuration.r90                       #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\decode_scs.r90                          #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\decode_scs_next.r90                     #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\global_variable.r90                     #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\main.r90                                #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Obj\usart.r90                               #
+#                            -o                                                #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\Exe\LM_IAR_5.0.hex                          #
+#                            -Fintel-extended -l                               #
+#                            D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Re #
+#                            lease\List\LM_IAR_5.0.map                         #
+#                            -xms                                              #
+#                            "-IC:\Program Files\IAR Systems\Embedded Workbenc #
+#                            h 5.0 Evaluation\avr\LIB\"                        #
+#                            -f                                                #
+#                            "C:\Program Files\IAR Systems\Embedded Workbench  #
+#                            5.0 Evaluation\avr\config\lnkm324ps.xcl"          #
+#                            (-D_..X_INTVEC_SIZE=7C -D_..X_FLASH_TEND=FF       #
+#                            -D_..X_FLASH_NEND=7FFF -D_..X_FLASH_END=7FFF      #
+#                            -D_..X_SRAM_BASE=100 -D_..X_SRAM_TEND=100         #
+#                            -D_..X_SRAM_END=8FF -D_..X_EEPROM_END=3FF         #
+#                            -D_..X_CSTACK_SIZE=100 -D_..X_RSTACK_SIZE=40      #
+#                            -D_..X_HEAP_SIZE=80 -D_..X_NEAR_HEAP_SIZE=80      #
+#                            -ca90 -Z(CODE)INTVEC=0-(_..X_INTVEC_SIZE-1)       #
+#                            -H1895 -h(CODE)0-_..X_INTVEC_SIZE                 #
+#                            -Z(CODE)TINY_F=_..X_INTVEC_SIZE-_..X_FLASH_TEND   #
+#                            -Z(CODE)NEAR_F,SWITCH,INITTAB,DIFUNCT=_..X_INTVEC #
+#                            _SIZE-_..X_FLASH_END                              #
+#                            -Z(CODE)CODE=_..X_INTVEC_SIZE-_..X_FLASH_END      #
+#                            -Z(CODE)TINY_ID,NEAR_ID=_..X_INTVEC_SIZE-_..X_FLA #
+#                            SH_END                                            #
+#                            -Z(CODE)CHECKSUM#_..X_FLASH_END                   #
+#                            -Z(DATA)TINY_I,TINY_Z,TINY_N=_..X_SRAM_BASE-_..X_ #
+#                            SRAM_TEND                                         #
+#                            -Z(DATA)NEAR_I,NEAR_Z,NEAR_N=_..X_SRAM_BASE-_..X_ #
+#                            SRAM_END                                          #
+#                            -Z(DATA)RSTACK+_..X_RSTACK_SIZE=_..X_SRAM_BASE-_. #
+#                            .X_SRAM_END                                       #
+#                            -Z(DATA)CSTACK+_..X_CSTACK_SIZE=_..X_SRAM_BASE-_. #
+#                            .X_SRAM_END                                       #
+#                            -Z(DATA)HEAP+_..X_HEAP_SIZE=_..X_SRAM_BASE-_..X_S #
+#                            RAM_END                                           #
+#                            -Z(DATA)IOSTREAM_N#_..X_SRAM_BASE-_..X_SRAM_END   #
+#                            -Z(DATA)NEAR_HEAP+_..X_NEAR_HEAP_SIZE=_..X_SRAM_B #
+#                            ASE-_..X_SRAM_END                                 #
+#                            -Z(XDATA)EEPROM_I,EEPROM_N=0-_..X_EEPROM_END      #
+#                            -e_PrintfSmall=_Printf                            #
+#                            -e_small_write=_formatted_write                   #
+#                            -e_small_write_P=_formatted_write_P               #
+#                            -e_ScanfSmall=_Scanf                              #
+#                            -e_medium_read=_formatted_read                    #
+#                            -e_medium_read_P=_formatted_read_P -w29) -s       #
+#                            __program_start                                   #
+#                            "C:\Program Files\IAR Systems\Embedded Workbench  #
+#                            5.0 Evaluation\avr\LIB\CLIB\cl3s-ec_mul-sf.r90"   #
+#                                                                              #
+#                        Copyright 1987-2008 IAR Systems. All rights reserved. #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at : CODE      00000000  Relocatable, from module : ?RESET
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  EEPROM_SIZE     = 2
+  R4              = REG
+  __64bit_doubles = disabled
+  __cpu           = 3
+  __cpu_name      = ATmega324P
+  __enhanced_core = enabled
+  __has_elpm      = false
+  __memory_model  = 2
+  __rt_version    = 3
+
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?ABS_ENTRY_MOD
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _..X_NEAR_HEAP_SIZE     00000080 
+           _..X_HEAP_SIZE          00000080 
+           _..X_RSTACK_SIZE        00000040 
+           _..X_CSTACK_SIZE        00000100 
+           _..X_EEPROM_END         000003FF 
+           _..X_SRAM_END           000008FF 
+           _..X_SRAM_TEND          00000100 
+           _..X_SRAM_BASE          00000100 
+           _..X_FLASH_END          00007FFF 
+           _..X_FLASH_NEND         00007FFF 
+           _..X_FLASH_TEND         000000FF 
+           _..X_INTVEC_SIZE        0000007C 
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\IR.r90
+  PROGRAM MODULE, NAME : IR
+
+  SEGMENTS IN THE MODULE
+  ======================
+ABSOLUTE
+  Relative segment, address: DATA 000000CE - 000000CE (0x1 bytes), align: 0
+  Segment part 1.             Intra module refs:   put_c1
+                                                   usart1_rx_ser
+                                                   usart_tx_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UDR1                 000000CE 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000CC - 000000CD (0x2 bytes), align: 0
+  Segment part 2.             Intra module refs:   init_USART1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UBRR1                000000CC 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000CA - 000000CA (0x1 bytes), align: 0
+  Segment part 3.             Intra module refs:   init_USART1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR1C               000000CA 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C9 - 000000C9 (0x1 bytes), align: 0
+  Segment part 4.             Intra module refs:   init_USART1
+                                                   put_s1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR1B               000000C9 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C8 - 000000C8 (0x1 bytes), align: 0
+  Segment part 5.             Intra module refs:   init_USART1
+                                                   put_c1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR1A               000000C8 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000008A - 0000008B (0x2 bytes), align: 0
+  Segment part 6.             Intra module refs:   IR_36kHz
+                                                   buzzer_ms (board)
+                                                   timer0_ovf_ser (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR1B                0000008A 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000088 - 00000089 (0x2 bytes), align: 0
+  Segment part 7.             Intra module refs:   IR_36kHz
+                                                   buzzer_ms (board)
+                                                   close_IR_36kHz
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR1A                00000088 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000086 - 00000087 (0x2 bytes), align: 0
+  Segment part 8.             Intra module refs:   IR_36kHz
+                                                   buzzer_ms (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_ICR1                 00000086 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000081 - 00000081 (0x1 bytes), align: 0
+  Segment part 9.             Intra module refs:   PWM_output_init
+                                                   buzzer_ms (board)
+                                                   close_IR_36kHz
+                                                   timer0_ovf_ser (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR1B               00000081 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000080 - 00000080 (0x1 bytes), align: 0
+  Segment part 10.            Intra module refs:   PWM_output_init
+                                                   buzzer_ms (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR1A               00000080 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000026A - 00000323 (0xba bytes), align: 1
+  Segment part 24.            Intra module refs:   usart1_rx_ser::??INTVEC 112
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart1_rx_ser           0000026A 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000007 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00000324 - 00000373 (0x50 bytes), align: 1
+  Segment part 25.            Intra module refs:   usart_tx_ser::??INTVEC 120
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart_tx_ser            00000324 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000005 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00000374 - 000003C3 (0x50 bytes), align: 1
+  Segment part 26.            Intra module refs:   put_s1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           put_c1                  00000374 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000003C4 - 0000042D (0x6a bytes), align: 1
+  Segment part 27.            Intra module refs:   decode_IR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           put_s1                  000003C4 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000005 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000042E - 0000044D (0x20 bytes), align: 1
+  Segment part 28.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           init_USART1             0000042E        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000044E - 0000046D (0x20 bytes), align: 1
+  Segment part 29.            Intra module refs:   decode_IR
+                                                   put_s1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _calculate_crc          0000044E 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000046E - 0000047B (0xe bytes), align: 1
+  Segment part 30.            Intra module refs:   IR_36kHz
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PWM_output_init         0000046E 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000047C - 0000049D (0x22 bytes), align: 1
+  Segment part 31.            Intra module refs:   put_s1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           IR_36kHz                0000047C 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000049E - 000004AD (0x10 bytes), align: 1
+  Segment part 32.            Intra module refs:   put_s1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           close_IR_36kHz          0000049E 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000004AE - 00000CB7 (0x80a bytes), align: 1
+  Segment part 33.            Intra module refs:   Segment part 38
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           decode_IR               000004AE        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 0000002A )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00000CB8 - 00000CE1 (0x2a bytes), align: 1
+  Segment part 34.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ir_buffer_clear         00000CB8        all_reception_buffer_clear (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00000CE2 - 00001223 (0x542 bytes), align: 1
+  Segment part 35.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ir_pnl                  00000CE2        service_main (application)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000017 )
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000003AA - 000003AB (0x2 bytes), align: 0
+  Segment part 22.            Intra module refs:   ir_pnl
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           temp_ns                 000003AA 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001224 - 000012F1 (0xce bytes), align: 1
+  Segment part 36.            Intra module refs:   decode_IR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           setting_diagnostic_ir   00001224 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000001F, align: 0
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __?EECR                 0000001F        Segment part 0 (?EEPROM_16)
+                                                   Segment part 1 (?EEPROM_16)
+                                                   Segment part 8 (?EEPROM_16)
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000020, align: 0
+  Segment part 12.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __?EEDR                 00000020        __eeget16_16 (?EEPROM_16)
+                                                   __eeget8_16 (?EEPROM_16)
+                                                   __eeput16_16 (?EEPROM_16)
+                                                   __eeput8_16 (?EEPROM_16)
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000021, align: 0
+  Segment part 13.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __?EEARL                00000021        Segment part 1 (?EEPROM_16)
+                                                   Segment part 8 (?EEPROM_16)
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000022, align: 0
+  Segment part 14.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __?EEARH                00000022        Segment part 1 (?EEPROM_16)
+                                                   Segment part 8 (?EEPROM_16)
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 00000073 (0x74 bytes), align: 1
+  Segment part 15. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart1_rx_ser::??INTVEC 112
+                                   00000070 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000007B (0x7c bytes), align: 1
+  Segment part 16. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart_tx_ser::??INTVEC 120
+                                   00000078 
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005324 - 00005413 (0xf0 bytes), align: 0
+  Segment part 20.            Intra module refs:   Segment part 19
+    -------------------------------------------------------------------------
+INITTAB
+  Relative segment, address: CODE 0000025E - 00000263 (0x6 bytes), align: 0
+  Segment part 21.            Intra module refs:   Segment part 10 (decode_scs)
+                                                   Segment part 11 (decode_scs_next)
+                                                   Segment part 14 (decode_scs_next)
+                                                   Segment part 16 (decode_scs_next)
+                                                   Segment part 17 (application)
+                                                   Segment part 18 (decode_scs_next)
+                                                   Segment part 19
+                                                   Segment part 20 (application)
+                                                   Segment part 22 (application)
+                                                   Segment part 7 (decode_scs)
+                                                   Segment part 7 (decode_scs_next)
+                                                   flash_KO (global_variable)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?<Segment init: NEAR_I>
+                                   0000025E 
+    -------------------------------------------------------------------------
+INITTAB
+  Relative segment, address: CODE 00000264 - 00000269 (0x6 bytes), align: 0
+  Segment part 23.            Intra module refs:   Configurators (global_variable)
+                                                   KO (global_variable)
+                                                   KO_conf (global_variable)
+                                                   Segment part 12 (global_variable)
+                                                   Segment part 20 (usart)
+                                                   Segment part 27 (application)
+                                                   Segment part 28 (decode_scs_next)
+                                                   Time_delay (global_variable)
+                                                   flag_configurator (decode_scs_next)
+                                                   flag_timer (global_variable)
+                                                   g_asc_reception_buffer (global_variable)
+                                                   g_asc_short_buffer (global_variable)
+                                                   g_ir_reception (global_variable)
+                                                   g_reception_buffer (global_variable)
+                                                   g_short_buffer (global_variable)
+                                                   modality0_delay_ms (global_variable)
+                                                   motion_total (global_variable)
+                                                   parameters (global_variable)
+                                                   product_information (global_variable)
+                                                   scs_frame (global_variable)
+                                                   temp_ns
+                                                   temp_product_information (global_variable)
+                                                   temp_variable (global_variable)
+                                                   tx1_buffer (global_variable)
+                                                   tx1_counter (global_variable)
+                                                   tx1_rd_index (global_variable)
+                                                   tx1_wr_index (global_variable)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?<Segment init: NEAR_Z>
+                                   00000264 
+    -------------------------------------------------------------------------
+SWITCH
+  Relative segment, address: CODE 0000017E - 000001AF (0x32 bytes), align: 1
+  Segment part 38.            Intra module refs:   decode_IR
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 00000100 - 000001EF (0xf0 bytes), align: 0
+  Segment part 19.            Intra module refs:   decode_IR
+                                                   ir_pnl
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\PIR.r90
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\US.r90
+  PROGRAM MODULE, NAME : US
+
+  SEGMENTS IN THE MODULE
+  ======================
+ABSOLUTE
+  Relative segment, address: DATA 0000007C - 0000007C (0x1 bytes), align: 0
+  Segment part 1.             Intra module refs:   adc_initial (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_ADMUX                0000007C 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000007A - 0000007A (0x1 bytes), align: 0
+  Segment part 2.             Intra module refs:   adc_initial (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_ADCSRA               0000007A 
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\application.r90
+  PROGRAM MODULE, NAME : application
+
+  SEGMENTS IN THE MODULE
+  ======================
+ABSOLUTE
+  Relative segment, address: DATA 000000B6 - 000000B6 (0x1 bytes), align: 0
+  Segment part 1.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_ASSR                 000000B6 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000B4 - 000000B4 (0x1 bytes), align: 0
+  Segment part 2.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR2B                000000B4 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000B3 - 000000B3 (0x1 bytes), align: 0
+  Segment part 3.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR2A                000000B3 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000B2 - 000000B2 (0x1 bytes), align: 0
+  Segment part 4.             Intra module refs:   timer2_enable
+                                                   timer2_ovf_ser (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCNT2                000000B2 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000B1 - 000000B1 (0x1 bytes), align: 0
+  Segment part 5.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR2B               000000B1 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000B0 - 000000B0 (0x1 bytes), align: 0
+  Segment part 6.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR2A               000000B0 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000070 - 00000070 (0x1 bytes), align: 0
+  Segment part 7.             Intra module refs:   timer2_enable
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TIMSK2               00000070 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000028 - 00000028 (0x1 bytes), align: 0
+  Segment part 8.             Intra module refs:   IO_Initial (board)
+                                                   led_blinking_disable
+                                                   scs_pnl_none_confed
+                                                   start_conf
+                                                   timer2_ovf_ser (board)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PORTC                00000028 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000012F2 - 0000131D (0x2c bytes), align: 1
+  Segment part 29.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer2_enable           000012F2        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000131E - 000013A1 (0x84 bytes), align: 1
+  Segment part 35.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           button_press_detect     0000131E        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000013A2 - 00001993 (0x5f2 bytes), align: 1
+  Segment part 37.            Intra module refs:   service_main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           scs_pnl_advance_confed
+                                   000013A2 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000025 )
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000003AC - 000003B0 (0x5 bytes), align: 0
+  Segment part 27.            Intra module refs:   scs_pnl_advance_confed
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001994 - 00001B73 (0x1e0 bytes), align: 1
+  Segment part 38.            Intra module refs:   service_main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           scs_pnl_none_confed     00001994 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001B74 - 00001B87 (0x14 bytes), align: 1
+  Segment part 39.            Intra module refs:   button_press_detect
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           key_time_clear          00001B74 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001B88 - 00001BC9 (0x42 bytes), align: 1
+  Segment part 40.            Intra module refs:   led_blinking_normal
+                                                   led_status_recover
+                                                   scs_pnl_advance_confed
+                                                   scs_pnl_none_confed
+                                                   service_main
+                                                   start_conf
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           led_blinking            00001B88        configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   ir_pnl (IR)
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001BCA - 00001BE3 (0x1a bytes), align: 1
+  Segment part 41.            Intra module refs:   led_blinking_normal
+                                                   led_status_recover
+                                                   scs_pnl_advance_confed
+                                                   scs_pnl_none_confed
+                                                   service_main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           led_blinking_disable    00001BCA        ir_pnl (IR)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001BE4 - 00001C0D (0x2a bytes), align: 1
+  Segment part 42.            Intra module refs:   scs_pnl_advance_confed
+                                                   scs_pnl_none_confed
+                                                   service_main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer_flex_initial      00001BE4        configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001C0E - 00001C47 (0x3a bytes), align: 1
+  Segment part 43.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           all_reception_buffer_clear
+                                   00001C0E        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000001 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001C48 - 00001C6F (0x28 bytes), align: 1
+  Segment part 44.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           manual_reception_buffer_clear
+                                   00001C48        KO_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000001 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001C70 - 00001E85 (0x216 bytes), align: 1
+  Segment part 45.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           start_conf              00001C70        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000006 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001E86 - 00001F5D (0xd8 bytes), align: 1
+  Segment part 46.            Intra module refs:   scs_pnl_advance_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           factory_default         00001E86        configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000001 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001F5E - 00002083 (0x126 bytes), align: 1
+  Segment part 48.            Intra module refs:   Segment part 58
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           service_main            00001F5E        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002084 - 000020A5 (0x22 bytes), align: 1
+  Segment part 49.            Intra module refs:   scs_pnl_advance_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           led_status_recover      00002084 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000020A6 - 000020B7 (0x12 bytes), align: 1
+  Segment part 50.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_disable_automatic_control
+                                   000020A6 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000020B8 - 000020C9 (0x12 bytes), align: 1
+  Segment part 51.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_enable_automatic_control
+                                   000020B8 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000020CA - 000020DB (0x12 bytes), align: 1
+  Segment part 52.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_start_pnl_none_group_confed
+                                   000020CA 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000020DC - 00002119 (0x3e bytes), align: 1
+  Segment part 53.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_start_pnl_group_confed
+                                   000020DC 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000211A - 0000212B (0x12 bytes), align: 1
+  Segment part 54.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_end_pnl      0000211A 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000212C - 0000213D (0x12 bytes), align: 1
+  Segment part 55.            Intra module refs:   scs_pnl_none_confed
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_send_group_request
+                                   0000212C 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000213E - 0000215F (0x22 bytes), align: 1
+  Segment part 56.            Intra module refs:   scs_pnl_none_confed
+                                                   service_main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           led_blinking_normal     0000213E        configuration_receive_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005414 - 00005483 (0x70 bytes), align: 0
+  Segment part 18.            Intra module refs:   Segment part 17
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005484 - 0000549C (0x19 bytes), align: 0
+  Segment part 21.            Intra module refs:   Segment part 20
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 0000549D - 000054BE (0x22 bytes), align: 0
+  Segment part 23.            Intra module refs:   Segment part 22
+    -------------------------------------------------------------------------
+SWITCH
+  Relative segment, address: CODE 000001B0 - 000001C9 (0x1a bytes), align: 1
+  Segment part 58.            Intra module refs:   service_main
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 000001F0 - 0000025F (0x70 bytes), align: 0
+  Segment part 17.            Intra module refs:   frame_send_disable_automatic_control
+                                                   frame_send_enable_automatic_control
+                                                   frame_send_end_pnl
+                                                   frame_send_group_request
+                                                   frame_send_start_pnl_none_group_confed
+                                                   scs_pnl_advance_confed
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 00000260 - 00000278 (0x19 bytes), align: 0
+  Segment part 20.            Intra module refs:   start_conf
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 00000279 - 0000029A (0x22 bytes), align: 0
+  Segment part 22.            Intra module refs:   service_main
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 0000007C - 0000009D (0x22 bytes), align: 0
+  Segment part 16.            Intra module refs:   scs_pnl_advance_confed
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 0000009E - 000000AE (0x11 bytes), align: 0
+  Segment part 24.            Intra module refs:   frame_send_start_pnl_group_confed
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\board.r90
+  PROGRAM MODULE, NAME : board
+
+  SEGMENTS IN THE MODULE
+  ======================
+ABSOLUTE
+  Relative segment, address: DATA 00000084 - 00000085 (0x2 bytes), align: 0
+  Segment part 5.             Intra module refs:   buzzer_ms
+                                                   timer1_ovf_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCNT1                00000084 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000007E - 0000007E (0x1 bytes), align: 0
+  Segment part 8.             Intra module refs:   adc_initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_DIDR0                0000007E 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000006E - 0000006E (0x1 bytes), align: 0
+  Segment part 12.            Intra module refs:   buzzer_ms
+                                                   timer0_ovf_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TIMSK0               0000006E 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000060 - 00000060 (0x1 bytes), align: 0
+  Segment part 14.            Intra module refs:   WDT_off
+                                                   system_reset
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_WDTCSR               00000060 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000054 - 00000054 (0x1 bytes), align: 0
+  Segment part 15.            Intra module refs:   WDT_off
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_MCUSR                00000054 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000048 - 00000048 (0x1 bytes), align: 0
+  Segment part 16.            Intra module refs:   buzzer_ms
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR0B                00000048 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000047 - 00000047 (0x1 bytes), align: 0
+  Segment part 17.            Intra module refs:   buzzer_ms
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_OCR0A                00000047 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000046 - 00000046 (0x1 bytes), align: 0
+  Segment part 18.            Intra module refs:   buzzer_ms
+                                                   timer0_ovf_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCNT0                00000046 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000045 - 00000045 (0x1 bytes), align: 0
+  Segment part 19.            Intra module refs:   buzzer_ms
+                                                   timer0_ovf_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR0B               00000045 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000044 - 00000044 (0x1 bytes), align: 0
+  Segment part 20.            Intra module refs:   buzzer_ms
+                                                   timer0_ovf_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCCR0A               00000044 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000002B - 0000002B (0x1 bytes), align: 0
+  Segment part 21.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PORTD                0000002B 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 0000002A - 0000002A (0x1 bytes), align: 0
+  Segment part 22.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_DDRD                 0000002A 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000027 - 00000027 (0x1 bytes), align: 0
+  Segment part 24.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_DDRC                 00000027 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000025 - 00000025 (0x1 bytes), align: 0
+  Segment part 25.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PORTB                00000025 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000024 - 00000024 (0x1 bytes), align: 0
+  Segment part 26.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_DDRB                 00000024 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000023 - 00000023 (0x1 bytes), align: 0
+  Segment part 27.            Intra module refs:   get_key
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PINB                 00000023 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000022 - 00000022 (0x1 bytes), align: 0
+  Segment part 28.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_PORTA                00000022 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 00000021 - 00000021 (0x1 bytes), align: 0
+  Segment part 29.            Intra module refs:   IO_Initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_DDRA                 00000021 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002160 - 000021BB (0x5c bytes), align: 1
+  Segment part 39.            Intra module refs:   timer0_ovf_ser::??INTVEC 72
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer0_ovf_ser          00002160 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000007 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000021BC - 0000242D (0x272 bytes), align: 1
+  Segment part 40.            Intra module refs:   timer2_ovf_ser::??INTVEC 44
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer2_ovf_ser          000021BC 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 0000000B )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000242E - 0000245B (0x2e bytes), align: 1
+  Segment part 41.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           IO_Initial              0000242E        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000245C - 0000247D (0x22 bytes), align: 1
+  Segment part 42.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           delay_ms                0000245C        put_s1 (IR)
+                                                   scs_pnl_advance_confed (application)
+                                                   send_frame_pp_broad (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   start_conf (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000247E - 000024CB (0x4e bytes), align: 1
+  Segment part 47.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           StrToChar               0000247E        configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   is_gateway_busy (decode_scs)
+                                                   scs_pnl_advance_confed (application)
+                                                   start_conf (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000024CC - 0000250B (0x40 bytes), align: 1
+  Segment part 48.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CharToStr               000024CC        KO_answer_frame (decode_scs_next)
+                                                   address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   frame_send_start_pnl_group_confed (application)
+                                                   ir_pnl (IR)
+                                                   not_allowed_response (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   scs_pnl_advance_confed (application)
+                                                   send_aux_frame (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   send_group_frame (decode_scs_next)
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000250C - 0000256B (0x60 bytes), align: 1
+  Segment part 49.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           buzzer_ms               0000250C        decode_IR (IR)
+                                                   main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000256C - 00002577 (0xc bytes), align: 1
+  Segment part 50.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           get_key                 0000256C        button_press_detect (application)
+                                                   service_main (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002578 - 00002589 (0x12 bytes), align: 1
+  Segment part 51.            Intra module refs:   timer1_ovf_ser::??INTVEC 60
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer1_ovf_ser          00002578 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000258A - 0000259D (0x14 bytes), align: 1
+  Segment part 56.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           adc_initial             0000258A        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000259E - 000025AB (0xe bytes), align: 1
+  Segment part 59.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           system_reset            0000259E        configuration_setting_frame (decode_scs_next)
+                                                   id_frame (decode_scs_next)
+                                                   scs_pnl_advance_confed (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000025AC - 000025C3 (0x18 bytes), align: 1
+  Segment part 60.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           WDT_off                 000025AC        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000002F (0x30 bytes), align: 1
+  Segment part 34. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer2_ovf_ser::??INTVEC 44
+                                   0000002C 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000003F (0x40 bytes), align: 1
+  Segment part 35. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer1_ovf_ser::??INTVEC 60
+                                   0000003C 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000004B (0x4c bytes), align: 1
+  Segment part 36. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer0_ovf_ser::??INTVEC 72
+                                   00000048 
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\configuration.r90
+  PROGRAM MODULE, NAME : configuration
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000025C4 - 00002729 (0x166 bytes), align: 1
+  Segment part 13.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           load_default_parameter
+                                   000025C4        factory_default (application)
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000023 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000272A - 000027CD (0xa4 bytes), align: 1
+  Segment part 14.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           remember_parameter      0000272A        configuration_setting_frame (decode_scs_next)
+                                                   factory_default (application)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 0000002B )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000027CE - 00002835 (0x68 bytes), align: 1
+  Segment part 15.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           load_parameter          000027CE        decode_IR (IR)
+                                                   main (main)
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002836 - 00002859 (0x24 bytes), align: 1
+  Segment part 16.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ID_setting              00002836        id_frame (decode_scs_next)
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000285A - 0000292D (0xd4 bytes), align: 1
+  Segment part 17.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           configuration_checking
+                                   0000285A        configuration_setting_frame (decode_scs_next)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000292E - 000029CB (0x9e bytes), align: 1
+  Segment part 18.            Intra module refs:   Segment part 20
+                                                   remember_parameter
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           write_KO                0000292E        configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000001 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000029CC - 00002A6B (0xa0 bytes), align: 1
+  Segment part 19.            Intra module refs:   Segment part 21
+                                                   remember_parameter
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           read_KO                 000029CC        decode_IR (IR)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+SWITCH
+  Relative segment, address: CODE 000001CA - 00000213 (0x4a bytes), align: 1
+  Segment part 20.            Intra module refs:   write_KO
+    -------------------------------------------------------------------------
+SWITCH
+  Relative segment, address: CODE 00000214 - 0000025D (0x4a bytes), align: 1
+  Segment part 21.            Intra module refs:   read_KO
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 000000AF - 000000D1 (0x23 bytes), align: 0
+  Segment part 10.            Intra module refs:   load_default_parameter
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\decode_scs.r90
+  PROGRAM MODULE, NAME : decode_scs
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00002A6C - 00002AC5 (0x5a bytes), align: 1
+  Segment part 12.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           reception_buffer_clear
+                                   00002A6C        all_reception_buffer_clear (application)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002AC6 - 00002C1B (0x156 bytes), align: 1
+  Segment part 13.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           decode_id               00002AC6        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002C1C - 00002F75 (0x35a bytes), align: 1
+  Segment part 14.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           decode_SCS              00002C1C        main (main)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000019 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00002F76 - 00002FEB (0x76 bytes), align: 1
+  Segment part 15.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           is_gateway_busy         00002F76        send_frame_pp_ext_broad (decode_scs_next)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 000054BF - 000054CF (0x11 bytes), align: 0
+  Segment part 8.             Intra module refs:   Segment part 7
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 000054D0 - 000054F1 (0x22 bytes), align: 0
+  Segment part 11.            Intra module refs:   Segment part 10
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 0000029B - 000002AB (0x11 bytes), align: 0
+  Segment part 7.             Intra module refs:   decode_id
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 000002AC - 000002CD (0x22 bytes), align: 0
+  Segment part 10.            Intra module refs:   decode_SCS
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\decode_scs_next.r90
+  PROGRAM MODULE, NAME : decode_scs_next
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00002FEC - 00003037 (0x4c bytes), align: 1
+  Segment part 32.            Intra module refs:   send_aux_frame
+                                                   send_group_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           send_frame_pp_broad     00002FEC        decode_IR (IR)
+                                                   frame_send_disable_automatic_control (application)
+                                                   frame_send_enable_automatic_control (application)
+                                                   ir_pnl (IR)
+                                                   scs_pnl_advance_confed (application)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 0000000F )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003038 - 00003107 (0xd0 bytes), align: 1
+  Segment part 34.            Intra module refs:   KO_answer_frame
+                                                   address_answer_frame
+                                                   address_setting_error_frame
+                                                   configuration_answer_frame
+                                                   configuration_receive_answer_frame
+                                                   configuration_setting_frame
+                                                   diagnostic_frame
+                                                   id_frame
+                                                   not_allowed_response
+                                                   parameter_all_answer
+                                                   parameter_request_error_frame
+                                                   parameter_specified_index_answer
+                                                   send_group_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           send_frame_pp_ext_broad
+                                   00003038        decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   frame_send_end_pnl (application)
+                                                   frame_send_group_request (application)
+                                                   frame_send_start_pnl_group_confed (application)
+                                                   frame_send_start_pnl_none_group_confed (application)
+                                                   scs_pnl_advance_confed (application)
+                                                   service_main (application)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 0000001C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003108 - 000034E9 (0x3e2 bytes), align: 1
+  Segment part 36.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           id_frame                00003108        decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000011 )
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000003B1 - 000003B8 (0x8 bytes), align: 0
+  Segment part 28.            Intra module refs:   id_frame
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000034EA - 00003565 (0x7c bytes), align: 1
+  Segment part 38.            Intra module refs:   id_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           diagnostic_frame        000034EA        service_main (application)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000011 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003566 - 00003AA9 (0x544 bytes), align: 1
+  Segment part 39.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           configuration_setting_frame
+                                   00003566        decode_SCS (decode_scs)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000016 )
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000003B9 - 000003C0 (0x8 bytes), align: 0
+  Segment part 30.            Intra module refs:   configuration_setting_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           flag_configurator       000003C0 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003AAA - 00003D07 (0x25e bytes), align: 1
+  Segment part 40.            Intra module refs:   configuration_setting_frame
+                                                   diagnostic_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           configuration_answer_frame
+                                   00003AAA        decode_SCS (decode_scs)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000020 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003D08 - 00003D59 (0x52 bytes), align: 1
+  Segment part 41.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           configuration_receive_answer_frame
+                                   00003D08        decode_SCS (decode_scs)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003D5A - 00003F59 (0x200 bytes), align: 1
+  Segment part 42.            Intra module refs:   address_answer_frame
+                                                   configuration_answer_frame
+                                                   ko_answer_all
+                                                   parameter_specified_index_answer
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           KO_answer_frame         00003D5A 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000018 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003F5A - 00003FBD (0x64 bytes), align: 1
+  Segment part 43.            Intra module refs:   configuration_answer_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           parameter_answer_frame
+                                   00003F5A 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003FBE - 00003FF9 (0x3c bytes), align: 1
+  Segment part 44.            Intra module refs:   address_answer_frame
+                                                   address_setting_error_frame
+                                                   diagnostic_frame
+                                                   parameter_all_answer
+                                                   parameter_specified_index_answer
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           frame_buffer_clear      00003FBE 
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00003FFA - 0000403B (0x42 bytes), align: 1
+  Segment part 45.            Intra module refs:   parameter_specified_index_answer
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           parameter_request_error_frame
+                                   00003FFA 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000011 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000403C - 000040BB (0x80 bytes), align: 1
+  Segment part 46.            Intra module refs:   parameter_all_answer
+                                                   parameter_specified_index_answer
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           not_allowed_response    0000403C 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000040BC - 0000446B (0x3b0 bytes), align: 1
+  Segment part 47.            Intra module refs:   parameter_answer_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           parameter_all_answer    000040BC 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000018 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000446C - 000048C9 (0x45e bytes), align: 1
+  Segment part 48.            Intra module refs:   parameter_answer_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           parameter_specified_index_answer
+                                   0000446C 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000018 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000048CA - 00004999 (0xd0 bytes), align: 1
+  Segment part 49.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           send_aux_frame          000048CA        decode_IR (IR)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 0000000D )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000499A - 000049AF (0x16 bytes), align: 1
+  Segment part 50.            Intra module refs:   address_answer_frame
+                                                   address_setting_error_frame
+                                                   diagnostic_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ko_answer_all           0000499A 
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000001 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000049B0 - 00004A79 (0xca bytes), align: 1
+  Segment part 51.            Intra module refs:   configuration_answer_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           address_answer_frame    000049B0 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000015 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004A7A - 00004BAB (0x132 bytes), align: 1
+  Segment part 52.            Intra module refs:   configuration_setting_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           address_setting_error_frame
+                                   00004A7A 
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000017 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004BAC - 00004BEB (0x40 bytes), align: 1
+  Segment part 53.            Intra module refs:   send_aux_frame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           dimmer_convert          00004BAC 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004BEC - 00004C85 (0x9a bytes), align: 1
+  Segment part 54.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           send_group_frame        00004BEC        decode_IR (IR)
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 0000001E )
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 000054F2 - 0000550B (0x1a bytes), align: 0
+  Segment part 8.             Intra module refs:   Segment part 7
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 0000550C - 00005560 (0x55 bytes), align: 0
+  Segment part 12.            Intra module refs:   Segment part 11
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005561 - 00005571 (0x11 bytes), align: 0
+  Segment part 15.            Intra module refs:   Segment part 14
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005572 - 00005593 (0x22 bytes), align: 0
+  Segment part 17.            Intra module refs:   Segment part 16
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 00005594 - 000055C9 (0x36 bytes), align: 0
+  Segment part 19.            Intra module refs:   Segment part 18
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 000002CE - 000002E7 (0x1a bytes), align: 0
+  Segment part 7.             Intra module refs:   id_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 000000D2 - 000000E2 (0x11 bytes), align: 0
+  Segment part 10.            Intra module refs:   diagnostic_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 000000E3 - 000000F3 (0x11 bytes), align: 0
+  Segment part 13.            Intra module refs:   configuration_answer_frame
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 000002E8 - 0000033C (0x55 bytes), align: 0
+  Segment part 11.            Intra module refs:   configuration_setting_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 000000F4 - 00000104 (0x11 bytes), align: 0
+  Segment part 20.            Intra module refs:   parameter_request_error_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000105 - 00000115 (0x11 bytes), align: 0
+  Segment part 21.            Intra module refs:   not_allowed_response
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000116 - 00000126 (0x11 bytes), align: 0
+  Segment part 22.            Intra module refs:   parameter_all_answer
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000127 - 00000137 (0x11 bytes), align: 0
+  Segment part 23.            Intra module refs:   parameter_specified_index_answer
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000138 - 00000140 (0x9 bytes), align: 0
+  Segment part 24.            Intra module refs:   send_aux_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000141 - 00000151 (0x11 bytes), align: 0
+  Segment part 25.            Intra module refs:   address_answer_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000152 - 00000162 (0x11 bytes), align: 0
+  Segment part 26.            Intra module refs:   address_setting_error_frame
+    -------------------------------------------------------------------------
+NEAR_F
+  Relative segment, address: CODE 00000163 - 0000017C (0x1a bytes), align: 0
+  Segment part 27.            Intra module refs:   send_group_frame
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 0000033D - 0000034D (0x11 bytes), align: 0
+  Segment part 14.            Intra module refs:   configuration_answer_frame
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 0000034E - 0000036F (0x22 bytes), align: 0
+  Segment part 16.            Intra module refs:   configuration_receive_answer_frame
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 00000370 - 000003A5 (0x36 bytes), align: 0
+  Segment part 18.            Intra module refs:   KO_answer_frame
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\global_variable.r90
+  PROGRAM MODULE, NAME : global_variable
+
+  SEGMENTS IN THE MODULE
+  ======================
+NEAR_Z
+  Relative segment, address: DATA 000003C1 - 000004B0 (0xf0 bytes), align: 0
+  Segment part 7.             Intra module refs:   global_variable_initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           scs_frame               000003C1        all_reception_buffer_clear (application)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   frame_buffer_clear (decode_scs_next)
+                                                   is_gateway_busy (decode_scs)
+                                                   manual_reception_buffer_clear (application)
+                                                   usart0_rx_ser (usart)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000004B1 - 000004B6 (0x6 bytes), align: 0
+  Segment part 10.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Configurators           000004B1        configuration_answer_frame (decode_scs_next)
+                                                   remember_parameter (configuration)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000004B7 - 000004D9 (0x23 bytes), align: 0
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           KO_conf                 000004B7        configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   frame_send_start_pnl_group_confed (application)
+                                                   load_default_parameter (configuration)
+                                                   load_parameter (configuration)
+                                                   read_KO (configuration)
+                                                   remember_parameter (configuration)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   send_group_frame (decode_scs_next)
+                                                   start_conf (application)
+                                                   write_KO (configuration)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000004DA - 00000513 (0x3a bytes), align: 0
+  Segment part 12.            Intra module refs:   global_variable_initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           DLL                     000004DA 
+           IR_reception            000004F0        decode_IR (IR)
+                                                   ir_buffer_clear (IR)
+                                                   send_aux_frame (decode_scs_next)
+                                                   send_group_frame (decode_scs_next)
+                                                   usart1_rx_ser (IR)
+           KO_SCENARIO_TRANS_DELAY
+                                   00000510        KO_answer_frame (decode_scs_next)
+                                                   id_frame (decode_scs_next)
+           TRANS_DELAY             0000050E        KO_answer_frame (decode_scs_next)
+                                                   address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_receive_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   diagnostic_frame (decode_scs_next)
+                                                   frame_send_disable_automatic_control (application)
+                                                   frame_send_enable_automatic_control (application)
+                                                   frame_send_end_pnl (application)
+                                                   frame_send_group_request (application)
+                                                   frame_send_start_pnl_group_confed (application)
+                                                   frame_send_start_pnl_none_group_confed (application)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+                                                   not_allowed_response (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_request_error_frame (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   scs_pnl_advance_confed (application)
+                                                   send_aux_frame (decode_scs_next)
+                                                   send_group_frame (decode_scs_next)
+                                                   service_main (application)
+           flags                   00000506        configuration_setting_frame (decode_scs_next)
+                                                   decode_SCS (decode_scs)
+                                                   diagnostic_frame (decode_scs_next)
+                                                   id_frame (decode_scs_next)
+                                                   load_parameter (configuration)
+                                                   main (main)
+                                                   scs_pnl_none_confed (application)
+                                                   setting_diagnostic_ir (IR)
+                                                   start_conf (application)
+                                                   test_ID_assigned (main)
+           frame_extended_type     0000050A 
+           g_ns_index              00000513        ir_pnl (IR)
+           key_result              0000050C        button_press_detect (application)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   service_main (application)
+           state                   00000502        configuration_answer_frame (decode_scs_next)
+                                                   configuration_receive_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_id (decode_scs)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+                                                   main (main)
+                                                   parameter_answer_frame (decode_scs_next)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   service_main (application)
+           us_result               00000512 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 00000514 - 00000524 (0x11 bytes), align: 0
+  Segment part 13.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           g_reception_buffer      00000514        address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   id_frame (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_request_error_frame (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   reception_buffer_clear (decode_scs)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 00000525 - 0000052C (0x8 bytes), align: 0
+  Segment part 14.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           g_asc_reception_buffer
+                                   00000525        KO_answer_frame (decode_scs_next)
+                                                   address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_receive_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   ir_pnl (IR)
+                                                   ko_answer_all (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_answer_frame (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   reception_buffer_clear (decode_scs)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 0000052D - 00000534 (0x8 bytes), align: 0
+  Segment part 15.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           g_short_buffer          0000052D        decode_SCS (decode_scs)
+                                                   reception_buffer_clear (decode_scs)
+                                                   scs_pnl_advance_confed (application)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 00000535 - 00000538 (0x4 bytes), align: 0
+  Segment part 16.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           g_asc_short_buffer      00000535        decode_SCS (decode_scs)
+                                                   reception_buffer_clear (decode_scs)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 00000539 - 00000546 (0xe bytes), align: 0
+  Segment part 17.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           g_ir_reception          00000539        decode_IR (IR)
+                                                   ir_pnl (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 00000547 - 0000054A (0x4 bytes), align: 0
+  Segment part 19.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           flag_timer              00000547        buzzer_ms (board)
+                                                   timer0_ovf_ser (board)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 0000054B - 000005B9 (0x6f bytes), align: 0
+  Segment part 20.            Intra module refs:   global_variable_initial
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Time_delay              0000054B        button_press_detect (application)
+                                                   decode_id (decode_scs)
+                                                   ir_pnl (IR)
+                                                   key_time_clear (application)
+                                                   led_blinking (application)
+                                                   led_blinking_disable (application)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   service_main (application)
+                                                   timer2_ovf_ser (board)
+                                                   timer_flex_initial (application)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005BA - 000005BB (0x2 bytes), align: 0
+  Segment part 24.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           motion_total            000005BA        timer2_ovf_ser (board)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005BC - 000005BF (0x4 bytes), align: 0
+  Segment part 26.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           modality0_delay_ms      000005BC        timer2_ovf_ser (board)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005C0 - 000005CD (0xe bytes), align: 0
+  Segment part 36.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           tx1_buffer              000005C0        put_c1 (IR)
+                                                   usart_tx_ser (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005CE - 000005CE (0x1 bytes), align: 0
+  Segment part 37.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           tx1_wr_index            000005CE        put_c1 (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005CF - 000005CF (0x1 bytes), align: 0
+  Segment part 38.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           tx1_rd_index            000005CF        usart_tx_ser (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005D0 - 000005D0 (0x1 bytes), align: 0
+  Segment part 39.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           tx1_counter             000005D0        put_c1 (IR)
+                                                   usart_tx_ser (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005D1 - 000005D7 (0x7 bytes), align: 0
+  Segment part 40.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           product_information     000005D1        KO_answer_frame (decode_scs_next)
+                                                   address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   id_frame (decode_scs_next)
+                                                   led_blinking_normal (application)
+                                                   led_status_recover (application)
+                                                   load_parameter (configuration)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   remember_parameter (configuration)
+                                                   scs_pnl_none_confed (application)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   service_main (application)
+                                                   test_ID_assigned (main)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005D8 - 000005DE (0x7 bytes), align: 0
+  Segment part 41.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           temp_product_information
+                                   000005D8        configuration_setting_frame (decode_scs_next)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005DF - 000005E2 (0x4 bytes), align: 0
+  Segment part 42.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           KO                      000005DF        KO_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   load_parameter (configuration)
+                                                   not_allowed_response (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   remember_parameter (configuration)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005E3 - 000005E3 (0x1 bytes), align: 0
+  Segment part 43.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           parameters              000005E3        setting_diagnostic_ir (IR)
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005E4 - 000005E8 (0x5 bytes), align: 0
+  Segment part 44.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           temp_variable           000005E4        decode_IR (IR)
+    -------------------------------------------------------------------------
+NEAR_I
+  Relative segment, address: DATA 000003A6 - 000003A9 (0x4 bytes), align: 0
+  Segment part 45.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           flash_KO                000003A6        factory_default (application)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 00000000 - 00000003 (0x4 bytes), align: 0
+  Segment part 47.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_KO                   00000000        factory_default (application)
+                                                   load_parameter (configuration)
+                                                   remember_parameter (configuration)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 00000004 - 00000015 (0x12 bytes), align: 0
+  Segment part 48.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_parameter            00000004        configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 00000016 - 0000001B (0x6 bytes), align: 0
+  Segment part 49.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_configurators        00000016        configuration_setting_frame (decode_scs_next)
+                                                   factory_default (application)
+                                                   remember_parameter (configuration)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 0000001C - 0000003E (0x23 bytes), align: 0
+  Segment part 50.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_KO_conf              0000001C        configuration_setting_frame (decode_scs_next)
+                                                   load_default_parameter (configuration)
+                                                   load_parameter (configuration)
+                                                   remember_parameter (configuration)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 0000003F - 00000046 (0x8 bytes), align: 0
+  Segment part 51.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_ID                   0000003F        ID_setting (configuration)
+                                                   decode_IR (IR)
+                                                   diagnostic_frame (decode_scs_next)
+                                                   id_frame (decode_scs_next)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 00000047 - 0000004D (0x7 bytes), align: 0
+  Segment part 52.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_product_information
+                                   00000047        configuration_setting_frame (decode_scs_next)
+                                                   factory_default (application)
+                                                   id_frame (decode_scs_next)
+                                                   load_parameter (configuration)
+                                                   remember_parameter (configuration)
+                                                   scs_pnl_none_confed (application)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   start_conf (application)
+                                                   test_ID_assigned (main)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 0000004E - 0000004E (0x1 bytes), align: 0
+  Segment part 53.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_scenario_index       0000004E        factory_default (application)
+    -------------------------------------------------------------------------
+EEPROM_I
+  Relative segment, address: XDATA 0000004F - 000000BE (0x70 bytes), align: 0
+  Segment part 54.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ee_scenario             0000004F        KO_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   factory_default (application)
+                                                   ir_pnl (IR)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004C86 - 00004DE5 (0x160 bytes), align: 1
+  Segment part 55.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           global_variable_initial
+                                   00004C86        main (main)
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+NEAR_ID
+  Relative segment, address: CODE 000055CA - 000055CD (0x4 bytes), align: 0
+  Segment part 46.            Intra module refs:   flash_KO
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\main.r90
+  PROGRAM MODULE, NAME : main
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00004DE6 - 00004E03 (0x1e bytes), align: 1
+  Segment part 7.             Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           test_ID_assigned        00004DE6 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004E04 - 00004E79 (0x76 bytes), align: 1
+  Segment part 8.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    00004E04        ?cstartup_call_main (?C_STARTUP)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+
+    *************************************************************************
+
+  FILE NAME : D:\avr\Uart_Interrupt\LM_Universal\LM_IAR_V5.0\Release\Obj\usart.r90
+  PROGRAM MODULE, NAME : usart
+
+  SEGMENTS IN THE MODULE
+  ======================
+ABSOLUTE
+  Relative segment, address: DATA 000000C6 - 000000C6 (0x1 bytes), align: 0
+  Segment part 1.             Intra module refs:   put_c
+                                                   usart0_rx_ser
+                                                   usart0_tx_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UDR0                 000000C6 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C4 - 000000C5 (0x2 bytes), align: 0
+  Segment part 2.             Intra module refs:   init_USART
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UBRR0                000000C4 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C2 - 000000C2 (0x1 bytes), align: 0
+  Segment part 3.             Intra module refs:   init_USART
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR0C               000000C2 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C1 - 000000C1 (0x1 bytes), align: 0
+  Segment part 4.             Intra module refs:   init_USART
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR0B               000000C1 
+    -------------------------------------------------------------------------
+ABSOLUTE
+  Relative segment, address: DATA 000000C0 - 000000C0 (0x1 bytes), align: 0
+  Segment part 5.             Intra module refs:   init_USART
+                                                   put_c
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_UCSR0A               000000C0 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000005E9 - 000005FB (0x13 bytes), align: 0
+  Segment part 20.            Intra module refs:   put_c
+                                                   usart0_tx_ser
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           tx_buffer               000005E9 
+           tx_counter              000005FB 
+           tx_rd_index             000005FA 
+           tx_wr_index             000005F9 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004E7A - 00004FEF (0x176 bytes), align: 1
+  Segment part 21.            Intra module refs:   usart0_rx_ser::??INTVEC 80
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart0_rx_ser           00004E7A 
+               interrupt function
+               calls direct
+               stack 1 = 00000000 ( 00000004 )
+               stack 2 = 00000000 ( 00000015 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00004FF0 - 00005043 (0x54 bytes), align: 1
+  Segment part 22.            Intra module refs:   usart0_tx_ser::??INTVEC 88
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart0_tx_ser           00004FF0 
+               interrupt function
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000005 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005044 - 00005093 (0x50 bytes), align: 1
+  Segment part 23.            Intra module refs:   put_s
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           put_c                   00005044 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005094 - 000050AB (0x18 bytes), align: 1
+  Segment part 24.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           put_s                   00005094        configuration_answer_frame (decode_scs_next)
+                                                   send_frame_pp_broad (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   start_conf (application)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050AC - 000050CB (0x20 bytes), align: 1
+  Segment part 25.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           init_USART              000050AC        main (main)
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 00000053 (0x54 bytes), align: 1
+  Segment part 10. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart0_rx_ser::??INTVEC 80
+                                   00000050 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000005B (0x5c bytes), align: 1
+  Segment part 11. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           usart0_tx_ser::??INTVEC 88
+                                   00000058 
+
+    *************************************************************************
+
+  FILE NAME : C:\Program Files\IAR Systems\Embedded Workbench 5.0 Evaluation\avr\LIB\CLIB\cl3s-ec_mul-sf.r90
+  LIBRARY MODULE, NAME : ?__exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000050CC - 000050D1 (0x6 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __exit                  000050CE 
+           ?C_EXIT                 000050CE 
+           ?C_FUNCALL              000050CC 
+           _exit                   000050CC        ?cstartup_call_main (?C_STARTUP)
+           exit                    000050CC        ?cstartup_call_main (?C_STARTUP)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?RESET
+
+  SEGMENTS IN THE MODULE
+  ======================
+INTVEC
+  Common segment, address: CODE 00000000 - 00000003 (0x4 bytes), align: 1
+  Segment part 0. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __program_start         00000000        Absolute parts (?ABS_ENTRY_MOD)
+           ?RESET                  00000000        Segment part 2 (?C_STARTUP)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?C_STARTUP
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000050D2, align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?C_STARTUP              000050D2        Segment part 0 (?RESET)
+           __RESTART               000050D2 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050D2 - 000050DD (0xc bytes), align: 1
+  Segment part 5.             Intra module refs:   Segment part 2
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050DE - 000050E1 (0x4 bytes), align: 1
+  Segment part 7.             Intra module refs:   Segment part 5
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?call_low_level_init    000050DE 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050E2 - 000050E9 (0x8 bytes), align: 1
+  Segment part 8.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?need_segment_init      000050E2        ?<Segment init: NEAR_I> (IR)
+                                                   ?<Segment init: NEAR_Z> (IR)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050EA - 000050F5 (0xc bytes), align: 1
+  Segment part 9.             Intra module refs:   ?call_low_level_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstartup_call_main     000050EA 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?EEPROM_16
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000050F6 - 000050FB (0x6 bytes), align: 1
+  Segment part 0.             Intra module refs:   Segment part 1
+                                                   __eeput16_16
+                                                   __eeput8_16
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000050FC - 00005109 (0xe bytes), align: 1
+  Segment part 1.             Intra module refs:   __eeget16_16
+                                                   __eeget8_16
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000510A - 0000510F (0x6 bytes), align: 1
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __eeget8_16             0000510A        ?ML_EEPROM_SRAM_16_16_L07 (?MOVLONG_EEPROM_16_P07)
+                                                   KO_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   diagnostic_frame (decode_scs_next)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+                                                   load_parameter (configuration)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005110 - 00005119 (0xa bytes), align: 1
+  Segment part 4.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __eeget16_16            00005110        id_frame (decode_scs_next)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000511A - 0000512B (0x12 bytes), align: 1
+  Segment part 8.             Intra module refs:   __eeput16_16
+                                                   __eeput8_16
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000512C - 00005133 (0x8 bytes), align: 1
+  Segment part 10.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __eeput8_16             0000512C        ?ML_SRAM_EEPROM_16_16_L07 (?MOVLONG_EEPROM_16_P07)
+                                                   ID_setting (configuration)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   factory_default (application)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+                                                   load_default_parameter (configuration)
+                                                   remember_parameter (configuration)
+                                                   scs_pnl_advance_confed (application)
+                                                   scs_pnl_none_confed (application)
+                                                   start_conf (application)
+                                                   test_ID_assigned (main)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005134 - 00005141 (0xe bytes), align: 1
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __eeput16_16            00005134        id_frame (decode_scs_next)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?S_EC_MUL_L02
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00005142 - 00005151 (0x10 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?S_EC_MUL_L02           00005142        KO_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   all_reception_buffer_clear (application)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   factory_default (application)
+                                                   frame_buffer_clear (decode_scs_next)
+                                                   global_variable_initial (global_variable)
+                                                   ir_pnl (IR)
+                                                   is_gateway_busy (decode_scs)
+                                                   manual_reception_buffer_clear (application)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   usart0_rx_ser (usart)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?L_SHL_L03
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00005152 - 00005161 (0x10 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?L_SHL_L03              00005152        decode_IR (IR)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xV_SWITCH_L06
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00005162 - 000051FD (0x9c bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?CV_SWITCH_L06          00005174        decode_IR (IR)
+                                                   read_KO (configuration)
+                                                   write_KO (configuration)
+           ?SV_SWITCH_L06          0000517C        service_main (application)
+           ?LV_SWITCH_L06          00005188 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?MOVE_LONG_L07
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000051FE - 00005213 (0x16 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ML_SRAM_SRAM_16_L07    000051FE        configuration_setting_frame (decode_scs_next)
+                                                   remember_parameter (configuration)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005214 - 00005229 (0x16 bytes), align: 1
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ML_FLASH_SRAM_16EC_16_L07
+                                   00005214        address_answer_frame (decode_scs_next)
+                                                   address_setting_error_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   diagnostic_frame (decode_scs_next)
+                                                   frame_send_start_pnl_group_confed (application)
+                                                   load_default_parameter (configuration)
+                                                   not_allowed_response (decode_scs_next)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_request_error_frame (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   scs_pnl_advance_confed (application)
+                                                   send_aux_frame (decode_scs_next)
+                                                   send_group_frame (decode_scs_next)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?MOVLONG_EEPROM_16_P07
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 0000522A - 0000523B (0x12 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ML_EEPROM_SRAM_16_16_L07
+                                   0000522A        load_parameter (configuration)
+                                                   start_conf (application)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000523C - 0000524D (0x12 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ML_SRAM_EEPROM_16_16_L07
+                                   0000523C        configuration_setting_frame (decode_scs_next)
+                                                   remember_parameter (configuration)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?PROLOGUE_L09
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 0000524E - 0000524F (0x2 bytes), align: 1
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?PROLOGUE5_L09          0000524E        decode_IR (IR)
+                                                   put_s1 (IR)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005250 - 00005251 (0x2 bytes), align: 1
+  Segment part 12.            Intra module refs:   ?PROLOGUE5_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?PROLOGUE4_L09          00005250        KO_answer_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   frame_buffer_clear (decode_scs_next)
+                                                   global_variable_initial (global_variable)
+                                                   is_gateway_busy (decode_scs)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005252 - 00005253 (0x2 bytes), align: 1
+  Segment part 13.            Intra module refs:   ?PROLOGUE4_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?PROLOGUE3_L09          00005252        address_setting_error_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005254 - 00005255 (0x2 bytes), align: 1
+  Segment part 14.            Intra module refs:   ?PROLOGUE3_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?PROLOGUE2_L09          00005254 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005256 - 00005257 (0x2 bytes), align: 1
+  Segment part 15.            Intra module refs:   ?PROLOGUE2_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?PROLOGUE1_L09          00005256 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005258 - 00005259 (0x2 bytes), align: 1
+  Segment part 16.            Intra module refs:   ?PROLOGUE1_L09
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?EPILOGUE_B_L09
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 0000525A - 0000525B (0x2 bytes), align: 1
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B5_L09        0000525A        decode_IR (IR)
+                                                   put_s1 (IR)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000525C - 0000525D (0x2 bytes), align: 1
+  Segment part 12.            Intra module refs:   ?EPILOGUE_B5_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B4_L09        0000525C        KO_answer_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   decode_SCS (decode_scs)
+                                                   decode_id (decode_scs)
+                                                   frame_buffer_clear (decode_scs_next)
+                                                   global_variable_initial (global_variable)
+                                                   is_gateway_busy (decode_scs)
+                                                   parameter_all_answer (decode_scs_next)
+                                                   parameter_specified_index_answer (decode_scs_next)
+                                                   send_frame_pp_ext_broad (decode_scs_next)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000525E - 0000525F (0x2 bytes), align: 1
+  Segment part 13.            Intra module refs:   ?EPILOGUE_B4_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B3_L09        0000525E        address_setting_error_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005260 - 00005261 (0x2 bytes), align: 1
+  Segment part 14.            Intra module refs:   ?EPILOGUE_B3_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B2_L09        00005260 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005262 - 00005263 (0x2 bytes), align: 1
+  Segment part 15.            Intra module refs:   ?EPILOGUE_B2_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B1_L09        00005262 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005264 - 0000526D (0xa bytes), align: 1
+  Segment part 16.            Intra module refs:   ?EPILOGUE_B1_L09
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?EPILOGUE_B0_L09        00005264 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?REGISTER_CGREGR4_L10
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 0000526E, align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Register_R4_is_cg_reg
+                                   0000526E        decode_IR (IR)
+                                                   put_s1 (IR)
+                                                   usart0_rx_ser (usart)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?low_level_init
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 0000526E - 00005271 (0x4 bytes), align: 1
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __low_level_init        0000526E        ?call_low_level_init (?C_STARTUP)
+               stack 1 = 00000000 ( 00000002 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?segment_init
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 00005272 - 00005279 (0x8 bytes), align: 1
+  Segment part 3.             Intra module refs:   __segment_init
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           __memclr                00005272 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000527A - 00005281 (0x8 bytes), align: 1
+  Segment part 4.             Intra module refs:   __segment_init
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           __flashcpy              0000527A 
+               stack 1 = 00000000 ( 00000002 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00005282 - 0000528D (0xc bytes), align: 1
+  Segment part 5.             Intra module refs:   __flashcpy
+                                                   __memclr
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000528E - 000052C1 (0x34 bytes), align: 1
+  Segment part 6.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __segment_init          0000528E        ?need_segment_init (?C_STARTUP)
+               calls direct
+               stack 1 = 00000000 ( 00000002 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?strcmp
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000052C2 - 000052ED (0x2c bytes), align: 1
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           strcmp                  000052C2        id_frame (decode_scs_next)
+                                                   usart0_rx_ser (usart)
+               stack 1 = 00000000 ( 00000002 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?strncpy
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: CODE 000052EE - 00005319 (0x2c bytes), align: 1
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           strncpy                 000052EE        KO_answer_frame (decode_scs_next)
+                                                   configuration_answer_frame (decode_scs_next)
+                                                   configuration_setting_frame (decode_scs_next)
+                                                   decode_IR (IR)
+                                                   decode_SCS (decode_scs)
+                                                   id_frame (decode_scs_next)
+                                                   ir_pnl (IR)
+                                                   scs_pnl_advance_confed (application)
+               stack 1 = 00000000 ( 00000002 )
+               stack 2 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000531A - 00005323 (0xa bytes), align: 1
+  Segment part 4.             Intra module refs:   strncpy
+
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?FILLER_BYTES
+
+  SEGMENTS IN THE MODULE
+  ======================
+INTVEC
+  Common segment, address: CODE 00000000 - 0000007B (0x7c bytes), align: 0
+  Segment part 0.
+
+
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+INTVEC               CODE          00000000 - 0000007B          7C   com    1
+NEAR_F               CODE          0000007C - 0000017C         101   rel    0
+SWITCH               CODE          0000017E - 0000025D          E0   rel    1
+INITTAB              CODE          0000025E - 00000269           C   rel    0
+CODE                 CODE          0000026A - 00005323        50BA   rel    1
+TINY_ID              CODE               00005324                     dse    0
+NEAR_ID              CODE          00005324 - 000055CD         2AA   rel    0
+ABSOLUTE             DATA               0000001F                     rel    0
+                     DATA               00000020                   
+                     DATA               00000021                   
+                     DATA          00000027 - 00000028           2 
+                     DATA          0000002A - 0000002B           2 
+                     DATA          00000044 - 00000048           5 
+                     DATA          00000054 - 00000054           1 
+                     DATA          00000060 - 00000060           1 
+                     DATA          0000006E - 0000006E           1 
+                     DATA          00000070 - 00000070           1 
+                     DATA          0000007A - 0000007A           1 
+                     DATA          0000007C - 0000007C           1 
+                     DATA          0000007E - 0000007E           1 
+                     DATA          00000080 - 00000081           2 
+                     DATA          00000084 - 0000008B           8 
+                     DATA          000000B0 - 000000B4           5 
+                     DATA          000000B6 - 000000B6           1 
+                     DATA          000000C0 - 000000C2           3 
+                     DATA          000000C4 - 000000C6           3 
+                     DATA          000000C8 - 000000CA           3 
+                     DATA          000000CC - 000000CE           3 
+NEAR_I               DATA          00000100 - 000003A9         2AA   rel    0
+NEAR_Z               DATA          000003AA - 000005FB         252   rel    0
+RSTACK               DATA          000005FC - 0000063B          40   dse    0
+CSTACK               DATA          0000063C - 0000073B         100   dse    0
+EEPROM_I             XDATA         00000000 - 000000BE          BF   rel    0
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 21 965 bytes of CODE  memory
+  1 596 bytes of DATA  memory (+ 49 absolute )
+    191 bytes of XDATA memory
+
+Errors: none
+Warnings: none
+
